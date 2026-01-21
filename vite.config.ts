@@ -5,9 +5,8 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // 'base: ./' es CRÍTICO. Permite que el HTML encuentre los JS/CSS 
-  // sin importar si la app está en la raíz o en /repositorio/
-  base: './', 
+  // Para GitHub Pages, usar el nombre del repo como base
+  base: '/ppt-nestle/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',

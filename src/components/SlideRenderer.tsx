@@ -97,6 +97,100 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
 
   const slideType = (slide.type || 'HERO').toString().toUpperCase().trim();
 
+  // --- RENDERER: ARCHITECTURE DIAGRAM ---
+  if (slideType === 'ARCHITECTURE_DIAGRAM') {
+    return (
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center p-4 md:p-12 max-w-7xl mx-auto">
+        <div className="text-center mb-8">
+          <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-black tracking-tighter uppercase italic text-white mb-4">{slide.title}</motion.h1>
+          <motion.p variants={itemVariants} className="text-blue-500 font-bold tracking-widest text-sm uppercase">{slide.subtitle}</motion.p>
+        </div>
+
+        <div className="flex flex-col items-center gap-6 w-full max-w-6xl">
+          {slide.architectureLayers?.map((layer, layerIndex) => (
+            <motion.div
+              key={layerIndex}
+              variants={itemVariants}
+              className="w-full flex flex-col items-center"
+            >
+              {/* Layer Header */}
+              <div className="mb-4 text-center">
+                <h3 className="text-xl font-black uppercase text-blue-400 mb-1">{layer.name}</h3>
+                <p className="text-sm text-gray-400">{layer.role}</p>
+              </div>
+
+              {/* Components Row */}
+              <div className="flex flex-wrap justify-center gap-4 w-full">
+                {layer.components.map((component, compIndex) => (
+                  <motion.div
+                    key={compIndex}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: layerIndex * 0.2 + compIndex * 0.1 }}
+                    className={`${TOKENS.glassStrong} p-4 rounded-2xl border border-white/10 min-w-[200px] max-w-[300px] flex flex-col items-center text-center hover:border-blue-500/50 transition-all group`}
+                  >
+                    <div className="flex gap-2 mb-3">
+                      {component.icons.map((icon, iconIndex) => (
+                        <div key={iconIndex} className="p-2 bg-blue-500/10 rounded-full text-blue-400">
+                          <IconMapper name={icon} size={20} />
+                        </div>
+                      ))}
+                    </div>
+                    <h4 className="font-bold text-white mb-2">{component.name}</h4>
+                    <div className="flex flex-wrap justify-center gap-1 text-xs">
+                      {component.technologies.map((tech, techIndex) => (
+                        <span key={techIndex} className="bg-white/5 px-2 py-1 rounded-full text-gray-300">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Arrow Down (except for last layer) */}
+              {layerIndex < (slide.architectureLayers?.length || 0) - 1 && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: layerIndex * 0.2 + 0.5 }}
+                  className="mt-4 text-blue-500"
+                >
+                  <Icons.ArrowDown size={32} />
+                </motion.div>
+              )}
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Benefits Section */}
+        {slide.benefits && (
+          <motion.div
+            variants={itemVariants}
+            className={`${TOKENS.glassAccent} p-6 rounded-2xl mt-8 w-full max-w-4xl`}
+          >
+            <h3 className="text-lg font-bold text-blue-400 mb-4 uppercase tracking-widest">Beneficios Arquitectónicos</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {slide.benefits.map((benefit, index) => (
+                <div key={index} className="text-center">
+                  <span className="text-2xl font-black text-white">{benefit}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
+        {/* Data Flow Note */}
+        <motion.div
+          variants={itemVariants}
+          className="mt-6 text-center text-sm text-gray-500"
+        >
+          Flujo de Datos: Usuarios → Front-end → API Gateway → Backend → Base de Datos / Servicios Externos
+        </motion.div>
+      </motion.div>
+    );
+  }
+
   // --- RENDERER: EXECUTIVE SUMMARY (THE HOLOGRAPHIC DASHBOARD) ---
   if (slideType === 'EXECUTIVE_SUMMARY') {
     return (

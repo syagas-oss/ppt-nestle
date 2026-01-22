@@ -40,9 +40,19 @@ export interface TimelineItem {
   highlight?: boolean;
 }
 
+export interface ArchitectureLayer {
+  name: string;
+  role: string;
+  components: {
+    name: string;
+    technologies: string[];
+    icons: string[];
+  }[];
+}
+
 export interface Slide {
   id: number;
-  type: 'HERO' | 'HERO_GLOW' | 'HERO_FINAL' | 'BENTO_DATA' | 'BENTO_MARKET' | 'BENTO_GRID' | 'ALERT' | 'LIST' | 'STEPS' | 'TIMELINE' | 'KINETIC_BRIDGE' | 'VIDEO' | 'PYRAMID' | 'FUNNEL' | 'CIRCULAR' | 'ROADMAP' | 'SQUADS' | 'ECONOMIC' | 'CARDS_CHOICE' | 'QUADRANT' | 'EXECUTIVE_SUMMARY';
+  type: 'HERO' | 'HERO_GLOW' | 'HERO_FINAL' | 'BENTO_DATA' | 'BENTO_MARKET' | 'BENTO_GRID' | 'ALERT' | 'LIST' | 'STEPS' | 'TIMELINE' | 'KINETIC_BRIDGE' | 'VIDEO' | 'PYRAMID' | 'FUNNEL' | 'CIRCULAR' | 'ROADMAP' | 'SQUADS' | 'ECONOMIC' | 'CARDS_CHOICE' | 'QUADRANT' | 'EXECUTIVE_SUMMARY' | 'ARCHITECTURE_DIAGRAM';
   title: string;
   subtitle: string;
   description?: string;
@@ -53,6 +63,8 @@ export interface Slide {
   bentoItems?: BentoItem[];
   tableData?: TableCol[];
   timeline?: TimelineItem[];
+  architectureLayers?: ArchitectureLayer[];
+  benefits?: string[];
   speakerNotes?: string;
   builds?: string[];
 }

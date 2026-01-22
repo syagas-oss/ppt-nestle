@@ -183,8 +183,143 @@
       "id": 25, "type": "HERO_GLOW", "title": "DEMO", "subtitle": "BioLife no informa; Guía",
       "speakerNotes": "Veamos cómo funciona."
     },
-    { 
-      "id": 26, "type": "VIDEO", "title": "Video Demo", "subtitle": "Fullscreen"
+    {
+      "id": 26, "type": "ARCHITECTURE_DIAGRAM", "title": "Arquitectura Tecnológica", "subtitle": "Proyecto Nestlé Nutrition (Total)",
+      "architectureLayers": [
+        {
+          "name": "Presentación",
+          "role": "Front-end: experiencia de usuario",
+          "components": [
+            {
+              "name": "Web",
+              "technologies": ["React", "Next.js"],
+              "icons": ["Code", "Globe"]
+            },
+            {
+              "name": "Móvil",
+              "technologies": ["React Native", "Flutter"],
+              "icons": ["Smartphone", "Smartphone"]
+            },
+            {
+              "name": "UI/UX",
+              "technologies": ["Chakra UI", "Material Design"],
+              "icons": ["Palette", "Layout"]
+            }
+          ]
+        },
+        {
+          "name": "Backend y Lógica",
+          "role": "Backend: lógica de negocio",
+          "components": [
+            {
+              "name": "API Principal",
+              "technologies": ["Node.js", "Express", "NestJS"],
+              "icons": ["Server", "Settings", "Settings"]
+            },
+            {
+              "name": "Serverless",
+              "technologies": ["AWS Lambda", "Google Cloud Functions"],
+              "icons": ["Zap", "Zap"]
+            }
+          ]
+        },
+        {
+          "name": "Integraciones",
+          "role": "Orquestación de servicios",
+          "components": [
+            {
+              "name": "API Gateway",
+              "technologies": ["AWS API Gateway", "Cloud Endpoints"],
+              "icons": ["Network", "Network"]
+            },
+            {
+              "name": "Eventos/Colas",
+              "technologies": ["AWS SNS/SQS", "Apache Kafka"],
+              "icons": ["MessageSquare", "MessageSquare"]
+            },
+            {
+              "name": "Microservicios",
+              "technologies": ["Docker", "Kubernetes", "EKS/GKE/AKS"],
+              "icons": ["Box", "Layers", "Cloud"]
+            }
+          ]
+        },
+        {
+          "name": "Datos y Almacenamiento",
+          "role": "Datos: almacenamiento y consultas",
+          "components": [
+            {
+              "name": "Relacional",
+              "technologies": ["PostgreSQL"],
+              "icons": ["Database"]
+            },
+            {
+              "name": "NoSQL",
+              "technologies": ["MongoDB", "DynamoDB"],
+              "icons": ["Database", "Database"]
+            },
+            {
+              "name": "Blob Storage",
+              "technologies": ["AWS S3"],
+              "icons": ["HardDrive"]
+            },
+            {
+              "name": "Caché",
+              "technologies": ["Redis"],
+              "icons": ["Database"]
+            }
+          ]
+        },
+        {
+          "name": "Observabilidad",
+          "role": "DevOps y Seguridad",
+          "components": [
+            {
+              "name": "Control de Versiones",
+              "technologies": ["GitHub"],
+              "icons": ["GitBranch"]
+            },
+            {
+              "name": "CI/CD",
+              "technologies": ["GitHub Actions"],
+              "icons": ["PlayCircle"]
+            },
+            {
+              "name": "Monitoreo",
+              "technologies": ["Grafana", "Prometheus", "ELK Stack"],
+              "icons": ["BarChart3", "Activity", "Search"]
+            },
+            {
+              "name": "Autenticación",
+              "technologies": ["Auth0", "Firebase Auth", "OAuth2/JWT"],
+              "icons": ["Shield", "Shield", "Lock"]
+            },
+            {
+              "name": "Secretos",
+              "technologies": ["AWS Secrets Manager", "HashiCorp Vault"],
+              "icons": ["Key", "Key"]
+            }
+          ]
+        },
+        {
+          "name": "Servicios Externos",
+          "role": "Apoyo y Análisis",
+          "components": [
+            {
+              "name": "Analytics",
+              "technologies": ["Google Analytics 4", "Segment"],
+              "icons": ["TrendingUp", "TrendingUp"]
+            },
+            {
+              "name": "Notificaciones",
+              "technologies": ["Twilio", "Firebase Cloud Messaging"],
+              "icons": ["Bell", "Bell"]
+            }
+          ]
+        }
+      ],
+      "benefits": ["Escalabilidad", "Modularidad", "Resiliencia", "Facilidad de Despliegue"],
+      "speakerNotes": "La arquitectura completa de BioLife combina tecnologías modernas para una solución robusta y escalable."
     },
     { 
       "id": 27, "type": "HERO", "title": "ARQUITECTURA\nBIOLIFE", "subtitle": "Technology Stack",

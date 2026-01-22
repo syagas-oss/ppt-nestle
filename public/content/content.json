@@ -279,33 +279,157 @@
         { "title": "Gobernanza de Datos", "description": "Integridad de la información", "icon": "Database", "span": "xl", "variant": "accent" }
       ]
     },
-    { 
-      "id": 35, "type": "QUADRANT", "title": "GOBERNANZA Y ESG", "subtitle": "Estructura de Control", 
+    {
+      "id": 35, "type": "CORPORATE_HIERARCHY", "title": "GOBERNANZA – NewCo (Spin-off controlado)",
+      "subtitle": "Estructura de spin-off controlado, 100% owned por Nestlé: autonomía operativa con gobernanza estratégica",
+      "corporateEntities": [
+        { "title": "GRUPO NESTLÉ", "icon": "Building2", "level": "parent" },
+        { "title": "NESTLÉ HEALTH SCIENCE", "icon": "HeartPulse", "level": "child" },
+        { "title": "CORE BUSINESS", "subtitle": "Medical Nutrition, Consumer Care, etc.", "icon": "Package", "level": "sibling" },
+        { "title": "SCIENCE & MEDICAL AFFAIRS", "icon": "Microscope", "level": "sibling" },
+        { "title": "DIGITAL & DATA (CORPORATE)", "icon": "Database", "level": "sibling" },
+        { "title": "BIOLIFE", "subtitle": "Digital Health Venture – spin-off", "icon": "Activity", "level": "sibling" }
+      ]
+    },
+    {
+      "id": 36, "type": "BENTO_GRID", "title": "GOBERNANZA – Órganos clave",
       "bentoItems": [
-        { "title": "Steering Committee", "icon": "Users", "variant": "glass", "description": "Dirección Estratégica" },
-        { "title": "Medical Board", "icon": "Stethoscope", "variant": "glass", "description": "Supervisión Ética" },
-        { "title": "Data Governance", "icon": "Database", "variant": "glass", "description": "Control de Datos" },
-        { "title": "Dueños de KPIs", "icon": "Target", "variant": "glass", "description": "Responsabilidad Directa" }
+        { "title": "Steering Committee", "icon": "Users", "variant": "glassStrong" },
+        { "title": "Medical & Ethics Board", "icon": "Stethoscope", "variant": "glassStrong" },
+        { "title": "Data Governance", "icon": "Database", "variant": "glassStrong" },
+        { "title": "Dueños de KPIs", "icon": "Target", "variant": "glassStrong" }
       ]
     },
-    { 
-      "id": 36, "type": "BENTO_DATA", "title": "Gobernanza y ESG", "subtitle": "3 Pilares", 
-      "stats": [
-        { "v": "01", "l": "Social", "size": "md", "icon": "Users" },
-        { "v": "02", "l": "Gobernanza", "size": "md", "icon": "Scale" },
-        { "v": "03", "l": "Ambiental", "size": "md", "icon": "Leaf" }
+    {
+      "id": 37, "type": "QUADRANT", "title": "GOBERNANZA – Roles complementarios",
+      "bentoItems": [
+        { "title": "Rol BioLife", "description": "Capa de servicio digital\nMotor de aprendizaje\nPlataforma de relación directa", "icon": "Layers", "variant": "accent" },
+        { "title": "Rol NHS", "description": "Rigor científico y validación clínica\nConfianza, compliance y gobierno del dato\nCapacidad de escala y sostenibilidad a largo plazo", "icon": "ShieldCheck", "variant": "glassStrong" }
       ]
     },
-    { 
-      "id": 37, "type": "ECONOMIC", "title": "MODELO ECONÓMICO", "subtitle": "Sostenibilidad"
+    {
+      "id": 38, "type": "BENTO_GRID", "title": "ESG como pilar del modelo", "subtitle": "Pilares Fundamentales",
+      "bentoItems": [
+        { "title": "Social", "description": "prevención accesible, empoderamiento del usuario, reducción de desigualdad informativa", "icon": "Users", "esgType": "social", "span": "md" },
+        { "title": "Ambiental", "description": "digital-first, optimización del consumo, escalabilidad eficiente", "icon": "Leaf", "esgType": "ambiental", "span": "md" },
+        { "title": "Gobernanza", "description": "privacy & consent by design, minimización y trazabilidad, gobierno clínico y ético", "icon": "Scale", "esgType": "gobernanza", "span": "md" }
+      ]
     },
-    { 
-      "id": 38, "type": "HERO_FINAL", "title": "CIERRE", "subtitle": "Resumen",
+    {
+      "id": 39, "type": "CIRCULAR", "title": "ESG – KPIs de impacto y control", "subtitle": "Medición del Impacto Sostenible",
+      "bentoItems": [
+        { "title": "Social", "description": "Adherencia semanal\nMejora autodeclarada de hábitos\nUso sostenido (>90 días)", "icon": "TrendingUp", "esgType": "social" },
+        { "title": "Gobernanza", "description": "% usuarios con consentimiento activo\nIncidentes de datos (target 0)\nAuditorías completadas", "icon": "ShieldCheck", "esgType": "gobernanza" },
+        { "title": "Ambiental", "description": "% interacciones digitales vs físicas\nOptimización de recursos por usuario\nEscala sin incremento proporcional de infraestructura", "icon": "Zap", "esgType": "ambiental" }
+      ]
+    },
+    {
+      "id": 40, "type": "HERO", "title": "FINANCIERO",
+      "subtitle": "Modelo de Escalado de Ingresos"
+    },
+    {
+      "id": 41, "type": "ECONOMIC_TABLE", "title": "INGRESOS – Escalado del modelo",
+      "highlight": "Estas cifras no reflejan una app, reflejan la digitalización de un hábito de consumo existente en 9 de cada 10 hogares.",
+      "economicData": [
+        { "label": "Usuarios Activos", "Año 1": "150,000", "Año 2": "200,000", "Año 3": "260,000", "Año 4": "320,000", "Año 5": "850,000", "Año 6": "900,000", "Año 7": "10,000,000", "Año 8": "10,000,000" },
+        { "label": "Usuarios Premium", "Año 1": "75,000", "Año 2": "110,000", "Año 3": "156,000", "Año 4": "208,000", "Año 5": "637,500", "Año 6": "675,000", "Año 7": "7,500,000", "Año 8": "8,000,000" },
+        { "label": "Tasa de Conversión", "Año 1": "50%", "Año 2": "55%", "Año 3": "60%", "Año 4": "65%", "Año 5": "75%", "Año 6": "75%", "Año 7": "75%", "Año 8": "80%" },
+        { "label": "Ingreso Total Anual", "Año 1": "11,691,000 €", "Año 2": "17,146,800 €", "Año 3": "24,317,280 €", "Año 4": "32,423,040 €", "Año 5": "99,373,500 €", "Año 6": "105,219,000 €", "Año 7": "1,169,100,000 €", "Año 8": "1,247,040,000 €" }
+      ]
+    },
+    {
+      "id": 42, "type": "COST_ANALYSIS", "title": "COSTES X USUARIO", "subtitle": "EL CAPEX CONSTRUYE LA PLATAFORMA; EL OPEX ACTIVA LA RENTABILIDAD",
+      "costTable": [
+        { "concept": "IA (modelos, inferencia)", "year0": "2,10 €" },
+        { "concept": "Infraestructura cloud", "year0": "0,80 €" },
+        { "concept": "Pasarela de pago", "year0": "0,65 €" },
+        { "concept": "Soporte y operaciones", "year0": "0,55 €" },
+        { "concept": "Total coste variable", "year0": "4,10 €", "isTotal": true }
+      ],
+      "yearEvolution": [
+        { "year": "Año 1", "value": "3.675.000 €" },
+        { "year": "Año 2", "value": "5.390.000 €" },
+        { "year": "Año 3", "value": "7.644.000 €" },
+        { "year": "Año 4", "value": "10.192.000 €" },
+        { "year": "Año 5", "value": "31.237.500 €" },
+        { "year": "Año 6", "value": "33.075.000 €" },
+        { "year": "Año 7", "value": "367.500.000 €" },
+        { "year": "Año 8", "value": "392.000.000 €" }
+      ],
+      "metricBoxes": [
+        {
+          "title": "Métricas unitarias",
+          "content": [
+            "Margen bruto por usuario: 8,89 € de 12,99 €",
+            "CAC medio ponderado: 30 €"
+          ],
+          "highlightValues": ["8,89 €", "30 €"]
+        },
+        {
+          "title": "Mensajes clave",
+          "content": [
+            "El coste marginal de servir a un nuevo usuario es bajo y decreciente con escala",
+            "Se recupera la inversión en captación en menos de 4 meses"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 43, "type": "CAPEX_OPEX_TABLES", "title": "INVERSIÓN CAPEX / OPEX",
+      "capexData": [
+        { "concept": "Desarrollo MVP", "cost": "60,000 €" },
+        { "concept": "App Completa V1", "cost": "450,000 €" },
+        { "concept": "Back-end & Microservicios", "cost": "350,000 €" },
+        { "concept": "Motor Clínico + IA Explicable", "cost": "500,000 €" },
+        { "concept": "Integraciones HL7 + DataLake", "cost": "300,000 €" },
+        { "concept": "Marketing Lanzamiento", "cost": "450,000 €" },
+        { "concept": "Equipo Inicial", "cost": "735,000 €" },
+        { "concept": "TOTAL", "cost": "2,845,000 €", "isTotal": true }
+      ],
+      "opexData": [
+        { "partida": "Equipo & Operaciones (Producto/Tech/Data/Ops)", "year1": "1,600,000 €", "year2": "1,900,000 €", "year3": "2,200,000 €", "year4": "2,500,000 €", "year5": "4,500,000 €", "year6": "4,800,000 €", "year7": "28,000,000 €", "year8": "30,000,000 €" },
+        { "partida": "Infraestructura & IA (Cloud + Observabilidad)", "year1": "450,000 €", "year2": "550,000 €", "year3": "700,000 €", "year4": "850,000 €", "year5": "2,000,000 €", "year6": "2,100,000 €", "year7": "12,000,000 €", "year8": "13,000,000 €" },
+        { "partida": "Desarrollo & Mantenimiento (Run + proveedores)", "year1": "500,000 €", "year2": "550,000 €", "year3": "650,000 €", "year4": "750,000 €", "year5": "1,200,000 €", "year6": "1,250,000 €", "year7": "8,000,000 €", "year8": "9,000,000 €" },
+        { "partida": "Licencias & Herramientas (SDKs/APIs/Analytics)", "year1": "350,000 €", "year2": "400,000 €", "year3": "450,000 €", "year4": "500,000 €", "year5": "900,000 €", "year6": "950,000 €", "year7": "6,000,000 €", "year8": "6,500,000 €" },
+        { "partida": "Customer Support & Success", "year1": "250,000 €", "year2": "300,000 €", "year3": "400,000 €", "year4": "550,000 €", "year5": "1,600,000 €", "year6": "1,700,000 €", "year7": "10,000,000 €", "year8": "11,000,000 €" },
+        { "partida": "Costes Variables (pagos + fraude + incidencias)", "year1": "200,000 €", "year2": "280,000 €", "year3": "380,000 €", "year4": "500,000 €", "year5": "1,800,000 €", "year6": "1,900,000 €", "year7": "22,000,000 €", "year8": "24,000,000 €" },
+        { "partida": "Compliance, Seguridad & Validación (RGPD + clínico)", "year1": "450,000 €", "year2": "550,000 €", "year3": "700,000 €", "year4": "900,000 €", "year5": "1,400,000 €", "year6": "1,500,000 €", "year7": "8,000,000 €", "year8": "8,700,000 €" },
+        { "partida": "Marketing & G&A (Growth + Legal/Admin)", "year1": "650,000 €", "year2": "920,000 €", "year3": "1,450,000 €", "year4": "2,050,000 €", "year5": "5,100,000 €", "year6": "5,300,000 €", "year7": "116,000,000 €", "year8": "127,800,000 €" },
+        { "partida": "TOTAL OPEX", "year1": "4,450,000 €", "year2": "5,450,000 €", "year3": "6,930,000 €", "year4": "8,600,000 €", "year5": "18,500,000 €", "year6": "19,500,000 €", "year7": "210,000,000 €", "year8": "230,000,000 €", "isTotal": true }
+      ]
+    },
+    {
+      "id": 44, "type": "ECONOMIC_SUMMARY", "title": "RESUMEN EJECUTIVO",
+      "highlight": "modelo rentable y escalable",
+      "economicSummary": [
+        { "year": "Año 1" },
+        { "year": "Año 2" },
+        { "year": "Año 3" },
+        { "year": "Año 4" },
+        { "year": "Año 5" },
+        { "year": "Año 6" },
+        { "year": "Año 7" },
+        { "year": "Año 8" }
+      ]
+    },
+    {
+      "id": 45, "type": "BENTO_GRID", "title": "MODELO ECONÓMICO",
+      "bentoItems": [
+        { "title": "ARPU", "icon": "DollarSign", "variant": "glassStrong" },
+        { "title": "LTV / CAC", "icon": "TrendingUp", "variant": "glassStrong" },
+        { "title": "Churn", "icon": "RotateCcw", "variant": "glassStrong" },
+        { "title": "Margen", "icon": "PieChart", "variant": "accent" },
+        { "title": "EBITDA", "icon": "BarChart3", "variant": "glassStrong" },
+        { "title": "ROI", "icon": "Target", "variant": "glassStrong" }
+      ]
+    },
+    {
+      "id": 46, "type": "HERO_FINAL", "title": "CIERRE", "subtitle": "Resumen",
       "highlight": "Plan claro - Privacidad real - Progreso medible",
       "speakerNotes": "Confianza. Decisión. Adherencia."
     },
-    { 
-      "id": 39, "type": "EXECUTIVE_SUMMARY", "title": "PROPUESTA DE VALOR", "subtitle": "Resumen Ejecutivo",
+    {
+      "id": 47, "type": "EXECUTIVE_SUMMARY", "title": "PROPUESTA DE VALOR", "subtitle": "Resumen Ejecutivo",
       "bentoItems": [
         { "title": "Valor Principal", "description": "Nutrición personalizada, predictiva y accionable, basada en datos", "icon": "Star", "variant": "glass", "span": "xl" },
         { "title": "Factor Diferenciador", "description": "Digital Twin nutricional dinámico + Integración ciencia/datos", "icon": "Award", "variant": "glassStrong", "span": "xl" },

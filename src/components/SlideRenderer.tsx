@@ -60,7 +60,7 @@ interface SlideRendererProps {
 // Helper para Bento Data (Slides 2, 6, 36)
 const BentoCard: React.FC<{ item: any; delay: number; isVisible: boolean; staticMode?: boolean; itemsCount?: number }> = ({ item, delay, isVisible, staticMode, itemsCount = 4 }) => {
   const getSpan = (s?: string) => {
-    if (itemsCount === 3) return 'md:col-span-1'; 
+    if (itemsCount === 3) return 'md:col-span-1';
     switch(s) {
       case 'xl': return 'md:col-span-3 lg:col-span-4';
       case 'lg': return 'md:col-span-2 md:row-span-2';
@@ -78,6 +78,17 @@ const BentoCard: React.FC<{ item: any; delay: number; isVisible: boolean; static
     }
   };
 
+  const getEsgColors = (esgType?: string) => {
+    switch(esgType) {
+      case 'social': return { bg: 'bg-blue-500/10', border: 'border-blue-500/30', iconColor: 'text-blue-400', glow: 'shadow-[0_0_30px_rgba(59,130,246,0.3)]' };
+      case 'ambiental': return { bg: 'bg-green-500/10', border: 'border-green-500/30', iconColor: 'text-green-400', glow: 'shadow-[0_0_30px_rgba(34,197,94,0.3)]' };
+      case 'gobernanza': return { bg: 'bg-purple-500/10', border: 'border-purple-500/30', iconColor: 'text-purple-400', glow: 'shadow-[0_0_30px_rgba(147,51,234,0.3)]' };
+      default: return { bg: '', border: '', iconColor: 'text-blue-400', glow: '' };
+    }
+  };
+
+  const esgColors = getEsgColors(item.esgType);
+
   const value = item.value || item.v;
   const title = item.title || item.l;
 
@@ -89,11 +100,11 @@ const BentoCard: React.FC<{ item: any; delay: number; isVisible: boolean; static
         initial: { opacity: 0.1, scale: 0.95, y: 30 },
         animate: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", damping: 20, delay } }
       }}
-      className={`${getSpan(item.span || (item.size === 'lg' ? 'lg' : item.size === 'md' ? 'md' : 'sm'))} ${getVariant(item.variant)} ${TOKENS.radiusMd} ${TOKENS.shadow} p-8 md:p-8 flex flex-col justify-center group hover:border-blue-500/50 transition-all relative overflow-hidden h-full min-h-[180px]`}
+      className={`${getSpan(item.span || (item.size === 'lg' ? 'lg' : item.size === 'md' ? 'md' : 'sm'))} ${getVariant(item.variant)} ${TOKENS.radiusMd} ${TOKENS.shadow} p-8 md:p-8 flex flex-col justify-center group hover:border-blue-500/50 transition-all relative overflow-hidden h-full min-h-[180px] ${esgColors.bg} ${esgColors.border} ${esgColors.glow}`}
     >
       <div className="flex justify-between items-start mb-4">
         {item.icon && (
-          <div className={`p-3 rounded-2xl transition-all ${item.variant === 'accent' ? 'bg-blue-500 text-white' : 'bg-white/5 text-blue-400 group-hover:text-white group-hover:bg-blue-500/20'}`}>
+          <div className={`p-3 rounded-2xl transition-all ${item.variant === 'accent' ? 'bg-blue-500 text-white' : `bg-white/5 ${esgColors.iconColor} group-hover:text-white group-hover:bg-blue-500/20`}`}>
             <IconMapper name={item.icon} size={28} />
           </div>
         )}
@@ -413,30 +424,39 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
   }
 
   if (slideType === 'CIRCULAR') {
+    const getEsgColors = (esgType?: string) => {
+      switch(esgType) {
+        case 'social': return { bg: 'bg-blue-500/10', border: 'border-blue-500/30', iconColor: 'text-blue-400', glow: 'shadow-[0_0_30px_rgba(59,130,246,0.3)]' };
+        case 'ambiental': return { bg: 'bg-green-500/10', border: 'border-green-500/30', iconColor: 'text-green-400', glow: 'shadow-[0_0_30px_rgba(34,197,94,0.3)]' };
+        case 'gobernanza': return { bg: 'bg-purple-500/10', border: 'border-purple-500/30', iconColor: 'text-purple-400', glow: 'shadow-[0_0_30px_rgba(147,51,234,0.3)]' };
+        default: return { bg: '', border: '', iconColor: 'text-blue-400', glow: '' };
+      }
+    };
+
     return (
         <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center relative">
              <motion.h1 variants={itemVariants} className="text-5xl font-black italic uppercase text-center mb-12">{slide.title}</motion.h1>
              <div className="relative w-[600px] h-[600px] flex items-center justify-center">
                  <div className="absolute inset-0 border border-white/5 rounded-full animate-[spin_60s_linear_infinite]" />
                  <div className="absolute inset-10 border border-blue-500/20 rounded-full animate-[spin_40s_linear_infinite_reverse]" />
-                 {slide.bentoItems?.slice(0, 4).map((item, idx) => {
-                     const angle = (idx * 90) * (Math.PI / 180);
+                 {slide.bentoItems?.slice(0, 3).map((item, idx) => {
+                     const angle = (idx * 120) * (Math.PI / 180);
                      const radius = 240;
                      const x = Math.cos(angle) * radius;
                      const y = Math.sin(angle) * radius;
+                     const esgColors = getEsgColors(item.esgType);
                      return (
-                         <motion.div 
+                         <motion.div
                             key={idx}
                             initial={{ scale: 0, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             transition={{ delay: idx * 0.2 }}
                             style={{ position: 'absolute', x, y }}
-                            className={`${TOKENS.glassStrong} w-40 h-40 rounded-full flex flex-col items-center justify-center text-center p-4 border border-blue-500/30 z-20 shadow-[0_0_30px_rgba(0,0,0,0.5)]`}
+                            className={`${TOKENS.glassStrong} w-48 h-48 rounded-full flex flex-col items-center justify-center text-center p-6 ${esgColors.bg} ${esgColors.border} ${esgColors.glow} z-20`}
                          >
-                             <IconMapper name={item.icon} className="mb-2 text-blue-400" />
-                             <h3 className="font-bold text-sm uppercase">{item.title}</h3>
-                             <p className="text-[10px] text-gray-400 mt-1">{item.description}</p>
-                             <Icons.ArrowRight className="absolute -right-8 top-1/2 -translate-y-1/2 text-white/10 rotate-45 transform" size={30}/>
+                             <IconMapper name={item.icon} className={`mb-4 ${esgColors.iconColor}`} size={36} />
+                             <h3 className="font-bold text-lg uppercase text-white">{item.title}</h3>
+                             <p className="text-sm text-gray-300 mt-2 leading-relaxed">{item.description}</p>
                          </motion.div>
                      )
                  })}
@@ -444,8 +464,8 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
                      <div className="w-48 h-80 bg-black border-4 border-gray-800 rounded-[3rem] shadow-2xl overflow-hidden flex flex-col relative">
                          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-6 bg-black rounded-b-xl z-20"/>
                          <div className="flex-1 bg-gradient-to-b from-blue-900 to-black p-4 flex flex-col items-center justify-center">
-                             <Icons.Activity className="text-cyan-400 mb-2 animate-pulse" size={40} />
-                             <span className="text-white font-bold text-lg">BioScanner</span>
+                             <Icons.Target className="text-cyan-400 mb-2 animate-pulse" size={40} />
+                             <span className="text-white font-bold text-lg">ESG Impact</span>
                          </div>
                      </div>
                  </div>
@@ -629,14 +649,52 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
   }
 
     if (slideType === 'QUADRANT') {
+        // Special handling for roles complementarios slide
+        if (slide.title === 'GOBERNANZA – Roles complementarios') {
+            return (
+                <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4 max-w-7xl mx-auto">
+                    <motion.h1 variants={itemVariants} className="text-5xl font-black italic uppercase text-white mb-16">{slide.title}</motion.h1>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-6xl">
+                        {slide.bentoItems?.map((item, i) => {
+                            // Split description into bullet points
+                            const bullets = item.description.split('\n');
+                            return (
+                                <motion.div
+                                    key={i}
+                                    variants={itemVariants}
+                                    className={`${TOKENS.glassStrong} p-8 rounded-3xl border border-white/10`}
+                                >
+                                    <div className="flex items-center justify-between mb-8">
+                                        <h3 className="text-2xl font-black text-blue-400 uppercase">{item.title}</h3>
+                                        <IconMapper name={item.icon} size={32} className="text-blue-400" />
+                                    </div>
+                                    <div className="space-y-6">
+                                        {bullets.map((bullet, bulletIdx) => (
+                                            <div key={bulletIdx} className="flex items-start gap-4">
+                                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center mt-0.5">
+                                                    <IconMapper name={item.icon} size={16} className="text-blue-400" />
+                                                </div>
+                                                <p className="text-lg text-white font-light leading-relaxed">{bullet}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </motion.div>
+                            );
+                        })}
+                    </div>
+                </motion.div>
+            );
+        }
+
+        // Default QUADRANT renderer for other slides
         return (
             <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4 max-w-6xl mx-auto">
                 <motion.h1 variants={itemVariants} className="text-5xl font-black italic uppercase text-white mb-12">{slide.title}</motion.h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full h-[60vh]">
                     {slide.bentoItems?.map((item, i) => (
-                        <motion.div 
-                            key={i} 
-                            variants={itemVariants} 
+                        <motion.div
+                            key={i}
+                            variants={itemVariants}
                             className={`p-8 rounded-3xl flex flex-col justify-start relative overflow-hidden group border border-white/5 hover:border-blue-500/30 transition-all ${item.variant === 'accent' ? 'bg-blue-900/20' : TOKENS.glassStrong}`}
                         >
                             <div className="flex items-center justify-between mb-4">
@@ -770,6 +828,374 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
           </div>
         </motion.div>
       );
+  }
+
+  // --- RENDERER: VERTICAL_DIAGRAM (Governance Structure) ---
+  if (slideType === 'VERTICAL_DIAGRAM') {
+    return (
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4 relative">
+        <div className="text-center mb-12">
+          <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-black tracking-tighter uppercase italic text-white mb-4">{slide.title}</motion.h1>
+          <motion.p variants={itemVariants} className="text-xl text-blue-400 font-bold tracking-widest uppercase">{slide.subtitle}</motion.p>
+        </div>
+        <div className="flex flex-col items-center space-y-8 max-w-4xl">
+          {(slide as any).verticalBlocks?.map((block: any, idx: number) => (
+            <motion.div
+              key={idx}
+              variants={itemVariants}
+              className={`${TOKENS.glassStrong} p-8 rounded-2xl border border-white/10 w-full max-w-2xl text-center`}
+            >
+              <h3 className="text-2xl font-black text-white uppercase mb-4">{block.title}</h3>
+              {block.items && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {block.items.map((item: string, itemIdx: number) => (
+                    <div key={itemIdx} className="text-sm text-gray-300">{item}</div>
+                  ))}
+                </div>
+              )}
+            </motion.div>
+          ))}
+          {slide.highlight && (
+            <motion.div variants={itemVariants} className="text-center">
+              <p className="text-lg text-blue-400 font-bold italic">{slide.highlight}</p>
+            </motion.div>
+          )}
+        </div>
+      </motion.div>
+    );
+  }
+
+  // --- RENDERER: TRIANGLE_ESG ---
+  if (slideType === 'TRIANGLE_ESG') {
+    return (
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4 relative">
+        <div className="text-center mb-12">
+          <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-black tracking-tighter uppercase italic text-white mb-4">{slide.title}</motion.h1>
+        </div>
+        <div className="relative w-[600px] h-[400px] flex items-center justify-center">
+          {/* Triangle lines */}
+          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 600 400">
+            <polygon points="300,50 100,350 500,350" fill="none" stroke="rgba(59,130,246,0.3)" strokeWidth="2" />
+          </svg>
+          {(slide as any).esgNodes?.map((node: any, idx: number) => {
+            const positions = [
+              { x: 300, y: 80 }, // Top
+              { x: 150, y: 320 }, // Bottom left
+              { x: 450, y: 320 }  // Bottom right
+            ];
+            const pos = positions[idx];
+            return (
+              <motion.div
+                key={idx}
+                variants={itemVariants}
+                className={`${TOKENS.glassStrong} absolute p-6 rounded-2xl border border-white/10 w-48 text-center`}
+                style={{ left: pos.x - 96, top: pos.y - 60 }}
+              >
+                <IconMapper name={node.icon} size={32} className="text-blue-400 mb-4 mx-auto" />
+                <h3 className="text-lg font-black text-white uppercase mb-2">{node.title}</h3>
+                <p className="text-sm text-gray-300">{node.description}</p>
+              </motion.div>
+            );
+          })}
+        </div>
+      </motion.div>
+    );
+  }
+
+  // --- RENDERER: ECONOMIC_TABLE ---
+  if (slideType === 'ECONOMIC_TABLE') {
+    return (
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4">
+        <div className="text-center mb-12">
+          <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-black tracking-tighter uppercase italic text-white mb-4">{slide.title}</motion.h1>
+          {slide.highlight && (
+            <motion.p variants={itemVariants} className="text-lg text-blue-400 font-bold italic mb-8">{slide.highlight}</motion.p>
+          )}
+        </div>
+        <div className={`${TOKENS.glassStrong} p-8 rounded-2xl border border-white/10 w-full max-w-6xl`}>
+          <table className="w-full text-white">
+            <thead>
+              <tr className="border-b border-white/20">
+                <th className="text-left py-4 px-4 font-black uppercase"></th>
+                <th className="text-left py-4 px-4 font-black uppercase">Año 1</th>
+                <th className="text-left py-4 px-4 font-black uppercase">Año 2</th>
+                <th className="text-left py-4 px-4 font-black uppercase">Año 3</th>
+                <th className="text-left py-4 px-4 font-black uppercase">Año 4</th>
+                <th className="text-left py-4 px-4 font-black uppercase">Año 5</th>
+                <th className="text-left py-4 px-4 font-black uppercase">Año 6</th>
+                <th className="text-left py-4 px-4 font-black uppercase">Año 7</th>
+                <th className="text-left py-4 px-4 font-black uppercase">Año 8</th>
+              </tr>
+            </thead>
+            <tbody>
+              {(slide as any).economicData?.map((row: any, idx: number) => (
+                <motion.tr key={idx} variants={itemVariants} className="border-b border-white/10">
+                  <td className="py-4 px-4 font-bold whitespace-nowrap">{row.label}</td>
+                  <td className="py-4 px-4 whitespace-nowrap">{row["Año 1"] || '-'}</td>
+                  <td className="py-4 px-4 whitespace-nowrap">{row["Año 2"] || '-'}</td>
+                  <td className="py-4 px-4 whitespace-nowrap">{row["Año 3"] || '-'}</td>
+                  <td className="py-4 px-4 whitespace-nowrap">{row["Año 4"] || '-'}</td>
+                  <td className="py-4 px-4 whitespace-nowrap">{row["Año 5"] || '-'}</td>
+                  <td className="py-4 px-4 whitespace-nowrap">{row["Año 6"] || '-'}</td>
+                  <td className="py-4 px-4 whitespace-nowrap">{row["Año 7"] || '-'}</td>
+                  <td className="py-4 px-4 whitespace-nowrap">{row["Año 8"] || '-'}</td>
+                </motion.tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </motion.div>
+    );
+  }
+
+  // --- RENDERER: ECONOMIC_SUMMARY ---
+  if (slideType === 'ECONOMIC_SUMMARY') {
+    return (
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4">
+        <div className="text-center mb-12">
+          <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-black tracking-tighter uppercase italic text-white mb-4">{slide.title}</motion.h1>
+          {slide.highlight && (
+            <motion.p variants={itemVariants} className="text-lg text-blue-400 font-bold italic">{slide.highlight}</motion.p>
+          )}
+        </div>
+        <div className={`${TOKENS.glassStrong} p-8 rounded-2xl border border-white/10 w-full max-w-6xl`}>
+          <table className="w-full text-white">
+            <thead>
+              <tr className="border-b border-white/20">
+                <th className="text-left py-4 px-4 font-black uppercase">Año</th>
+                <th className="text-left py-4 px-4 font-black uppercase">Ingresos</th>
+                <th className="text-left py-4 px-4 font-black uppercase">OPEX</th>
+                <th className="text-left py-4 px-4 font-black uppercase">EBIT</th>
+                <th className="text-left py-4 px-4 font-black uppercase">EBITDA</th>
+              </tr>
+            </thead>
+            <tbody>
+              {(slide as any).economicSummary?.map((row: any, idx: number) => (
+                <motion.tr key={idx} variants={itemVariants} className="border-b border-white/10">
+                  <td className="py-4 px-4 font-bold">{row.year}</td>
+                  <td className="py-4 px-4">{row.ingresos || '-'}</td>
+                  <td className="py-4 px-4">{row.opex || '-'}</td>
+                  <td className="py-4 px-4">{row.ebit || '-'}</td>
+                  <td className="py-4 px-4 font-bold">{row.ebitda || '-'}</td>
+                </motion.tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </motion.div>
+    );
+  }
+
+  // --- RENDERER: CORPORATE_HIERARCHY ---
+  if (slideType === 'CORPORATE_HIERARCHY') {
+    return (
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4 relative">
+        <div className="text-center mb-4">
+          <motion.h1 variants={itemVariants} className="text-3xl md:text-5xl font-black tracking-tighter uppercase italic text-white mb-2">{slide.title}</motion.h1>
+          {slide.subtitle && (
+            <motion.p variants={itemVariants} className="text-sm text-blue-400 font-light italic leading-tight">{slide.subtitle}</motion.p>
+          )}
+        </div>
+
+        <div className="flex flex-col items-center space-y-4 max-w-7xl">
+          {/* Parent Level: Grupo Nestlé */}
+          {(slide as any).corporateEntities?.filter((entity: any) => entity.level === 'parent').map((entity: any, idx: number) => (
+            <motion.div
+              key={idx}
+              variants={itemVariants}
+              className={`${TOKENS.glassStrong} p-4 rounded-xl border border-white/10 w-80 text-center shadow-lg`}
+            >
+              <IconMapper name={entity.icon} size={32} className="text-blue-400 mb-2 mx-auto" />
+              <h3 className="text-lg font-black text-white uppercase">{entity.title}</h3>
+            </motion.div>
+          ))}
+
+          {/* Vertical connecting line */}
+          <motion.div
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="w-0.5 h-6 bg-gradient-to-b from-blue-500 to-cyan-400"
+          />
+
+          {/* Child Level: Nestlé Health Science */}
+          {(slide as any).corporateEntities?.filter((entity: any) => entity.level === 'child').map((entity: any, idx: number) => (
+            <motion.div
+              key={idx}
+              variants={itemVariants}
+              className={`${TOKENS.glassStrong} p-4 rounded-xl border border-white/10 w-80 text-center shadow-lg`}
+            >
+              <IconMapper name={entity.icon} size={32} className="text-blue-400 mb-2 mx-auto" />
+              <h3 className="text-lg font-black text-white uppercase">{entity.title}</h3>
+            </motion.div>
+          ))}
+
+          {/* Vertical connecting line to siblings */}
+          <motion.div
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1 }}
+            transition={{ delay: 1, duration: 0.8 }}
+            className="w-0.5 h-4 bg-gradient-to-b from-cyan-400 to-blue-500"
+          />
+
+          {/* Sibling Level: Horizontal row of entities */}
+          <div className="flex flex-wrap justify-center gap-4 max-w-7xl">
+            {(slide as any).corporateEntities?.filter((entity: any) => entity.level === 'sibling').map((entity: any, idx: number) => (
+              <motion.div
+                key={idx}
+                variants={itemVariants}
+                className={`${TOKENS.glassStrong} p-3 rounded-xl border border-white/10 w-48 text-center shadow-md hover:shadow-lg transition-all`}
+              >
+                <IconMapper name={entity.icon} size={24} className="text-blue-400 mb-1 mx-auto" />
+                <h4 className="text-sm font-black text-white uppercase mb-1">{entity.title}</h4>
+                {entity.subtitle && (
+                  <p className="text-xs text-gray-300 leading-tight">{entity.subtitle}</p>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+    );
+  }
+
+  // --- RENDERER: COST_ANALYSIS ---
+  if (slideType === 'COST_ANALYSIS') {
+    return (
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col px-4 py-8 relative">
+        {/* Upper Half: Title + Main Content */}
+        <div className="h-1/2 flex flex-col">
+          {/* Title and Subtitle */}
+          <div className="text-center mb-1">
+            <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-black tracking-tighter uppercase italic text-white mb-1">{slide.title}</motion.h1>
+            <motion.p variants={itemVariants} className="text-lg md:text-xl font-bold text-blue-400 uppercase tracking-widest">{slide.subtitle}</motion.p>
+          </div>
+
+          {/* Main Content Grid */}
+          <div className="flex-1 grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto">
+            {/* Left Block: Cost Table */}
+            <motion.div variants={itemVariants} className="lg:col-span-1">
+              <div className={`${TOKENS.glassStrong} bg-blue-900/30 border-blue-500/30 p-4 rounded-2xl`}>
+                <h3 className="text-lg font-black text-white uppercase mb-3 text-center">Costes por Usuario</h3>
+                <div className="space-y-2">
+                  {slide.costTable?.map((item, idx) => (
+                    <div key={idx} className={`flex justify-between items-center py-1.5 px-2 rounded ${item.isTotal ? 'bg-blue-500/20 border border-blue-400/50 font-bold' : 'bg-white/5'}`}>
+                      <span className="text-white font-medium text-sm">{item.concept}</span>
+                      <span className={`font-bold text-sm ${item.isTotal ? 'text-blue-400' : 'text-white'}`}>{item.year0}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right Block: Year Evolution */}
+            <motion.div variants={itemVariants} className="lg:col-span-2">
+              <h3 className="text-lg font-black text-white uppercase mb-3 text-center">Evolución de Costes Totales</h3>
+              <div className="grid grid-cols-8 gap-1">
+                {slide.yearEvolution?.map((year, idx) => (
+                  <div key={idx} className="text-center">
+                    <div className="bg-blue-500/20 border border-blue-400/30 rounded p-2 mb-1">
+                      <span className="text-blue-400 font-black text-xs uppercase">{year.year}</span>
+                    </div>
+                    <div className="text-white font-bold text-xs">{year.value}</div>
+                  </div>
+                ))}
+              </div>
+              {/* Visual connector from Year 0 */}
+              <div className="flex justify-start mt-2">
+                <div className="flex items-center">
+                  <div className="w-3 h-0.5 bg-blue-400"></div>
+                  <Icons.ArrowRight className="text-blue-400 mx-1" size={12} />
+                  <span className="text-blue-400 text-xs font-medium">Continuidad Temporal</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Lower Half: Metric Boxes */}
+        <div className="h-1/2 flex items-center">
+          <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl mx-auto w-full">
+            {slide.metricBoxes?.map((box, idx) => (
+              <div key={idx} className={`${TOKENS.glass} bg-gray-900/40 border border-gray-600/50 p-4 rounded-2xl`}>
+                <h4 className="text-base font-black text-white uppercase mb-3">{box.title}</h4>
+                <div className="space-y-1">
+                  {box.content.map((line, lineIdx) => {
+                    const highlighted = box.highlightValues?.some(val => line.includes(val));
+                    return (
+                      <p key={lineIdx} className={`text-sm leading-relaxed ${highlighted ? 'text-blue-400 font-bold' : 'text-gray-300'}`}>
+                        {line}
+                      </p>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </motion.div>
+    );
+  }
+
+  // --- RENDERER: CAPEX_OPEX_TABLES ---
+  if (slideType === 'CAPEX_OPEX_TABLES') {
+    return (
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col px-4 py-8">
+        {/* Title */}
+        <div className="text-center mb-8">
+          <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-black tracking-tighter uppercase italic text-white mb-4">{slide.title}</motion.h1>
+        </div>
+
+        {/* Tables Container */}
+        <div className="flex-1 grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {/* Left Table: CAPEX */}
+          <motion.div variants={itemVariants} className={`${TOKENS.glassStrong} p-6 rounded-2xl lg:col-span-1`}>
+            <h3 className="text-xl font-black text-white uppercase mb-6 text-center border-b border-white/20 pb-4">CAPEX</h3>
+            <div className="space-y-3 max-h-[500px] overflow-y-auto">
+              {slide.capexData?.map((item, idx) => (
+                <div key={idx} className={`flex justify-between items-center py-3 px-4 rounded-lg ${item.isTotal ? 'bg-blue-500/20 border border-blue-400/50 font-bold text-lg' : 'bg-white/5 hover:bg-white/10 transition-colors'}`}>
+                  <span className="text-white font-medium text-sm flex-1">{item.concept}</span>
+                  <span className={`font-bold text-sm ${item.isTotal ? 'text-blue-400 text-lg' : 'text-white'}`}>{item.cost}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Right Table: OPEX */}
+          <motion.div variants={itemVariants} className={`${TOKENS.glassStrong} p-6 rounded-2xl lg:col-span-2`}>
+            <h3 className="text-xl font-black text-white uppercase mb-6 text-center border-b border-white/20 pb-4">OPEX</h3>
+            <div className="space-y-2 max-h-[500px] overflow-y-auto">
+              {/* Header Row */}
+              <div className="grid grid-cols-9 gap-1 text-xs font-bold text-blue-400 uppercase mb-3 border-b border-white/10 pb-2">
+                <span className="col-span-2">Partida</span>
+                <span>Año 1</span>
+                <span>Año 2</span>
+                <span>Año 3</span>
+                <span>Año 4</span>
+                <span>Año 5</span>
+                <span>Año 6</span>
+                <span>Año 7</span>
+                <span>Año 8</span>
+              </div>
+              {/* Data Rows */}
+              {slide.opexData?.map((item, idx) => (
+                <div key={idx} className={`grid grid-cols-9 gap-1 py-2 px-2 rounded ${item.isTotal ? 'bg-green-500/20 border border-green-400/50 font-bold' : 'hover:bg-white/5 transition-colors'}`}>
+                  <span className="text-white font-medium text-xs col-span-2 leading-tight">{item.partida}</span>
+                  <span className={`text-xs font-bold ${item.isTotal ? 'text-green-400' : 'text-gray-300'}`}>{item.year1}</span>
+                  <span className={`text-xs font-bold ${item.isTotal ? 'text-green-400' : 'text-gray-300'}`}>{item.year2}</span>
+                  <span className={`text-xs font-bold ${item.isTotal ? 'text-green-400' : 'text-gray-300'}`}>{item.year3}</span>
+                  <span className={`text-xs font-bold ${item.isTotal ? 'text-green-400' : 'text-gray-300'}`}>{item.year4}</span>
+                  <span className={`text-xs font-bold ${item.isTotal ? 'text-green-400' : 'text-gray-300'}`}>{item.year5}</span>
+                  <span className={`text-xs font-bold ${item.isTotal ? 'text-green-400' : 'text-gray-300'}`}>{item.year6}</span>
+                  <span className={`text-xs font-bold ${item.isTotal ? 'text-green-400' : 'text-gray-300'}`}>{item.year7}</span>
+                  <span className={`text-xs font-bold ${item.isTotal ? 'text-green-400' : 'text-gray-300'}`}>{item.year8}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
+    );
   }
 
       return (

@@ -145,18 +145,26 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
           initial={{ opacity: 0, scaleY: 0 }}
           animate={{ opacity: 1, scaleY: 1 }}
           transition={{ delay: 2, duration: 1 }}
-          className="absolute left-1/3 top-8 bottom-8 w-px border-l-2 border-dotted border-red-400/60 z-10"
+          className="absolute left-[35%] top-6 bottom-6 w-px border-l border-dotted border-gray-400/40 z-10"
         />
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2.5 }}
-          className="absolute left-1/3 top-4 transform -translate-x-1/2 z-20"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2.3 }}
+          className="absolute left-[35%] top-4 transform -translate-x-1/2 z-20"
         >
-          <div className="bg-red-500/20 border border-red-400/50 rounded-lg px-3 py-2 backdrop-blur-sm">
-            <span className="text-red-300 text-xs font-bold uppercase tracking-wide">Cross-cutting concern</span>
-            <br />
-            <span className="text-red-200 text-xs">Security & Auth</span>
+          <div className="flex flex-col items-center gap-2">
+            <div className="p-2 bg-gray-600/20 border border-gray-400/30 rounded-full backdrop-blur-sm">
+              <Icons.Shield size={16} className="text-gray-300" />
+            </div>
+            <div className="text-center">
+              <div className="text-gray-300 text-[10px] font-bold uppercase tracking-wide leading-tight">
+                Seguridad & Autenticación
+              </div>
+              <div className="text-gray-400 text-[9px] leading-tight">
+                Auth0 / OAuth2 / JWT / IAM
+              </div>
+            </div>
           </div>
         </motion.div>
 

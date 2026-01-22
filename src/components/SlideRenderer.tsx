@@ -1,7 +1,38 @@
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
 import * as Icons from 'lucide-react';
+import {
+  SiReact, SiNextdotjs, SiFlutter, SiHtml5, SiCss3, SiJavascript,
+  SiNodedotjs, SiExpress, SiAwslambda, SiApachekafka, SiDocker,
+  SiKubernetes, SiPostgresql, SiMongodb, SiRedis, SiAmazons3,
+  SiGithub, SiGithubactions, SiGrafana, SiPrometheus, SiElasticsearch, SiAuth0
+} from 'react-icons/si';
 import { Slide } from '../types';
+
+// Tech to icon mapping
+const techIconMap: Record<string, React.ComponentType<any>> = {
+  'React': SiReact,
+  'React Native': SiReact,
+  'Flutter': SiFlutter,
+  'Next.js': SiNextdotjs,
+  'HTML': SiHtml5,
+  'CSS': SiCss3,
+  'JavaScript': SiJavascript,
+  'API Gateway': SiNodedotjs,
+  'Backend principal': SiNodedotjs,
+  'Contenedores y orquestación': SiDocker,
+  'Comunicación y eventos': SiNodedotjs,
+  'Funciones serverless': SiAwslambda,
+  'Relacional': SiPostgresql,
+  'NoSQL': SiMongodb,
+  'Caché': SiRedis,
+  'Blob Storage': SiAmazons3,
+  'Control de versiones': SiGithub,
+  'CI/CD': SiGithubactions,
+  'Monitoreo': SiGrafana,
+  'Logs': SiElasticsearch,
+  'Autenticación/Security': SiAuth0
+};
 
 // Design Tokens 2026
 const TOKENS = {
@@ -99,94 +130,98 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
 
   // --- RENDERER: ARCHITECTURE DIAGRAM ---
   if (slideType === 'ARCHITECTURE_DIAGRAM') {
+    const layerColors = [
+      'bg-gradient-to-r from-blue-900/30 to-blue-800/30 border-l-8 border-blue-500',
+      'bg-gradient-to-r from-green-900/30 to-green-800/30 border-l-8 border-green-500',
+      'bg-gradient-to-r from-purple-900/30 to-purple-800/30 border-l-8 border-purple-500',
+      'bg-gradient-to-r from-orange-900/30 to-orange-800/30 border-l-8 border-orange-500',
+      'bg-gradient-to-r from-cyan-900/30 to-cyan-800/30 border-l-8 border-cyan-500'
+    ];
+
     return (
-      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center p-4 md:p-12 max-w-7xl mx-auto">
-        <div className="text-center mb-8">
-          <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-black tracking-tighter uppercase italic text-white mb-4">{slide.title}</motion.h1>
-          <motion.p variants={itemVariants} className="text-blue-500 font-bold tracking-widest text-sm uppercase">{slide.subtitle}</motion.p>
-        </div>
-
-        <div className="flex flex-col items-center gap-6 w-full max-w-6xl">
-          {slide.architectureLayers?.map((layer, layerIndex) => (
-            <motion.div
-              key={layerIndex}
-              variants={itemVariants}
-              className="w-full flex flex-col items-center"
-            >
-              {/* Layer Header */}
-              <div className="mb-4 text-center">
-                <h3 className="text-xl font-black uppercase text-blue-400 mb-1">{layer.name}</h3>
-                <p className="text-sm text-gray-400">{layer.role}</p>
-              </div>
-
-              {/* Components Row */}
-              <div className="flex flex-wrap justify-center gap-4 w-full">
-                {layer.components.map((component, compIndex) => (
-                  <motion.div
-                    key={compIndex}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: layerIndex * 0.2 + compIndex * 0.1 }}
-                    className={`${TOKENS.glassStrong} p-4 rounded-2xl border border-white/10 min-w-[200px] max-w-[300px] flex flex-col items-center text-center hover:border-blue-500/50 transition-all group`}
-                  >
-                    <div className="flex gap-2 mb-3">
-                      {component.icons.map((icon, iconIndex) => (
-                        <div key={iconIndex} className="p-2 bg-blue-500/10 rounded-full text-blue-400">
-                          <IconMapper name={icon} size={20} />
-                        </div>
-                      ))}
-                    </div>
-                    <h4 className="font-bold text-white mb-2">{component.name}</h4>
-                    <div className="flex flex-wrap justify-center gap-1 text-xs">
-                      {component.technologies.map((tech, techIndex) => (
-                        <span key={techIndex} className="bg-white/5 px-2 py-1 rounded-full text-gray-300">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Arrow Down (except for last layer) */}
-              {layerIndex < (slide.architectureLayers?.length || 0) - 1 && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: layerIndex * 0.2 + 0.5 }}
-                  className="mt-4 text-blue-500"
-                >
-                  <Icons.ArrowDown size={32} />
-                </motion.div>
-              )}
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Benefits Section */}
-        {slide.benefits && (
-          <motion.div
-            variants={itemVariants}
-            className={`${TOKENS.glassAccent} p-6 rounded-2xl mt-8 w-full max-w-4xl`}
-          >
-            <h3 className="text-lg font-bold text-blue-400 mb-4 uppercase tracking-widest">Beneficios Arquitectónicos</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {slide.benefits.map((benefit, index) => (
-                <div key={index} className="text-center">
-                  <span className="text-2xl font-black text-white">{benefit}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        )}
-
-        {/* Data Flow Note */}
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col space-y-4 p-4 relative">
+        {/* Cross-cutting security concern */}
         <motion.div
-          variants={itemVariants}
-          className="mt-6 text-center text-sm text-gray-500"
+          initial={{ opacity: 0, scaleY: 0 }}
+          animate={{ opacity: 1, scaleY: 1 }}
+          transition={{ delay: 2, duration: 1 }}
+          className="absolute left-1/3 top-8 bottom-8 w-px border-l-2 border-dotted border-red-400/60 z-10"
+        />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2.5 }}
+          className="absolute left-1/3 top-4 transform -translate-x-1/2 z-20"
         >
-          Flujo de Datos: Usuarios → Front-end → API Gateway → Backend → Base de Datos / Servicios Externos
+          <div className="bg-red-500/20 border border-red-400/50 rounded-lg px-3 py-2 backdrop-blur-sm">
+            <span className="text-red-300 text-xs font-bold uppercase tracking-wide">Cross-cutting concern</span>
+            <br />
+            <span className="text-red-200 text-xs">Security & Auth</span>
+          </div>
         </motion.div>
+
+        {/* Layers as horizontal full-width rows */}
+        {slide.architectureLayers?.map((layer, layerIndex) => (
+          <motion.div
+            key={layerIndex}
+            variants={itemVariants}
+            className={`w-full h-32 flex relative ${layerColors[layerIndex % layerColors.length]} rounded-2xl overflow-hidden`}
+          >
+            {/* Left area: Layer Title and Description */}
+            <div className="flex-shrink-0 w-80 flex flex-col justify-center pl-6 pr-4">
+              <h2 className="text-lg md:text-xl font-black uppercase text-white mb-1">{layer.name}</h2>
+              <p className="text-xs text-gray-200 font-medium">{layer.role}</p>
+            </div>
+
+            {/* Visual separator (subtle gradient cut) */}
+            <div className="w-px bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
+
+            {/* Right area: Technology Boxes in a horizontal row */}
+            <div className="flex-1 flex items-center justify-start space-x-4 px-6 overflow-x-auto">
+              {layer.technologies?.map((tech, techIndex) => {
+                const IconComponent = techIconMap[tech.split(':')[0].trim()] || techIconMap[tech.split('(')[0].trim()] || Icons.Code;
+                const isUILayer = layerIndex === 0; // UI layer doesn't have sequential arrows
+                return (
+                  <div key={techIndex} className="flex items-center">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: layerIndex * 0.1 + techIndex * 0.05 }}
+                      className={`${TOKENS.glassStrong} flex flex-col items-center justify-center p-3 rounded-lg w-32 h-20 text-center hover:scale-105 transition-all group shadow-lg border border-white/10`}
+                    >
+                      <IconComponent size={24} className="text-blue-400 mb-1 group-hover:text-white" />
+                      <span className="text-[10px] font-bold text-gray-200 group-hover:text-white leading-tight">{tech}</span>
+                    </motion.div>
+
+                    {/* Horizontal arrow between techs (except last, and not in UI layer) */}
+                    {!isUILayer && techIndex < layer.technologies.length - 1 && (
+                      <motion.div
+                        initial={{ opacity: 0, scaleX: 0 }}
+                        animate={{ opacity: 1, scaleX: 1 }}
+                        transition={{ delay: layerIndex * 0.1 + techIndex * 0.05 + 0.1 }}
+                        className="mx-2"
+                      >
+                        <Icons.ArrowRight size={16} className="text-white/40" />
+                      </motion.div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Vertical arrow to next layer (left side, except last) */}
+            {layerIndex < (slide.architectureLayers?.length || 0) - 1 && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: layerIndex * 0.2 + 0.8 }}
+                className="absolute -bottom-8 left-8 z-30"
+              >
+                <Icons.ArrowDown size={32} className="text-blue-400" />
+              </motion.div>
+            )}
+          </motion.div>
+        ))}
       </motion.div>
     );
   }

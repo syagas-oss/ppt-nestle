@@ -43,11 +43,7 @@ export interface TimelineItem {
 export interface ArchitectureLayer {
   name: string;
   role: string;
-  components: {
-    name: string;
-    technologies: string[];
-    icons: string[];
-  }[];
+  technologies: string[];
 }
 
 export interface Slide {

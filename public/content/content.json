@@ -402,25 +402,61 @@
       "id": 44, "type": "ECONOMIC_SUMMARY", "title": "RESUMEN EJECUTIVO",
       "highlight": "modelo rentable y escalable",
       "economicSummary": [
-        { "year": "Año 1" },
-        { "year": "Año 2" },
-        { "year": "Año 3" },
-        { "year": "Año 4" },
-        { "year": "Año 5" },
-        { "year": "Año 6" },
-        { "year": "Año 7" },
-        { "year": "Año 8" }
+        {
+          "metric": "Ingresos",
+          "Año 1": "11,691,000 €",
+          "Año 2": "17,146,800 €",
+          "Año 3": "24,317,280 €",
+          "Año 4": "32,423,040 €",
+          "Año 5": "99,373,500 €",
+          "Año 6": "105,219,000 €",
+          "Año 7": "1,169,100,000 €",
+          "Año 8": "1,247,040,000 €"
+        },
+        {
+          "metric": "OPEX",
+          "Año 1": "4,450,000 €",
+          "Año 2": "5,450,000 €",
+          "Año 3": "6,930,000 €",
+          "Año 4": "8,600,000 €",
+          "Año 5": "18,500,000 €",
+          "Año 6": "19,500,000 €",
+          "Año 7": "210,000,000 €",
+          "Año 8": "230,000,000 €"
+        },
+        {
+          "metric": "EBITDA",
+          "Año 1": "3,566,000 €",
+          "Año 2": "6,306,800 €",
+          "Año 3": "9,743,280 €",
+          "Año 4": "13,631,040 €",
+          "Año 5": "49,636,000 €",
+          "Año 6": "52,644,000 €",
+          "Año 7": "591,600,000 €",
+          "Año 8": "625,040,000 €"
+        },
+        {
+          "metric": "EBIT",
+          "Año 1": "2,997,000 €",
+          "Año 2": "5,737,800 €",
+          "Año 3": "9,174,280 €",
+          "Año 4": "13,062,040 €",
+          "Año 5": "49,067,000 €",
+          "Año 6": "52,644,000 €",
+          "Año 7": "591,600,000 €",
+          "Año 8": "625,040,000 €"
+        }
       ]
     },
     {
       "id": 45, "type": "BENTO_GRID", "title": "MODELO ECONÓMICO",
       "bentoItems": [
-        { "title": "ARPU", "icon": "DollarSign", "variant": "glassStrong" },
-        { "title": "LTV / CAC", "icon": "TrendingUp", "variant": "glassStrong" },
-        { "title": "Churn", "icon": "RotateCcw", "variant": "glassStrong" },
-        { "title": "Margen", "icon": "PieChart", "variant": "accent" },
-        { "title": "EBITDA", "icon": "BarChart3", "variant": "glassStrong" },
-        { "title": "ROI", "icon": "Target", "variant": "glassStrong" }
+        { "title": "ARPU", "value": "12,99 €", "icon": "DollarSign", "variant": "glassStrong", "span": "md" },
+        { "title": "Churn", "value": "3%", "icon": "Users", "variant": "glassStrong" },
+        { "title": "LTV / CAC", "value": "9,8x", "icon": "TrendingUp", "variant": "glassStrong", "span": "md" },
+        { "title": "EBITDA", "value": "851,5 M€", "subtitle": "año 8", "icon": "BarChart3", "variant": "glassGlow" },
+        { "title": "Payback", "value": "<12 meses", "icon": "Clock", "variant": "glassStrong" },
+        { "title": "ROI", "value": ">10x", "subtitle": "año 8", "icon": "Target", "variant": "glassGlow" }
       ]
     },
     {

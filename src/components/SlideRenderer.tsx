@@ -958,25 +958,33 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
             <motion.p variants={itemVariants} className="text-lg text-blue-400 font-bold italic">{slide.highlight}</motion.p>
           )}
         </div>
-        <div className={`${TOKENS.glassStrong} p-8 rounded-2xl border border-white/10 w-full max-w-6xl`}>
-          <table className="w-full text-white">
+        <div className={`${TOKENS.glassStrong} p-8 rounded-2xl border border-white/10 w-full max-w-7xl overflow-x-auto`}>
+          <table className="w-full text-white min-w-[1200px] table-fixed">
             <thead>
               <tr className="border-b border-white/20">
-                <th className="text-left py-4 px-4 font-black uppercase">Año</th>
-                <th className="text-left py-4 px-4 font-black uppercase">Ingresos</th>
-                <th className="text-left py-4 px-4 font-black uppercase">OPEX</th>
-                <th className="text-left py-4 px-4 font-black uppercase">EBIT</th>
-                <th className="text-left py-4 px-4 font-black uppercase">EBITDA</th>
+                <th className="text-left py-4 px-4 font-black uppercase"></th>
+                <th className="text-left py-4 px-4 font-black uppercase">Año 1</th>
+                <th className="text-left py-4 px-4 font-black uppercase">Año 2</th>
+                <th className="text-left py-4 px-4 font-black uppercase">Año 3</th>
+                <th className="text-left py-4 px-4 font-black uppercase">Año 4</th>
+                <th className="text-left py-4 px-4 font-black uppercase">Año 5</th>
+                <th className="text-left py-4 px-4 font-black uppercase">Año 6</th>
+                <th className="text-left py-4 px-4 font-black uppercase">Año 7</th>
+                <th className="text-left py-4 px-4 font-black uppercase">Año 8</th>
               </tr>
             </thead>
             <tbody>
               {(slide as any).economicSummary?.map((row: any, idx: number) => (
                 <motion.tr key={idx} variants={itemVariants} className="border-b border-white/10">
-                  <td className="py-4 px-4 font-bold">{row.year}</td>
-                  <td className="py-4 px-4">{row.ingresos || '-'}</td>
-                  <td className="py-4 px-4">{row.opex || '-'}</td>
-                  <td className="py-4 px-4">{row.ebit || '-'}</td>
-                  <td className="py-4 px-4 font-bold">{row.ebitda || '-'}</td>
+                  <td className="py-4 px-4 font-bold">{row.metric}</td>
+                  <td className="py-4 px-4">{row["Año 1"] || '-'}</td>
+                  <td className="py-4 px-4">{row["Año 2"] || '-'}</td>
+                  <td className="py-4 px-4">{row["Año 3"] || '-'}</td>
+                  <td className="py-4 px-4">{row["Año 4"] || '-'}</td>
+                  <td className="py-4 px-4">{row["Año 5"] || '-'}</td>
+                  <td className="py-4 px-4">{row["Año 6"] || '-'}</td>
+                  <td className="py-4 px-4">{row["Año 7"] || '-'}</td>
+                  <td className="py-4 px-4 font-bold">{row["Año 8"] || '-'}</td>
                 </motion.tr>
               ))}
             </tbody>

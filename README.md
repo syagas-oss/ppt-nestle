@@ -1,182 +1,180 @@
-# BioLife Presentation System
+# Sistema de Presentación BioLife
 
-<div align="center">
-<img width="1200" height="475" alt="BioLife Banner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+## 📚 Proyecto Educativo - Descripción General
 
-## 📚 Educational Project Overview
+Este es un **sistema de presentación interactiva educativo** que demuestra técnicas modernas de desarrollo web aplicadas a la transformación digital en el sector salud. El proyecto muestra la plataforma BioLife de Nestlé Health Science - una solución integral de nutrición como servicio que transforma la forma en que las personas abordan la nutrición personalizada a través de conocimientos basados en datos y orientación impulsada por IA.
 
-This is an **educational interactive presentation system** that demonstrates modern web development techniques applied to healthcare digital transformation. The project showcases Nestlé Health Science's BioLife platform - a comprehensive nutrition-as-a-service solution that transforms how people approach personalized nutrition through data-driven insights and AI-powered guidance.
+### 🎯 Objetivos de Aprendizaje
 
-### 🎯 Learning Objectives
+Este proyecto sirve como recurso educativo para:
+- **Desarrollo Web Moderno**: React 18, TypeScript, Three.js y arquitecturas frontend contemporáneas
+- **Transformación Digital en Salud**: Cómo las compañías tradicionales de salud se adaptan a los desafíos de la era digital
+- **Estrategia Empresarial**: Análisis de mercado, posicionamiento competitivo y estrategias de entrada al mercado en tecnología de la salud
+- **Gobierno de Datos y Privacidad**: Cumplimiento GDPR, ética de datos y construcción de confianza en aplicaciones de salud
+- **Diseño de Presentaciones Interactivas**: Patrones avanzados de UI/UX para visualización compleja de datos
 
-This project serves as an educational resource for:
-- **Modern Web Development**: React 18, TypeScript, Three.js, and contemporary frontend architectures
-- **Healthcare Digital Transformation**: How traditional healthcare companies adapt to digital age challenges
-- **Business Strategy**: Market analysis, competitive positioning, and go-to-market strategies in health tech
-- **Data Governance & Privacy**: GDPR compliance, data ethics, and trust-building in health applications
-- **Interactive Presentation Design**: Advanced UI/UX patterns for complex data visualization
+## ✨ Características Principales
 
-## ✨ Key Features
+### 🎨 Presentación Interactiva 3D
+- Fondos 3D inmersivos con Three.js
+- Transiciones suaves de diapositivas con Framer Motion
+- Animaciones dinámicas de construcción y revelaciones de contenido
+- Modo de presentación a pantalla completa
 
-### 🎨 Interactive 3D Presentation
-- Immersive 3D backgrounds with Three.js
-- Smooth slide transitions with Framer Motion
-- Dynamic build animations and content reveals
-- Fullscreen presentation mode
+### 🧭 Navegación Avanzada
+- Atajos de teclado (teclas de flecha, barra espaciadora, escape)
+- **Gestos táctiles en móvil**: Deslizar izquierda/derecha para navegar
+- Botones de navegación grandes y siempre visibles en dispositivos móviles
+- Cuadrícula de vista general para navegación rápida de diapositivas
+- Panel de notas del presentador para guía de presentación
+- Indicador de progreso y contador de diapositivas
 
-### 🧭 Advanced Navigation
-- Keyboard shortcuts (arrow keys, spacebar, escape)
-- Overview grid for quick slide navigation
-- Speaker notes panel for presentation guidance
-- Progress indicator and slide counter
+### 📊 Tipos de Contenido Ricos
+- Diapositivas hero con mensajes impactantes
+- Visualización de datos (gráficos, estadísticas, cronogramas)
+- Tarjetas interactivas y árboles de decisión
+- Tablas de análisis de mercado y comparaciones de competidores
+- Visuales de hoja de ruta y planificación estratégica
 
-### 📊 Rich Content Types
-- Hero slides with impactful messaging
-- Data visualization (charts, stats, timelines)
-- Interactive cards and decision trees
-- Market analysis tables and competitor comparisons
-- Roadmap and strategic planning visuals
+### 🖨️ Capacidades de Exportación
+- Funcionalidad de exportación PDF de alta calidad
+- Renderizado automatizado de diapositivas para documentación
+- Generación de materiales de presentación profesional
 
-### 🖨️ Export Capabilities
-- High-quality PDF export functionality
-- Automated slide rendering for documentation
-- Professional presentation materials generation
+## 🛠️ Stack Tecnológico
 
-## 🛠️ Technology Stack
+### Framework Frontend
+- **React 18** - Arquitectura moderna basada en componentes
+- **TypeScript** - Desarrollo con tipos seguros
+- **Vite** - Herramienta rápida de construcción y servidor de desarrollo
 
-### Frontend Framework
-- **React 18** - Modern component-based architecture
-- **TypeScript** - Type-safe development
-- **Vite** - Fast build tool and development server
+### 3D y Animación
+- **Three.js** - Renderizado de escenas 3D vía React Three Fiber
+- **Framer Motion** - Animaciones y transiciones declarativas
+- **@react-three/drei** - Ayudantes útiles para React Three Fiber
 
-### 3D & Animation
-- **Three.js** - 3D scene rendering via React Three Fiber
-- **Framer Motion** - Declarative animations and transitions
-- **@react-three/drei** - Useful helpers for React Three Fiber
+### Estilos y UI
+- **Tailwind CSS** - Framework CSS utility-first
+- **Lucide React** - Biblioteca de iconos hermosa
+- **Glassmorphism Personalizado** - Efectos de diseño moderno
 
-### Styling & UI
-- **Tailwind CSS** - Utility-first CSS framework
-- **Lucide React** - Beautiful icon library
-- **Custom Glassmorphism** - Modern design effects
+### Utilidades
+- **html2canvas** - Generación de capturas de pantalla para exportación PDF
+- **jsPDF** - Creación de documentos PDF
+- **ESLint + Prettier** - Calidad de código y formateo
 
-### Utilities
-- **html2canvas** - Screenshot generation for PDF export
-- **jsPDF** - PDF document creation
-- **ESLint + Prettier** - Code quality and formatting
+## 🚀 Inicio Rápido
 
-## 🚀 Quick Start
+### Prerrequisitos
+- **Node.js** 16+ y npm
 
-### Prerequisites
-- **Node.js** 16+ and npm
+### Instalación
 
-### Installation
-
-1. **Clone the repository**
+1. **Clonar el repositorio**
    ```bash
    git clone https://github.com/syagas-oss/ppt-nestle.git
    cd ppt-nestle
    ```
 
-2. **Install dependencies**
+2. **Instalar dependencias**
    ```bash
    npm install
    ```
 
-3. **Start the development server**
+3. **Iniciar el servidor de desarrollo**
    ```bash
    npm run dev
    ```
 
-4. **Open your browser** to `http://localhost:5173`
+4. **Abrir el navegador** en `http://localhost:5173`
 
-## 🎮 Usage Guide
+## 🎮 Guía de Uso
 
-### Navigation Controls
-- **Arrow Keys / Spacebar**: Navigate between slides
-- **Escape**: Toggle overview grid
-- **F**: Toggle fullscreen mode
-- **N**: Toggle speaker notes
-- **P**: Export presentation to PDF
+### Controles de Navegación
+- **Teclas de Flecha / Barra Espaciadora**: Navegar entre diapositivas
+- **Escape**: Alternar cuadrícula de vista general
+- **F**: Alternar modo pantalla completa
+- **N**: Alternar notas del presentador
+- **P**: Exportar presentación a PDF
 
-### UI Controls
-- **Grid Icon**: Open slide overview
-- **Sticky Note**: Show/hide speaker notes
-- **Printer**: Generate PDF export
-- **Fullscreen**: Toggle presentation mode
+### Controles de UI
+- **Ícono de Cuadrícula**: Abrir vista general de diapositivas
+- **Nota Adhesiva**: Mostrar/ocultar notas del presentador
+- **Impresora**: Generar exportación PDF
+- **Pantalla Completa**: Alternar modo de presentación
 
-## 📁 Project Structure
+## 📁 Estructura del Proyecto
 
 ```
 src/
 ├── components/
-│   ├── Scene3D.tsx          # 3D background animations
-│   └── SlideRenderer.tsx    # Dynamic slide content rendering
-├── types.ts                 # TypeScript type definitions
-├── App.tsx                  # Main application component
-└── main.tsx                 # Application entry point
+│   ├── Scene3D.tsx          # Animaciones de fondo 3D
+│   └── SlideRenderer.tsx    # Renderizado dinámico de contenido de diapositivas
+├── types.ts                 # Definiciones de tipos TypeScript
+├── App.tsx                  # Componente principal de la aplicación
+└── main.tsx                 # Punto de entrada de la aplicación
 
 public/
 └── content/
-    └── content.json         # Presentation slide data
+    └── content.json         # Datos de diapositivas de presentación
 
-Configuration files:
-├── vite.config.ts           # Build configuration
-├── tailwind.config.js       # Styling configuration
-├── tsconfig.json           # TypeScript configuration
-└── package.json            # Dependencies and scripts
+Archivos de configuración:
+├── vite.config.ts           # Configuración de construcción
+├── tailwind.config.js       # Configuración de estilos
+├── tsconfig.json           # Configuración TypeScript
+└── package.json            # Dependencias y scripts
 ```
 
-## 📖 Educational Content
+## 📖 Contenido Educativo
 
-The presentation covers Nestlé Health Science's strategic transformation through BioLife:
+La presentación cubre la transformación estratégica de Nestlé Health Science a través de BioLife:
 
-### 🏢 Company Evolution
-- 160+ year legacy in nutrition science
-- Global market presence and scale
-- Transition from traditional to digital health solutions
+### 🏢 Evolución de la Empresa
+- Legado de 160+ años en ciencia nutricional
+- Presencia y escala global de mercado
+- Transición de soluciones de salud tradicionales a digitales
 
-### 🌐 Market Analysis
-- Digital health consumer behavior patterns
-- Competitive landscape in nutrition apps
-- Market gaps and opportunities
+### 🌐 Análisis de Mercado
+- Patrones de comportamiento del consumidor en salud digital
+- Panorama competitivo en aplicaciones de nutrición
+- Brechas de mercado y oportunidades
 
-### 💡 Strategic Positioning
-- Nutrition-as-a-Service business model
-- Data-driven personalization approach
-- Privacy-first architecture with GDPR compliance
+### 💡 Posicionamiento Estratégico
+- Modelo de negocio Nutrición como Servicio
+- Enfoque de personalización basado en datos
+- Arquitectura centrada en la privacidad con cumplimiento GDPR
 
-### 🏗️ Technical Architecture
-- Conversational AI interfaces
-- Real-time data processing and analytics
-- Secure cloud infrastructure and data governance
+### 🏗️ Arquitectura Técnica
+- Interfaces de IA conversacional
+- Procesamiento y análisis de datos en tiempo real
+- Infraestructura cloud segura y gobierno de datos
 
-### 📈 Business Strategy
-- 18-month roadmap and phased implementation
-- Target market segmentation (25-55 age groups)
-- Revenue model and sustainability planning
+### 📈 Estrategia Empresarial
+- Hoja de ruta de 18 meses e implementación por fases
+- Segmentación de mercado objetivo (grupos de edad 25-55)
+- Modelo de ingresos y planificación de sostenibilidad
 
-## 🎓 Learning Outcomes
+## 🎓 Resultados de Aprendizaje
 
-After exploring this project, you'll understand:
-- How to build interactive presentations with modern web tech
-- Healthcare industry digital transformation strategies
-- Data privacy and compliance in health applications
-- Business model innovation in traditional industries
-- Advanced React patterns for complex UIs
+Después de explorar este proyecto, entenderás:
+- Cómo construir presentaciones interactivas con tecnología web moderna
+- Estrategias de transformación digital en la industria de la salud
+- Privacidad de datos y cumplimiento en aplicaciones de salud
+- Innovación de modelos de negocio en industrias tradicionales
+- Patrones avanzados de React para UIs complejas
 
-## 🤝 Contributing
+## 🤝 Contribución
 
-This is an educational project demonstrating modern web development practices. Feel free to:
-- Explore the codebase to learn advanced React patterns
-- Study the 3D animation implementations
-- Analyze the business strategy content
-- Use it as a reference for similar presentation systems
+Este es un proyecto educativo que demuestra prácticas modernas de desarrollo web. Siéntete libre de:
+- Explorar el código para aprender patrones avanzados de React
+- Estudiar las implementaciones de animación 3D
+- Analizar el contenido de estrategia empresarial
+- Usarlo como referencia para sistemas de presentación similares
 
-## 📄 License
+## 📄 Licencia
 
-Educational project - see repository for details.
+Proyecto educativo - ver repositorio para detalles.
 
 ---
 
-*Built with ❤️ using React, Three.js, and modern web technologies*
+*Construido con ❤️ usando React, Three.js y tecnologías web modernas*

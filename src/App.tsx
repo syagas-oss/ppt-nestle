@@ -21,6 +21,10 @@ const App: React.FC = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
 
+  // Touch gesture states
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [touchEndX, setTouchEndX] = useState<number | null>(null);
+
   const containerRef = useRef<HTMLDivElement>(null);
   const pdfContainerRef = useRef<HTMLDivElement>(null);
 
@@ -113,6 +117,36 @@ const App: React.FC = () => {
     }
   }, [data, isGeneratingPDF]);
 
+  // Touch gesture handlers
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    if (showOverview || isGeneratingPDF) return;
+    setTouchEndX(null);
+    setTouchStartX(e.targetTouches[0].clientX);
+  }, [showOverview, isGeneratingPDF]);
+
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    if (showOverview || isGeneratingPDF) return;
+    setTouchEndX(e.targetTouches[0].clientX);
+  }, [showOverview, isGeneratingPDF]);
+
+  const handleTouchEnd = useCallback(() => {
+    if (!touchStartX || !touchEndX || showOverview || isGeneratingPDF) return;
+
+    const distance = touchStartX - touchEndX;
+    const isLeftSwipe = distance > 50; // Minimum swipe distance
+    const isRightSwipe = distance < -50; // Minimum swipe distance
+
+    if (isLeftSwipe) {
+      navigateForward();
+    } else if (isRightSwipe) {
+      navigateBackward();
+    }
+
+    // Reset touch states
+    setTouchStartX(null);
+    setTouchEndX(null);
+  }, [touchStartX, touchEndX, showOverview, isGeneratingPDF, navigateForward, navigateBackward]);
+
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if ((showOverview || isGeneratingPDF) && e.key !== 'Escape') return;
@@ -142,7 +176,14 @@ const App: React.FC = () => {
   const currentSlide = data.slides[currentSlideIndex];
 
   return (
-    <div ref={containerRef} className="w-full h-screen bg-[#050810] text-white overflow-hidden relative outline-none select-none font-sans" tabIndex={0}>
+    <div
+      ref={containerRef}
+      className="w-full h-screen bg-[#050810] text-white overflow-hidden relative outline-none select-none font-sans"
+      tabIndex={0}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       
       <AnimatePresence>
         {isGeneratingPDF && (
@@ -205,25 +246,44 @@ const App: React.FC = () => {
         />
       </div>
 
-      <div className="absolute bottom-8 right-8 z-50 group flex items-center justify-end">
+      {/* Mobile navigation buttons - always visible and larger */}
+      <div className="md:hidden absolute top-1/2 left-4 right-4 z-50 flex justify-between items-center pointer-events-none">
+        <button
+          onClick={navigateBackward}
+          className="pointer-events-auto p-4 glass rounded-full hover:bg-white/10 active:scale-90 transition-all shadow-2xl"
+          aria-label="Diapositiva anterior"
+        >
+          <ChevronLeft size={24} />
+        </button>
+        <button
+          onClick={navigateForward}
+          className="pointer-events-auto p-4 glass rounded-full hover:bg-white/10 active:scale-90 transition-all shadow-2xl"
+          aria-label="Diapositiva siguiente"
+        >
+          <ChevronRight size={24} />
+        </button>
+      </div>
+
+      {/* Desktop navigation panel */}
+      <div className="hidden md:flex absolute bottom-8 right-8 z-50 group flex items-center justify-end">
         <div className="flex items-center gap-3 p-4 rounded-3xl bg-black/40 backdrop-blur-2xl border border-white/10 shadow-2xl transition-all duration-500 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0">
-          
-          <div className="hidden md:flex flex-col items-end mr-2">
+
+          <div className="flex flex-col items-end mr-2">
             <span className="text-[9px] font-bold text-blue-500 tracking-[0.3em] uppercase">Phase</span>
             <span className="text-2xl font-black italic leading-none">0{currentSlideIndex + 1}</span>
           </div>
 
           <button onClick={navigateBackward} className="p-3 glass rounded-xl hover:bg-white/10 active:scale-90 transition-all"><ChevronLeft size={20}/></button>
           <button onClick={navigateForward} className="p-3 glass rounded-xl hover:bg-white/10 active:scale-90 transition-all"><ChevronRight size={20}/></button>
-          
+
           <div className="h-8 w-px bg-white/10 mx-1" />
-          
+
           <button onClick={() => setShowOverview(true)} className="p-3 glass rounded-xl hover:bg-white/10 active:scale-90 transition-all" title="Ver todas las fases"><Grid size={18} /></button>
           <button onClick={() => setShowNotes(prev => !prev)} className={`p-3 glass rounded-xl hover:bg-white/10 transition-all ${showNotes ? 'text-blue-400 border-blue-500/50' : ''}`} title="Notas del orador"><StickyNote size={18} /></button>
-          
-          <button 
-            onClick={generatePDF} 
-            disabled={isGeneratingPDF} 
+
+          <button
+            onClick={generatePDF}
+            disabled={isGeneratingPDF}
             title="Exportar Presentación a PDF (P)"
             className={`p-3 glass rounded-xl transition-all active:scale-90 ${isGeneratingPDF ? 'cursor-not-allowed opacity-50' : 'hover:bg-white/10 hover:text-blue-400'}`}
           >

@@ -47,7 +47,7 @@
       "id": 4,
       "type": "TIMELINE",
       "title": "TRAYECTORIA ESTRATÉGICA",
-      "subtitle": "Parte 1",
+      "subtitle": "Historia",
       "timeline": [
         {
           "year": "1866",
@@ -68,16 +68,7 @@
           "year": "1999",
           "event": "Liderazgo en nutrición",
           "icon": "HeartPulse"
-        }
-      ],
-      "speakerNotes": "Desde nuestros inicios hasta consolidarnos como líderes."
-    },
-    {
-      "id": 5,
-      "type": "TIMELINE",
-      "title": "TRAYECTORIA ESTRATÉGICA",
-      "subtitle": "Parte 2",
-      "timeline": [
+        },
         {
           "year": "2011",
           "event": "Nestlé Health Science",
@@ -101,7 +92,7 @@
           "highlight": true
         }
       ],
-      "speakerNotes": "Acelerando hacia el futuro digital."
+      "speakerNotes": "Una historia de innovación constante que nos lleva al liderazgo digital."
     },
     {
       "id": 6,
@@ -123,14 +114,8 @@
         },
         {
           "v": "18,7 MM USD",
-          "l": "Mercado Nutrición",
-          "size": "lg",
-          "icon": "PieChart"
-        },
-        {
-          "v": "7.6B",
-          "l": "Ventas USD",
-          "size": "md",
+          "l": "Ventas Totales",
+          "size": "xl",
           "icon": "TrendingUp"
         }
       ],
@@ -145,65 +130,43 @@
     },
     {
       "id": 8,
-      "type": "BENTO_GRID",
+      "type": "FALLING_IMAGES",
       "title": "ALGUNOS TITULARES",
       "subtitle": "Market Signals",
-      "bentoItems": [
-        {
-          "title": "McKinsey & Company (2024)",
-          "description": "Wellness Market 1.8T Opportunity",
-          "icon": "FileText",
-          "variant": "glass",
-          "span": "xl"
-        },
-        {
-          "title": "StartupBlink",
-          "description": "Top HealthTech Startups (2024)",
-          "icon": "Zap",
-          "variant": "glass",
-          "span": "md"
-        },
-        {
-          "title": "Frontiers in Analytical Science",
-          "description": "Wearables bioquímicos & monitoring",
-          "icon": "Activity",
-          "variant": "glass",
-          "span": "md"
-        },
-        {
-          "title": "EU GDPR Guidelines",
-          "description": "Regulaciones de datos de salud 2024",
-          "icon": "Shield",
-          "variant": "glass",
-          "span": "xl"
-        }
+      "itemsImages": [
+        "titular1.png",
+        "titular2.png",
+        "titular3.png",
+        "titular4.png",
+        "titular5.png"
       ]
     },
     {
       "id": 9,
-      "type": "CARDS_CHOICE",
+      "type": "BENTO_GRID",
       "title": "TENDENCIAS",
       "subtitle": "Drivers de Cambio",
-      "items": [
+      "bentoItems": [
         {
-          "t": "Hábitos",
-          "d": "Cambio de consumo",
-          "icon": "RefreshCw"
+          "title": "Cambios de hábitos de consumo",
+          "description": "Personalización & Salud preventiva",
+          "icon": "RefreshCw",
+          "span": "lg",
+          "variant": "glassStrong"
         },
         {
-          "t": "Autodiagnóstico",
-          "d": "Búsqueda activa",
-          "icon": "Search"
+          "title": "Autodiagnóstico",
+          "description": "Sin validación médica",
+          "icon": "Search",
+          "span": "lg",
+          "variant": "glassStrong"
         },
         {
-          "t": "Personalización",
-          "d": "Salud preventiva",
-          "icon": "User"
-        },
-        {
-          "t": "Disrupción",
-          "d": "Sin validación médica",
-          "icon": "AlertTriangle"
+          "title": "Disrupción tecnológica",
+          "description": "Apps de salud y wearables",
+          "icon": "Cpu",
+          "span": "lg",
+          "variant": "glassStrong"
         }
       ]
     },
@@ -222,31 +185,31 @@
       "subtitle": "Análisis Competitivo",
       "tableData": [
         {
+          "h": "Player",
+          "items": [
+            "Wearables & plataformas de datos de salud",
+            "Apps de nutrición y tracking tradicional",
+            "Health & Nutrition con IA avanzada"
+          ],
+          "icon": "Users"
+        },
+        {
           "h": "ACIERTOS",
           "items": [
-            "Wearables & data",
-            "Tracking preciso",
-            "Gamificación básica"
+            "Recolección continua de datos y alta adopción",
+            "Concienciación alimentación, foco en hábitos y control peso",
+            "Biomarcadores. enfoque científico, personalización basada en datos"
           ],
           "icon": "CheckCircle"
         },
         {
           "h": "SIN RESOLVER",
           "items": [
-            "Cambio de hábitos real",
-            "Validación científica",
-            "Privacidad total"
+            "Conversión de datos en decisiones claras, Integración de ciencia nutricional profunda",
+            "Formularios extensos, Enfoque limitado calorías/peso, no a salud integral",
+            "Coste elevado y experiencia compleja y poco accesible"
           ],
           "icon": "XCircle"
-        },
-        {
-          "h": "OPPORTUNITY",
-          "items": [
-            "Integrated Biology",
-            "Trust First",
-            "Long-term Value"
-          ],
-          "icon": "Zap"
         }
       ],
       "speakerNotes": "Miden bien, pero falta el 'So What?' científico."
@@ -298,18 +261,18 @@
       "subtitle": "Opciones",
       "items": [
         {
-          "t": "MARKETPLACE",
-          "d": "Transacción optimizada",
+          "t": "NESTLÉ WELL LIFE",
+          "d": "Marketplace: Transacción optimizada",
           "icon": "ShoppingCart"
         },
         {
-          "t": "CERTIFICACIÓN",
-          "d": "Ser sello de confianza",
+          "t": "NESTLÉ TRUST",
+          "d": "Certificación: Ser sello de confianza",
           "icon": "BadgeCheck"
         },
         {
           "t": "NESTLÉ BIOLIFE",
-          "d": "Relación + aprendizaje + retención",
+          "d": "NaaS: Relación + aprendizaje + retención",
           "icon": "Infinity"
         }
       ]
@@ -321,18 +284,18 @@
       "subtitle": "NaaS",
       "items": [
         {
-          "t": "MARKETPLACE",
-          "d": "Transacción optimizada",
+          "t": "NESTLÉ WELL LIFE",
+          "d": "Marketplace: Transacción optimizada",
           "icon": "ShoppingCart"
         },
         {
-          "t": "CERTIFICACIÓN",
-          "d": "Ser sello de confianza",
+          "t": "NESTLÉ TRUST",
+          "d": "Certificación: Ser sello de confianza",
           "icon": "BadgeCheck"
         },
         {
           "t": "NESTLÉ BIOLIFE",
-          "d": "Relación + aprendizaje + retención",
+          "d": "NaaS: Relación + aprendizaje + retención",
           "icon": "Infinity"
         }
       ],

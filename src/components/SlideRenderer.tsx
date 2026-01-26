@@ -61,7 +61,7 @@ interface SlideRendererProps {
 // Helper para Bento Data (Slides 2, 6, 36)
 const BentoCard: React.FC<{ item: any; delay: number; isVisible: boolean; staticMode?: boolean; itemsCount?: number }> = ({ item, delay, isVisible, staticMode, itemsCount = 4 }) => {
   const getSpan = (s?: string) => {
-    if (itemsCount === 3) return 'md:col-span-1';
+    if (itemsCount === 3 || itemsCount === 6) return 'md:col-span-1'; // Force single column for 3 or 6 item grids
     switch (s) {
       case 'xl': return 'md:col-span-3 lg:col-span-4';
       case 'lg': return 'md:col-span-2 md:row-span-2';
@@ -124,12 +124,12 @@ const BentoCard: React.FC<{ item: any; delay: number; isVisible: boolean; static
 export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex, staticMode = false }) => {
   const containerVariants: Variants = {
     initial: { opacity: staticMode ? 1 : 0 },
-    animate: { opacity: 1, transition: { staggerChildren: 0.1 } }
+    animate: { opacity: 1, transition: { staggerChildren: staticMode ? 0 : 0.1 } }
   };
 
   const itemVariants: Variants = {
-    initial: { y: 30, opacity: 0 },
-    animate: { y: 0, opacity: 1, transition: { type: "spring", damping: 20 } }
+    initial: { y: staticMode ? 0 : 30, opacity: staticMode ? 1 : 0 },
+    animate: { y: 0, opacity: 1, transition: { type: "spring", damping: 20, duration: staticMode ? 0 : undefined } }
   };
 
   const isVisible = (index: number) => {
@@ -154,15 +154,15 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
       <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col space-y-4 p-4 relative">
         {/* Cross-cutting security concern */}
         <motion.div
-          initial={{ opacity: 0, scaleY: 0 }}
+          initial={{ opacity: staticMode ? 1 : 0, scaleY: staticMode ? 1 : 0 }}
           animate={{ opacity: 1, scaleY: 1 }}
-          transition={{ delay: 2, duration: 1 }}
+          transition={{ delay: staticMode ? 0 : 2, duration: staticMode ? 0 : 1 }}
           className="absolute left-[35%] top-6 bottom-6 w-px border-l border-dotted border-gray-400/40 z-10"
         />
         <motion.div
-          initial={{ opacity: 0, y: -10 }}
+          initial={{ opacity: staticMode ? 1 : 0, y: staticMode ? 0 : -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.3 }}
+          transition={{ delay: staticMode ? 0 : 2.3 }}
           className="absolute left-[35%] top-4 transform -translate-x-1/2 z-20"
         >
           <div className="flex flex-col items-center gap-2">
@@ -204,9 +204,9 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
                 return (
                   <div key={techIndex} className="flex items-center">
                     <motion.div
-                      initial={{ opacity: 0, scale: 0.8 }}
+                      initial={{ opacity: staticMode ? 1 : 0, scale: staticMode ? 1 : 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: layerIndex * 0.1 + techIndex * 0.05 }}
+                      transition={{ delay: staticMode ? 0 : layerIndex * 0.1 + techIndex * 0.05 }}
                       className={`${TOKENS.glassStrong} flex flex-col items-center justify-center p-3 rounded-lg w-32 h-20 text-center hover:scale-105 transition-all group shadow-lg border border-white/10`}
                     >
                       <IconComponent size={24} className="text-brand-primary mb-1 group-hover:text-white" />
@@ -216,9 +216,9 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
                     {/* Horizontal arrow between techs (except last, and not in UI layer) */}
                     {!isUILayer && techIndex < layer.technologies.length - 1 && (
                       <motion.div
-                        initial={{ opacity: 0, scaleX: 0 }}
+                        initial={{ opacity: staticMode ? 1 : 0, scaleX: staticMode ? 1 : 0 }}
                         animate={{ opacity: 1, scaleX: 1 }}
-                        transition={{ delay: layerIndex * 0.1 + techIndex * 0.05 + 0.1 }}
+                        transition={{ delay: staticMode ? 0 : layerIndex * 0.1 + techIndex * 0.05 + 0.1 }}
                         className="mx-2"
                       >
                         <Icons.ArrowRight size={16} className="text-white/40" />
@@ -232,9 +232,9 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
             {/* Vertical arrow to next layer (left side, except last) */}
             {layerIndex < (slide.architectureLayers?.length || 0) - 1 && (
               <motion.div
-                initial={{ opacity: 0, scale: 0 }}
+                initial={{ opacity: staticMode ? 1 : 0, scale: staticMode ? 1 : 0 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: layerIndex * 0.2 + 0.8 }}
+                transition={{ delay: staticMode ? 0 : layerIndex * 0.2 + 0.8 }}
                 className="absolute -bottom-8 left-8 z-30"
               >
                 <Icons.ArrowDown size={32} className="text-brand-primary" />
@@ -341,9 +341,9 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
         <div className="w-full max-w-7xl relative min-h-[300px]">
           <div className="absolute left-0 right-0 top-1/2 h-0.5 bg-white/10 -translate-y-1/2 w-full z-0" />
           <motion.div
-            initial={{ scaleX: 0 }}
+            initial={{ scaleX: staticMode ? 1 : 0 }}
             animate={{ scaleX: 1 }}
-            transition={{ duration: 2, ease: "easeInOut" }}
+            transition={{ duration: staticMode ? 0 : 2, ease: "easeInOut" }}
             className="absolute left-0 right-0 top-1/2 h-0.5 bg-gradient-to-r from-blue-900 via-blue-500 to-cyan-400 shadow-[0_0_20px_rgba(59,130,246,0.8)] -translate-y-1/2 origin-left z-0 w-full"
           />
           <div className="flex justify-between items-center relative z-10 h-full w-full">
@@ -353,10 +353,10 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
               return (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, scale: 0 }}
+                  initial={{ opacity: staticMode ? 1 : 0, scale: staticMode ? 1 : 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.3 }}
+                  transition={{ delay: staticMode ? 0 : i * 0.3 }}
                   className="relative flex flex-col items-center group w-32"
                 >
                   <div className={`absolute bottom-10 w-48 text-center transition-all duration-500 ${isTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
@@ -711,21 +711,65 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
     )
   }
 
+  if (slideType === 'FALLING_IMAGES') {
+    const images = (slide as any).itemsImages || [];
+    return (
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center relative overflow-hidden">
+        <div className="mb-12 text-center z-20 bg-black/50 p-6 rounded-3xl backdrop-blur-md border border-white/10">
+          <motion.h2 variants={itemVariants} className="font-bold uppercase tracking-[0.5em] mb-4 text-sm text-blue-500">{slide.subtitle}</motion.h2>
+          <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-black tracking-tighter text-white uppercase italic">{slide.title}</motion.h1>
+        </div>
+
+        <div className="absolute inset-0 z-10 pointer-events-none">
+          {images.map((img: string, i: number) => {
+            // Random positions for falling effect variation
+            const randomX = Math.random() * 80 + 10; // 10% to 90% width
+            const randomRotate = Math.random() * 30 - 15;
+            return (
+              <motion.div
+                key={i}
+                initial={{ y: -500, opacity: 0, rotate: randomRotate, x: `${(i * 20) - 40}%` }} // Distribute horizontally by index initially
+                animate={isVisible(i) ? { y: 0, opacity: 1 } : { y: -500, opacity: 0 }}
+                transition={{
+                  type: "spring",
+                  damping: 12,
+                  stiffness: 50,
+                  delay: i * 0.8 // Sequential falling
+                }}
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] shadow-2xl rounded-lg overflow-hidden border-4 border-white"
+                style={{
+                  zIndex: i,
+                  marginLeft: `${(i % 2 === 0 ? 1 : -1) * (i * 50)}px`, // Slight offset stack
+                  marginTop: `${i * 40}px`
+                }}
+              >
+                <img src={`/assets/titulares/${img}`} alt={`Titular ${i}`} className="w-full h-auto object-cover" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerText = '[Image Placeholder: ' + img + ']' }} />
+              </motion.div>
+            )
+          })}
+        </div>
+      </motion.div>
+    );
+  }
+
   if (slideType === 'BENTO_DATA' || slideType === 'BENTO_GRID') {
     const items = slide.stats || slide.bentoItems || [];
-    const gridClass = items.length === 3
-      ? "grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl"
+    // Force 3 columns for slide 9 or if items is 6, otherwise default logic
+    const isThreeCol = items.length === 3 || items.length === 6 || slide.id === 9;
+
+    const gridClass = isThreeCol
+      ? "grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl"
       : "grid grid-cols-1 md:grid-cols-4 gap-4 w-full";
 
     return (
-      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full max-w-7xl px-4 flex flex-col h-full items-center justify-center mx-auto">
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full max-w-[1800px] px-4 flex flex-col h-full items-center justify-center mx-auto">
         <div className="mb-8 text-center w-full">
           <motion.span variants={itemVariants} className="text-blue-500 font-bold tracking-[0.4em] text-xs uppercase mb-2 block">{slide.subtitle}</motion.span>
           <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-black tracking-tighter uppercase italic leading-none mb-8">{slide.title}</motion.h1>
         </div>
         <div className={`${gridClass} h-fit pb-10`}>
           {items.map((item: any, i: number) => (
-            <BentoCard key={i} item={item} delay={i * 0.1} isVisible={isVisible(i)} staticMode={staticMode} itemsCount={items.length} />
+            <BentoCard key={i} item={item} delay={i * 0.1} isVisible={isVisible(i)} staticMode={staticMode} itemsCount={isThreeCol ? 3 : 4} />
           ))}
         </div>
       </motion.div>
@@ -739,7 +783,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
           <motion.span variants={itemVariants} className="text-blue-500 font-bold tracking-widest text-xs uppercase">{slide.subtitle}</motion.span>
           <motion.h1 variants={itemVariants} className="text-4xl md:text-7xl font-black tracking-tighter uppercase italic">{slide.title}</motion.h1>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className={`grid grid-cols-1 md:grid-cols-${(slide.tableData || []).length} gap-6 w-full`}>
           {slide.tableData?.map((col, i) => (
             <motion.div key={i} variants={itemVariants} animate={isVisible(i) ? "animate" : "initial"} className={`${TOKENS.glassStrong} ${TOKENS.radiusMd} p-8 flex flex-col gap-6 relative overflow-hidden`}>
               {i === 2 && <div className="absolute inset-0 bg-blue-600/10 pointer-events-none" />}

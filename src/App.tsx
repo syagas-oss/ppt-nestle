@@ -100,7 +100,17 @@ const App: React.FC = () => {
         const canvas = await html2canvas(slideElement, {
           scale: 2,
           useCORS: true,
-          backgroundColor: '#050810'
+          backgroundColor: '#050810',
+          width: 1920,
+          height: 1080,
+          windowWidth: 1920,
+          windowHeight: 1080,
+          onclone: (clonedDoc) => {
+            const element = clonedDoc.getElementById(`pdf-${data.slides[i].id}`);
+            if (element) {
+              element.style.transform = 'none';
+            }
+          }
         });
 
         const imgData = canvas.toDataURL('image/jpeg', 0.9);

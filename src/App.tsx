@@ -15,7 +15,7 @@ const App: React.FC = () => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [currentBuildIndex, setCurrentBuildIndex] = useState(-1);
   const [direction, setDirection] = useState(0);
-  
+
   const [showOverview, setShowOverview] = useState(false);
   const [showNotes, setShowNotes] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -59,7 +59,7 @@ const App: React.FC = () => {
 
   const navigateBackward = useCallback(() => {
     if (!data || isGeneratingPDF) return;
-    
+
     if (currentBuildIndex > -1) {
       setCurrentBuildIndex(prev => prev - 1);
     } else if (currentSlideIndex > 0) {
@@ -73,7 +73,7 @@ const App: React.FC = () => {
 
   const toggleFullscreen = useCallback(() => {
     if (!document.fullscreenElement) {
-      containerRef.current?.requestFullscreen().catch(() => {});
+      containerRef.current?.requestFullscreen().catch(() => { });
       setIsFullscreen(true);
     } else {
       document.exitFullscreen();
@@ -164,12 +164,12 @@ const App: React.FC = () => {
   }, [navigateForward, navigateBackward, showOverview, toggleFullscreen, generatePDF, isGeneratingPDF]);
 
   if (!data) return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center bg-[#050810] text-blue-500 font-sans">
-      <div className="text-4xl font-black animate-pulse tracking-tighter italic mb-4">BIO_LIFE_SYSTEM_INIT...</div>
-      <div className="w-48 h-1 bg-gray-800 rounded-full overflow-hidden">
-        <motion.div className="h-full bg-blue-500" initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 2, repeat: Infinity }} />
+    <div className="h-screen w-screen flex flex-col items-center justify-center bg-brand-dark text-brand-primary font-sans">
+      <div className="text-4xl font-display font-medium animate-pulse tracking-tight mb-4">Iniciando BioLife Experience...</div>
+      <div className="w-48 h-1 bg-brand-primary/20 rounded-full overflow-hidden">
+        <motion.div className="h-full bg-brand-primary" initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 2, repeat: Infinity }} />
       </div>
-      {error && <div className="mt-4 text-red-500 font-mono text-xs">{error}</div>}
+      {error && <div className="mt-4 text-brand-secondary font-mono text-xs">{error}</div>}
     </div>
   );
 
@@ -178,16 +178,16 @@ const App: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="w-full h-screen bg-[#050810] text-white overflow-hidden relative outline-none select-none font-sans"
+      className="w-full h-screen bg-brand-dark text-white overflow-hidden relative outline-none select-none font-sans"
       tabIndex={0}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      
+
       <AnimatePresence>
         {isGeneratingPDF && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             className="fixed inset-0 z-[1000] flex flex-col items-center justify-center bg-black/95 backdrop-blur-3xl text-center"
           >
@@ -195,8 +195,8 @@ const App: React.FC = () => {
               <Loader2 className="w-24 h-24 text-blue-500 animate-spin" />
               <Printer className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/30" size={30} />
             </div>
-            <h2 className="text-4xl font-black italic tracking-widest uppercase">Exporting Strategic Nodes</h2>
-            <p className="text-blue-500 font-mono text-xs mt-4 animate-pulse">RENDERING ASSETS AND DATA LAYERS...</p>
+            <h2 className="text-4xl font-display font-medium tracking-tight uppercase">Exporting Strategic Nodes</h2>
+            <p className="text-brand-primary font-mono text-xs mt-4 animate-pulse">RENDERING ASSETS AND DATA LAYERS...</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -207,7 +207,7 @@ const App: React.FC = () => {
             <div className="scale-[1.25] w-full">
               <SlideRenderer slide={slide} buildIndex={100} staticMode={true} />
             </div>
-            <div className="absolute bottom-10 left-10 text-blue-500/40 text-3xl font-black italic">BIO•LIFE</div>
+            <div className="absolute bottom-10 left-10 text-brand-primary/40 text-3xl font-display font-bold">BIO•LIFE</div>
             <div className="absolute bottom-10 right-10 text-white/40 font-mono text-xl">{idx + 1} / {data.slides.length}</div>
           </div>
         ))}
@@ -221,7 +221,7 @@ const App: React.FC = () => {
       </div>
 
       <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_center,transparent_0%,#050810_130%)] pointer-events-none" />
-      
+
       <main className="relative z-20 h-full w-full flex items-center justify-center px-6 md:px-20">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
@@ -239,10 +239,10 @@ const App: React.FC = () => {
       </main>
 
       <div className="absolute top-0 left-0 w-full h-1 bg-white/5 z-50">
-        <motion.div 
-          className="h-full bg-blue-600 shadow-[0_0_20px_rgba(59,130,246,1)]" 
-          animate={{ width: `${((currentSlideIndex + 1) / data.slides.length) * 100}%` }} 
-          transition={{ duration: 0.8 }} 
+        <motion.div
+          className="h-full bg-brand-primary shadow-[0_0_20px_rgba(45,212,191,0.5)]"
+          animate={{ width: `${((currentSlideIndex + 1) / data.slides.length) * 100}%` }}
+          transition={{ duration: 0.8 }}
         />
       </div>
 
@@ -269,12 +269,12 @@ const App: React.FC = () => {
         <div className="flex items-center gap-3 p-4 rounded-3xl bg-black/40 backdrop-blur-2xl border border-white/10 shadow-2xl transition-all duration-500 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0">
 
           <div className="flex flex-col items-end mr-2">
-            <span className="text-[9px] font-bold text-blue-500 tracking-[0.3em] uppercase">Phase</span>
-            <span className="text-2xl font-black italic leading-none">0{currentSlideIndex + 1}</span>
+            <span className="text-[9px] font-bold text-brand-primary tracking-[0.3em] uppercase">Evolución</span>
+            <span className="text-2xl font-display font-bold leading-none">0{currentSlideIndex + 1}</span>
           </div>
 
-          <button onClick={navigateBackward} className="p-3 glass rounded-xl hover:bg-white/10 active:scale-90 transition-all"><ChevronLeft size={20}/></button>
-          <button onClick={navigateForward} className="p-3 glass rounded-xl hover:bg-white/10 active:scale-90 transition-all"><ChevronRight size={20}/></button>
+          <button onClick={navigateBackward} className="p-3 glass rounded-xl hover:bg-white/10 active:scale-90 transition-all"><ChevronLeft size={20} /></button>
+          <button onClick={navigateForward} className="p-3 glass rounded-xl hover:bg-white/10 active:scale-90 transition-all"><ChevronRight size={20} /></button>
 
           <div className="h-8 w-px bg-white/10 mx-1" />
 
@@ -298,13 +298,13 @@ const App: React.FC = () => {
 
       <AnimatePresence>
         {showNotes && (
-          <motion.div 
+          <motion.div
             initial={{ x: 350, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: 350, opacity: 0 }}
             className="absolute top-24 right-8 z-50 w-80 p-8 glass-strong rounded-[2.5rem] shadow-2xl border border-white/10"
           >
-            <div className="flex items-center gap-2 mb-4 border-b border-white/10 pb-3">
-               <StickyNote size={14} className="text-blue-500" />
-               <h3 className="text-[10px] font-black text-blue-500 uppercase tracking-widest">Speaker Protocol</h3>
+            <div className="flex items-center gap-2 mb-4 border-b border-brand-primary/20 pb-3">
+              <StickyNote size={14} className="text-brand-primary" />
+              <h3 className="text-[10px] font-bold text-brand-primary uppercase tracking-widest">Guía del Narrador</h3>
             </div>
             <p className="text-sm text-gray-300 leading-relaxed italic font-light">
               {currentSlide.speakerNotes || "Iniciando secuencia estratégica..."}
@@ -315,25 +315,25 @@ const App: React.FC = () => {
 
       <AnimatePresence>
         {showOverview && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             className="fixed inset-0 z-[200] bg-[#050810]/98 backdrop-blur-3xl flex flex-col p-12 md:p-24 overflow-y-auto"
           >
             <div className="flex justify-between items-center mb-16">
-              <h2 className="text-6xl font-black italic tracking-tighter uppercase">BIO_SYSTEM<span className="text-blue-500">.</span>MAP</h2>
-              <button onClick={() => setShowOverview(false)} className="p-5 glass rounded-full hover:bg-red-500/20 hover:text-red-500 transition-all"><X size={30} /></button>
+              <h2 className="text-6xl font-display font-medium italic tracking-tight uppercase">BIO_SYSTEM<span className="text-brand-primary">.</span>MAP</h2>
+              <button onClick={() => setShowOverview(false)} className="p-5 glass rounded-full hover:bg-brand-secondary/20 hover:text-brand-secondary transition-all"><X size={30} /></button>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {data.slides.map((s, idx) => (
-                <button 
-                  key={idx} 
+                <button
+                  key={idx}
                   onClick={() => { setCurrentSlideIndex(idx); setCurrentBuildIndex(-1); setShowOverview(false); }}
                   className={`group relative text-left transition-all duration-500 rounded-[2.5rem] p-1 ${currentSlideIndex === idx ? 'ring-2 ring-blue-500 scale-105 shadow-[0_0_30px_rgba(59,130,246,0.3)]' : 'opacity-40 hover:opacity-100 hover:scale-105'}`}
                 >
                   <div className="aspect-video p-6 glass flex flex-col justify-end h-full w-full">
-                     <span className="text-xs font-black text-blue-500 uppercase mb-2">PHASE 0{idx + 1}</span>
-                     <h3 className="text-lg font-bold truncate text-white leading-none mb-1">{s.title}</h3>
-                     <p className="text-[10px] text-gray-500 uppercase font-mono tracking-widest truncate">{s.subtitle}</p>
+                    <span className="text-xs font-bold text-brand-primary uppercase mb-2">ETAPA 0{idx + 1}</span>
+                    <h3 className="text-lg font-bold truncate text-white leading-none mb-1 font-display">{s.title}</h3>
+                    <p className="text-[10px] text-gray-500 uppercase font-mono tracking-widest truncate">{s.subtitle}</p>
                   </div>
                 </button>
               ))}
@@ -343,7 +343,7 @@ const App: React.FC = () => {
       </AnimatePresence>
 
       <footer className="absolute bottom-8 left-8 z-50 opacity-20 hover:opacity-100 transition-opacity">
-        <div className="text-4xl font-black italic tracking-tighter uppercase">BIO<span className="text-blue-500">.</span>LIFE</div>
+        <div className="text-4xl font-display font-medium tracking-tight uppercase">BIO<span className="text-brand-primary">.</span>LIFE</div>
       </footer>
     </div>
   );

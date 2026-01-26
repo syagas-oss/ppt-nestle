@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -5,25 +6,21 @@
 
 @layer base {
   body, html {
-    @apply bg-[#050810] text-white overflow-hidden font-sans;
+    @apply bg-[#0a1210] text-[#e2e8f0] overflow-hidden font-sans;
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
-    cursor: default; /* Reset cursor to visible */
+    cursor: default;
   }
 }
 
 @layer components {
   .glass {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    @apply bg-white/[0.03] backdrop-blur-xl border border-white/5 rounded-3xl shadow-lg;
   }
   .glass-strong {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    @apply bg-white/[0.06] backdrop-blur-2xl border border-white/10 rounded-[2rem] shadow-xl;
   }
 }
 

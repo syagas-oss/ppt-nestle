@@ -1,360 +1,1072 @@
-
 {
   "slides": [
-    { 
-      "id": 1, "type": "HERO", "title": "Nestlé\nNutrición", "subtitle": "Digital Transformation", 
+    {
+      "id": 1,
+      "type": "HERO",
+      "title": "Nestlé\nNutrición",
+      "subtitle": "Evolución Digital",
       "highlight": "Ciencia aplicada + Capacidad de escala global",
       "speakerNotes": "Bienvenidos. Hoy presentamos la evolución de NHS hacia un ecosistema digital integrado."
     },
-    { 
-      "id": 2, "type": "BENTO_DATA", "title": "Nestlé Global", "subtitle": "Métricas", 
+    {
+      "id": 2,
+      "type": "BENTO_DATA",
+      "title": "Nestlé Global",
+      "subtitle": "Métricas",
       "stats": [
-        { "v": "185", "l": "Mercados Activos", "size": "md", "icon": "Globe" },
-        { "v": "CHF 91B", "l": "Ventas Totales", "size": "md", "icon": "TrendingUp" },
-        { "v": "277k", "l": "Talento", "size": "md", "icon": "Users" }
+        {
+          "v": "185",
+          "l": "Mercados Activos",
+          "size": "md",
+          "icon": "Globe"
+        },
+        {
+          "v": "CHF 91B",
+          "l": "Ventas Totales",
+          "size": "md",
+          "icon": "TrendingUp"
+        },
+        {
+          "v": "277k",
+          "l": "Talento",
+          "size": "md",
+          "icon": "Users"
+        }
       ],
       "speakerNotes": "Nuestra infraestructura global es la base sobre la que construimos."
     },
     {
-      "id": 3, "type": "KINETIC_BRIDGE", "title": "EL LEGADO", "subtitle": "Historia",
+      "id": 3,
+      "type": "KINETIC_BRIDGE",
+      "title": "EL LEGADO",
+      "subtitle": "Historia",
       "highlight": "Más de un siglo transformando la nutrición en ciencia",
       "speakerNotes": "Una historia de innovación constante."
     },
     {
-      "id": 4, "type": "TIMELINE", "title": "Trayectoria", "subtitle": "Estratégica (1866-2026)",
+      "id": 4,
+      "type": "TIMELINE",
+      "title": "Nuestro Viaje",
+      "subtitle": "Estratégica (1866-2026)",
       "timeline": [
-        { "year": "1866", "event": "Fundación y Primeros Años", "icon": "Home" },
-        { "year": "1905", "event": "Expansión y Fusiones", "icon": "Maximize" },
-        { "year": "1947", "event": "Diversificación Global", "icon": "Globe2" },
-        { "year": "1999", "event": "Liderazgo en Nutrición", "icon": "HeartPulse" },
-        { "year": "2011", "event": "Nestlé Health Science", "icon": "Stethoscope", "highlight": true },
-        { "year": "2026", "event": "Futuro Digital", "icon": "Cpu" }
+        {
+          "year": "1866",
+          "event": "Fundación y Primeros Años",
+          "icon": "Home"
+        },
+        {
+          "year": "1905",
+          "event": "Expansión y Fusiones",
+          "icon": "Maximize"
+        },
+        {
+          "year": "1947",
+          "event": "Diversificación Global",
+          "icon": "Globe2"
+        },
+        {
+          "year": "1999",
+          "event": "Liderazgo en Nutrición",
+          "icon": "HeartPulse"
+        },
+        {
+          "year": "2011",
+          "event": "Nestlé Health Science",
+          "icon": "Stethoscope",
+          "highlight": true
+        },
+        {
+          "year": "2026",
+          "event": "Futuro Digital",
+          "icon": "Cpu"
+        }
       ],
       "speakerNotes": "Hemos integrado el hito crítico de 2011 en nuestra línea de tiempo principal."
     },
-    { 
-      "id": 6, "type": "BENTO_DATA", "title": "Impacto NHS", "subtitle": "Nestlé Health Science", 
+    {
+      "id": 6,
+      "type": "BENTO_DATA",
+      "title": "Impacto NHS",
+      "subtitle": "Nestlé Health Science",
       "stats": [
-        { "v": "+140", "l": "Países", "size": "md", "icon": "MapPin" },
-        { "v": "7.6B", "l": "Ventas USD", "size": "md", "icon": "PieChart", "trend": "8.5" },
-        { "v": "11k", "l": "Talento", "size": "md", "icon": "UserCheck" }
+        {
+          "v": "+140",
+          "l": "Países",
+          "size": "md",
+          "icon": "MapPin"
+        },
+        {
+          "v": "7.6B",
+          "l": "Ventas USD",
+          "size": "md",
+          "icon": "PieChart",
+          "trend": "8.5"
+        },
+        {
+          "v": "11k",
+          "l": "Talento",
+          "size": "md",
+          "icon": "UserCheck"
+        }
       ],
       "speakerNotes": "NHS ya opera a una escala masiva."
     },
-    { 
-      "id": 7, "type": "KINETIC_BRIDGE", "title": "CAOS DIGITAL", "subtitle": "Contexto",
+    {
+      "id": 7,
+      "type": "KINETIC_BRIDGE",
+      "title": "CAOS DIGITAL",
+      "subtitle": "Contexto",
       "highlight": "SEÑALES URGENTES",
       "speakerNotes": "Pero el entorno digital actual es caótico."
     },
-    { 
-      "id": 8, "type": "ALERT", "title": "SALUD DIGITAL", "subtitle": "Realidad del Usuario", 
+    {
+      "id": 8,
+      "type": "ALERT",
+      "title": "SALUD DIGITAL",
+      "subtitle": "Realidad del Usuario",
       "cards": [
-        { "t": "Búsquedas en Salud", "d": "Hábito Instalado", "icon": "Search" },
-        { "t": "Decisiones diarias", "d": "Sin guía clínica", "icon": "AlertTriangle" },
-        { "t": "Interés", "d": "En prevención", "icon": "Activity" }
+        {
+          "t": "Búsquedas en Salud",
+          "d": "Hábito Instalado",
+          "icon": "Search"
+        },
+        {
+          "t": "Decisiones diarias",
+          "d": "Sin guía clínica",
+          "icon": "AlertTriangle"
+        },
+        {
+          "t": "Interés",
+          "d": "En prevención",
+          "icon": "Activity"
+        }
       ],
       "speakerNotes": "El usuario busca salud, pero sin guía."
     },
-    { 
-      "id": 9, "type": "ALERT", "title": "DOLORES", "subtitle": "Sin Resolver", 
+    {
+      "id": 9,
+      "type": "ALERT",
+      "title": "DESAFÍOS",
+      "subtitle": "Sin Resolver",
       "cards": [
-        { "t": "Info-xicación", "d": "Poca claridad", "icon": "CloudFog" },
-        { "t": "Consejos contradictorios", "d": "No sé qué creer", "icon": "HelpCircle" },
-        { "t": "Privacidad", "d": "72% Teme uso indebido de datos", "icon": "ShieldAlert" }
+        {
+          "t": "Info-xicación",
+          "d": "Poca claridad",
+          "icon": "CloudFog"
+        },
+        {
+          "t": "Consejos contradictorios",
+          "d": "No sé qué creer",
+          "icon": "HelpCircle"
+        },
+        {
+          "t": "Privacidad",
+          "d": "72% Teme uso indebido de datos",
+          "icon": "ShieldAlert"
+        }
       ],
       "speakerNotes": "Confusión y desconfianza reinan."
     },
-    { 
-      "id": 10, "type": "HERO_GLOW", "title": "PLAYERS", "subtitle": "Mercado",
+    {
+      "id": 10,
+      "type": "HERO_GLOW",
+      "title": "PLAYERS",
+      "subtitle": "Mercado",
       "highlight": "El mercado está lleno… y sigue abierto",
       "speakerNotes": "Hay muchos actores, pero la oportunidad persiste."
     },
-    { 
-      "id": 11, "type": "BENTO_MARKET", "title": "¿QUÉ HACEN HOY?", "subtitle": "Análisis Competitivo", 
+    {
+      "id": 11,
+      "type": "BENTO_MARKET",
+      "title": "¿QUÉ HACEN HOY?",
+      "subtitle": "Análisis Competitivo",
       "tableData": [
-        { "h": "PLAYER", "items": ["Ecosistemas tech", "Apps de nutrición/fitness"], "icon": "Smartphone" },
-        { "h": "ACIERTOS", "items": ["Medición precisa", "Registro"], "icon": "CheckCircle" },
-        { "h": "SIN RESOLVER", "items": ["Cambio de hábitos", "Abandono"], "icon": "XCircle" }
+        {
+          "h": "PLAYER",
+          "items": [
+            "Ecosistemas tech",
+            "Apps de nutrición/fitness"
+          ],
+          "icon": "Smartphone"
+        },
+        {
+          "h": "ACIERTOS",
+          "items": [
+            "Medición precisa",
+            "Registro"
+          ],
+          "icon": "CheckCircle"
+        },
+        {
+          "h": "SIN RESOLVER",
+          "items": [
+            "Cambio de hábitos",
+            "Abandono"
+          ],
+          "icon": "XCircle"
+        }
       ],
       "speakerNotes": "Miden bien, pero no logran cambiar hábitos a largo plazo."
     },
-    { 
-      "id": 12, "type": "HERO_GLOW", "title": "OPORTUNIDAD", "subtitle": "Visión",
+    {
+      "id": 12,
+      "type": "HERO_GLOW",
+      "title": "OPORTUNIDAD",
+      "subtitle": "Visión",
       "highlight": "SER LA CAPA CONFIABLE",
       "speakerNotes": "Nuestra oportunidad es ser la referencia de confianza absoluta."
     },
-    { 
-      "id": 13, "type": "PYRAMID", "title": "EL GAP", "subtitle": "Posicionamiento",
+    {
+      "id": 13,
+      "type": "PYRAMID",
+      "title": "EL GAP",
+      "subtitle": "Posicionamiento",
       "bentoItems": [
-        { "title": "Confianza", "description": "Respaldo Científico", "icon": "ShieldCheck" },
-        { "title": "Decisión", "description": "Guía Clara", "icon": "GitMerge" },
-        { "title": "Adherencia", "description": "Resultados Reales", "icon": "Repeat" }
+        {
+          "title": "Confianza",
+          "description": "Respaldo Científico",
+          "icon": "ShieldCheck"
+        },
+        {
+          "title": "Decisión",
+          "description": "Guía Clara",
+          "icon": "GitMerge"
+        },
+        {
+          "title": "Adherencia",
+          "description": "Resultados Reales",
+          "icon": "Repeat"
+        }
       ],
       "speakerNotes": "Construimos desde la base: adherencia, decisión, confianza."
     },
-    { 
-      "id": 14, "type": "HERO", "title": "¿POR QUÉ\nTRANSFORMARNOS?", "subtitle": "Strategic Why",
+    {
+      "id": 14,
+      "type": "HERO",
+      "title": "¿POR QUÉ\nTRANSFORMARNOS?",
+      "subtitle": "Strategic Why",
       "speakerNotes": "¿Por qué ahora?"
     },
-    { 
-      "id": 15, "type": "QUADRANT", "title": "EL MERCADO LO EXIGE!", "subtitle": "DAFO",
+    {
+      "id": 15,
+      "type": "QUADRANT",
+      "title": "EL MERCADO LO EXIGE!",
+      "subtitle": "DAFO",
       "bentoItems": [
-        { "title": "Debilidades (D)", "description": "Relación directa limitada y aprendizaje lento sin dato propio", "icon": "AlertOctagon", "variant": "outline" },
-        { "title": "Fortalezas (F)", "description": "Escala, ciencia, marcas y capacidad operativa", "icon": "Award", "variant": "glassStrong" },
-        { "title": "Oportunidades (O)", "description": "Personalización, prevención y suscripción", "icon": "Zap", "variant": "accent" },
-        { "title": "Amenazas (A)", "description": "Big Tech, saturación de apps y crisis de confianza", "icon": "Siren", "variant": "outline" }
+        {
+          "title": "Debilidades (D)",
+          "description": "Relación directa limitada y aprendizaje lento sin dato propio",
+          "icon": "AlertOctagon",
+          "variant": "outline"
+        },
+        {
+          "title": "Fortalezas (F)",
+          "description": "Escala, ciencia, marcas y capacidad operativa",
+          "icon": "Award",
+          "variant": "glassStrong"
+        },
+        {
+          "title": "Oportunidades (O)",
+          "description": "Personalización, prevención y suscripción",
+          "icon": "Zap",
+          "variant": "accent"
+        },
+        {
+          "title": "Amenazas (A)",
+          "description": "Big Tech, saturación de apps y crisis de confianza",
+          "icon": "Siren",
+          "variant": "outline"
+        }
       ]
     },
-    { 
-      "id": 16, "type": "CARDS_CHOICE", "title": "TRES CAMINOS", "subtitle": "Opciones Estratégicas", 
+    {
+      "id": 16,
+      "type": "CARDS_CHOICE",
+      "title": "TRES CAMINOS",
+      "subtitle": "Opciones Estratégicas",
       "items": [
-        { "t": "MARKETPLACE", "d": "Transacción optimizada", "icon": "ShoppingCart" },
-        { "t": "CERTIFICACIÓN", "d": "Ser sello de confianza", "icon": "BadgeCheck" },
-        { "t": "NUTRITION-AS-A-SERVICE", "d": "Relación + aprendizaje + retención", "icon": "Infinity" }
+        {
+          "t": "MARKETPLACE",
+          "d": "Transacción optimizada",
+          "icon": "ShoppingCart"
+        },
+        {
+          "t": "CERTIFICACIÓN",
+          "d": "Ser sello de confianza",
+          "icon": "BadgeCheck"
+        },
+        {
+          "t": "NUTRITION-AS-A-SERVICE",
+          "d": "Relación + aprendizaje + retención",
+          "icon": "Infinity"
+        }
       ],
       "speakerNotes": "Tenemos tres rutas posibles."
     },
-    { 
-      "id": 17, "type": "CARDS_CHOICE", "title": "UNA ELECCIÓN", "subtitle": "El camino elegido",
+    {
+      "id": 17,
+      "type": "CARDS_CHOICE",
+      "title": "UNA ELECCIÓN",
+      "subtitle": "El camino elegido",
       "items": [
-        { "t": "MARKETPLACE", "d": "Transacción optimizada", "icon": "ShoppingCart" },
-        { "t": "CERTIFICACIÓN", "d": "Ser sello de confianza", "icon": "BadgeCheck" },
-        { "t": "NUTRITION-AS-A-SERVICE", "d": "Relación + aprendizaje + retención", "icon": "Infinity" }
+        {
+          "t": "MARKETPLACE",
+          "d": "Transacción optimizada",
+          "icon": "ShoppingCart"
+        },
+        {
+          "t": "CERTIFICACIÓN",
+          "d": "Ser sello de confianza",
+          "icon": "BadgeCheck"
+        },
+        {
+          "t": "NUTRITION-AS-A-SERVICE",
+          "d": "Relación + aprendizaje + retención",
+          "icon": "Infinity"
+        }
       ],
       "speakerNotes": "Elegimos NaaS."
     },
-    { 
-      "id": 18, "type": "BENTO_MARKET", "title": "¿POR QUÉ NaaS?", "subtitle": "Comparativa de Valor", 
+    {
+      "id": 18,
+      "type": "BENTO_MARKET",
+      "title": "¿POR QUÉ NaaS?",
+      "subtitle": "Comparativa de Valor",
       "tableData": [
-        { "h": "MARKETPLACE", "items": ["Impacto: Media", "Dif: Baja", "Viabilidad: Alta", "Confianza: Media", "Retención: Baja"], "icon": "ShoppingCart" },
-        { "h": "CERTIFICACIÓN", "items": ["Impacto: Baja-Media", "Dif: Media", "Viabilidad: Media", "Confianza: Alta", "Retención: Media"], "icon": "BadgeCheck" },
-        { "h": "NaaS", "items": ["Impacto: ALTA", "Dif: ALTA", "Viabilidad: Media-Alta", "Confianza: MUY ALTA", "Retención: ALTA"], "icon": "Infinity" }
+        {
+          "h": "MARKETPLACE",
+          "items": [
+            "Impacto: Media",
+            "Dif: Baja",
+            "Viabilidad: Alta",
+            "Confianza: Media",
+            "Retención: Baja"
+          ],
+          "icon": "ShoppingCart"
+        },
+        {
+          "h": "CERTIFICACIÓN",
+          "items": [
+            "Impacto: Baja-Media",
+            "Dif: Media",
+            "Viabilidad: Media",
+            "Confianza: Alta",
+            "Retención: Media"
+          ],
+          "icon": "BadgeCheck"
+        },
+        {
+          "h": "NaaS",
+          "items": [
+            "Impacto: ALTA",
+            "Dif: ALTA",
+            "Viabilidad: Media-Alta",
+            "Confianza: MUY ALTA",
+            "Retención: ALTA"
+          ],
+          "icon": "Infinity"
+        }
       ],
       "speakerNotes": "NaaS maximiza el impacto y la diferenciación."
     },
-    { 
-      "id": 19, "type": "HERO_FINAL", "title": "BIOLIFE", "subtitle": "La Solución",
+    {
+      "id": 19,
+      "type": "HERO_FINAL",
+      "title": "BIOLIFE",
+      "subtitle": "La Solución",
       "speakerNotes": "Presentamos BioLife."
     },
-    { 
-      "id": 20, "type": "CIRCULAR", "title": "PROPUESTA DE VALOR", "subtitle": "Claro, Personal y Sostenible",
+    {
+      "id": 20,
+      "type": "CIRCULAR",
+      "title": "PROPUESTA DE VALOR",
+      "subtitle": "Claro, Personal y Sostenible",
       "bentoItems": [
-        { "title": "Señales", "description": "Input de datos", "icon": "Radio" },
-        { "title": "Decisiones", "description": "Procesamiento", "icon": "Cpu" },
-        { "title": "Hábitos", "description": "Acción diaria", "icon": "Repeat" },
-        { "title": "Mejora", "description": "Resultado medible", "icon": "TrendingUp" }
+        {
+          "title": "Señales",
+          "description": "Input de datos",
+          "icon": "Radio"
+        },
+        {
+          "title": "Decisiones",
+          "description": "Procesamiento",
+          "icon": "Cpu"
+        },
+        {
+          "title": "Hábitos",
+          "description": "Acción diaria",
+          "icon": "Repeat"
+        },
+        {
+          "title": "Mejora",
+          "description": "Resultado medible",
+          "icon": "TrendingUp"
+        }
       ]
     },
-    { 
-      "id": 21, "type": "BENTO_GRID", "title": "VENTAJA", "subtitle": "No competimos por más datos",
+    {
+      "id": 21,
+      "type": "BENTO_GRID",
+      "title": "VENTAJA",
+      "subtitle": "No competimos por más datos",
       "bentoItems": [
-        { "title": "Acción", "description": "¿Qué hago hoy?", "icon": "PlayCircle", "variant": "glassStrong", "span": "md" },
-        { "title": "Confianza", "description": "¿Por qué esto me aplica a mí?", "icon": "ShieldCheck", "variant": "glassStrong", "span": "md" },
-        { "title": "Adherencia", "description": "Quick win + seguimiento + ajuste", "icon": "Link", "variant": "glassStrong", "span": "xl" }
+        {
+          "title": "Acción",
+          "description": "¿Qué hago hoy?",
+          "icon": "PlayCircle",
+          "variant": "glassStrong",
+          "span": "md"
+        },
+        {
+          "title": "Confianza",
+          "description": "¿Por qué esto me aplica a mí?",
+          "icon": "ShieldCheck",
+          "variant": "glassStrong",
+          "span": "md"
+        },
+        {
+          "title": "Adherencia",
+          "description": "Quick win + seguimiento + ajuste",
+          "icon": "Link",
+          "variant": "glassStrong",
+          "span": "xl"
+        }
       ]
     },
-    { 
-      "id": 22, "type": "ROADMAP", "title": "12,99€/MES", "subtitle": "Hacer los datos útiles y usables",
+    {
+      "id": 22,
+      "type": "ROADMAP",
+      "title": "12,99€/MES",
+      "subtitle": "Hacer los datos útiles y usables",
       "items": [
-        { "t": "Claridad", "d": "Plan ejecutable", "icon": "Sun" },
-        { "t": "Confianza", "d": "Criterio y trazabilidad", "icon": "Lock" },
-        { "t": "Progreso", "d": "Seguimiento + ajuste", "icon": "BarChart2" }
+        {
+          "t": "Claridad",
+          "d": "Plan ejecutable",
+          "icon": "Sun"
+        },
+        {
+          "t": "Confianza",
+          "d": "Criterio y trazabilidad",
+          "icon": "Lock"
+        },
+        {
+          "t": "Progreso",
+          "d": "Seguimiento + ajuste",
+          "icon": "BarChart2"
+        }
       ]
     },
-    { 
-      "id": 23, "type": "ROADMAP", "title": "ROADMAP", "subtitle": "3 Fases, 18 Meses", 
+    {
+      "id": 23,
+      "type": "ROADMAP",
+      "title": "ROADMAP",
+      "subtitle": "3 Fases, 18 Meses",
       "items": [
-        { "t": "Fase 01", "d": "0-3 meses: MVP", "icon": "Flag" },
-        { "t": "Fase 02", "d": "3-9 meses: Integraciones + Personalización", "icon": "Layers" },
-        { "t": "Fase 03", "d": "9-18 meses: Escala + Optimización", "icon": "Rocket" }
+        {
+          "t": "Fase 01",
+          "d": "0-3 meses: MVP",
+          "icon": "Flag"
+        },
+        {
+          "t": "Fase 02",
+          "d": "3-9 meses: Integraciones + Personalización",
+          "icon": "Layers"
+        },
+        {
+          "t": "Fase 03",
+          "d": "9-18 meses: Escala + Optimización",
+          "icon": "Rocket"
+        }
       ]
     },
-    { 
-      "id": 24, "type": "BENTO_GRID", "title": "PRIMER RELEASE", "subtitle": "MVP Features", 
+    {
+      "id": 24,
+      "type": "BENTO_GRID",
+      "title": "PRIMER RELEASE",
+      "subtitle": "MVP Features",
       "bentoItems": [
-          { "title": "App Conversacional", "icon": "MessageSquare", "variant": "glass", "span": "md" },
-          { "title": "Onboarding Rápido", "icon": "Zap", "variant": "glass", "span": "md" },
-          { "title": "Plan 7 Días", "icon": "Calendar", "variant": "glass", "span": "sm" },
-          { "title": "Check-in Semanal", "icon": "CheckSquare", "variant": "glass", "span": "sm" },
-          { "title": "Métricas Visibles", "icon": "BarChart2", "variant": "glass", "span": "md" }
+        {
+          "title": "App Conversacional",
+          "icon": "MessageSquare",
+          "variant": "glass",
+          "span": "md"
+        },
+        {
+          "title": "Onboarding Rápido",
+          "icon": "Zap",
+          "variant": "glass",
+          "span": "md"
+        },
+        {
+          "title": "Plan 7 Días",
+          "icon": "Calendar",
+          "variant": "glass",
+          "span": "sm"
+        },
+        {
+          "title": "Check-in Semanal",
+          "icon": "CheckSquare",
+          "variant": "glass",
+          "span": "sm"
+        },
+        {
+          "title": "Métricas Visibles",
+          "icon": "BarChart2",
+          "variant": "glass",
+          "span": "md"
+        }
       ]
     },
-    { 
-      "id": 25, "type": "HERO_GLOW", "title": "DEMO", "subtitle": "BioLife no informa; Guía",
+    {
+      "id": 25,
+      "type": "HERO_GLOW",
+      "title": "DEMO",
+      "subtitle": "BioLife no informa; Guía",
       "speakerNotes": "Veamos cómo funciona."
     },
     {
-      "id": 26, "type": "ARCHITECTURE_DIAGRAM", "title": "Arquitectura Tecnológica", "subtitle": "Proyecto Nestlé Nutrition (Total)",
+      "id": 26,
+      "type": "ARCHITECTURE_DIAGRAM",
+      "title": "Arquitectura Tecnológica",
+      "subtitle": "Proyecto Nestlé Nutrition (Total)",
       "architectureLayers": [
         {
           "name": "INTERFAZ DE USUARIO",
           "role": "Canales de experiencia",
-          "technologies": ["React", "React Native", "Flutter", "Next.js"]
+          "technologies": [
+            "React",
+            "React Native",
+            "Flutter",
+            "Next.js"
+          ]
         },
         {
           "name": "PRESENTACIÓN / CLIENTE",
           "role": "Renderizado y UI",
-          "technologies": ["HTML", "CSS", "JavaScript", "SSR/SSG"]
+          "technologies": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "SSR/SSG"
+          ]
         },
         {
           "name": "LÓGICA DE NEGOCIO / INTEGRACIONES",
           "role": "Procesamiento y orquestación",
-          "technologies": ["API Gateway (AWS API Gateway / Cloud Endpoints)", "Backend principal (NestJS / Express)", "Contenedores y orquestación (Docker / Kubernetes: EKS/GKE/AKS)", "Comunicación y eventos (AWS SNS/SQS o Apache Kafka)", "Funciones serverless (AWS Lambda)"]
+          "technologies": [
+            "API Gateway (AWS API Gateway / Cloud Endpoints)",
+            "Backend principal (NestJS / Express)",
+            "Contenedores y orquestación (Docker / Kubernetes: EKS/GKE/AKS)",
+            "Comunicación y eventos (AWS SNS/SQS o Apache Kafka)",
+            "Funciones serverless (AWS Lambda)"
+          ]
         },
         {
           "name": "DATOS Y ALMACENAMIENTO",
           "role": "Persistencia y consultas",
-          "technologies": ["Relacional: PostgreSQL", "NoSQL: MongoDB o DynamoDB", "Caché: Redis", "Blob Storage: AWS S3"]
+          "technologies": [
+            "Relacional: PostgreSQL",
+            "NoSQL: MongoDB o DynamoDB",
+            "Caché: Redis",
+            "Blob Storage: AWS S3"
+          ]
         },
         {
           "name": "INFRAESTRUCTURA + DEVOPS + OBSERVABILIDAD",
           "role": "Operación y monitoreo",
-          "technologies": ["Control de versiones: GitHub", "CI/CD: GitHub Actions", "Monitoreo: Grafana, Prometheus", "Logs: ELK Stack", "Autenticación/Security: Auth0 / OAuth2 / JWT / IAM & Secrets"]
+          "technologies": [
+            "Control de versiones: GitHub",
+            "CI/CD: GitHub Actions",
+            "Monitoreo: Grafana, Prometheus",
+            "Logs: ELK Stack",
+            "Autenticación/Security: Auth0 / OAuth2 / JWT / IAM & Secrets"
+          ]
         }
       ],
-      "benefits": ["Escalabilidad", "Modularidad", "Resiliencia", "Facilidad de Despliegue"],
+      "benefits": [
+        "Escalabilidad",
+        "Modularidad",
+        "Resiliencia",
+        "Facilidad de Despliegue"
+      ],
       "speakerNotes": "La arquitectura completa de BioLife combina tecnologías modernas para una solución robusta y escalable."
     },
-    { 
-      "id": 27, "type": "HERO", "title": "ARQUITECTURA\nBIOLIFE", "subtitle": "Technology Stack",
+    {
+      "id": 27,
+      "type": "HERO",
+      "title": "ARQUITECTURA\nBIOLIFE",
+      "subtitle": "Technology Stack",
       "speakerNotes": "La base técnica."
     },
-    { 
-      "id": 28, "type": "BENTO_GRID", "title": "GOBIERNO DEL DATO", "subtitle": "Flujo de Valor",
+    {
+      "id": 28,
+      "type": "BENTO_GRID",
+      "title": "GOBIERNO DEL DATO",
+      "subtitle": "Flujo de Valor",
       "bentoItems": [
-        { "title": "Consentimiento", "description": "Para qué NO / Para qué SÍ", "icon": "ThumbsUp", "variant": "accent", "span": "xl" },
-        { "title": "Trazabilidad", "description": "Quién / Qué / Cuándo", "icon": "FileText", "variant": "glass", "span": "md" },
-        { "title": "Auditoría", "description": "Monitoreo constante", "icon": "Eye", "variant": "glass", "span": "sm" },
-        { "title": "Minimización", "description": "Solo lo necesario", "icon": "Minimize2", "variant": "glass", "span": "sm" },
-        { "title": "Derechos", "description": "Acceso / Portabilidad / Borrado", "icon": "UserCheck", "variant": "glass", "span": "md" }
-      ]
-    },
-    { 
-      "id": 29, "type": "BENTO_GRID", "title": "LEGAL Y COMPLIANCE", "subtitle": "Pilares de Confianza",
-      "bentoItems": [
-        { "title": "GDPR", "description": "Consentimiento / Derechos / Seguridad", "icon": "Shield", "variant": "glassStrong", "span": "md" },
-        { "title": "Claims", "description": "Qué prometemos / Qué NO prometemos", "icon": "MessageSquare", "variant": "glassStrong", "span": "md" },
-        { "title": "Partners", "description": "Contratos y Auditoría", "icon": "Users", "variant": "glassStrong", "span": "xl" }
-      ]
-    },
-    { 
-      "id": 30, "type": "ROADMAP", "title": "PROCESOS", "subtitle": "Diferenciales", 
-      "items": [
-        { "t": "Onboarding", "d": "Inicio", "icon": "UserPlus" },
-        { "t": "Plan 7 días", "d": "Rutina", "icon": "Calendar" },
-        { "t": "Check-in", "d": "Semanal", "icon": "CheckCircle" },
-        { "t": "Ajuste", "d": "Optimización", "icon": "Sliders" }
-      ]
-    },
-    { 
-      "id": 31, "type": "FUNNEL", "title": "GO-TO-MARKET", "subtitle": "Estrategia Comercial",
-      "bentoItems": [
-        { "title": "Preventivos Activos", "subtitle": "Target 25-45", "description": "Hábitos + rendimiento", "icon": "Zap", "variant": "accent", "span": "md" },
-        { "title": "Bienestar y Control", "subtitle": "Target 35-55", "description": "Energía, sueño, digestión", "icon": "Heart", "variant": "accent", "span": "md" }
-      ]
-    },
-    { 
-      "id": 32, "type": "STEPS", "title": "KPIs", "subtitle": "Lo que vamos a medir", 
-      "items": [
-        { "t": "Legal y Cumplimiento", "d": "Auditorías superadas", "icon": "CheckSquare" },
-        { "t": "Seguridad y Privacidad", "d": "Incidentes 0", "icon": "ShieldCheck" },
-        { "t": "Gobernanza de Datos", "d": "Calidad del dato", "icon": "FileCheck" }
-      ]
-    },
-    { 
-      "id": 33, "type": "SQUADS", "title": "SQUADS", "subtitle": "Equipo BioLife",
-      "bentoItems": [
-        { "title": "Clínica & Ciencia", "variant": "glass", "icon": "Microscope" },
-        { "title": "Operaciones & CS", "variant": "glass", "icon": "Settings" },
-        { "title": "Crecimiento & Marketing", "variant": "glass", "icon": "TrendingUp" },
-        { "title": "Producto & UX", "variant": "glass", "icon": "Smartphone" },
-        { "title": "Datos & Confianza", "variant": "glass", "icon": "Shield" }
-      ]
-    },
-    { 
-      "id": 34, "type": "BENTO_GRID", "title": "ROLES TRANSVERSALES", "subtitle": "Velocidad sin romper confianza", 
-      "bentoItems": [
-        { "title": "Legal y Cumplimiento", "description": "Guardianes normativos", "icon": "Scale", "span": "md", "variant": "glassStrong" },
-        { "title": "Seguridad y Privacidad", "description": "Protección del usuario", "icon": "Lock", "span": "md", "variant": "glassStrong" },
-        { "title": "Gobernanza de Datos", "description": "Integridad de la información", "icon": "Database", "span": "xl", "variant": "accent" }
+        {
+          "title": "Consentimiento",
+          "description": "Para qué NO / Para qué SÍ",
+          "icon": "ThumbsUp",
+          "variant": "accent",
+          "span": "xl"
+        },
+        {
+          "title": "Trazabilidad",
+          "description": "Quién / Qué / Cuándo",
+          "icon": "FileText",
+          "variant": "glass",
+          "span": "md"
+        },
+        {
+          "title": "Auditoría",
+          "description": "Monitoreo constante",
+          "icon": "Eye",
+          "variant": "glass",
+          "span": "sm"
+        },
+        {
+          "title": "Minimización",
+          "description": "Solo lo necesario",
+          "icon": "Minimize2",
+          "variant": "glass",
+          "span": "sm"
+        },
+        {
+          "title": "Derechos",
+          "description": "Acceso / Portabilidad / Borrado",
+          "icon": "UserCheck",
+          "variant": "glass",
+          "span": "md"
+        }
       ]
     },
     {
-      "id": 35, "type": "CORPORATE_HIERARCHY", "title": "GOBERNANZA – NewCo (Spin-off controlado)",
+      "id": 29,
+      "type": "BENTO_GRID",
+      "title": "LEGAL Y COMPLIANCE",
+      "subtitle": "Pilares de Confianza",
+      "bentoItems": [
+        {
+          "title": "GDPR",
+          "description": "Consentimiento / Derechos / Seguridad",
+          "icon": "Shield",
+          "variant": "glassStrong",
+          "span": "md"
+        },
+        {
+          "title": "Claims",
+          "description": "Qué prometemos / Qué NO prometemos",
+          "icon": "MessageSquare",
+          "variant": "glassStrong",
+          "span": "md"
+        },
+        {
+          "title": "Partners",
+          "description": "Contratos y Auditoría",
+          "icon": "Users",
+          "variant": "glassStrong",
+          "span": "xl"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "type": "ROADMAP",
+      "title": "PROCESOS",
+      "subtitle": "Diferenciales",
+      "items": [
+        {
+          "t": "Onboarding",
+          "d": "Inicio",
+          "icon": "UserPlus"
+        },
+        {
+          "t": "Plan 7 días",
+          "d": "Rutina",
+          "icon": "Calendar"
+        },
+        {
+          "t": "Check-in",
+          "d": "Semanal",
+          "icon": "CheckCircle"
+        },
+        {
+          "t": "Ajuste",
+          "d": "Optimización",
+          "icon": "Sliders"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "type": "FUNNEL",
+      "title": "GO-TO-MARKET",
+      "subtitle": "Estrategia Comercial",
+      "bentoItems": [
+        {
+          "title": "Preventivos Activos",
+          "subtitle": "Target 25-45",
+          "description": "Hábitos + rendimiento",
+          "icon": "Zap",
+          "variant": "accent",
+          "span": "md"
+        },
+        {
+          "title": "Bienestar y Control",
+          "subtitle": "Target 35-55",
+          "description": "Energía, sueño, digestión",
+          "icon": "Heart",
+          "variant": "accent",
+          "span": "md"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "type": "STEPS",
+      "title": "INDICADORES",
+      "subtitle": "Lo que vamos a medir",
+      "items": [
+        {
+          "t": "Legal y Cumplimiento",
+          "d": "Auditorías superadas",
+          "icon": "CheckSquare"
+        },
+        {
+          "t": "Seguridad y Privacidad",
+          "d": "Incidentes 0",
+          "icon": "ShieldCheck"
+        },
+        {
+          "t": "Gobernanza de Datos",
+          "d": "Calidad del dato",
+          "icon": "FileCheck"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "type": "SQUADS",
+      "title": "SQUADS",
+      "subtitle": "Equipo BioLife",
+      "bentoItems": [
+        {
+          "title": "Clínica & Ciencia",
+          "variant": "glass",
+          "icon": "Microscope"
+        },
+        {
+          "title": "Operaciones & CS",
+          "variant": "glass",
+          "icon": "Settings"
+        },
+        {
+          "title": "Crecimiento & Marketing",
+          "variant": "glass",
+          "icon": "TrendingUp"
+        },
+        {
+          "title": "Producto & UX",
+          "variant": "glass",
+          "icon": "Smartphone"
+        },
+        {
+          "title": "Datos & Confianza",
+          "variant": "glass",
+          "icon": "Shield"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "type": "BENTO_GRID",
+      "title": "ROLES TRANSVERSALES",
+      "subtitle": "Velocidad sin romper confianza",
+      "bentoItems": [
+        {
+          "title": "Legal y Cumplimiento",
+          "description": "Guardianes normativos",
+          "icon": "Scale",
+          "span": "md",
+          "variant": "glassStrong"
+        },
+        {
+          "title": "Seguridad y Privacidad",
+          "description": "Protección del usuario",
+          "icon": "Lock",
+          "span": "md",
+          "variant": "glassStrong"
+        },
+        {
+          "title": "Gobernanza de Datos",
+          "description": "Integridad de la información",
+          "icon": "Database",
+          "span": "xl",
+          "variant": "accent"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "type": "CORPORATE_HIERARCHY",
+      "title": "GOBERNANZA – NewCo (Spin-off controlado)",
       "subtitle": "Estructura de spin-off controlado, 100% owned por Nestlé: autonomía operativa con gobernanza estratégica",
       "corporateEntities": [
-        { "title": "GRUPO NESTLÉ", "icon": "Building2", "level": "parent" },
-        { "title": "NESTLÉ HEALTH SCIENCE", "icon": "HeartPulse", "level": "child" },
-        { "title": "CORE BUSINESS", "subtitle": "Medical Nutrition, Consumer Care, etc.", "icon": "Package", "level": "sibling" },
-        { "title": "SCIENCE & MEDICAL AFFAIRS", "icon": "Microscope", "level": "sibling" },
-        { "title": "DIGITAL & DATA (CORPORATE)", "icon": "Database", "level": "sibling" },
-        { "title": "BIOLIFE", "subtitle": "Digital Health Venture – spin-off", "icon": "Activity", "level": "sibling" }
+        {
+          "title": "GRUPO NESTLÉ",
+          "icon": "Building2",
+          "level": "parent"
+        },
+        {
+          "title": "NESTLÉ HEALTH SCIENCE",
+          "icon": "HeartPulse",
+          "level": "child"
+        },
+        {
+          "title": "CORE BUSINESS",
+          "subtitle": "Medical Nutrition, Consumer Care, etc.",
+          "icon": "Package",
+          "level": "sibling"
+        },
+        {
+          "title": "SCIENCE & MEDICAL AFFAIRS",
+          "icon": "Microscope",
+          "level": "sibling"
+        },
+        {
+          "title": "DIGITAL & DATA (CORPORATE)",
+          "icon": "Database",
+          "level": "sibling"
+        },
+        {
+          "title": "BIOLIFE",
+          "subtitle": "Digital Health Venture – spin-off",
+          "icon": "Activity",
+          "level": "sibling"
+        }
       ]
     },
     {
-      "id": 36, "type": "BENTO_GRID", "title": "GOBERNANZA – Órganos clave",
+      "id": 36,
+      "type": "BENTO_GRID",
+      "title": "GOBERNANZA – Órganos clave",
       "bentoItems": [
-        { "title": "Steering Committee", "icon": "Users", "variant": "glassStrong" },
-        { "title": "Medical & Ethics Board", "icon": "Stethoscope", "variant": "glassStrong" },
-        { "title": "Data Governance", "icon": "Database", "variant": "glassStrong" },
-        { "title": "Dueños de KPIs", "icon": "Target", "variant": "glassStrong" }
+        {
+          "title": "Steering Committee",
+          "icon": "Users",
+          "variant": "glassStrong"
+        },
+        {
+          "title": "Medical & Ethics Board",
+          "icon": "Stethoscope",
+          "variant": "glassStrong"
+        },
+        {
+          "title": "Data Governance",
+          "icon": "Database",
+          "variant": "glassStrong"
+        },
+        {
+          "title": "Dueños de KPIs",
+          "icon": "Target",
+          "variant": "glassStrong"
+        }
       ]
     },
     {
-      "id": 37, "type": "QUADRANT", "title": "GOBERNANZA – Roles complementarios",
+      "id": 37,
+      "type": "QUADRANT",
+      "title": "GOBERNANZA – Roles complementarios",
       "bentoItems": [
-        { "title": "Rol BioLife", "description": "Capa de servicio digital\nMotor de aprendizaje\nPlataforma de relación directa", "icon": "Layers", "variant": "accent" },
-        { "title": "Rol NHS", "description": "Rigor científico y validación clínica\nConfianza, compliance y gobierno del dato\nCapacidad de escala y sostenibilidad a largo plazo", "icon": "ShieldCheck", "variant": "glassStrong" }
+        {
+          "title": "Rol BioLife",
+          "description": "Capa de servicio digital\nMotor de aprendizaje\nPlataforma de relación directa",
+          "icon": "Layers",
+          "variant": "accent"
+        },
+        {
+          "title": "Rol NHS",
+          "description": "Rigor científico y validación clínica\nConfianza, compliance y gobierno del dato\nCapacidad de escala y sostenibilidad a largo plazo",
+          "icon": "ShieldCheck",
+          "variant": "glassStrong"
+        }
       ]
     },
     {
-      "id": 38, "type": "BENTO_GRID", "title": "ESG como pilar del modelo", "subtitle": "Pilares Fundamentales",
+      "id": 38,
+      "type": "BENTO_GRID",
+      "title": "ESG como pilar del modelo",
+      "subtitle": "Pilares Fundamentales",
       "bentoItems": [
-        { "title": "Social", "description": "prevención accesible, empoderamiento del usuario, reducción de desigualdad informativa", "icon": "Users", "esgType": "social", "span": "md" },
-        { "title": "Ambiental", "description": "digital-first, optimización del consumo, escalabilidad eficiente", "icon": "Leaf", "esgType": "ambiental", "span": "md" },
-        { "title": "Gobernanza", "description": "privacy & consent by design, minimización y trazabilidad, gobierno clínico y ético", "icon": "Scale", "esgType": "gobernanza", "span": "md" }
+        {
+          "title": "Social",
+          "description": "prevención accesible, empoderamiento del usuario, reducción de desigualdad informativa",
+          "icon": "Users",
+          "esgType": "social",
+          "span": "md"
+        },
+        {
+          "title": "Ambiental",
+          "description": "digital-first, optimización del consumo, escalabilidad eficiente",
+          "icon": "Leaf",
+          "esgType": "ambiental",
+          "span": "md"
+        },
+        {
+          "title": "Gobernanza",
+          "description": "privacy & consent by design, minimización y trazabilidad, gobierno clínico y ético",
+          "icon": "Scale",
+          "esgType": "gobernanza",
+          "span": "md"
+        }
       ]
     },
     {
-      "id": 39, "type": "CIRCULAR", "title": "ESG – KPIs de impacto y control", "subtitle": "Medición del Impacto Sostenible",
+      "id": 39,
+      "type": "CIRCULAR",
+      "title": "ESG – KPIs de impacto y control",
+      "subtitle": "Medición del Impacto Sostenible",
       "bentoItems": [
-        { "title": "Social", "description": "Adherencia semanal\nMejora autodeclarada de hábitos\nUso sostenido (>90 días)", "icon": "TrendingUp", "esgType": "social" },
-        { "title": "Gobernanza", "description": "% usuarios con consentimiento activo\nIncidentes de datos (target 0)\nAuditorías completadas", "icon": "ShieldCheck", "esgType": "gobernanza" },
-        { "title": "Ambiental", "description": "% interacciones digitales vs físicas\nOptimización de recursos por usuario\nEscala sin incremento proporcional de infraestructura", "icon": "Zap", "esgType": "ambiental" }
+        {
+          "title": "Social",
+          "description": "Adherencia semanal\nMejora autodeclarada de hábitos\nUso sostenido (>90 días)",
+          "icon": "TrendingUp",
+          "esgType": "social"
+        },
+        {
+          "title": "Gobernanza",
+          "description": "% usuarios con consentimiento activo\nIncidentes de datos (target 0)\nAuditorías completadas",
+          "icon": "ShieldCheck",
+          "esgType": "gobernanza"
+        },
+        {
+          "title": "Ambiental",
+          "description": "% interacciones digitales vs físicas\nOptimización de recursos por usuario\nEscala sin incremento proporcional de infraestructura",
+          "icon": "Zap",
+          "esgType": "ambiental"
+        }
       ]
     },
     {
-      "id": 40, "type": "HERO", "title": "FINANCIERO",
+      "id": 40,
+      "type": "HERO",
+      "title": "FINANCIERO",
       "subtitle": "Modelo de Escalado de Ingresos"
     },
     {
-      "id": 41, "type": "ECONOMIC_TABLE", "title": "INGRESOS – Escalado del modelo",
+      "id": 41,
+      "type": "ECONOMIC_TABLE",
+      "title": "INGRESOS – Escalado del modelo",
       "highlight": "Estas cifras no reflejan una app, reflejan la digitalización de un hábito de consumo existente en 9 de cada 10 hogares.",
       "economicData": [
-        { "label": "Usuarios Activos", "Año 1": "150,000", "Año 2": "200,000", "Año 3": "260,000", "Año 4": "320,000", "Año 5": "850,000", "Año 6": "900,000", "Año 7": "10,000,000", "Año 8": "10,000,000" },
-        { "label": "Usuarios Premium", "Año 1": "75,000", "Año 2": "110,000", "Año 3": "156,000", "Año 4": "208,000", "Año 5": "637,500", "Año 6": "675,000", "Año 7": "7,500,000", "Año 8": "8,000,000" },
-        { "label": "Tasa de Conversión", "Año 1": "50%", "Año 2": "55%", "Año 3": "60%", "Año 4": "65%", "Año 5": "75%", "Año 6": "75%", "Año 7": "75%", "Año 8": "80%" },
-        { "label": "Ingreso Total Anual", "Año 1": "11,691,000 €", "Año 2": "17,146,800 €", "Año 3": "24,317,280 €", "Año 4": "32,423,040 €", "Año 5": "99,373,500 €", "Año 6": "105,219,000 €", "Año 7": "1,169,100,000 €", "Año 8": "1,247,040,000 €" }
+        {
+          "label": "Usuarios Activos",
+          "Año 1": "150,000",
+          "Año 2": "200,000",
+          "Año 3": "260,000",
+          "Año 4": "320,000",
+          "Año 5": "850,000",
+          "Año 6": "900,000",
+          "Año 7": "10,000,000",
+          "Año 8": "10,000,000"
+        },
+        {
+          "label": "Usuarios Premium",
+          "Año 1": "75,000",
+          "Año 2": "110,000",
+          "Año 3": "156,000",
+          "Año 4": "208,000",
+          "Año 5": "637,500",
+          "Año 6": "675,000",
+          "Año 7": "7,500,000",
+          "Año 8": "8,000,000"
+        },
+        {
+          "label": "Tasa de Conversión",
+          "Año 1": "50%",
+          "Año 2": "55%",
+          "Año 3": "60%",
+          "Año 4": "65%",
+          "Año 5": "75%",
+          "Año 6": "75%",
+          "Año 7": "75%",
+          "Año 8": "80%"
+        },
+        {
+          "label": "Ingreso Total Anual",
+          "Año 1": "11,691,000 €",
+          "Año 2": "17,146,800 €",
+          "Año 3": "24,317,280 €",
+          "Año 4": "32,423,040 €",
+          "Año 5": "99,373,500 €",
+          "Año 6": "105,219,000 €",
+          "Año 7": "1,169,100,000 €",
+          "Año 8": "1,247,040,000 €"
+        }
       ]
     },
     {
-      "id": 42, "type": "COST_ANALYSIS", "title": "COSTES X USUARIO", "subtitle": "EL CAPEX CONSTRUYE LA PLATAFORMA; EL OPEX ACTIVA LA RENTABILIDAD",
+      "id": 42,
+      "type": "COST_ANALYSIS",
+      "title": "COSTES X USUARIO",
+      "subtitle": "EL CAPEX CONSTRUYE LA PLATAFORMA; EL OPEX ACTIVA LA RENTABILIDAD",
       "costTable": [
-        { "concept": "IA (modelos, inferencia)", "year0": "2,10 €" },
-        { "concept": "Infraestructura cloud", "year0": "0,80 €" },
-        { "concept": "Pasarela de pago", "year0": "0,65 €" },
-        { "concept": "Soporte y operaciones", "year0": "0,55 €" },
-        { "concept": "Total coste variable", "year0": "4,10 €", "isTotal": true }
+        {
+          "concept": "IA (modelos, inferencia)",
+          "year0": "2,10 €"
+        },
+        {
+          "concept": "Infraestructura cloud",
+          "year0": "0,80 €"
+        },
+        {
+          "concept": "Pasarela de pago",
+          "year0": "0,65 €"
+        },
+        {
+          "concept": "Soporte y operaciones",
+          "year0": "0,55 €"
+        },
+        {
+          "concept": "Total coste variable",
+          "year0": "4,10 €",
+          "isTotal": true
+        }
       ],
       "yearEvolution": [
-        { "year": "Año 1", "value": "3.675.000 €" },
-        { "year": "Año 2", "value": "5.390.000 €" },
-        { "year": "Año 3", "value": "7.644.000 €" },
-        { "year": "Año 4", "value": "10.192.000 €" },
-        { "year": "Año 5", "value": "31.237.500 €" },
-        { "year": "Año 6", "value": "33.075.000 €" },
-        { "year": "Año 7", "value": "367.500.000 €" },
-        { "year": "Año 8", "value": "392.000.000 €" }
+        {
+          "year": "Año 1",
+          "value": "3.675.000 €"
+        },
+        {
+          "year": "Año 2",
+          "value": "5.390.000 €"
+        },
+        {
+          "year": "Año 3",
+          "value": "7.644.000 €"
+        },
+        {
+          "year": "Año 4",
+          "value": "10.192.000 €"
+        },
+        {
+          "year": "Año 5",
+          "value": "31.237.500 €"
+        },
+        {
+          "year": "Año 6",
+          "value": "33.075.000 €"
+        },
+        {
+          "year": "Año 7",
+          "value": "367.500.000 €"
+        },
+        {
+          "year": "Año 8",
+          "value": "392.000.000 €"
+        }
       ],
       "metricBoxes": [
         {
@@ -363,7 +1075,10 @@
             "Margen bruto por usuario: 8,89 € de 12,99 €",
             "CAC medio ponderado: 30 €"
           ],
-          "highlightValues": ["8,89 €", "30 €"]
+          "highlightValues": [
+            "8,89 €",
+            "30 €"
+          ]
         },
         {
           "title": "Mensajes clave",
@@ -375,31 +1090,151 @@
       ]
     },
     {
-      "id": 43, "type": "CAPEX_OPEX_TABLES", "title": "INVERSIÓN CAPEX / OPEX",
+      "id": 43,
+      "type": "CAPEX_OPEX_TABLES",
+      "title": "INVERSIÓN CAPEX / OPEX",
       "capexData": [
-        { "concept": "Desarrollo MVP", "cost": "60,000 €" },
-        { "concept": "App Completa V1", "cost": "450,000 €" },
-        { "concept": "Back-end & Microservicios", "cost": "350,000 €" },
-        { "concept": "Motor Clínico + IA Explicable", "cost": "500,000 €" },
-        { "concept": "Integraciones HL7 + DataLake", "cost": "300,000 €" },
-        { "concept": "Marketing Lanzamiento", "cost": "450,000 €" },
-        { "concept": "Equipo Inicial", "cost": "735,000 €" },
-        { "concept": "TOTAL", "cost": "2,845,000 €", "isTotal": true }
+        {
+          "concept": "Desarrollo MVP",
+          "cost": "60,000 €"
+        },
+        {
+          "concept": "App Completa V1",
+          "cost": "450,000 €"
+        },
+        {
+          "concept": "Back-end & Microservicios",
+          "cost": "350,000 €"
+        },
+        {
+          "concept": "Motor Clínico + IA Explicable",
+          "cost": "500,000 €"
+        },
+        {
+          "concept": "Integraciones HL7 + DataLake",
+          "cost": "300,000 €"
+        },
+        {
+          "concept": "Marketing Lanzamiento",
+          "cost": "450,000 €"
+        },
+        {
+          "concept": "Equipo Inicial",
+          "cost": "735,000 €"
+        },
+        {
+          "concept": "TOTAL",
+          "cost": "2,845,000 €",
+          "isTotal": true
+        }
       ],
       "opexData": [
-        { "partida": "Equipo & Operaciones (Producto/Tech/Data/Ops)", "year1": "1,600,000 €", "year2": "1,900,000 €", "year3": "2,200,000 €", "year4": "2,500,000 €", "year5": "4,500,000 €", "year6": "4,800,000 €", "year7": "28,000,000 €", "year8": "30,000,000 €" },
-        { "partida": "Infraestructura & IA (Cloud + Observabilidad)", "year1": "450,000 €", "year2": "550,000 €", "year3": "700,000 €", "year4": "850,000 €", "year5": "2,000,000 €", "year6": "2,100,000 €", "year7": "12,000,000 €", "year8": "13,000,000 €" },
-        { "partida": "Desarrollo & Mantenimiento (Run + proveedores)", "year1": "500,000 €", "year2": "550,000 €", "year3": "650,000 €", "year4": "750,000 €", "year5": "1,200,000 €", "year6": "1,250,000 €", "year7": "8,000,000 €", "year8": "9,000,000 €" },
-        { "partida": "Licencias & Herramientas (SDKs/APIs/Analytics)", "year1": "350,000 €", "year2": "400,000 €", "year3": "450,000 €", "year4": "500,000 €", "year5": "900,000 €", "year6": "950,000 €", "year7": "6,000,000 €", "year8": "6,500,000 €" },
-        { "partida": "Customer Support & Success", "year1": "250,000 €", "year2": "300,000 €", "year3": "400,000 €", "year4": "550,000 €", "year5": "1,600,000 €", "year6": "1,700,000 €", "year7": "10,000,000 €", "year8": "11,000,000 €" },
-        { "partida": "Costes Variables (pagos + fraude + incidencias)", "year1": "200,000 €", "year2": "280,000 €", "year3": "380,000 €", "year4": "500,000 €", "year5": "1,800,000 €", "year6": "1,900,000 €", "year7": "22,000,000 €", "year8": "24,000,000 €" },
-        { "partida": "Compliance, Seguridad & Validación (RGPD + clínico)", "year1": "450,000 €", "year2": "550,000 €", "year3": "700,000 €", "year4": "900,000 €", "year5": "1,400,000 €", "year6": "1,500,000 €", "year7": "8,000,000 €", "year8": "8,700,000 €" },
-        { "partida": "Marketing & G&A (Growth + Legal/Admin)", "year1": "650,000 €", "year2": "920,000 €", "year3": "1,450,000 €", "year4": "2,050,000 €", "year5": "5,100,000 €", "year6": "5,300,000 €", "year7": "116,000,000 €", "year8": "127,800,000 €" },
-        { "partida": "TOTAL OPEX", "year1": "4,450,000 €", "year2": "5,450,000 €", "year3": "6,930,000 €", "year4": "8,600,000 €", "year5": "18,500,000 €", "year6": "19,500,000 €", "year7": "210,000,000 €", "year8": "230,000,000 €", "isTotal": true }
+        {
+          "partida": "Equipo & Operaciones (Producto/Tech/Data/Ops)",
+          "year1": "1,600,000 €",
+          "year2": "1,900,000 €",
+          "year3": "2,200,000 €",
+          "year4": "2,500,000 €",
+          "year5": "4,500,000 €",
+          "year6": "4,800,000 €",
+          "year7": "28,000,000 €",
+          "year8": "30,000,000 €"
+        },
+        {
+          "partida": "Infraestructura & IA (Cloud + Observabilidad)",
+          "year1": "450,000 €",
+          "year2": "550,000 €",
+          "year3": "700,000 €",
+          "year4": "850,000 €",
+          "year5": "2,000,000 €",
+          "year6": "2,100,000 €",
+          "year7": "12,000,000 €",
+          "year8": "13,000,000 €"
+        },
+        {
+          "partida": "Desarrollo & Mantenimiento (Run + proveedores)",
+          "year1": "500,000 €",
+          "year2": "550,000 €",
+          "year3": "650,000 €",
+          "year4": "750,000 €",
+          "year5": "1,200,000 €",
+          "year6": "1,250,000 €",
+          "year7": "8,000,000 €",
+          "year8": "9,000,000 €"
+        },
+        {
+          "partida": "Licencias & Herramientas (SDKs/APIs/Analytics)",
+          "year1": "350,000 €",
+          "year2": "400,000 €",
+          "year3": "450,000 €",
+          "year4": "500,000 €",
+          "year5": "900,000 €",
+          "year6": "950,000 €",
+          "year7": "6,000,000 €",
+          "year8": "6,500,000 €"
+        },
+        {
+          "partida": "Customer Support & Success",
+          "year1": "250,000 €",
+          "year2": "300,000 €",
+          "year3": "400,000 €",
+          "year4": "550,000 €",
+          "year5": "1,600,000 €",
+          "year6": "1,700,000 €",
+          "year7": "10,000,000 €",
+          "year8": "11,000,000 €"
+        },
+        {
+          "partida": "Costes Variables (pagos + fraude + incidencias)",
+          "year1": "200,000 €",
+          "year2": "280,000 €",
+          "year3": "380,000 €",
+          "year4": "500,000 €",
+          "year5": "1,800,000 €",
+          "year6": "1,900,000 €",
+          "year7": "22,000,000 €",
+          "year8": "24,000,000 €"
+        },
+        {
+          "partida": "Compliance, Seguridad & Validación (RGPD + clínico)",
+          "year1": "450,000 €",
+          "year2": "550,000 €",
+          "year3": "700,000 €",
+          "year4": "900,000 €",
+          "year5": "1,400,000 €",
+          "year6": "1,500,000 €",
+          "year7": "8,000,000 €",
+          "year8": "8,700,000 €"
+        },
+        {
+          "partida": "Marketing & G&A (Growth + Legal/Admin)",
+          "year1": "650,000 €",
+          "year2": "920,000 €",
+          "year3": "1,450,000 €",
+          "year4": "2,050,000 €",
+          "year5": "5,100,000 €",
+          "year6": "5,300,000 €",
+          "year7": "116,000,000 €",
+          "year8": "127,800,000 €"
+        },
+        {
+          "partida": "TOTAL OPEX",
+          "year1": "4,450,000 €",
+          "year2": "5,450,000 €",
+          "year3": "6,930,000 €",
+          "year4": "8,600,000 €",
+          "year5": "18,500,000 €",
+          "year6": "19,500,000 €",
+          "year7": "210,000,000 €",
+          "year8": "230,000,000 €",
+          "isTotal": true
+        }
       ]
     },
     {
-      "id": 44, "type": "ECONOMIC_SUMMARY", "title": "RESUMEN EJECUTIVO",
+      "id": 44,
+      "type": "ECONOMIC_SUMMARY",
+      "title": "RESUMEN EJECUTIVO",
       "highlight": "modelo rentable y escalable",
       "economicSummary": [
         {
@@ -449,29 +1284,101 @@
       ]
     },
     {
-      "id": 45, "type": "BENTO_GRID", "title": "MODELO ECONÓMICO",
+      "id": 45,
+      "type": "BENTO_GRID",
+      "title": "MODELO ECONÓMICO",
       "bentoItems": [
-        { "title": "ARPU", "value": "12,99 €", "icon": "DollarSign", "variant": "glassStrong", "span": "md" },
-        { "title": "Churn", "value": "3%", "icon": "Users", "variant": "glassStrong" },
-        { "title": "LTV / CAC", "value": "9,8x", "icon": "TrendingUp", "variant": "glassStrong", "span": "md" },
-        { "title": "EBITDA", "value": "851,5 M€", "subtitle": "año 8", "icon": "BarChart3", "variant": "glassGlow" },
-        { "title": "Payback", "value": "<12 meses", "icon": "Clock", "variant": "glassStrong" },
-        { "title": "ROI", "value": ">10x", "subtitle": "año 8", "icon": "Target", "variant": "glassGlow" }
+        {
+          "title": "ARPU",
+          "value": "12,99 €",
+          "icon": "DollarSign",
+          "variant": "glassStrong",
+          "span": "md"
+        },
+        {
+          "title": "Churn",
+          "value": "3%",
+          "icon": "Users",
+          "variant": "glassStrong"
+        },
+        {
+          "title": "LTV / CAC",
+          "value": "9,8x",
+          "icon": "TrendingUp",
+          "variant": "glassStrong",
+          "span": "md"
+        },
+        {
+          "title": "EBITDA",
+          "value": "851,5 M€",
+          "subtitle": "año 8",
+          "icon": "BarChart3",
+          "variant": "glassGlow"
+        },
+        {
+          "title": "Payback",
+          "value": "<12 meses",
+          "icon": "Clock",
+          "variant": "glassStrong"
+        },
+        {
+          "title": "ROI",
+          "value": ">10x",
+          "subtitle": "año 8",
+          "icon": "Target",
+          "variant": "glassGlow"
+        }
       ]
     },
     {
-      "id": 46, "type": "HERO_FINAL", "title": "CIERRE", "subtitle": "Resumen",
+      "id": 46,
+      "type": "HERO_FINAL",
+      "title": "CIERRE",
+      "subtitle": "Resumen",
       "highlight": "Plan claro - Privacidad real - Progreso medible",
       "speakerNotes": "Confianza. Decisión. Adherencia."
     },
     {
-      "id": 47, "type": "EXECUTIVE_SUMMARY", "title": "PROPUESTA DE VALOR", "subtitle": "Resumen Ejecutivo",
+      "id": 47,
+      "type": "EXECUTIVE_SUMMARY",
+      "title": "PROPUESTA DE VALOR",
+      "subtitle": "Resumen Ejecutivo",
       "bentoItems": [
-        { "title": "Valor Principal", "description": "Nutrición personalizada, predictiva y accionable, basada en datos", "icon": "Star", "variant": "glass", "span": "xl" },
-        { "title": "Factor Diferenciador", "description": "Digital Twin nutricional dinámico + Integración ciencia/datos", "icon": "Award", "variant": "glassStrong", "span": "xl" },
-        { "title": "Problemas que resolvemos", "description": "Falta de personalización & Desconexión entre datos y decisiones", "icon": "Tool", "variant": "glass", "span": "xl" },
-        { "title": "Satisfacción del Cliente", "description": "NPS, Health Outcome Satisfaction, Adherencia", "icon": "Smile", "variant": "glassStrong", "span": "xl" },
-        { "title": "Crecimiento Potencial", "description": "Democratización, Segmentación, B2B2C", "icon": "TrendingUp", "variant": "glass", "span": "xl" }
+        {
+          "title": "Valor Principal",
+          "description": "Nutrición personalizada, predictiva y accionable, basada en datos",
+          "icon": "Star",
+          "variant": "glass",
+          "span": "xl"
+        },
+        {
+          "title": "Factor Diferenciador",
+          "description": "Digital Twin nutricional dinámico + Integración ciencia/datos",
+          "icon": "Award",
+          "variant": "glassStrong",
+          "span": "xl"
+        },
+        {
+          "title": "Problemas que resolvemos",
+          "description": "Falta de personalización & Desconexión entre datos y decisiones",
+          "icon": "Tool",
+          "variant": "glass",
+          "span": "xl"
+        },
+        {
+          "title": "Satisfacción del Cliente",
+          "description": "NPS, Health Outcome Satisfaction, Adherencia",
+          "icon": "Smile",
+          "variant": "glassStrong",
+          "span": "xl"
+        },
+        {
+          "title": "Crecimiento Potencial",
+          "description": "Democratización, Segmentación, B2B2C",
+          "icon": "TrendingUp",
+          "variant": "glass",
+          "span": "xl"
+        }
       ]
     }
   ]

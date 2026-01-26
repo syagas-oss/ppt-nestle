@@ -149,24 +149,45 @@
       "bentoItems": [
         {
           "title": "Cambios de hábitos de consumo",
-          "description": "Personalización & Salud preventiva",
+          "description": "",
           "icon": "RefreshCw",
           "span": "lg",
           "variant": "glassStrong"
         },
         {
           "title": "Autodiagnóstico",
-          "description": "Sin validación médica",
+          "description": "",
           "icon": "Search",
           "span": "lg",
           "variant": "glassStrong"
         },
         {
           "title": "Disrupción tecnológica",
-          "description": "Apps de salud y wearables",
+          "description": "",
           "icon": "Cpu",
           "span": "lg",
           "variant": "glassStrong"
+        },
+        {
+          "title": "Personalización & Salud preventiva",
+          "description": "",
+          "icon": "User",
+          "span": "md",
+          "variant": "glass"
+        },
+        {
+          "title": "Sin validación médica",
+          "description": "",
+          "icon": "AlertTriangle",
+          "span": "md",
+          "variant": "glass"
+        },
+        {
+          "title": "Apps de salud y wearables",
+          "description": "",
+          "icon": "Smartphone",
+          "span": "md",
+          "variant": "glass"
         }
       ]
     },
@@ -184,6 +205,15 @@
       "title": "¿QUÉ HACEN HOY?",
       "subtitle": "Análisis Competitivo",
       "tableData": [
+        {
+          "h": "Marcas",
+          "items": [
+            "Logo Brand A",
+            "Logo Brand B",
+            "Logo Brand C"
+          ],
+          "icon": "Tag"
+        },
         {
           "h": "Player",
           "items": [

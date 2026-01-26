@@ -61,7 +61,13 @@ interface SlideRendererProps {
 // Helper para Bento Data (Slides 2, 6, 36)
 const BentoCard: React.FC<{ item: any; delay: number; isVisible: boolean; staticMode?: boolean; itemsCount?: number }> = ({ item, delay, isVisible, staticMode, itemsCount = 4 }) => {
   const getSpan = (s?: string) => {
-    if (itemsCount === 3 || itemsCount === 6) return 'md:col-span-1'; // Force single column for 3 or 6 item grids
+    // Special handling for Slide 9 (6 items: 3 big top, 3 small bottom)
+    if (itemsCount === 6) {
+      if (s === 'lg') return 'md:col-span-1 md:row-span-2'; // Big/Tall
+      return 'md:col-span-1'; // Small/Standard
+    }
+
+    if (itemsCount === 3) return 'md:col-span-1';
     switch (s) {
       case 'xl': return 'md:col-span-3 lg:col-span-4';
       case 'lg': return 'md:col-span-2 md:row-span-2';

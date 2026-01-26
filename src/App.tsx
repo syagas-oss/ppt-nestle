@@ -30,7 +30,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     // Solo cargamos desde la ruta estandarizada en public/content/
-    fetch('./content/content.json')
+    fetch('./content/content.json?t=' + Date.now())
       .then(res => {
         if (!res.ok) throw new Error("No se pudo cargar content.json");
         return res;

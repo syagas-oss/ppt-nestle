@@ -723,7 +723,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
           <motion.span variants={itemVariants} className="text-blue-500 font-bold tracking-[0.4em] text-xs uppercase mb-2 block">{slide.subtitle}</motion.span>
           <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-black tracking-tighter uppercase italic leading-none mb-8">{slide.title}</motion.h1>
         </div>
-        <div className={`${gridClass} h-fit max-h-[70vh] overflow-y-auto pb-10`}>
+        <div className={`${gridClass} h-fit pb-10`}>
           {items.map((item: any, i: number) => (
             <BentoCard key={i} item={item} delay={i * 0.1} isVisible={isVisible(i)} staticMode={staticMode} itemsCount={items.length} />
           ))}
@@ -1160,7 +1160,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
           {/* Left Table: CAPEX */}
           <motion.div variants={itemVariants} className={`${TOKENS.glassStrong} p-6 rounded-2xl lg:col-span-1`}>
             <h3 className="text-xl font-black text-white uppercase mb-6 text-center border-b border-white/20 pb-4">CAPEX</h3>
-            <div className="space-y-3 max-h-[500px] overflow-y-auto">
+            <div className="space-y-3">
               {slide.capexData?.map((item, idx) => (
                 <div key={idx} className={`flex justify-between items-center py-3 px-4 rounded-lg ${item.isTotal ? 'bg-blue-500/20 border border-blue-400/50 font-bold text-lg' : 'bg-white/5 hover:bg-white/10 transition-colors'}`}>
                   <span className="text-white font-medium text-sm flex-1">{item.concept}</span>
@@ -1173,7 +1173,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
           {/* Right Table: OPEX */}
           <motion.div variants={itemVariants} className={`${TOKENS.glassStrong} p-6 rounded-2xl lg:col-span-2`}>
             <h3 className="text-xl font-black text-white uppercase mb-6 text-center border-b border-white/20 pb-4">OPEX</h3>
-            <div className="space-y-2 max-h-[500px] overflow-y-auto">
+            <div className="space-y-2">
               {/* Header Row */}
               <div className="grid grid-cols-9 gap-1 text-xs font-bold text-blue-400 uppercase mb-3 border-b border-white/10 pb-2">
                 <span className="col-span-2">Partida</span>

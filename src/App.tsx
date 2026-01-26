@@ -163,6 +163,32 @@ const App: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKey);
   }, [navigateForward, navigateBackward, showOverview, toggleFullscreen, generatePDF, isGeneratingPDF]);
 
+
+  const [scale, setScale] = useState(1);
+
+  // Resolution Scaler Logic
+  useEffect(() => {
+    const handleResize = () => {
+      const targetWidth = 1920;
+      const targetHeight = 1080;
+
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
+
+      const scaleX = windowWidth / targetWidth;
+      const scaleY = windowHeight / targetHeight;
+
+      // Use the smaller scale to ensure it fits entirely
+      const newScale = Math.min(scaleX, scaleY);
+      setScale(newScale);
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Init
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   if (!data) return (
     <div className="h-screen w-screen flex flex-col items-center justify-center bg-brand-dark text-brand-primary font-sans">
       <div className="text-4xl font-display font-medium animate-pulse tracking-tight mb-4">Iniciando BioLife Experience...</div>
@@ -178,73 +204,90 @@ const App: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="w-full h-screen bg-brand-dark text-white overflow-hidden relative outline-none select-none font-sans"
+      className="w-full h-screen bg-black flex items-center justify-center overflow-hidden relative outline-none select-none font-sans"
       tabIndex={0}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
 
-      <AnimatePresence>
-        {isGeneratingPDF && (
-          <motion.div
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[1000] flex flex-col items-center justify-center bg-black/95 backdrop-blur-3xl text-center"
-          >
-            <div className="relative mb-8">
-              <Loader2 className="w-24 h-24 text-blue-500 animate-spin" />
-              <Printer className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/30" size={30} />
-            </div>
-            <h2 className="text-4xl font-display font-medium tracking-tight uppercase">Exporting Strategic Nodes</h2>
-            <p className="text-brand-primary font-mono text-xs mt-4 animate-pulse">RENDERING ASSETS AND DATA LAYERS...</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* SCALER CONTAINER */}
+      <div
+        style={{
+          width: '1920px',
+          height: '1080px',
+          transform: `scale(${scale})`,
+          transformOrigin: 'center center',
+          overflow: 'hidden',
+          position: 'relative',
+          backgroundColor: '#0a1210' // brand-dark
+        }}
+        className="shadow-2xl"
+      >
 
-      <div ref={pdfContainerRef} style={{ position: 'fixed', top: 0, left: -20000, width: '1920px', zIndex: -100 }}>
-        {data.slides.map((slide, idx) => (
-          <div key={`pdf-${slide.id}`} style={{ width: '1920px', height: '1080px', background: '#050810', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <div className="scale-[1.25] w-full">
-              <SlideRenderer slide={slide} buildIndex={100} staticMode={true} />
-            </div>
-            <div className="absolute bottom-10 left-10 text-brand-primary/40 text-3xl font-display font-bold">BIO•LIFE</div>
-            <div className="absolute bottom-10 right-10 text-white/40 font-mono text-xl">{idx + 1} / {data.slides.length}</div>
-          </div>
-        ))}
-      </div>
-
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
-        <Canvas dpr={[1, 2]}>
-          <PerspectiveCamera makeDefault position={[0, 0, 15]} fov={40} />
-          <Scene3D slideIndex={currentSlideIndex} slideCount={data.slides.length} />
-        </Canvas>
-      </div>
-
-      <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_center,transparent_0%,#050810_130%)] pointer-events-none" />
-
-      <main className="relative z-20 h-full w-full flex items-center justify-center px-6 md:px-20">
-        <AnimatePresence mode="wait" custom={direction}>
-          <motion.div
-            key={currentSlideIndex}
-            custom={direction}
-            initial={{ opacity: 0, scale: 1.05, filter: 'blur(20px)' }}
-            animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-            exit={{ opacity: 0, scale: 0.95, filter: 'blur(20px)' }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full h-full flex items-center justify-center"
-          >
-            <SlideRenderer slide={currentSlide} buildIndex={currentBuildIndex} />
-          </motion.div>
+        <AnimatePresence>
+          {isGeneratingPDF && (
+            <motion.div
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[1000] flex flex-col items-center justify-center bg-black/95 backdrop-blur-3xl text-center"
+            >
+              <div className="relative mb-8">
+                <Loader2 className="w-24 h-24 text-blue-500 animate-spin" />
+                <Printer className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/30" size={30} />
+              </div>
+              <h2 className="text-4xl font-display font-medium tracking-tight uppercase">Exporting Strategic Nodes</h2>
+              <p className="text-brand-primary font-mono text-xs mt-4 animate-pulse">RENDERING ASSETS AND DATA LAYERS...</p>
+            </motion.div>
+          )}
         </AnimatePresence>
-      </main>
 
-      <div className="absolute top-0 left-0 w-full h-1 bg-white/5 z-50">
-        <motion.div
-          className="h-full bg-brand-primary shadow-[0_0_20px_rgba(45,212,191,0.5)]"
-          animate={{ width: `${((currentSlideIndex + 1) / data.slides.length) * 100}%` }}
-          transition={{ duration: 0.8 }}
-        />
+        <div ref={pdfContainerRef} style={{ position: 'fixed', top: 0, left: -20000, width: '1920px', zIndex: -100 }}>
+          {data.slides.map((slide, idx) => (
+            <div key={`pdf-${slide.id}`} style={{ width: '1920px', height: '1080px', background: '#050810', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div className="scale-[1.25] w-full">
+                <SlideRenderer slide={slide} buildIndex={100} staticMode={true} />
+              </div>
+              <div className="absolute bottom-10 left-10 text-brand-primary/40 text-3xl font-display font-bold">BIO•LIFE</div>
+              <div className="absolute bottom-10 right-10 text-white/40 font-mono text-xl">{idx + 1} / {data.slides.length}</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
+          <Canvas dpr={[1, 2]}>
+            <PerspectiveCamera makeDefault position={[0, 0, 15]} fov={40} />
+            <Scene3D slideIndex={currentSlideIndex} slideCount={data.slides.length} />
+          </Canvas>
+        </div>
+
+        <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_center,transparent_0%,#050810_130%)] pointer-events-none" />
+
+        <main className="relative z-20 h-full w-full flex items-center justify-center px-6 md:px-20">
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.div
+              key={currentSlideIndex}
+              custom={direction}
+              initial={{ opacity: 0, scale: 1.05, filter: 'blur(20px)' }}
+              animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+              exit={{ opacity: 0, scale: 0.95, filter: 'blur(20px)' }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="w-full h-full flex items-center justify-center"
+            >
+              <SlideRenderer slide={currentSlide} buildIndex={currentBuildIndex} />
+            </motion.div>
+          </AnimatePresence>
+        </main>
+
+        <div className="absolute top-0 left-0 w-full h-1 bg-white/5 z-50">
+          <motion.div
+            className="h-full bg-brand-primary shadow-[0_0_20px_rgba(45,212,191,0.5)]"
+            animate={{ width: `${((currentSlideIndex + 1) / data.slides.length) * 100}%` }}
+            transition={{ duration: 0.8 }}
+          />
+        </div>{/* Scaler End */}
       </div>
+
+
 
       {/* Mobile navigation buttons - always visible and larger */}
       <div className="md:hidden absolute top-1/2 left-4 right-4 z-50 flex justify-between items-center pointer-events-none">

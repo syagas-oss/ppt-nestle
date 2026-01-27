@@ -127,6 +127,90 @@ const BentoCard: React.FC<{ item: any; delay: number; isVisible: boolean; static
   );
 };
 
+// Extracted component to safely use useMemo
+const FallingImagesView: React.FC<{ slide: Slide; isVisible: (i: number) => boolean }> = ({ slide, isVisible }) => {
+  const images = (slide as any).itemsImages || [];
+
+  // Stable random positions - calculated only when images list changes
+  const scatteredImages = React.useMemo(() => {
+    return images.map((img: string) => ({
+      img,
+      // Full screen coverage but keeping away from absolute edges
+      x: Math.random() * 85 + 5, // 5% to 90% width
+      y: Math.random() * 70 + 10, // 10% to 80% height to be somewhat centered vertically
+      rotation: Math.random() * 40 - 20, // -20 to 20 deg rotation
+      scale: 0.9 + Math.random() * 0.3, // 0.9 to 1.2 size variation
+      zIndex: Math.floor(Math.random() * 20) + 10 // Layering
+    }));
+  }, [images]);
+
+  return (
+    <div className="w-full h-full flex flex-col items-center justify-center relative overflow-hidden">
+      {/* Title Block with high z-index to stay on top */}
+      <div className="mb-12 text-center z-50 bg-black/60 p-8 rounded-3xl backdrop-blur-md border border-white/10 shadow-2xl relative select-none">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="font-bold uppercase tracking-[0.5em] mb-4 text-sm text-blue-500 font-display"
+        >
+          {slide.subtitle}
+        </motion.h2>
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="text-5xl md:text-7xl font-black tracking-tighter text-white uppercase italic font-display"
+        >
+          {slide.title}
+        </motion.h1>
+      </div>
+
+      {/* Scattered Images Layer */}
+      <div className="absolute inset-0 z-10 pointer-events-none">
+        {scatteredImages.map((item, i) => (
+          <motion.div
+            key={i}
+            initial={{ y: -1200, opacity: 0, scale: 0.8, rotate: item.rotation }}
+            animate={isVisible(i) ? {
+              y: 0, // Animate to 0 offset from top, meaning actual position is "top: item.y vh" 
+              opacity: 1,
+              scale: item.scale,
+              rotate: item.rotation,
+              transition: {
+                type: "spring",
+                damping: 25, // Higher damping for less bounce/jitter "thud" effect
+                stiffness: 70,
+                mass: 1.5, // Heavier feel
+                delay: i * 0.15 // Cascade delay
+              }
+            } : { y: -1200, opacity: 0, scale: 0.8 }}
+            style={{
+              left: `${item.x}vw`,
+              top: `${item.y}vh`,
+              position: 'absolute',
+              zIndex: item.zIndex,
+              width: '350px',
+              maxWidth: '25vw', // Responsive limit
+            }}
+            className="absolute shadow-2xl rounded-lg overflow-hidden border-4 border-white/90 transform origin-center"
+          >
+            <img
+              src={`/assets/titulares/${item.img}`}
+              alt={`Titular ${i}`}
+              className="w-full h-auto object-cover"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+                e.currentTarget.parentElement!.style.display = 'none';
+              }}
+            />
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex, staticMode = false }) => {
   const containerVariants: Variants = {
     initial: { opacity: staticMode ? 1 : 0 },

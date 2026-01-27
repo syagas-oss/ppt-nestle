@@ -95,40 +95,66 @@ const App: React.FC = () => {
       const slides = pdfContainerRef.current.children;
       for (let i = 0; i < slides.length; i++) {
         const slideElement = slides[i] as HTMLElement;
-        await new Promise(r => setTimeout(r, 800)); // Wait for render and GC
+        const slideId = data.slides[i].id;
+        console.log(`>>> Capturing Slide ${i + 1} (ID: ${slideId})`);
 
-        const canvas = await html2canvas(slideElement, {
-          scale: 2,
-          useCORS: true,
-          backgroundColor: '#050810',
-          width: 1920,
-          height: 1080,
-          windowWidth: 1920,
-          windowHeight: 1080,
-          onclone: (clonedDoc) => {
-            // Safety check for data existence
-            if (data && data.slides[i]) {
-              const element = clonedDoc.getElementById(`pdf-${data.slides[i].id}`);
-              if (element) {
-                element.style.transform = 'none';
+        await new Promise(r => setTimeout(r, 1000)); // Buffer for complex slides
+
+        try {
+          const canvas = await html2canvas(slideElement, {
+            scale: 2, // Double resolution for clearer text
+            useCORS: true,
+            logging: false,
+            backgroundColor: '#050810',
+            width: 1920,
+            height: 1080,
+            onclone: (clonedDoc) => {
+              // INJECT CSS FIXES FOR TEXT AND GLASS
+              const style = clonedDoc.createElement('style');
+              style.innerHTML = `
+                * { 
+                  animation: none !important; 
+                  transition: none !important; 
+                  backdrop-filter: none !important;
+                }
+                h1, h2, h3, p, span {
+                  letter-spacing: normal !important;
+                  text-rendering: optimizeLegibility !important;
+                }
+              `;
+              clonedDoc.head.appendChild(style);
+
+              // Remove problematic elements
+              clonedDoc.querySelectorAll('canvas, [data-html2canvas-ignore="true"]').forEach(el => el.remove());
+
+              if (data && data.slides[i]) {
+                const element = clonedDoc.getElementById(`pdf-${data.slides[i].id}`);
+                if (element) {
+                  element.style.transform = 'none';
+                  element.style.opacity = '1';
+                  element.querySelectorAll('*').forEach((child: any) => {
+                    if (child.style.opacity === '0') child.style.opacity = '1';
+                    if (child.style.visibility === 'hidden') child.style.visibility = 'visible';
+                  });
+                }
               }
             }
-          },
-          ignoreElements: (element) => {
-            return element.tagName.toLowerCase() === 'canvas';
-          }
-        });
+          });
 
-        const imgData = canvas.toDataURL('image/jpeg', 0.8);
-        if (i > 0) pdf.addPage([1920, 1080], 'landscape');
-        pdf.addImage(imgData, 'JPEG', 0, 0, 1920, 1080);
-        console.log(`Slide ${i + 1} generated`);
+          const imgData = canvas.toDataURL('image/jpeg', 0.95);
+          if (i > 0) pdf.addPage([1920, 1080], 'landscape');
+          pdf.addImage(imgData, 'JPEG', 0, 0, 1920, 1080, undefined, 'FAST');
+          console.log(`<<< Slide ${i + 1} Done`);
+        } catch (slideErr) {
+          console.error(`Error on Slide ${i + 1}:`, slideErr);
+          if (i > 0) pdf.addPage([1920, 1080], 'landscape');
+          pdf.text(`Export Error on Slide ${i + 1}`, 50, 50);
+        }
 
-        // Force small GC pause
-        await new Promise(r => setTimeout(r, 100));
+        await new Promise(r => setTimeout(r, 200));
       }
 
-      pdf.save('Nestle-BioLife-Presentation.pdf');
+      pdf.save(`Presentation-${new Date().getTime()}.pdf`);
     } catch (err) {
       console.error("PDF Error:", err);
       alert("Error generating PDF export.");
@@ -264,7 +290,7 @@ const App: React.FC = () => {
         <div ref={pdfContainerRef} style={{ position: 'fixed', top: 0, left: -20000, width: '1920px', zIndex: -100 }}>
           {data.slides.map((slide, idx) => (
             <div key={`pdf-${slide.id}`} id={`pdf-${slide.id}`} style={{ width: '1920px', height: '1080px', background: '#050810', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <div className="scale-[1.25] w-full">
+              <div className="w-full h-full">
                 <SlideRenderer slide={slide} buildIndex={100} staticMode={true} />
               </div>
               <div className="absolute bottom-10 left-10 text-brand-primary/40 text-3xl font-display font-bold">BIO•LIFE</div>
@@ -282,7 +308,8 @@ const App: React.FC = () => {
 
         <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_center,transparent_0%,#050810_130%)] pointer-events-none" />
 
-        <main className="relative z-20 h-full w-full flex items-center justify-center px-6 md:px-20">
+        <main className={`relative z-20 h-full w-full flex items-center justify-center ${currentSlide.type === 'INITIAL_ANIMATION' ? '' : 'px-6 md:px-20'}`}>
+
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={currentSlideIndex}

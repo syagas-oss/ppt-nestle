@@ -8,6 +8,8 @@ import {
   SiGithub, SiGithubactions, SiGrafana, SiPrometheus, SiElasticsearch, SiAuth0
 } from 'react-icons/si';
 import { Slide } from '../types';
+import { InitialAnimation } from './InitialAnimation';
+
 
 // Tech to icon mapping
 const techIconMap: Record<string, React.ComponentType<any>> = {
@@ -35,16 +37,16 @@ const techIconMap: Record<string, React.ComponentType<any>> = {
 };
 
 // Design Tokens 2026
-const TOKENS = {
-  glass: "glass",
-  glassStrong: "glass-strong",
+const getTOKENS = (staticMode: boolean) => ({
+  glass: staticMode ? "bg-white/10 border border-white/10 rounded-3xl shadow-lg" : "glass",
+  glassStrong: staticMode ? "bg-white/10 border border-white/10 rounded-[2rem] shadow-xl" : "glass-strong",
   glassAccent: "bg-brand-primary/10 border border-brand-primary/20 backdrop-blur-xl rounded-[2rem]",
-  glassGlow: "bg-brand-primary/5 border border-brand-primary/20 backdrop-blur-2xl shadow-[0_0_40px_rgba(45,212,191,0.15)] rounded-[2.5rem]",
-  glassHolo: "bg-brand-dark/40 border border-brand-primary/30 backdrop-blur-xl shadow-[0_0_50px_-10px_rgba(45,212,191,0.1)] rounded-[3rem]",
+  glassGlow: staticMode ? "bg-brand-primary/5 border border-brand-primary/20 shadow-[0_0_40px_rgba(45,212,191,0.15)] rounded-[2.5rem]" : "bg-brand-primary/5 border border-brand-primary/20 backdrop-blur-2xl shadow-[0_0_40px_rgba(45,212,191,0.15)] rounded-[2.5rem]",
+  glassHolo: staticMode ? "bg-brand-dark/40 border border-brand-primary/30 shadow-[0_0_50px_-10px_rgba(45,212,191,0.1)] rounded-[3rem]" : "bg-brand-dark/40 border border-brand-primary/30 backdrop-blur-xl shadow-[0_0_50px_-10px_rgba(45,212,191,0.1)] rounded-[3rem]",
   radiusMd: "rounded-[2rem]",
   shadow: "shadow-xl",
   textGradient: "bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary",
-};
+});
 
 const IconMapper: React.FC<{ name?: string; size?: number; className?: string }> = ({ name, size = 24, className }) => {
   if (!name) return null;
@@ -59,7 +61,9 @@ interface SlideRendererProps {
 }
 
 // Helper para Bento Data (Slides 2, 6, 36)
-const BentoCard: React.FC<{ item: any; delay: number; isVisible: boolean; staticMode?: boolean; itemsCount?: number }> = ({ item, delay, isVisible, staticMode, itemsCount = 4 }) => {
+const BentoCard: React.FC<{ item: any; delay: number; isVisible: boolean; staticMode?: boolean; itemsCount?: number }> = ({ item, delay, isVisible, staticMode = false, itemsCount = 4 }) => {
+  const TOKENS = getTOKENS(staticMode);
+
   const getSpan = (s?: string) => {
     // Special handling for Slide 9 (6 items: 3 big top, 3 small bottom)
     if (itemsCount === 6) {
@@ -212,6 +216,8 @@ const FallingImagesView: React.FC<{ slide: Slide; isVisible: (i: number) => bool
 };
 
 export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex, staticMode = false }) => {
+  const TOKENS = getTOKENS(staticMode);
+
   const containerVariants: Variants = {
     initial: { opacity: staticMode ? 1 : 0 },
     animate: { opacity: 1, transition: { staggerChildren: staticMode ? 0 : 0.1 } }
@@ -230,6 +236,12 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
 
   const slideType = (slide.type || 'HERO').toString().toUpperCase().trim();
 
+  // --- RENDERER: INITIAL ANIMATION ---
+  if (slideType === 'INITIAL_ANIMATION') {
+    return <InitialAnimation />;
+  }
+
+
   // --- RENDERER: ARCHITECTURE DIAGRAM ---
   if (slideType === 'ARCHITECTURE_DIAGRAM') {
     const layerColors = [
@@ -247,7 +259,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
           initial={{ opacity: staticMode ? 1 : 0, scaleY: staticMode ? 1 : 0 }}
           animate={{ opacity: 1, scaleY: 1 }}
           transition={{ delay: staticMode ? 0 : 2, duration: staticMode ? 0 : 1 }}
-          className="absolute left-[35%] top-6 bottom-6 w-px border-l border-dotted border-gray-400/40 z-10"
+          className={`absolute left-[35%] top-6 bottom-6 w-px border-l ${staticMode ? 'border-solid border-white/20' : 'border-dotted border-gray-400/40'} z-10`}
         />
         <motion.div
           initial={{ opacity: staticMode ? 1 : 0, y: staticMode ? 0 : -10 }}
@@ -284,9 +296,9 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
             </div>
 
             {/* Visual separator (subtle gradient cut) */}
-            <div className="w-px bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
-
-            {/* Right area: Technology Boxes in a horizontal row */}
+            <div
+              className={`w-px h-full ${staticMode ? 'bg-white/20' : 'bg-gradient-to-b from-transparent via-white/20 to-transparent'}`}
+            /> {/* Right area: Technology Boxes in a horizontal row */}
             <div className="flex-1 flex items-center justify-start space-x-4 px-6 overflow-x-auto">
               {layer.technologies?.map((tech, techIndex) => {
                 const IconComponent = techIconMap[tech.split(':')[0].trim()] || techIconMap[tech.split('(')[0].trim()] || Icons.Code;
@@ -434,7 +446,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
             initial={{ scaleX: staticMode ? 1 : 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: staticMode ? 0 : 2, ease: "easeInOut" }}
-            className="absolute left-0 right-0 top-1/2 h-0.5 bg-gradient-to-r from-blue-900 via-blue-500 to-cyan-400 shadow-[0_0_20px_rgba(59,130,246,0.8)] -translate-y-1/2 origin-left z-0 w-full"
+            className={`absolute left-0 right-0 top-1/2 h-0.5 bg-gradient-to-r from-blue-900 via-blue-500 to-cyan-400 ${staticMode ? '' : 'shadow-[0_0_20px_rgba(59,130,246,0.8)]'} -translate-y-1/2 origin-left z-0 w-full`}
           />
           <div className="flex justify-between items-center relative z-10 h-full w-full">
             {timelineData.map((item: any, i: number) => {

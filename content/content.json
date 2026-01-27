@@ -95,7 +95,7 @@
       "speakerNotes": "Una historia de innovación constante que nos lleva al liderazgo digital."
     },
     {
-      "id": 6,
+      "id": 5,
       "type": "BENTO_DATA",
       "title": "Impacto NHS",
       "subtitle": "Nestlé Health Science",
@@ -122,14 +122,14 @@
       "speakerNotes": "NHS ya opera a una escala masiva en un mercado gigante."
     },
     {
-      "id": 7,
+      "id": 6,
       "type": "HERO",
       "title": "¿QUÉ ESTÁ\nPASANDO?",
       "subtitle": "Contexto",
       "speakerNotes": "El entorno está cambiando rápidamente."
     },
     {
-      "id": 8,
+      "id": 7,
       "type": "FALLING_IMAGES",
       "title": "ALGUNOS TITULARES",
       "subtitle": "Market Signals",
@@ -148,7 +148,7 @@
       ]
     },
     {
-      "id": 9,
+      "id": 8,
       "type": "BENTO_GRID",
       "title": "TENDENCIAS",
       "subtitle": "Drivers de Cambio",
@@ -198,7 +198,7 @@
       ]
     },
     {
-      "id": 10,
+      "id": 9,
       "type": "HERO_GLOW",
       "title": "PLAYERS",
       "subtitle": "Mercado",
@@ -206,7 +206,7 @@
       "speakerNotes": "Hay muchos actores, pero la oportunidad persiste."
     },
     {
-      "id": 11,
+      "id": 10,
       "type": "BENTO_MARKET",
       "title": "¿QUÉ HACEN HOY?",
       "subtitle": "Análisis Competitivo",
@@ -251,7 +251,7 @@
       "speakerNotes": "Miden bien, pero falta el 'So What?' científico."
     },
     {
-      "id": 12,
+      "id": 11,
       "type": "QUADRANT",
       "title": "DAFO",
       "subtitle": "El Mercado lo Exige",
@@ -283,7 +283,7 @@
       ]
     },
     {
-      "id": 13,
+      "id": 12,
       "type": "HERO_GLOW",
       "title": "ESCENARIOS",
       "subtitle": "Visión Estratégica",
@@ -291,209 +291,111 @@
       "speakerNotes": "Ante esto, ¿dónde nos situamos?"
     },
     {
-      "id": 14,
+      "id": 13,
       "type": "CARDS_CHOICE",
       "title": "TRES CAMINOS",
       "subtitle": "Opciones",
-      "items": [
-        {
-          "t": "NESTLÉ WELL LIFE",
-          "d": "Marketplace: Transacción optimizada",
-          "icon": "ShoppingCart"
-        },
-        {
-          "t": "NESTLÉ TRUST",
-          "d": "Certificación: Ser sello de confianza",
-          "icon": "BadgeCheck"
-        },
-        {
-          "t": "NESTLÉ BIOLIFE",
-          "d": "NaaS: Relación + aprendizaje + retención",
-          "icon": "Infinity"
-        }
-      ]
-    },
-    {
-      "id": 15,
-      "type": "CARDS_CHOICE",
-      "title": "UNA ELECCIÓN",
-      "subtitle": "NaaS",
-      "highlightIndex": 2,
-      "items": [
-        {
-          "t": "NESTLÉ WELL LIFE",
-          "d": "Marketplace: Transacción optimizada",
-          "icon": "ShoppingCart"
-        },
-        {
-          "t": "NESTLÉ TRUST",
-          "d": "Certificación: Ser sello de confianza",
-          "icon": "BadgeCheck"
-        },
-        {
-          "t": "NESTLÉ BIOLIFE",
-          "d": "NaaS: Relación + aprendizaje + retención",
-          "icon": "Infinity"
-        }
+      "builds": [
+        0,
+        1
       ],
-      "speakerNotes": "Elegimos construir BioLife."
-    },
-    {
-      "id": 16,
-      "type": "BENTO_MARKET",
-      "title": "¿POR QUÉ BIOLIFE?",
-      "subtitle": "Criterio de Impacto",
-      "tableData": [
-        {
-          "h": "Well Life",
-          "items": [
-            "Impacto: MEDIA",
-            "Diferenciación: BAJA"
-          ],
-          "icon": "Activity"
-        },
-        {
-          "h": "Trust",
-          "items": [
-            "Impacto: BAJA-MEDIA",
-            "Diferenciación: MEDIA"
-          ],
-          "icon": "Shield"
-        },
-        {
-          "h": "BIOLIFE",
-          "items": [
-            "Impacto: ALTA",
-            "Diferenciación: ALTA"
-          ],
-          "icon": "Infinity"
-        }
-      ]
-    },
-    {
-      "id": 17,
-      "type": "VIDEO",
-      "title": "DEMO SCENARIO",
-      "subtitle": "Presentación Sara",
-      "speakerNotes": "Video presentacion escenario."
-    },
-    {
-      "id": 18,
-      "type": "STEPS",
-      "title": "DIGITAL HUMAN",
-      "subtitle": "Evolutivo",
       "items": [
         {
-          "t": "Digital Human Evolutivo",
-          "d": "Avatar interactivo"
+          "t": "NESTLÉ WELL LIFE",
+          "d": "Marketplace: Transacción optimizada",
+          "icon": "ShoppingCart"
         },
         {
-          "t": "Integración de datos",
-          "d": "Unified data lake"
+          "t": "NESTLÉ TRUST",
+          "d": "Certificación: Ser sello de confianza",
+          "icon": "BadgeCheck"
         },
         {
-          "t": "IA Predictiva",
-          "d": "Anticipación de necesidades"
-        },
-        {
-          "t": "Recomendaciones",
-          "d": "+ Validación científica"
-        },
-        {
-          "t": "Personalización",
-          "d": "Tiempo real"
-        },
-        {
-          "t": "Health Score",
-          "d": "Algoritmo propio"
-        },
-        {
-          "t": "Confianza",
-          "d": "By Design"
-        },
-        {
-          "t": "UX",
-          "d": "Orientada a Vida"
-        }
-      ]
-    },
-    {
-      "id": 19,
-      "type": "CIRCULAR",
-      "title": "PROPUESTA DE VALOR",
-      "subtitle": "Claro, Personal y Sostenible",
-      "bentoItems": [
-        {
-          "title": "Señales",
-          "description": "Input de datos",
-          "icon": "Radio"
-        },
-        {
-          "title": "Decisiones",
-          "description": "Procesamiento",
-          "icon": "Cpu"
-        },
-        {
-          "title": "Hábitos",
-          "description": "Acción diaria",
-          "icon": "Repeat"
-        },
-        {
-          "title": "Mejora",
-          "description": "Medible",
-          "icon": "TrendingUp"
+          "t": "NESTLÉ BIOLIFE",
+          "d": "NaaS: Relación + aprendizaje + retención",
+          "icon": "Infinity"
         }
       ]
     },
     {
       "id": 20,
-      "type": "BENTO_GRID",
-      "title": "NUESTRA VENTAJA COMPETITIVA",
-      "subtitle": "NO COMPETIMOS POR MÁS DATOS",
-      "bentoItems": [
+      "type": "STEPS",
+      "title": "MODELO DE NEGOCIO",
+      "items": [
         {
-          "title": "Acción",
-          "description": "¿Qué hago hoy?",
-          "icon": "PlayCircle",
-          "variant": "glassStrong",
-          "span": "md"
+          "t": "01 — Segmento de clientes",
+          "d": "B2C (25-75 años), interesado en salud preventiva.\nExpansión B2B",
+          "icon": "Users"
         },
         {
-          "title": "Confianza",
-          "description": "¿Por qué esto me aplica a mí?",
-          "icon": "ShieldCheck",
-          "variant": "glassStrong",
-          "span": "md"
+          "t": "02 — Propuesta de Valor",
+          "d": "Nutrición personalizada, predictiva y accionable, basada\nen datos reales del cuerpo del usuario.",
+          "icon": "Target"
         },
         {
-          "title": "Adherencia",
-          "description": "Quick win + seguimiento",
-          "icon": "Link",
-          "variant": "glassStrong",
-          "span": "xl"
+          "t": "03 — Fuentes de Ingresos",
+          "d": "Suscripción mensual 5,99€\nAnual 71,88 €",
+          "icon": "DollarSign"
+        },
+        {
+          "t": "04 — Recursos Clave",
+          "d": "IA y modelos predictivos + Base de datos + Científicos,\nExpertos en salud + Infraestructura tecnológica",
+          "icon": "Cpu"
+        },
+        {
+          "t": "05 — Actividades Clave",
+          "d": "Desarrollo y entrenamiento IA + Integración de datos +\nDiseño UX + Validación científica + Marketing digital",
+          "icon": "Settings"
+        },
+        {
+          "t": "06 — Estructura de Costes",
+          "d": "Desarrollo tec e IA. Marketing y (CAC).\nTalento especializado. Regulación y compliance sanitario.",
+          "icon": "BarChart2"
         }
       ]
     },
     {
       "id": 21,
-      "type": "ROADMAP",
-      "title": "MODELO DE NEGOCIO",
-      "subtitle": "B2C & B2B Expansion",
-      "items": [
+      "type": "BENTO_MARKET",
+      "title": "ESTRATEGIA DEL DATO",
+      "subtitle": "EL DATO COMO ACTIVO ESTRATÉGICO DE PRODUCTO",
+      "tableData": [
         {
-          "t": "B2C",
-          "d": "25-75 años, Salud Preventiva",
-          "icon": "Users"
+          "h": "DATO - PRODUCTO",
+          "items": [
+            "Habilita Digital Human",
+            "Permite recomendaciones dinámicas y predictivas",
+            "Mejora continua del modelo con datos longitudinales"
+          ],
+          "icon": "Database"
         },
         {
-          "t": "Expansión B2B",
-          "d": "Corporate Wellness, Insurtech",
-          "icon": "Briefcase"
+          "h": "DATO - HERRAMIENTA",
+          "items": [
+            "Analítica de uso, engagement y retención",
+            "Segmentación por perfiles (no por individuos)",
+            "Optimización de CAC y LTV"
+          ],
+          "icon": "BarChart3"
         },
         {
-          "t": "Capacidades",
-          "d": "IA Predictiva, Base Científica",
-          "icon": "Cpu"
+          "h": "DATO - SOPORTE TÉCNICO",
+          "items": [
+            "Logs y performance",
+            "Calidad y estabilidad de modelos de IA",
+            "Security and scalability"
+          ],
+          "icon": "ShieldCheck"
+        },
+        {
+          "h": "USOS EXCLUIDOS",
+          "items": [
+            "🚫 Venta de datos personales",
+            "🚫 Publicidad basada en datos de salud",
+            "🚫 Perfilado comercial externo",
+            "🚫 Control o evaluación individual (en B2B)"
+          ],
+          "icon": "XCircle"
         }
       ]
     },
@@ -501,184 +403,84 @@
       "id": 22,
       "type": "ROADMAP",
       "title": "ROADMAP",
-      "subtitle": "Escalado y Replicabilidad",
+      "subtitle": "5 AÑOS",
+      "builds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
       "items": [
         {
-          "t": "Fase 01",
-          "d": "MVP & Validación",
+          "t": "Año 1",
+          "d": "Validación B2C (MVP + primeros ingresos)\nBioLife demuestra tracción real en B2C y voluntad de pago.",
           "icon": "Flag"
         },
         {
-          "t": "Fase 02",
-          "d": "Integración & Crecimiento",
-          "icon": "Layers"
+          "t": "Año 2",
+          "d": "Product–Market Fit + inicio B2B con Nestlé\nNestlé se convierte en el primer cliente B2B y caso de éxito real.",
+          "icon": "Target"
         },
         {
-          "t": "Fase 03",
-          "d": "Escala Global B2B",
+          "t": "Año 3",
+          "d": "Escalado y replicabilidad B2B\nEscalar el modelo validado en Nestlé a otros clientes corporativos.",
           "icon": "Globe"
+        },
+        {
+          "t": "Año 4",
+          "d": "Plataforma de salud corporativa y personal\nBioLife se posiciona como solución líder de bienestar corporativo personalizado.",
+          "icon": "Briefcase"
+        },
+        {
+          "t": "Año 5",
+          "d": "Escala sostenible y liderazgo\nAlcanzar rentabilidad estructural y liderazgo en nutrición personalizada.",
+          "icon": "Star"
         }
       ]
     },
     {
       "id": 23,
-      "type": "BENTO_GRID",
+      "type": "MVP_MOCKUP",
       "title": "MVP",
-      "subtitle": "Primer Release",
-      "bentoItems": [
+      "builds": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "items": [
         {
-          "title": "App Conversacional",
-          "icon": "MessageSquare",
-          "variant": "glass",
-          "span": "md"
+          "t": "01 — Onboarding rápido",
+          "d": "App conversacional",
+          "icon": "Zap"
         },
         {
-          "title": "Onboarding Rápido",
-          "icon": "Zap",
-          "variant": "glass",
-          "span": "md"
+          "t": "02 — Plan 7 días",
+          "d": "",
+          "icon": "Calendar"
         },
         {
-          "title": "Check-in Semanal",
-          "icon": "CheckSquare",
-          "variant": "glass",
-          "span": "sm"
+          "t": "03 — Check-in semanal",
+          "d": "",
+          "icon": "CheckCircle"
         },
         {
-          "title": "Métricas de Progreso",
-          "icon": "BarChart2",
-          "variant": "glass",
-          "span": "md"
+          "t": "04 — Métricas de progreso visibles",
+          "d": "",
+          "icon": "BarChart"
         }
       ]
     },
     {
       "id": 24,
       "type": "HERO",
-      "title": "TECNOLOGÍA",
-      "subtitle": "Foundation",
-      "speakerNotes": "La tecnología que lo hace posible."
-    },
-    {
-      "id": 25,
-      "type": "ARCHITECTURE_DIAGRAM",
-      "title": "ARQUITECTURA BIOLIFE",
-      "subtitle": "Proyecto Nestlé Nutrition",
-      "architectureLayers": [
-        {
-          "name": "INTERFAZ DE USUARIO",
-          "role": "Canales de experiencia",
-          "technologies": [
-            "React",
-            "React Native",
-            "Flutter",
-            "Next.js"
-          ]
-        },
-        {
-          "name": "PRESENTACIÓN / CLIENTE",
-          "role": "Renderizado y UI",
-          "technologies": [
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "SSR/SSG"
-          ]
-        },
-        {
-          "name": "LÓGICA DE NEGOCIO / INTEGRACIONES",
-          "role": "Procesamiento y orquestación",
-          "technologies": [
-            "API Gateway (AWS API Gateway / Cloud Endpoints)",
-            "Backend principal (NestJS / Express)",
-            "Contenedores y orquestación (Docker / Kubernetes: EKS/GKE/AKS)",
-            "Comunicación y eventos (AWS SNS/SQS o Apache Kafka)",
-            "Funciones serverless (AWS Lambda)"
-          ]
-        },
-        {
-          "name": "DATOS Y ALMACENAMIENTO",
-          "role": "Persistencia y consultas",
-          "technologies": [
-            "Relacional: PostgreSQL",
-            "NoSQL: MongoDB o DynamoDB",
-            "Caché: Redis",
-            "Blob Storage: AWS S3"
-          ]
-        },
-        {
-          "name": "INFRAESTRUCTURA + DEVOPS + OBSERVABILIDAD",
-          "role": "Operación y monitoreo",
-          "technologies": [
-            "Control de versiones: GitHub",
-            "CI/CD: GitHub Actions",
-            "Monitoreo: Grafana, Prometheus",
-            "Logs: ELK Stack",
-            "Autenticación/Security: Auth0 / OAuth2 / JWT / IAM & Secrets"
-          ]
-        }
-      ],
-      "benefits": [
-        "Escalabilidad",
-        "Modularidad",
-        "Resiliencia",
-        "Facilidad de Despliegue"
-      ],
-      "speakerNotes": "La arquitectura completa de BioLife combina tecnologías modernas para una solución robusta y escalable."
-    },
-    {
-      "id": 26,
-      "type": "HERO_GLOW",
-      "title": "DATOS",
-      "subtitle": "El Activo Estratégico",
-      "highlight": "DATA DRIVEN NUTRITION",
-      "speakerNotes": "Los datos son el combustible."
-    },
-    {
-      "id": 27,
-      "type": "BENTO_GRID",
-      "title": "GOBIERNO DEL DATO",
-      "subtitle": "Para qué NO",
-      "bentoItems": [
-        {
-          "title": "Consentimiento",
-          "description": "Explícito y Revocable",
-          "icon": "CheckSquare",
-          "span": "xl",
-          "variant": "accent"
-        },
-        {
-          "title": "Auditoría",
-          "description": "Monitoreo constante",
-          "icon": "Eye",
-          "span": "sm",
-          "variant": "glass"
-        },
-        {
-          "title": "Derechos",
-          "description": "Acceso, Portabilidad, Borrado",
-          "icon": "Shield",
-          "span": "md",
-          "variant": "glass"
-        },
-        {
-          "title": "QUIÉN",
-          "description": "Acceso restringido",
-          "icon": "Lock",
-          "span": "sm",
-          "variant": "glass"
-        }
-      ]
-    },
-    {
-      "id": 28,
-      "type": "HERO",
       "title": "LEGAL",
       "subtitle": "Compliance",
       "speakerNotes": "Marco legal robusto."
     },
     {
-      "id": 29,
+      "id": 25,
       "type": "BENTO_GRID",
       "title": "LEGAL Y COMPLIANCE",
       "subtitle": "GDPR / Partners / Claims",
@@ -714,14 +516,14 @@
       ]
     },
     {
-      "id": 30,
+      "id": 26,
       "type": "HERO",
       "title": "MARKETING",
       "subtitle": "Estrategia",
       "speakerNotes": "Cómo llegamos al usuario."
     },
     {
-      "id": 31,
+      "id": 27,
       "type": "BENTO_GRID",
       "title": "BUYER PERSONA",
       "subtitle": "Nuestro Usuario Objetivo",
@@ -750,7 +552,7 @@
       ]
     },
     {
-      "id": 32,
+      "id": 28,
       "type": "TIMELINE",
       "title": "MOMENTOS DEL DÍA",
       "subtitle": "Touchpoints",
@@ -773,7 +575,7 @@
       ]
     },
     {
-      "id": 33,
+      "id": 29,
       "type": "BENTO_GRID",
       "title": "CONCEPTO CREATIVO",
       "subtitle": "Conexión Emocional",
@@ -809,7 +611,7 @@
       ]
     },
     {
-      "id": 34,
+      "id": 30,
       "type": "FUNNEL",
       "title": "PRESUPUESTO MKG",
       "subtitle": "Total: 1,9 M - Funnel Strategy",
@@ -838,14 +640,14 @@
       ]
     },
     {
-      "id": 35,
+      "id": 31,
       "type": "HERO",
       "title": "MÉTRICAS",
       "subtitle": "Measurement",
       "speakerNotes": "Lo que no se mide no se mejora."
     },
     {
-      "id": 36,
+      "id": 32,
       "type": "STEPS",
       "title": "KPIs",
       "subtitle": "Lo que vamos a medir",
@@ -873,14 +675,14 @@
       ]
     },
     {
-      "id": 37,
+      "id": 33,
       "type": "HERO",
       "title": "RRHH",
       "subtitle": "Talento",
       "speakerNotes": "Las personas detrás del producto."
     },
     {
-      "id": 38,
+      "id": 34,
       "type": "SQUADS",
       "title": "AGILE SQUADS",
       "subtitle": "Agile Product Operating Model",
@@ -913,7 +715,7 @@
       ]
     },
     {
-      "id": 39,
+      "id": 35,
       "type": "BENTO_GRID",
       "title": "ROLES TRANSVERSALES",
       "subtitle": "Velocidad sin romper confianza",
@@ -942,14 +744,14 @@
       ]
     },
     {
-      "id": 40,
+      "id": 36,
       "type": "HERO",
       "title": "GOBERNANZA\nY ESG",
       "subtitle": "Sostenibilidad",
       "speakerNotes": "Estructura de gobierno y ESG."
     },
     {
-      "id": 41,
+      "id": 37,
       "type": "CORPORATE_HIERARCHY",
       "title": "NewCo",
       "subtitle": "Autonomía operativa con gobernanza estratégica",
@@ -977,7 +779,7 @@
       ]
     },
     {
-      "id": 42,
+      "id": 38,
       "type": "BENTO_GRID",
       "title": "PRINCIPIOS",
       "subtitle": "Gobernanza",
@@ -1009,7 +811,7 @@
       ]
     },
     {
-      "id": 43,
+      "id": 39,
       "type": "VERTICAL_DIAGRAM",
       "title": "ÓRGANOS",
       "subtitle": "De Decisión",
@@ -1041,7 +843,7 @@
       ]
     },
     {
-      "id": 44,
+      "id": 40,
       "type": "QUADRANT",
       "title": "MONETIZACIÓN",
       "subtitle": "Qué se puede y qué NO",
@@ -1061,7 +863,7 @@
       ]
     },
     {
-      "id": 45,
+      "id": 41,
       "type": "STEPS",
       "title": "CAPA DIGITAL",
       "subtitle": "Servicio",
@@ -1089,7 +891,7 @@
       ]
     },
     {
-      "id": 46,
+      "id": 42,
       "type": "TRIANGLE_ESG",
       "title": "ESG",
       "subtitle": "Sistema de Control y Escala",
@@ -1112,14 +914,14 @@
       ]
     },
     {
-      "id": 47,
+      "id": 43,
       "type": "HERO",
       "title": "FINANCIERO",
       "subtitle": "Business Case",
       "speakerNotes": "La viabilidad económica."
     },
     {
-      "id": 48,
+      "id": 44,
       "type": "COST_ANALYSIS",
       "title": "USUARIOS",
       "subtitle": "Activos por Año",
@@ -1149,7 +951,7 @@
       "metricBoxes": []
     },
     {
-      "id": 49,
+      "id": 45,
       "type": "COST_ANALYSIS",
       "title": "COSTE VARIABLE",
       "subtitle": "Por usuario (Año 0)",
@@ -1180,7 +982,7 @@
       "metricBoxes": []
     },
     {
-      "id": 50,
+      "id": 46,
       "type": "CAPEX_OPEX_TABLES",
       "title": "CAPEX / OPEX",
       "subtitle": "Inversión Año 0",
@@ -1226,7 +1028,7 @@
       ]
     },
     {
-      "id": 51,
+      "id": 47,
       "type": "ECONOMIC_TABLE",
       "title": "INGRESOS",
       "subtitle": "Proyección 8 Años",
@@ -1245,7 +1047,7 @@
       ]
     },
     {
-      "id": 52,
+      "id": 48,
       "type": "ECONOMIC_SUMMARY",
       "title": "KPIs FINANCIEROS",
       "subtitle": "Profitability",
@@ -1269,7 +1071,7 @@
       ]
     },
     {
-      "id": 53,
+      "id": 49,
       "type": "STEPS",
       "title": "CONCLUSIONES",
       "subtitle": "Claves del Éxito",
@@ -1293,7 +1095,7 @@
       ]
     },
     {
-      "id": 54,
+      "id": 50,
       "type": "HERO_FINAL",
       "title": "GRACIAS",
       "subtitle": "Nestlé Nutrición",

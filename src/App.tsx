@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Grid, StickyNote, Maximize2, Minimize2, X, ChevronRight, ChevronLeft, Printer, Loader2 } from 'lucide-react';
 import { Scene3D } from './components/Scene3D';
 import { SlideRenderer } from './components/SlideRenderer';
+import { ShootingStars } from './components/ShootingStars';
 import { ContentData } from './types';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
@@ -260,15 +261,15 @@ const App: React.FC = () => {
       {/* SCALER CONTAINER */}
       <div
         style={{
-          width: '1920px',
-          height: '1080px',
-          transform: `scale(${scale})`,
+          width: currentSlide.type === 'INITIAL_ANIMATION' ? '100%' : '1920px',
+          height: currentSlide.type === 'INITIAL_ANIMATION' ? '100%' : '1080px',
+          transform: currentSlide.type === 'INITIAL_ANIMATION' ? 'none' : `scale(${scale})`,
           transformOrigin: 'center center',
           overflow: 'hidden',
           position: 'relative',
           backgroundColor: '#0a1210' // brand-dark
         }}
-        className="shadow-2xl"
+        className={currentSlide.type === 'INITIAL_ANIMATION' ? "" : "shadow-2xl"}
       >
 
         <AnimatePresence>
@@ -307,6 +308,8 @@ const App: React.FC = () => {
         </div>
 
         <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_center,transparent_0%,#050810_130%)] pointer-events-none" />
+
+        <ShootingStars />
 
         <main className={`relative z-20 h-full w-full flex items-center justify-center ${currentSlide.type === 'INITIAL_ANIMATION' ? '' : 'px-6 md:px-20'}`}>
 

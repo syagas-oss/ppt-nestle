@@ -16,16 +16,28 @@ export const InitialAnimation: React.FC = () => {
 
         let animationFrameId: number;
         let particles: Particle[] = [];
-        // Use fixed dimensions matching the scaler container (1920x1080)
-        let width = canvas.width = 1920;
-        let height = canvas.height = 1080;
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+        const mouse = { x: -1000, y: -1000, radius: 150 };
 
         const handleResize = () => {
-            // No action needed on resize as dimensions are fixed for scaling
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            initParticles();
         };
 
+        const handleMouseMove = (e: MouseEvent | TouchEvent) => {
+            const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+            const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY;
+
+            // Adjust for scaling if necessary, but here we'll assume 1:1 since it's full screen
+            mouse.x = clientX;
+            mouse.y = clientY;
+        };
 
         window.addEventListener('resize', handleResize);
+        window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('touchstart', handleMouseMove);
 
         class Particle {
             x: number;
@@ -48,7 +60,7 @@ export const InitialAnimation: React.FC = () => {
                 this.vy = (Math.random() - 0.5) * 2;
                 this.baseX = this.x;
                 this.baseY = this.y;
-                this.size = Math.random() * 1.5 + 0.5;
+                this.size = Math.random() * (width < 768 ? 2 : 1.5) + 0.5;
                 this.color = `rgba(45, 212, 191, ${Math.random() * 0.4 + 0.2})`;
                 this.speed = Math.random() * 1 + 0.5;
                 this.angle = Math.random() * Math.PI * 2;
@@ -59,6 +71,17 @@ export const InitialAnimation: React.FC = () => {
             update(time: number, pIndex: number) {
                 const loopTime = time % ANIMATION_DURATION;
                 const progress = loopTime / ANIMATION_DURATION;
+
+                // Mouse/Touch Interaction
+                const dx = mouse.x - this.x;
+                const dy = mouse.y - this.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                if (distance < mouse.radius) {
+                    const force = (mouse.radius - distance) / mouse.radius;
+                    const angle = Math.atan2(dy, dx);
+                    this.vx -= Math.cos(angle) * force * 5;
+                    this.vy -= Math.sin(angle) * force * 5;
+                }
 
                 if (progress < 0.35) {
                     // Stage 1: Abstract Data
@@ -77,23 +100,30 @@ export const InitialAnimation: React.FC = () => {
                     const ratio = pIndex / PARTICLE_COUNT;
                     let tx, ty;
 
+                    // Scale constants based on screen size
+                    const scaleFactor = Math.min(width, height) / 1000;
+
                     if (ratio < 0.2) { // Head
                         const a = ratio * 5 * Math.PI * 2;
-                        tx = centerX + Math.cos(a) * 50;
-                        ty = centerY - 180 + Math.sin(a) * 60;
+                        tx = centerX + Math.cos(a) * 50 * scaleFactor;
+                        ty = centerY - 180 * scaleFactor + Math.sin(a) * 60 * scaleFactor;
                     } else if (ratio < 0.5) { // Torso
                         const a = (ratio - 0.2) * 3.33 * Math.PI;
-                        tx = centerX + Math.cos(a) * 120 * Math.sin(a * 0.5);
-                        ty = centerY + (ratio - 0.2) * 300 - 100;
+                        tx = centerX + Math.cos(a) * 120 * scaleFactor * Math.sin(a * 0.5);
+                        ty = centerY + (ratio - 0.2) * 300 * scaleFactor - 100 * scaleFactor;
                     } else { // Shoulders/Arms
                         const side = ratio < 0.75 ? -1 : 1;
                         const localRatio = (ratio - (ratio < 0.75 ? 0.5 : 0.75)) * 4;
-                        tx = centerX + side * (60 + localRatio * 100);
-                        ty = centerY - 100 + localRatio * 50;
+                        tx = centerX + side * (60 + localRatio * 100) * scaleFactor;
+                        ty = centerY - 100 * scaleFactor + localRatio * 50 * scaleFactor;
                     }
 
                     this.x += (tx - this.x) * this.ease;
                     this.y += (ty - this.y) * this.ease;
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    this.vx *= this.friction;
+                    this.vy *= this.friction;
                 } else if (progress < 0.85) {
                     // Stage 3: Dissolve
                     this.vx += (Math.random() - 0.5) * 0.8;
@@ -128,7 +158,7 @@ export const InitialAnimation: React.FC = () => {
 
         const initParticles = () => {
             particles = [];
-            for (let i = 0; i < PARTICLE_COUNT; i++) {
+            for (let i = 0; i < (width < 768 ? PARTICLE_COUNT / 2 : PARTICLE_COUNT); i++) {
                 particles.push(new Particle());
             }
         };
@@ -150,6 +180,8 @@ export const InitialAnimation: React.FC = () => {
 
         return () => {
             window.removeEventListener('resize', handleResize);
+            window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('touchstart', handleMouseMove);
             cancelAnimationFrame(animationFrameId);
         };
     }, []);

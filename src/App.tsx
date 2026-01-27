@@ -212,15 +212,24 @@ const App: React.FC = () => {
 
 
   const [scale, setScale] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
 
   // Resolution Scaler Logic
   useEffect(() => {
     const handleResize = () => {
-      const targetWidth = 1920;
-      const targetHeight = 1080;
-
       const windowWidth = window.innerWidth;
       const windowHeight = window.innerHeight;
+
+      const isMobileScreen = windowWidth < 1024 || windowHeight > windowWidth;
+      setIsMobile(isMobileScreen);
+
+      if (isMobileScreen) {
+        setScale(1);
+        return;
+      }
+
+      const targetWidth = 1920;
+      const targetHeight = 1080;
 
       const scaleX = windowWidth / targetWidth;
       const scaleY = windowHeight / targetHeight;
@@ -261,15 +270,16 @@ const App: React.FC = () => {
       {/* SCALER CONTAINER */}
       <div
         style={{
-          width: currentSlide.type === 'INITIAL_ANIMATION' ? '100%' : '1920px',
-          height: currentSlide.type === 'INITIAL_ANIMATION' ? '100%' : '1080px',
-          transform: currentSlide.type === 'INITIAL_ANIMATION' ? 'none' : `scale(${scale})`,
+          width: (currentSlide.type === 'INITIAL_ANIMATION' || isMobile) ? '100%' : '1920px',
+          height: (currentSlide.type === 'INITIAL_ANIMATION' || isMobile) ? '100%' : '1080px',
+          transform: (currentSlide.type === 'INITIAL_ANIMATION' || isMobile) ? 'none' : `scale(${scale})`,
           transformOrigin: 'center center',
-          overflow: 'hidden',
+          overflowX: 'hidden',
+          overflowY: isMobile ? 'auto' : 'hidden',
           position: 'relative',
           backgroundColor: '#0a1210' // brand-dark
         }}
-        className={currentSlide.type === 'INITIAL_ANIMATION' ? "" : "shadow-2xl"}
+        className={(currentSlide.type === 'INITIAL_ANIMATION' || isMobile) ? "" : "shadow-2xl"}
       >
 
         <AnimatePresence>

@@ -722,44 +722,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
   }
 
   if (slideType === 'FALLING_IMAGES') {
-    const images = (slide as any).itemsImages || [];
-    return (
-      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center relative overflow-hidden">
-        <div className="mb-12 text-center z-20 bg-black/50 p-6 rounded-3xl backdrop-blur-md border border-white/10">
-          <motion.h2 variants={itemVariants} className="font-bold uppercase tracking-[0.5em] mb-4 text-sm text-blue-500">{slide.subtitle}</motion.h2>
-          <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-black tracking-tighter text-white uppercase italic">{slide.title}</motion.h1>
-        </div>
-
-        <div className="absolute inset-0 z-10 pointer-events-none">
-          {images.map((img: string, i: number) => {
-            // Random positions for falling effect variation
-            const randomX = Math.random() * 80 + 10; // 10% to 90% width
-            const randomRotate = Math.random() * 30 - 15;
-            return (
-              <motion.div
-                key={i}
-                initial={{ y: -500, opacity: 0, rotate: randomRotate, x: `${(i * 20) - 40}%` }} // Distribute horizontally by index initially
-                animate={isVisible(i) ? { y: 0, opacity: 1 } : { y: -500, opacity: 0 }}
-                transition={{
-                  type: "spring",
-                  damping: 12,
-                  stiffness: 50,
-                  delay: i * 0.8 // Sequential falling
-                }}
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] shadow-2xl rounded-lg overflow-hidden border-4 border-white"
-                style={{
-                  zIndex: i,
-                  marginLeft: `${(i % 2 === 0 ? 1 : -1) * (i * 50)}px`, // Slight offset stack
-                  marginTop: `${i * 40}px`
-                }}
-              >
-                <img src={`/assets/titulares/${img}`} alt={`Titular ${i}`} className="w-full h-auto object-cover" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerText = '[Image Placeholder: ' + img + ']' }} />
-              </motion.div>
-            )
-          })}
-        </div>
-      </motion.div>
-    );
+    return <FallingImagesView slide={slide} isVisible={isVisible} />;
   }
 
   if (slideType === 'BENTO_DATA' || slideType === 'BENTO_GRID') {

@@ -2,7 +2,7 @@
   "slides": [
     {
       "id": 1,
-      "type": "HERO",
+      "type": "INITIAL_ANIMATION",
       "title": "NESTLÉ\nNUTRICIÓN",
       "subtitle": "Digital Transformation",
       "highlight": "Ciencia aplicada + Capacidad de escala global",

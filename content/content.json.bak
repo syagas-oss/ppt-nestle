@@ -318,7 +318,7 @@
       ]
     },
     {
-      "id": 14,
+      "id": 20,
       "type": "STEPS",
       "title": "MODELO DE NEGOCIO",
       "items": [
@@ -355,7 +355,7 @@
       ]
     },
     {
-      "id": 15,
+      "id": 21,
       "type": "BENTO_MARKET",
       "title": "ESTRATEGIA DEL DATO",
       "subtitle": "EL DATO COMO ACTIVO ESTRATÉGICO DE PRODUCTO",
@@ -400,7 +400,7 @@
       ]
     },
     {
-      "id": 16,
+      "id": 22,
       "type": "ROADMAP",
       "title": "ROADMAP",
       "subtitle": "5 AÑOS",
@@ -440,7 +440,7 @@
       ]
     },
     {
-      "id": 17,
+      "id": 23,
       "type": "MVP_MOCKUP",
       "title": "MVP",
       "builds": [
@@ -473,95 +473,14 @@
       ]
     },
     {
-      "id": 18,
-      "type": "HERO",
-      "title": "TECNOLOGÍA",
-      "subtitle": "Foundation",
-      "speakerNotes": "La tecnología que lo hace posible."
-    },
-    {
-      "id": 19,
-      "type": "ARCHITECTURE_DIAGRAM",
-      "title": "ARQUITECTURA BIOLIFE",
-      "subtitle": "Proyecto Nestlé Nutrition",
-      "architectureLayers": [
-        {
-          "name": "INTERFAZ DE USUARIO",
-          "role": "Canales de experiencia",
-          "technologies": [
-            "React",
-            "React Native",
-            "Flutter",
-            "Next.js"
-          ]
-        },
-        {
-          "name": "PRESENTACIÓN / CLIENTE",
-          "role": "Renderizado y UI",
-          "technologies": [
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "SSR/SSG"
-          ]
-        },
-        {
-          "name": "LÓGICA DE NEGOCIO / INTEGRACIONES",
-          "role": "Procesamiento y orquestación",
-          "technologies": [
-            "API Gateway (AWS API Gateway / Cloud Endpoints)",
-            "Backend principal (NestJS / Express)",
-            "Contenedores y orquestación (Docker / Kubernetes: EKS/GKE/AKS)",
-            "Comunicación y eventos (AWS SNS/SQS o Apache Kafka)",
-            "Funciones serverless (AWS Lambda)"
-          ]
-        },
-        {
-          "name": "DATOS Y ALMACENAMIENTO",
-          "role": "Persistencia y consultas",
-          "technologies": [
-            "Relacional: PostgreSQL",
-            "NoSQL: MongoDB o DynamoDB",
-            "Caché: Redis",
-            "Blob Storage: AWS S3"
-          ]
-        },
-        {
-          "name": "INFRAESTRUCTURA + DEVOPS + OBSERVABILIDAD",
-          "role": "Operación y monitoreo",
-          "technologies": [
-            "Control de versiones: GitHub",
-            "CI/CD: GitHub Actions",
-            "Monitoreo: Grafana, Prometheus",
-            "Logs: ELK Stack",
-            "Autenticación/Security: Auth0 / OAuth2 / JWT / IAM & Secrets"
-          ]
-        }
-      ],
-      "builds": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ],
-      "benefits": [
-        "Escalabilidad",
-        "Modularidad",
-        "Resiliencia",
-        "Facilidad de Despliegue"
-      ],
-      "speakerNotes": "La arquitectura completa de BioLife combina tecnologías modernas para una solución robusta y escalable."
-    },
-    {
-      "id": 20,
+      "id": 24,
       "type": "HERO",
       "title": "LEGAL",
       "subtitle": "Compliance",
       "speakerNotes": "Marco legal robusto."
     },
     {
-      "id": 21,
+      "id": 25,
       "type": "BENTO_GRID",
       "title": "LEGAL Y COMPLIANCE",
       "subtitle": "GDPR / Partners / Claims",
@@ -597,14 +516,14 @@
       ]
     },
     {
-      "id": 22,
+      "id": 26,
       "type": "HERO",
       "title": "MARKETING",
       "subtitle": "Estrategia",
       "speakerNotes": "Cómo llegamos al usuario."
     },
     {
-      "id": 23,
+      "id": 27,
       "type": "BENTO_GRID",
       "title": "BUYER PERSONA",
       "subtitle": "Nuestro Usuario Objetivo",
@@ -633,7 +552,7 @@
       ]
     },
     {
-      "id": 24,
+      "id": 28,
       "type": "TIMELINE",
       "title": "MOMENTOS DEL DÍA",
       "subtitle": "Touchpoints",
@@ -656,7 +575,7 @@
       ]
     },
     {
-      "id": 25,
+      "id": 29,
       "type": "BENTO_GRID",
       "title": "CONCEPTO CREATIVO",
       "subtitle": "Conexión Emocional",
@@ -692,7 +611,7 @@
       ]
     },
     {
-      "id": 26,
+      "id": 30,
       "type": "FUNNEL",
       "title": "PRESUPUESTO MKG",
       "subtitle": "Total: 1,9 M - Funnel Strategy",
@@ -721,14 +640,14 @@
       ]
     },
     {
-      "id": 27,
+      "id": 31,
       "type": "HERO",
       "title": "MÉTRICAS",
       "subtitle": "Measurement",
       "speakerNotes": "Lo que no se mide no se mejora."
     },
     {
-      "id": 28,
+      "id": 32,
       "type": "STEPS",
       "title": "KPIs",
       "subtitle": "Lo que vamos a medir",
@@ -756,14 +675,14 @@
       ]
     },
     {
-      "id": 29,
+      "id": 33,
       "type": "HERO",
       "title": "RRHH",
       "subtitle": "Talento",
       "speakerNotes": "Las personas detrás del producto."
     },
     {
-      "id": 30,
+      "id": 34,
       "type": "SQUADS",
       "title": "AGILE SQUADS",
       "subtitle": "Agile Product Operating Model",
@@ -796,7 +715,7 @@
       ]
     },
     {
-      "id": 31,
+      "id": 35,
       "type": "BENTO_GRID",
       "title": "ROLES TRANSVERSALES",
       "subtitle": "Velocidad sin romper confianza",
@@ -825,14 +744,14 @@
       ]
     },
     {
-      "id": 32,
+      "id": 36,
       "type": "HERO",
       "title": "GOBERNANZA\nY ESG",
       "subtitle": "Sostenibilidad",
       "speakerNotes": "Estructura de gobierno y ESG."
     },
     {
-      "id": 33,
+      "id": 37,
       "type": "CORPORATE_HIERARCHY",
       "title": "NewCo",
       "subtitle": "Autonomía operativa con gobernanza estratégica",
@@ -860,7 +779,7 @@
       ]
     },
     {
-      "id": 34,
+      "id": 38,
       "type": "BENTO_GRID",
       "title": "PRINCIPIOS",
       "subtitle": "Gobernanza",
@@ -892,7 +811,7 @@
       ]
     },
     {
-      "id": 35,
+      "id": 39,
       "type": "VERTICAL_DIAGRAM",
       "title": "ÓRGANOS",
       "subtitle": "De Decisión",
@@ -924,7 +843,7 @@
       ]
     },
     {
-      "id": 36,
+      "id": 40,
       "type": "QUADRANT",
       "title": "MONETIZACIÓN",
       "subtitle": "Qué se puede y qué NO",
@@ -944,7 +863,7 @@
       ]
     },
     {
-      "id": 37,
+      "id": 41,
       "type": "STEPS",
       "title": "CAPA DIGITAL",
       "subtitle": "Servicio",
@@ -972,7 +891,7 @@
       ]
     },
     {
-      "id": 38,
+      "id": 42,
       "type": "TRIANGLE_ESG",
       "title": "ESG",
       "subtitle": "Sistema de Control y Escala",
@@ -995,14 +914,14 @@
       ]
     },
     {
-      "id": 39,
+      "id": 43,
       "type": "HERO",
       "title": "FINANCIERO",
       "subtitle": "Business Case",
       "speakerNotes": "La viabilidad económica."
     },
     {
-      "id": 40,
+      "id": 44,
       "type": "COST_ANALYSIS",
       "title": "USUARIOS",
       "subtitle": "Activos por Año",
@@ -1032,7 +951,7 @@
       "metricBoxes": []
     },
     {
-      "id": 41,
+      "id": 45,
       "type": "COST_ANALYSIS",
       "title": "COSTE VARIABLE",
       "subtitle": "Por usuario (Año 0)",
@@ -1063,7 +982,7 @@
       "metricBoxes": []
     },
     {
-      "id": 42,
+      "id": 46,
       "type": "CAPEX_OPEX_TABLES",
       "title": "CAPEX / OPEX",
       "subtitle": "Inversión Año 0",
@@ -1109,7 +1028,7 @@
       ]
     },
     {
-      "id": 43,
+      "id": 47,
       "type": "ECONOMIC_TABLE",
       "title": "INGRESOS",
       "subtitle": "Proyección 8 Años",
@@ -1128,7 +1047,7 @@
       ]
     },
     {
-      "id": 44,
+      "id": 48,
       "type": "ECONOMIC_SUMMARY",
       "title": "KPIs FINANCIEROS",
       "subtitle": "Profitability",
@@ -1152,7 +1071,7 @@
       ]
     },
     {
-      "id": 45,
+      "id": 49,
       "type": "STEPS",
       "title": "CONCLUSIONES",
       "subtitle": "Claves del Éxito",
@@ -1176,7 +1095,7 @@
       ]
     },
     {
-      "id": 46,
+      "id": 50,
       "type": "HERO_FINAL",
       "title": "GRACIAS",
       "subtitle": "Nestlé Nutrición",

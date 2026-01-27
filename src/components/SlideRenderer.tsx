@@ -253,97 +253,76 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
     ];
 
     return (
-      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col space-y-4 p-4 relative overflow-y-auto lg:overflow-visible">
-        {/* Cross-cutting security concern */}
-        <motion.div
-          initial={{ opacity: staticMode ? 1 : 0, scaleY: staticMode ? 1 : 0 }}
-          animate={{ opacity: 1, scaleY: 1 }}
-          transition={{ delay: staticMode ? 0 : 2, duration: staticMode ? 0 : 1 }}
-          className={`absolute left-[35%] top-6 bottom-6 w-px border-l ${staticMode ? 'border-solid border-white/20' : 'border-dotted border-gray-400/40'} z-10 hidden lg:block`}
-        />
-        <motion.div
-          initial={{ opacity: staticMode ? 1 : 0, y: staticMode ? 0 : -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: staticMode ? 0 : 2.3 }}
-          className="absolute left-[35%] top-4 transform -translate-x-1/2 z-20 hidden lg:block"
-        >
-          <div className="flex flex-col items-center gap-2">
-            <div className="p-2 bg-gray-600/20 border border-gray-400/30 rounded-full backdrop-blur-sm">
-              <Icons.Shield size={16} className="text-gray-300" />
-            </div>
-            <div className="text-center">
-              <div className="text-gray-300 text-[10px] font-bold uppercase tracking-wide leading-tight">
-                Seguridad & Autenticación
-              </div>
-              <div className="text-gray-400 text-[9px] leading-tight">
-                Auth0 / OAuth2 / JWT / IAM
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col space-y-6 lg:space-y-8 p-4 lg:p-8 relative overflow-y-auto lg:overflow-visible justify-center">
         {/* Layers as horizontal full-width rows */}
-        {slide.architectureLayers?.map((layer, layerIndex) => (
-          <motion.div
-            key={layerIndex}
-            variants={itemVariants}
-            className={`w-full lg:h-32 flex flex-col lg:flex-row relative ${layerColors[layerIndex % layerColors.length]} rounded-2xl overflow-hidden py-4 lg:py-0`}
-          >
-            {/* Left area: Layer Title and Description */}
-            <div className="flex-shrink-0 w-full lg:w-80 flex flex-col justify-center px-6 lg:pr-4 mb-4 lg:mb-0">
-              <h2 className="text-lg md:text-xl font-black uppercase text-white mb-1">{layer.name}</h2>
-              <p className="text-xs text-gray-200 font-medium">{layer.role}</p>
-            </div>
+        {slide.architectureLayers?.map((layer, layerIndex) => {
+          const isLayerVisible = isVisible(layerIndex);
+          if (!isLayerVisible && !staticMode) return null;
 
-            {/* Visual separator (subtle gradient cut) */}
-            <div
-              className={`hidden lg:block w-px h-full ${staticMode ? 'bg-white/20' : 'bg-gradient-to-b from-transparent via-white/20 to-transparent'}`}
-            /> {/* Right area: Technology Boxes in a horizontal row */}
-            <div className="flex-1 flex flex-wrap lg:flex-nowrap items-center justify-start gap-4 lg:gap-0 lg:space-x-4 px-6 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0">
-              {layer.technologies?.map((tech, techIndex) => {
-                const IconComponent = techIconMap[tech.split(':')[0].trim()] || techIconMap[tech.split('(')[0].trim()] || Icons.Code;
-                const isUILayer = layerIndex === 0; // UI layer doesn't have sequential arrows
-                return (
-                  <div key={techIndex} className="flex items-center">
-                    <motion.div
-                      initial={{ opacity: staticMode ? 1 : 0, scale: staticMode ? 1 : 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: staticMode ? 0 : layerIndex * 0.1 + techIndex * 0.05 }}
-                      className={`${TOKENS.glassStrong} flex flex-col items-center justify-center p-3 rounded-lg w-28 h-18 lg:w-32 lg:h-20 text-center hover:scale-105 transition-all group shadow-lg border border-white/10`}
-                    >
-                      <IconComponent size={20} className="lg:size-6 text-brand-primary mb-1 group-hover:text-white" />
-                      <span className="text-[9px] lg:text-[10px] font-bold text-gray-200 group-hover:text-white leading-tight font-display">{tech}</span>
-                    </motion.div>
+          return (
+            <motion.div
+              key={layerIndex}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ type: "spring", damping: 25 }}
+              className={`w-full lg:h-40 flex flex-col lg:flex-row relative ${layerColors[layerIndex % layerColors.length]} rounded-2xl overflow-hidden py-4 lg:py-0`}
+            >
+              {/* Left area: Layer Title and Description */}
+              <div className="flex-shrink-0 w-full lg:w-96 flex flex-col justify-center px-8 lg:pr-6 mb-4 lg:mb-0">
+                <h2 className="text-xl md:text-3xl font-black uppercase text-white mb-2">{layer.name}</h2>
+                <p className="text-sm lg:text-base text-gray-200 font-medium">{layer.role}</p>
+              </div>
 
-                    {/* Horizontal arrow between techs (except last, and not in UI layer) */}
-                    {!isUILayer && techIndex < layer.technologies.length - 1 && (
+              {/* Visual separator (subtle gradient cut) */}
+              <div
+                className={`hidden lg:block w-px h-full ${staticMode ? 'bg-white/20' : 'bg-gradient-to-b from-transparent via-white/20 to-transparent'}`}
+              /> {/* Right area: Technology Boxes in a horizontal row */}
+              <div className="flex-1 flex flex-wrap lg:flex-nowrap items-center justify-start gap-4 lg:gap-6 lg:space-x-6 px-8 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0">
+                {layer.technologies?.map((tech, techIndex) => {
+                  const IconComponent = techIconMap[tech.split(':')[0].trim()] || techIconMap[tech.split('(')[0].trim()] || Icons.Code;
+                  const isUILayer = layerIndex === 0; // UI layer doesn't have sequential arrows
+                  return (
+                    <div key={techIndex} className="flex items-center">
                       <motion.div
-                        initial={{ opacity: staticMode ? 1 : 0, scaleX: staticMode ? 1 : 0 }}
-                        animate={{ opacity: 1, scaleX: 1 }}
-                        transition={{ delay: staticMode ? 0 : layerIndex * 0.1 + techIndex * 0.05 + 0.1 }}
-                        className="mx-1 lg:mx-2 hidden lg:block"
+                        initial={{ opacity: staticMode ? 1 : 0, scale: staticMode ? 1 : 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: staticMode ? 0 : layerIndex * 0.1 + techIndex * 0.05 }}
+                        className={`${TOKENS.glassStrong} flex flex-col items-center justify-center p-4 rounded-xl w-32 h-24 lg:w-40 lg:h-28 text-center hover:scale-105 transition-all group shadow-lg border border-white/10`}
                       >
-                        <Icons.ArrowRight size={16} className="text-white/40" />
+                        <IconComponent size={24} className="lg:size-8 text-brand-primary mb-2 group-hover:text-white" />
+                        <span className="text-[10px] lg:text-xs font-bold text-gray-200 group-hover:text-white leading-tight font-display">{tech}</span>
                       </motion.div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
 
-            {/* Vertical arrow to next layer (left side, except last) */}
-            {layerIndex < (slide.architectureLayers?.length || 0) - 1 && (
-              <motion.div
-                initial={{ opacity: staticMode ? 1 : 0, scale: staticMode ? 1 : 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: staticMode ? 0 : layerIndex * 0.2 + 0.8 }}
-                className="absolute lg:-bottom-8 left-8 lg:z-30 bottom-0 lg:relative hidden lg:block"
-              >
-                <Icons.ArrowDown size={32} className="text-brand-primary" />
-              </motion.div>
-            )}
-          </motion.div>
-        ))}
+                      {/* Horizontal arrow between techs (except last, and not in UI layer) */}
+                      {!isUILayer && techIndex < layer.technologies.length - 1 && (
+                        <motion.div
+                          initial={{ opacity: staticMode ? 1 : 0, scaleX: staticMode ? 1 : 0 }}
+                          animate={{ opacity: 1, scaleX: 1 }}
+                          transition={{ delay: staticMode ? 0 : layerIndex * 0.1 + techIndex * 0.05 + 0.1 }}
+                          className="mx-1 lg:mx-3 hidden lg:block"
+                        >
+                          <Icons.ArrowRight size={20} className="text-white/40" />
+                        </motion.div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Vertical arrow to next layer (left side, except last) */}
+              {layerIndex < (slide.architectureLayers?.length || 0) - 1 && (
+                <motion.div
+                  initial={{ opacity: staticMode ? 1 : 0, scale: staticMode ? 1 : 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: staticMode ? 0 : layerIndex * 0.2 + 0.8 }}
+                  className="absolute lg:-bottom-10 left-10 lg:z-30 bottom-0 lg:relative hidden lg:block"
+                >
+                  <Icons.ArrowDown size={36} className="text-brand-primary" />
+                </motion.div>
+              )}
+            </motion.div>
+          );
+        })}
       </motion.div>
     );
   }

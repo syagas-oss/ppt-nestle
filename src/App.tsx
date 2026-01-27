@@ -95,7 +95,7 @@ const App: React.FC = () => {
       const slides = pdfContainerRef.current.children;
       for (let i = 0; i < slides.length; i++) {
         const slideElement = slides[i] as HTMLElement;
-        await new Promise(r => setTimeout(r, 400)); // Wait for render
+        await new Promise(r => setTimeout(r, 800)); // Wait for render and GC
 
         const canvas = await html2canvas(slideElement, {
           scale: 2,
@@ -106,16 +106,26 @@ const App: React.FC = () => {
           windowWidth: 1920,
           windowHeight: 1080,
           onclone: (clonedDoc) => {
-            const element = clonedDoc.getElementById(`pdf-${data.slides[i].id}`);
-            if (element) {
-              element.style.transform = 'none';
+            // Safety check for data existence
+            if (data && data.slides[i]) {
+              const element = clonedDoc.getElementById(`pdf-${data.slides[i].id}`);
+              if (element) {
+                element.style.transform = 'none';
+              }
             }
+          },
+          ignoreElements: (element) => {
+            return element.tagName.toLowerCase() === 'canvas';
           }
         });
 
-        const imgData = canvas.toDataURL('image/jpeg', 0.9);
+        const imgData = canvas.toDataURL('image/jpeg', 0.8);
         if (i > 0) pdf.addPage([1920, 1080], 'landscape');
         pdf.addImage(imgData, 'JPEG', 0, 0, 1920, 1080);
+        console.log(`Slide ${i + 1} generated`);
+
+        // Force small GC pause
+        await new Promise(r => setTimeout(r, 100));
       }
 
       pdf.save('Nestle-BioLife-Presentation.pdf');
@@ -253,7 +263,7 @@ const App: React.FC = () => {
 
         <div ref={pdfContainerRef} style={{ position: 'fixed', top: 0, left: -20000, width: '1920px', zIndex: -100 }}>
           {data.slides.map((slide, idx) => (
-            <div key={`pdf-${slide.id}`} style={{ width: '1920px', height: '1080px', background: '#050810', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div key={`pdf-${slide.id}`} id={`pdf-${slide.id}`} style={{ width: '1920px', height: '1080px', background: '#050810', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <div className="scale-[1.25] w-full">
                 <SlideRenderer slide={slide} buildIndex={100} staticMode={true} />
               </div>
@@ -263,7 +273,7 @@ const App: React.FC = () => {
           ))}
         </div>
 
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-40" data-html2canvas-ignore="true">
           <Canvas dpr={[1, 2]}>
             <PerspectiveCamera makeDefault position={[0, 0, 15]} fov={40} />
             <Scene3D slideIndex={currentSlideIndex} slideCount={data.slides.length} />

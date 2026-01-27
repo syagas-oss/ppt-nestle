@@ -118,7 +118,7 @@ const BentoCard: React.FC<{ item: any; delay: number; isVisible: boolean; static
         {item.trend && <span className="text-[10px] text-brand-primary bg-brand-primary/20 px-2 py-1 rounded-full">+{item.trend}%</span>}
       </div>
       <div className="relative z-10">
-        {item.value && <div className="text-4xl md:text-5xl font-bold mb-3 text-white tracking-tight font-display">{String(value)}</div>}
+        {value && <div className="text-4xl md:text-5xl font-bold mb-3 text-white tracking-tight font-display">{String(value)}</div>}
         <h3 className="text-lg md:text-xl font-bold text-white mb-2 leading-tight font-display">{String(title)}</h3>
         {item.description && <p className="text-sm text-gray-400 font-light leading-relaxed">{String(item.description)}</p>}
         {item.subtitle && <p className="text-xs text-brand-primary font-bold uppercase tracking-widest mt-2">{String(item.subtitle)}</p>}
@@ -565,8 +565,12 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
         </div>
         <div className="flex flex-col md:flex-row gap-6 w-full max-w-6xl h-[50vh]">
           {slide.items?.map((item: any, i: number) => {
-            const isHighlight = slide.id === 17 && i === 2;
-            const isDimmed = slide.id === 17 && i !== 2;
+            // Check for explicit highlightIndex in slide data, fallback to old hardcoded logic for slide 17 if needed (though we could migrate that too)
+            const highlightIdx = (slide as any).highlightIndex !== undefined ? (slide as any).highlightIndex : (slide.id === 17 ? 2 : -1);
+
+            const isHighlight = highlightIdx === i;
+            const isDimmed = highlightIdx !== -1 && !isHighlight;
+
             return (
               <motion.div
                 key={i}

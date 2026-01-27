@@ -312,6 +312,7 @@
       "type": "CARDS_CHOICE",
       "title": "UNA ELECCIÓN",
       "subtitle": "NaaS",
+      "highlightIndex": 2,
       "items": [
         {
           "t": "NESTLÉ WELL LIFE",
@@ -559,51 +560,65 @@
       "subtitle": "Proyecto Nestlé Nutrition",
       "architectureLayers": [
         {
-          "name": "INTERFAZ",
-          "role": "Canales",
+          "name": "INTERFAZ DE USUARIO",
+          "role": "Canales de experiencia",
           "technologies": [
             "React",
+            "React Native",
             "Flutter",
             "Next.js"
           ]
         },
         {
-          "name": "CLIENTE",
-          "role": "UI/UX",
+          "name": "PRESENTACIÓN / CLIENTE",
+          "role": "Renderizado y UI",
           "technologies": [
             "HTML",
             "CSS",
-            "JS"
+            "JavaScript",
+            "SSR/SSG"
           ]
         },
         {
-          "name": "LÓGICA",
-          "role": "Orquestación",
+          "name": "LÓGICA DE NEGOCIO / INTEGRACIONES",
+          "role": "Procesamiento y orquestación",
           "technologies": [
-            "API Gateway",
-            "Backend principal",
-            "Contenedores y orquestación"
+            "API Gateway (AWS API Gateway / Cloud Endpoints)",
+            "Backend principal (NestJS / Express)",
+            "Contenedores y orquestación (Docker / Kubernetes: EKS/GKE/AKS)",
+            "Comunicación y eventos (AWS SNS/SQS o Apache Kafka)",
+            "Funciones serverless (AWS Lambda)"
           ]
         },
         {
-          "name": "DATOS",
-          "role": "Persistencia",
+          "name": "DATOS Y ALMACENAMIENTO",
+          "role": "Persistencia y consultas",
           "technologies": [
-            "Relacional",
-            "NoSQL",
-            "Caché"
+            "Relacional: PostgreSQL",
+            "NoSQL: MongoDB o DynamoDB",
+            "Caché: Redis",
+            "Blob Storage: AWS S3"
           ]
         },
         {
-          "name": "INFRA",
-          "role": "Ops",
+          "name": "INFRAESTRUCTURA + DEVOPS + OBSERVABILIDAD",
+          "role": "Operación y monitoreo",
           "technologies": [
-            "CI/CD",
-            "Monitoreo",
-            "Autenticación/Security"
+            "Control de versiones: GitHub",
+            "CI/CD: GitHub Actions",
+            "Monitoreo: Grafana, Prometheus",
+            "Logs: ELK Stack",
+            "Autenticación/Security: Auth0 / OAuth2 / JWT / IAM & Secrets"
           ]
         }
-      ]
+      ],
+      "benefits": [
+        "Escalabilidad",
+        "Modularidad",
+        "Resiliencia",
+        "Facilidad de Despliegue"
+      ],
+      "speakerNotes": "La arquitectura completa de BioLife combina tecnologías modernas para una solución robusta y escalable."
     },
     {
       "id": 26,

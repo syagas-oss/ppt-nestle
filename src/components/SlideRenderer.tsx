@@ -196,7 +196,7 @@ const FallingImagesView: React.FC<{ slide: Slide; isVisible: (i: number) => bool
             className="absolute shadow-2xl rounded-lg overflow-hidden border-4 border-white/90 transform origin-center"
           >
             <img
-              src={`/assets/titulares/${item.img}`}
+              src={`${import.meta.env.BASE_URL}assets/titulares/${item.img}`}
               alt={`Titular ${i}`}
               className="w-full h-auto object-cover"
               onError={(e) => {

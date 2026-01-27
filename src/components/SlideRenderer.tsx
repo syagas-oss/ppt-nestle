@@ -579,7 +579,58 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
     )
   }
 
-  if (slideType === 'FUNNEL') {
+  if (slideType === 'FUNNEL' || slideType === 'MVP_MOCKUP') {
+    if (slideType === 'MVP_MOCKUP') {
+      return (
+        <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex items-center justify-center gap-12 max-w-7xl mx-auto px-4">
+          <div className="flex-1 flex justify-center items-center">
+            {/* Mobile Mockup */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, y: 50 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="w-64 h-[500px] bg-black border-4 border-gray-800 rounded-[3rem] shadow-2xl overflow-hidden flex flex-col relative"
+            >
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-b-xl z-20" />
+              <div className="flex-1 bg-gradient-to-b from-blue-900/40 to-black p-6 flex flex-col items-center justify-center space-y-4">
+                <div className="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center">
+                  <Icons.Target className="text-cyan-400 animate-pulse" size={32} />
+                </div>
+                <div className="w-full space-y-2">
+                  <div className="h-2 w-3/4 bg-white/20 rounded" />
+                  <div className="h-2 w-1/2 bg-white/10 rounded" />
+                </div>
+                <div className="grid grid-cols-2 gap-2 w-full mt-4">
+                  {[1, 2, 3, 4].map(i => <div key={i} className="h-12 bg-white/5 rounded-lg border border-white/10" />)}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          <div className="flex-1 flex flex-col gap-6">
+            <motion.h1 variants={itemVariants} className="text-6xl font-black italic uppercase text-white mb-8">{slide.title}</motion.h1>
+            {slide.items?.map((item: any, idx: number) => (
+              <motion.div
+                key={idx}
+                variants={itemVariants}
+                animate={isVisible(idx) ? "animate" : "initial"}
+                className={`${TOKENS.glass} p-6 rounded-2xl border-l-4 border-blue-500 flex items-center gap-4`}
+              >
+                <div className="p-3 bg-blue-500/10 rounded-xl text-blue-400">
+                  <IconMapper name={item.icon} size={24} />
+                </div>
+                <div>
+                  <h3 className="font-bold text-xl uppercase text-white">
+                    {item.t}
+                  </h3>
+                  {item.d && <p className="text-sm text-gray-400 mt-1">{item.d}</p>}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      );
+    }
     return (
       <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex items-center justify-center gap-12 max-w-7xl mx-auto px-4">
         <div className="flex-1 flex flex-col gap-6">
@@ -619,6 +670,68 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
   }
 
   if (slideType === 'ROADMAP') {
+    const isDiagonal = slide.subtitle === '5 AÑOS' || slide.id === 22;
+
+    if (isDiagonal) {
+      return (
+        <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4 relative">
+          <motion.h1 variants={itemVariants} className="text-4xl lg:text-6xl font-black italic uppercase text-white mb-12 lg:mb-24 z-20">{slide.title}</motion.h1>
+
+          <div className="relative w-full max-w-6xl h-[500px]">
+            {/* Diagonal Path (Visual only, no horizontal line) */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1000 500" preserveAspectRatio="none">
+              <motion.path
+                d="M 50 450 L 950 50"
+                fill="none"
+                stroke="rgba(45,212,191,0.1)"
+                strokeWidth="2"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 2, ease: "easeInOut" }}
+              />
+            </svg>
+
+            <div className="absolute inset-0">
+              {slide.items?.map((item: any, i: number) => {
+                const total = slide.items.length;
+                const progress = i / (total - 1);
+                // Diagonal positioning: Bottom-Left to Top-Right
+                const left = 5 + progress * 80; // 5% to 85%
+                const top = 80 - progress * 70; // 80% to 10%
+
+                return (
+                  <motion.div
+                    key={i}
+                    variants={itemVariants}
+                    animate={isVisible(i) ? "animate" : "initial"}
+                    style={{
+                      position: 'absolute',
+                      left: `${left}%`,
+                      top: `${top}%`,
+                      zIndex: 20
+                    }}
+                    className="flex flex-col items-center group -translate-x-1/2 -translate-y-1/2"
+                  >
+                    <div className="w-6 h-6 lg:w-10 lg:h-10 bg-[#050810] border-4 border-cyan-400 rounded-full lg:mb-4 z-20 lg:group-hover:scale-125 transition-transform shadow-[0_0_20px_rgba(34,211,238,0.5)] flex-shrink-0 flex items-center justify-center">
+                      <div className="w-2 h-2 lg:w-4 lg:h-4 bg-cyan-400 rounded-full animate-pulse" />
+                    </div>
+
+                    <div className={`${TOKENS.glassStrong} p-4 lg:p-6 rounded-2xl w-48 lg:w-72 text-center border-t-4 border-blue-500 relative transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]`}>
+                      <div className="flex justify-center mb-2">
+                        <IconMapper name={item.icon} size={24} className="lg:size-8 text-blue-400" />
+                      </div>
+                      <h3 className="text-base lg:text-xl font-black uppercase text-white mb-1 leading-tight">{item.t}</h3>
+                      <p className="text-[10px] lg:text-xs text-gray-400 leading-tight">{item.d}</p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </motion.div>
+      );
+    }
+
     return (
       <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4">
         <motion.h1 variants={itemVariants} className="text-6xl font-black italic uppercase text-white mb-20">{slide.title}</motion.h1>
@@ -663,11 +776,23 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
         </div>
         <div className="flex flex-col lg:flex-row gap-6 w-full max-w-6xl lg:h-[50vh]">
           {slide.items?.map((item: any, i: number) => {
-            // Check for explicit highlightIndex in slide data, fallback to old hardcoded logic for slide 17 if needed (though we could migrate that too)
-            const highlightIdx = (slide as any).highlightIndex !== undefined ? (slide as any).highlightIndex : (slide.id === 17 ? 2 : -1);
+            // Updated highlight logic: Only highlight if builds exist and we are at buildIndex 0
+            // Or if no builds exist (backwards compatibility), use old logic
+            let isHighlight = false;
+            let isDimmed = false;
 
-            const isHighlight = highlightIdx === i;
-            const isDimmed = highlightIdx !== -1 && !isHighlight;
+            if (slide.builds && slide.builds.length > 0) {
+              if (buildIndex === 0 && i === 2) {
+                isHighlight = true;
+              } else if (buildIndex === 0 && i !== 2) {
+                isDimmed = true;
+              }
+            } else {
+              // Legacy/Static mode
+              const highlightIdx = (slide as any).highlightIndex !== undefined ? (slide as any).highlightIndex : (slide.id === 13 ? 2 : -1);
+              isHighlight = highlightIdx === i;
+              isDimmed = highlightIdx !== -1 && !isHighlight;
+            }
 
             return (
               <motion.div
@@ -680,7 +805,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
                             `}
               >
                 <div className={`absolute inset-0 bg-gradient-to-b ${isHighlight ? 'from-cyan-900/50 to-blue-900/80' : 'from-gray-900/50 to-black/80'} opacity-80`} />
-                <div className="relative z-10 h-full flex flex-col items-center justify-center p-8 text-center">
+                <div className="relative z-10 h-full flex flex-col items-center justify-center p-8 text-center" style={{ backdropFilter: isDimmed ? 'blur(10px)' : 'none' }}>
                   <motion.div
                     className={`p-6 rounded-full mb-6 ${isHighlight ? 'bg-cyan-500 text-black' : 'bg-white/5 text-gray-400'}`}
                     whileHover={{ rotate: 360, scale: 1.1 }}
@@ -826,10 +951,10 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
   if (slideType === 'BENTO_DATA' || slideType === 'BENTO_GRID') {
     const items = slide.stats || slide.bentoItems || [];
     // Force 3 columns for slide 9 or if items is 6, otherwise default logic
-    const isThreeCol = items.length === 3 || items.length === 6 || slide.id === 9;
+    const isThreeCol = items.length === 3 || items.length === 6 || slide.id === 8;
 
     const gridClass = isThreeCol
-      ? "grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl"
+      ? `grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl ${items.length === 6 ? 'md:grid-rows-3 h-[70vh]' : ''}`
       : "grid grid-cols-1 md:grid-cols-4 gap-4 w-full";
 
     return (
@@ -840,7 +965,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
         </div>
         <div className={`${gridClass} h-fit pb-10`}>
           {items.map((item: any, i: number) => (
-            <BentoCard key={i} item={item} delay={i * 0.1} isVisible={isVisible(i)} staticMode={staticMode} itemsCount={isThreeCol ? 3 : 4} />
+            <BentoCard key={i} item={item} delay={i * 0.1} isVisible={isVisible(i)} staticMode={staticMode} itemsCount={items.length} />
           ))}
         </div>
       </motion.div>
@@ -882,14 +1007,17 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
   }
 
   if (slideType === 'ALERT' || slideType === 'STEPS') {
+    const items = slide.cards || slide.items || [];
+    const isGrid2x3 = items.length === 6 && slide.title === 'MODELO DE NEGOCIO';
+
     return (
       <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full max-w-7xl px-4 flex flex-col justify-center h-full mx-auto">
         <div className="mb-12 text-center">
           <motion.h2 variants={itemVariants} className={`font-bold uppercase tracking-[0.5em] mb-4 text-sm ${slideType === 'ALERT' ? 'text-red-500' : 'text-blue-500'}`}>{slide.subtitle}</motion.h2>
           <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-black tracking-tighter text-white uppercase italic">{slide.title}</motion.h1>
         </div>
-        <div className={`grid gap-6 ${(slide.cards || slide.items)?.length === 3 ? 'grid-cols-1 md:grid-cols-3' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4'}`}>
-          {(slide.cards || slide.items)?.map((item: any, i: number) => {
+        <div className={`grid gap-6 ${isGrid2x3 ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : (items.length === 3 ? 'grid-cols-1 md:grid-cols-3' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4')}`}>
+          {items.map((item: any, i: number) => {
             const isString = typeof item === 'string';
             return (
               <motion.div key={i} animate={isVisible(i) ? "animate" : "initial"} variants={itemVariants} className={`${TOKENS.glassStrong} rounded-[2rem] p-8 text-center border border-white/10 h-full flex flex-col justify-center items-center group hover:border-blue-500/30 transition-all`}>
@@ -904,7 +1032,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
                       <IconMapper name={item.icon} size={28} />
                     </div>
                     <h3 className="text-xl font-black mb-2 leading-tight">{item.t}</h3>
-                    <p className="text-sm text-gray-400 font-light">{item.d}</p>
+                    <p className="text-sm text-gray-400 font-light whitespace-pre-line">{item.d}</p>
                   </>
                 )}
               </motion.div>
@@ -1333,7 +1461,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
         </div>
       </motion.div>
 
-      <motion.h1 variants={itemVariants} className={`${slide.id === 12 ? 'text-4xl lg:text-[6rem] text-cyan-400 drop-shadow-[0_0_30px_rgba(34,211,238,0.5)]' : 'text-4xl lg:text-[7rem] text-white'} font-black mb-6 tracking-tighter leading-[0.9] uppercase italic drop-shadow-2xl`}>
+      <motion.h1 variants={itemVariants} className={`${slide.id === 11 ? 'text-4xl lg:text-[6rem] text-cyan-400 drop-shadow-[0_0_30px_rgba(34,211,238,0.5)]' : 'text-4xl lg:text-[7rem] text-white'} font-black mb-6 tracking-tighter leading-[0.9] uppercase italic drop-shadow-2xl`}>
         {slide.title}
       </motion.h1>
 
@@ -1345,7 +1473,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
         </motion.div>
       )}
       {slide.highlight && (
-        <motion.p variants={itemVariants} className={`mt-6 lg:mt-8 max-w-2xl font-light text-base lg:text-lg ${slide.id === 12 ? 'text-lg lg:text-2xl text-white font-bold tracking-widest' : 'text-gray-400'}`}>{slide.highlight}</motion.p>
+        <motion.p variants={itemVariants} className={`mt-6 lg:mt-8 max-w-2xl font-light text-base lg:text-lg ${slide.id === 11 ? 'text-lg lg:text-2xl text-white font-bold tracking-widest' : 'text-gray-400'}`}>{slide.highlight}</motion.p>
       )}
     </motion.article>
   );

@@ -550,32 +550,40 @@
       "id": 21,
       "type": "MVP_MOCKUP",
       "title": "MVP",
+      "videoUrl": "mvp.mp4",
       "builds": [
         0,
         1,
         2,
-        3
+        3,
+        4,
+        5
       ],
       "items": [
         {
-          "t": "01 — Onboarding rápido",
+          "t": "Onboarding rápido",
           "d": "App conversacional",
-          "icon": "Zap"
+          "icon": "MessageSquareText"
         },
         {
-          "t": "02 — Plan 7 días",
+          "t": "Plan 7 días",
           "d": "",
-          "icon": "Calendar"
+          "icon": "CalendarDays"
         },
         {
-          "t": "03 — Check-in semanal",
+          "t": "Check-in semanal",
           "d": "",
-          "icon": "CheckCircle"
+          "icon": "ClipboardCheck"
         },
         {
-          "t": "04 — Métricas de progreso visibles",
+          "t": "Métricas de progreso visibles",
           "d": "",
-          "icon": "BarChart"
+          "icon": "BarChart3"
+        },
+        {
+          "t": "6 meses gratuita para crear demanda y datos",
+          "d": "",
+          "icon": "Gift"
         }
       ]
     },
@@ -661,49 +669,6 @@
       "speakerNotes": "La arquitectura completa de BioLife combina tecnologías modernas para una solución robusta y escalable."
     },
     {
-      "id": 24,
-      "type": "HERO",
-      "title": "LEGAL",
-      "subtitle": "Compliance",
-      "speakerNotes": "Marco legal robusto."
-    },
-    {
-      "id": 25,
-      "type": "BENTO_GRID",
-      "title": "LEGAL Y COMPLIANCE",
-      "subtitle": "GDPR / Partners / Claims",
-      "bentoItems": [
-        {
-          "title": "GDPR",
-          "description": "Cumplimiento estricto",
-          "icon": "ShieldCheck",
-          "variant": "glassStrong",
-          "span": "md"
-        },
-        {
-          "title": "Claims",
-          "description": "Qué prometemos / Qué NO",
-          "icon": "MessageCircle",
-          "variant": "glassStrong",
-          "span": "md"
-        },
-        {
-          "title": "Partners",
-          "description": "Contratos y auditoría",
-          "icon": "Users",
-          "variant": "glassStrong",
-          "span": "md"
-        },
-        {
-          "title": "Seguridad",
-          "description": "Protección de infraestructura",
-          "icon": "Lock",
-          "variant": "glassStrong",
-          "span": "md"
-        }
-      ]
-    },
-    {
       "id": 26,
       "type": "HERO",
       "title": "MARKETING",
@@ -712,9 +677,10 @@
     },
     {
       "id": 27,
-      "type": "BENTO_GRID",
+      "type": "VIDEO_GRID",
       "title": "BUYER PERSONA",
       "subtitle": "Nuestro Usuario Objetivo",
+      "videoUrl": "buyer_person.mp4",
       "bentoItems": [
         {
           "title": "Perfil",
@@ -741,24 +707,34 @@
     },
     {
       "id": 28,
-      "type": "TIMELINE",
-      "title": "MOMENTOS DEL DÍA",
-      "subtitle": "Touchpoints",
-      "timeline": [
+      "type": "DILO",
+      "title": "DILO",
+      "subtitle": "Day In The Life Of",
+      "moments": [
         {
-          "year": "07-09h",
-          "event": "Mañana: Desayuno + Commuting",
-          "icon": "Sunrise"
+          "title": "Mañana",
+          "subtitle": "Desayuno\nCommuting al trabajo\n7–9 hs",
+          "image": "01.png"
         },
         {
-          "year": "12-14h",
-          "event": "Mediodía: Break Laboral",
-          "icon": "Sun"
+          "title": "Mediodía",
+          "subtitle": "Break laboral\n12–14 hs",
+          "image": "02.png"
         },
         {
-          "year": "18-19h",
-          "event": "Tarde: Vuelta a casa",
-          "icon": "Sunset"
+          "title": "Tarde",
+          "subtitle": "Vuelta a casa\nCommuting\n18–19 hs",
+          "image": "03.png"
+        },
+        {
+          "title": "Tarde",
+          "subtitle": "Supermercado\n19–20 hs",
+          "image": "05.png"
+        },
+        {
+          "title": "Noche",
+          "subtitle": "TV\nA dormir\n21–23 hs",
+          "image": "06.png"
         }
       ]
     },

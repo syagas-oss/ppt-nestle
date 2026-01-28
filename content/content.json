@@ -103,20 +103,26 @@
         {
           "v": "+140",
           "l": "Países",
-          "size": "md",
+          "size": "sm",
           "icon": "MapPin"
         },
         {
           "v": "11k",
           "l": "Talento",
-          "size": "md",
+          "size": "sm",
           "icon": "UserCheck"
         },
         {
-          "v": "18,7 MM USD",
+          "v": "7.657 M USD",
           "l": "Ventas Totales",
-          "size": "xl",
+          "size": "sm",
           "icon": "TrendingUp"
+        },
+        {
+          "v": "13,4",
+          "l": "UTOP",
+          "size": "sm",
+          "icon": "Activity"
         }
       ],
       "speakerNotes": "NHS ya opera a una escala masiva en un mercado gigante."
@@ -150,7 +156,7 @@
     {
       "id": 8,
       "type": "BENTO_GRID",
-      "title": "TENDENCIAS",
+      "title": "INSIGHTS - TENDENCIAS",
       "subtitle": "Drivers de Cambio",
       "bentoItems": [
         {
@@ -207,45 +213,42 @@
     },
     {
       "id": 10,
-      "type": "BENTO_MARKET",
-      "title": "¿QUÉ HACEN HOY?",
-      "subtitle": "Análisis Competitivo",
-      "tableData": [
+      "type": "MARKET_ANALYSIS",
+      "title": "¿QUÉ HACE HOY EL MERCADO?",
+      "subtitle": "Ecosistema actual & Limitaciones",
+      "highlight": "El mercado mide bien el pasado, pero no guía el futuro.",
+      "builds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "cards": [
         {
-          "h": "Marcas",
-          "items": [
-            "Logo Brand A",
-            "Logo Brand B",
-            "Logo Brand C"
-          ],
-          "icon": "Tag"
+          "t": "Datos → decisiones claras",
+          "d": "Del simple 'tracking' a la acción personalizada.",
+          "icon": "Zap"
         },
         {
-          "h": "Player",
-          "items": [
-            "Wearables & plataformas de datos de salud",
-            "Apps de nutrición y tracking tradicional",
-            "Health & Nutrition con IA avanzada"
-          ],
-          "icon": "Users"
+          "t": "Ciencia nutricional integrada",
+          "d": "Validación clínica frente a simples algoritmos genéricos.",
+          "icon": "FlaskConical"
         },
         {
-          "h": "ACIERTOS",
-          "items": [
-            "Recolección continua de datos y alta adopción",
-            "Concienciación alimentación, foco en hábitos y control peso",
-            "Biomarcadores. enfoque científico, personalización basada en datos"
-          ],
-          "icon": "CheckCircle"
+          "t": "Experiencia simple y fluida",
+          "d": "Eliminar la fricción de entrada de datos manual.",
+          "icon": "Smartphone"
         },
         {
-          "h": "SIN RESOLVER",
-          "items": [
-            "Conversión de datos en decisiones claras, Integración de ciencia nutricional profunda",
-            "Formularios extensos, Enfoque limitado calorías/peso, no a salud integral",
-            "Coste elevado y experiencia compleja y poco accesible"
-          ],
-          "icon": "XCircle"
+          "t": "Salud integral (no solo calorías)",
+          "d": "Enfoque en biomarcadores y bienestar holístico.",
+          "icon": "Activity"
+        },
+        {
+          "t": "Accesibilidad real",
+          "d": "Soluciones de alto nivel a un coste sostenible.",
+          "icon": "Globe"
         }
       ],
       "speakerNotes": "Miden bien, pero falta el 'So What?' científico."
@@ -296,8 +299,7 @@
       "title": "TRES CAMINOS",
       "subtitle": "Opciones",
       "builds": [
-        0,
-        1
+        0
       ],
       "items": [
         {
@@ -319,6 +321,77 @@
     },
     {
       "id": 14,
+      "type": "COMPARISON_GRID",
+      "title": "¿POR QUÉ BIOLIFE?",
+      "subtitle": "Análisis Estratégico",
+      "builds": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "comparisonData": {
+        "criterios": [
+          "Impacto usuario",
+          "Diferenciación",
+          "Viabilidad",
+          "Confianza / Privacidad",
+          "Retención / fidelización",
+          "Capacidad de transformación"
+        ],
+        "columns": [
+          {
+            "title": "Nestlé Well Life",
+            "variant": "well-life",
+            "values": [
+              "MEDIA",
+              "BAJA",
+              "ALTA",
+              "MEDIA",
+              "BAJA",
+              "BAJA"
+            ]
+          },
+          {
+            "title": "Nestlé Trust",
+            "variant": "trust",
+            "values": [
+              "BAJA-MEDIA",
+              "MEDIA",
+              "MEDIA",
+              "ALTA",
+              "MEDIA",
+              "MEDIA"
+            ]
+          },
+          {
+            "title": "BIOLIFE",
+            "variant": "biolife",
+            "values": [
+              "ALTA",
+              "ALTA",
+              "MEDIA-ALTA",
+              "MUY ALTA",
+              "ALTA",
+              "ALTA"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "type": "VIDEO",
+      "title": "Teaser BioLife",
+      "subtitle": "Experiencia Directa",
+      "videoUrl": "teaser.mp4",
+      "builds": [
+        0
+      ],
+      "speakerNotes": "Disfrutemos de este teaser que resume la esencia de BioLife."
+    },
+    {
+      "id": 16,
       "type": "STEPS",
       "title": "MODELO DE NEGOCIO",
       "items": [
@@ -355,7 +428,7 @@
       ]
     },
     {
-      "id": 15,
+      "id": 17,
       "type": "BENTO_MARKET",
       "title": "ESTRATEGIA DEL DATO",
       "subtitle": "EL DATO COMO ACTIVO ESTRATÉGICO DE PRODUCTO",
@@ -400,7 +473,7 @@
       ]
     },
     {
-      "id": 16,
+      "id": 18,
       "type": "ROADMAP",
       "title": "ROADMAP",
       "subtitle": "5 AÑOS",
@@ -440,7 +513,7 @@
       ]
     },
     {
-      "id": 17,
+      "id": 19,
       "type": "MVP_MOCKUP",
       "title": "MVP",
       "builds": [
@@ -473,14 +546,14 @@
       ]
     },
     {
-      "id": 18,
+      "id": 20,
       "type": "HERO",
       "title": "TECNOLOGÍA",
       "subtitle": "Foundation",
       "speakerNotes": "La tecnología que lo hace posible."
     },
     {
-      "id": 19,
+      "id": 21,
       "type": "ARCHITECTURE_DIAGRAM",
       "title": "ARQUITECTURA BIOLIFE",
       "subtitle": "Proyecto Nestlé Nutrition",
@@ -554,14 +627,14 @@
       "speakerNotes": "La arquitectura completa de BioLife combina tecnologías modernas para una solución robusta y escalable."
     },
     {
-      "id": 20,
+      "id": 22,
       "type": "HERO",
       "title": "LEGAL",
       "subtitle": "Compliance",
       "speakerNotes": "Marco legal robusto."
     },
     {
-      "id": 21,
+      "id": 23,
       "type": "BENTO_GRID",
       "title": "LEGAL Y COMPLIANCE",
       "subtitle": "GDPR / Partners / Claims",
@@ -597,14 +670,14 @@
       ]
     },
     {
-      "id": 22,
+      "id": 24,
       "type": "HERO",
       "title": "MARKETING",
       "subtitle": "Estrategia",
       "speakerNotes": "Cómo llegamos al usuario."
     },
     {
-      "id": 23,
+      "id": 25,
       "type": "BENTO_GRID",
       "title": "BUYER PERSONA",
       "subtitle": "Nuestro Usuario Objetivo",
@@ -633,7 +706,7 @@
       ]
     },
     {
-      "id": 24,
+      "id": 26,
       "type": "TIMELINE",
       "title": "MOMENTOS DEL DÍA",
       "subtitle": "Touchpoints",
@@ -656,7 +729,7 @@
       ]
     },
     {
-      "id": 25,
+      "id": 27,
       "type": "BENTO_GRID",
       "title": "CONCEPTO CREATIVO",
       "subtitle": "Conexión Emocional",
@@ -692,7 +765,7 @@
       ]
     },
     {
-      "id": 26,
+      "id": 28,
       "type": "FUNNEL",
       "title": "PRESUPUESTO MKG",
       "subtitle": "Total: 1,9 M - Funnel Strategy",
@@ -721,14 +794,14 @@
       ]
     },
     {
-      "id": 27,
+      "id": 29,
       "type": "HERO",
       "title": "MÉTRICAS",
       "subtitle": "Measurement",
       "speakerNotes": "Lo que no se mide no se mejora."
     },
     {
-      "id": 28,
+      "id": 30,
       "type": "STEPS",
       "title": "KPIs",
       "subtitle": "Lo que vamos a medir",
@@ -756,14 +829,14 @@
       ]
     },
     {
-      "id": 29,
+      "id": 31,
       "type": "HERO",
       "title": "RRHH",
       "subtitle": "Talento",
       "speakerNotes": "Las personas detrás del producto."
     },
     {
-      "id": 30,
+      "id": 32,
       "type": "SQUADS",
       "title": "AGILE SQUADS",
       "subtitle": "Agile Product Operating Model",
@@ -796,7 +869,7 @@
       ]
     },
     {
-      "id": 31,
+      "id": 33,
       "type": "BENTO_GRID",
       "title": "ROLES TRANSVERSALES",
       "subtitle": "Velocidad sin romper confianza",
@@ -825,14 +898,14 @@
       ]
     },
     {
-      "id": 32,
+      "id": 34,
       "type": "HERO",
       "title": "GOBERNANZA\nY ESG",
       "subtitle": "Sostenibilidad",
       "speakerNotes": "Estructura de gobierno y ESG."
     },
     {
-      "id": 33,
+      "id": 35,
       "type": "CORPORATE_HIERARCHY",
       "title": "NewCo",
       "subtitle": "Autonomía operativa con gobernanza estratégica",
@@ -860,7 +933,7 @@
       ]
     },
     {
-      "id": 34,
+      "id": 36,
       "type": "BENTO_GRID",
       "title": "PRINCIPIOS",
       "subtitle": "Gobernanza",
@@ -892,7 +965,7 @@
       ]
     },
     {
-      "id": 35,
+      "id": 37,
       "type": "VERTICAL_DIAGRAM",
       "title": "ÓRGANOS",
       "subtitle": "De Decisión",
@@ -924,7 +997,7 @@
       ]
     },
     {
-      "id": 36,
+      "id": 38,
       "type": "QUADRANT",
       "title": "MONETIZACIÓN",
       "subtitle": "Qué se puede y qué NO",
@@ -944,7 +1017,7 @@
       ]
     },
     {
-      "id": 37,
+      "id": 39,
       "type": "STEPS",
       "title": "CAPA DIGITAL",
       "subtitle": "Servicio",
@@ -972,7 +1045,7 @@
       ]
     },
     {
-      "id": 38,
+      "id": 40,
       "type": "TRIANGLE_ESG",
       "title": "ESG",
       "subtitle": "Sistema de Control y Escala",
@@ -995,14 +1068,14 @@
       ]
     },
     {
-      "id": 39,
+      "id": 41,
       "type": "HERO",
       "title": "FINANCIERO",
       "subtitle": "Business Case",
       "speakerNotes": "La viabilidad económica."
     },
     {
-      "id": 40,
+      "id": 42,
       "type": "COST_ANALYSIS",
       "title": "USUARIOS",
       "subtitle": "Activos por Año",
@@ -1032,7 +1105,7 @@
       "metricBoxes": []
     },
     {
-      "id": 41,
+      "id": 43,
       "type": "COST_ANALYSIS",
       "title": "COSTE VARIABLE",
       "subtitle": "Por usuario (Año 0)",
@@ -1063,7 +1136,7 @@
       "metricBoxes": []
     },
     {
-      "id": 42,
+      "id": 44,
       "type": "CAPEX_OPEX_TABLES",
       "title": "CAPEX / OPEX",
       "subtitle": "Inversión Año 0",
@@ -1109,7 +1182,7 @@
       ]
     },
     {
-      "id": 43,
+      "id": 45,
       "type": "ECONOMIC_TABLE",
       "title": "INGRESOS",
       "subtitle": "Proyección 8 Años",
@@ -1128,7 +1201,7 @@
       ]
     },
     {
-      "id": 44,
+      "id": 46,
       "type": "ECONOMIC_SUMMARY",
       "title": "KPIs FINANCIEROS",
       "subtitle": "Profitability",
@@ -1152,7 +1225,7 @@
       ]
     },
     {
-      "id": 45,
+      "id": 47,
       "type": "STEPS",
       "title": "CONCLUSIONES",
       "subtitle": "Claves del Éxito",
@@ -1176,7 +1249,7 @@
       ]
     },
     {
-      "id": 46,
+      "id": 48,
       "type": "HERO_FINAL",
       "title": "GRACIAS",
       "subtitle": "Nestlé Nutrición",

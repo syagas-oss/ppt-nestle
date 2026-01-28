@@ -140,11 +140,11 @@ const FallingImagesView: React.FC<{ slide: Slide; isVisible: (i: number) => bool
     return images.map((img: string) => ({
       img,
       // Full screen coverage but keeping away from absolute edges
-      x: Math.random() * 85 + 5, // 5% to 90% width
-      y: Math.random() * 70 + 10, // 10% to 80% height to be somewhat centered vertically
+      x: Math.random() * 60 + 5, // 5% to 65% width (more left-leaning and centered)
+      y: Math.random() * 55 + 15, // 15% to 70% height (less touching edges)
       rotation: Math.random() * 40 - 20, // -20 to 20 deg rotation
-      scale: 0.9 + Math.random() * 0.3, // 0.9 to 1.2 size variation
-      zIndex: Math.floor(Math.random() * 20) + 10 // Layering
+      scale: 1.0 + Math.random() * 0.4, // 1.0 to 1.4 size variation (larger)
+      zIndex: Math.floor(Math.random() * 20) + 100 // Layering (foreground > title z-50)
     }));
   }, [images]);
 
@@ -194,8 +194,8 @@ const FallingImagesView: React.FC<{ slide: Slide; isVisible: (i: number) => bool
               top: `${item.y}vh`,
               position: 'absolute',
               zIndex: item.zIndex,
-              width: '350px',
-              maxWidth: '25vw', // Responsive limit
+              width: '450px', // Larger base width
+              maxWidth: '35vw', // Responsive limit increased
             }}
             className="absolute shadow-2xl rounded-lg overflow-hidden border-4 border-white/90 transform origin-center"
           >
@@ -761,9 +761,9 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
             let isDimmed = false;
 
             if (slide.builds && slide.builds.length > 0) {
-              if (buildIndex === 0 && i === 2) {
+              if (buildIndex >= 0 && i === 2) {
                 isHighlight = true;
-              } else if (buildIndex === 0 && i !== 2) {
+              } else if (buildIndex >= 0 && i !== 2) {
                 isDimmed = true;
               }
             } else {
@@ -1023,16 +1023,30 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
   }
 
   if (slideType === 'VIDEO') {
+    const isPlaying = isVisible(0); // If buildIndex >= 0
+    const videoUrl = (slide as any).videoUrl;
+
     return (
-      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center relative">
-        <div className="absolute inset-0 z-0 bg-blue-500/5 animate-pulse" />
-        <div className={`${TOKENS.glassStrong} p-20 rounded-[3rem] border border-blue-500/30 flex flex-col items-center justify-center text-center max-w-4xl relative z-10`}>
-          <div className="w-24 h-24 rounded-full bg-blue-600 flex items-center justify-center mb-8 shadow-[0_0_50px_rgba(37,99,235,0.5)] cursor-pointer hover:scale-110 transition-transform">
-            <Icons.Play size={40} className="ml-2 text-white" />
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full bg-black flex items-center justify-center relative overflow-hidden">
+        {!isPlaying ? (
+          <div className="absolute inset-0 bg-black flex items-center justify-center">
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.5 }} className="text-blue-500 font-mono text-sm tracking-widest animate-pulse">
+              SISTEMA LISTO PARA REPRODUCCIÓN_
+            </motion.div>
           </div>
-          <h1 className="text-6xl font-black italic uppercase mb-4 tracking-tighter">BioLife Demo</h1>
-          <p className="text-xl text-blue-400 font-mono">FULLSCREEN_PLAYBACK_SEQUENCE_INIT</p>
-        </div>
+        ) : (
+          <motion.video
+            key={videoUrl}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="w-full h-full object-cover"
+            autoPlay
+            playsInline
+          >
+            <source src={`${import.meta.env.BASE_URL}assets/videos/${videoUrl}`} type="video/mp4" />
+            Your browser does not support the video tag.
+          </motion.video>
+        )}
       </motion.div>
     );
   }
@@ -1425,6 +1439,226 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
             </div>
           </motion.div>
         </div>
+      </motion.div>
+    );
+  }
+
+  // --- RENDERER: COMPARISON_GRID (Keynote Style) ---
+  if (slideType === 'COMPARISON_GRID') {
+    const data = (slide as any).comparisonData;
+    if (!data) return null;
+
+    const getColumnStyle = (variant: string) => {
+      switch (variant) {
+        case 'well-life': return 'bg-[#1a1c25] text-white/60';
+        case 'trust': return 'bg-[#10141d] text-white/70';
+        case 'biolife': return 'bg-[#1a3a3a] text-white font-bold ring-1 ring-cyan-500/30';
+        default: return 'bg-[#111]';
+      }
+    };
+
+    return (
+      <motion.div
+        variants={containerVariants}
+        initial="initial"
+        animate="animate"
+        className="w-full h-screen flex flex-col items-center justify-center bg-brand-dark p-0 overflow-hidden"
+      >
+        <div className="w-full max-w-7xl px-8 mb-8 text-center flex flex-col items-center">
+          <motion.h1
+            variants={itemVariants}
+            className="text-5xl lg:text-7xl font-black italic uppercase text-white tracking-tighter mb-2"
+          >
+            {slide.title}
+          </motion.h1>
+          <motion.div variants={itemVariants} className="h-1 w-24 bg-cyan-500 rounded-full mb-4" />
+        </div>
+
+        <div className="flex w-full h-[75vh] max-w-[1700px] border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+          {/* COLUMN 1: CRITERIOS */}
+          <motion.div
+            variants={itemVariants}
+            className="flex-[1.5] flex flex-col bg-[#1a1a1a] border-r border-white/10"
+          >
+            <div className="h-16 flex items-center px-6 border-b border-white/10 bg-black/20">
+              <span className="text-gray-500 font-black uppercase tracking-widest text-[10px]">Criterio</span>
+            </div>
+            <div className="flex-1 flex flex-col">
+              {data.criterios.map((c: string, idx: number) => (
+                <div key={idx} className="flex-1 flex items-center px-6 border-b border-white/5 last:border-0">
+                  <span className="text-white text-base lg:text-lg font-bold tracking-tight leading-tight uppercase">{c}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* COLUMNS 2, 3, 4: OPTIONS */}
+          {data.columns.map((col: any, colIdx: number) => {
+            const isBiolife = col.variant === 'biolife';
+            const colVisible = isVisible(colIdx + 1);
+
+            return (
+              <motion.div
+                key={colIdx}
+                initial={{ opacity: 0, x: 20 }}
+                animate={colVisible ? {
+                  opacity: 1,
+                  x: 0,
+                  scale: isBiolife ? [1, 1.02, 1] : 1,
+                  transition: {
+                    delay: 0.1,
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 15,
+                    scale: { duration: 0.5, delay: 0.2 }
+                  }
+                } : { opacity: 0, x: 20 }}
+                className={`flex-1 flex flex-col ${getColumnStyle(col.variant)} transition-all duration-700 ${isBiolife ? 'z-10 relative' : ''}`}
+              >
+                <div className={`h-16 flex items-center justify-center px-4 border-b ${isBiolife ? 'border-cyan-500/30 bg-cyan-500/10' : 'border-white/10 bg-black/10'}`}>
+                  <span className={`text-center font-black uppercase tracking-tighter ${isBiolife ? 'text-xl lg:text-2xl text-cyan-400' : 'text-sm lg:text-base text-white/90'}`}>{col.title}</span>
+                </div>
+                <div className="flex-1 flex flex-col">
+                  {col.values.map((val: string, valIdx: number) => (
+                    <div key={valIdx} className={`flex-1 flex items-center justify-center border-b ${isBiolife ? 'border-cyan-500/10' : 'border-white/5'} last:border-0 px-2`}>
+                      <span className={`uppercase tracking-[0.1em] text-center leading-none ${isBiolife ? 'text-lg lg:text-2xl font-black text-white' : 'text-sm lg:text-lg'}`}>
+                        {val}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                {isBiolife && (
+                  <div className="absolute inset-x-0 -bottom-3 flex justify-center">
+                    <div className="px-4 py-1 bg-cyan-500 text-black font-black uppercase text-[9px] rounded-full shadow-lg shadow-cyan-500/40">
+                      Recomendado
+                    </div>
+                  </div>
+                )}
+              </motion.div>
+            );
+          })}
+        </div>
+      </motion.div>
+    );
+  }
+
+  // --- RENDERER: MARKET ANALYSIS (KEYNOTE STYLE) ---
+  if (slideType === 'MARKET_ANALYSIS') {
+    const BrandLogo: React.FC<{ name: string }> = ({ name }) => {
+      switch (name) {
+        case 'Apple Health':
+          return (
+            <div className="flex items-center gap-2">
+              <Icons.Heart className="text-white fill-white" size={24} />
+              <span className="text-xl font-medium tracking-tight text-white">Health</span>
+            </div>
+          );
+        case 'Garmin':
+          return (
+            <div className="flex items-center gap-1">
+              <Icons.Triangle className="text-white fill-white rotate-180" size={18} />
+              <span className="text-xl font-black tracking-tighter text-white">GARMIN</span>
+            </div>
+          );
+        case 'Fitbit':
+          return (
+            <div className="flex items-center gap-2">
+              <div className="grid grid-cols-3 gap-0.5">
+                {[...Array(9)].map((_, i) => (
+                  <div key={i} className="w-1.5 h-1.5 bg-white rounded-full opacity-80" />
+                ))}
+              </div>
+              <span className="text-xl font-bold tracking-tighter text-white">fitbit</span>
+            </div>
+          );
+        case 'Oura':
+          return (
+            <div className="flex items-center gap-1">
+              <div className="w-5 h-5 rounded-full border-2 border-white flex items-center justify-center">
+                <div className="w-2.5 h-0.5 bg-white" />
+              </div>
+              <span className="text-xl font-bold tracking-tight text-white italic">OURA</span>
+            </div>
+          );
+        case 'Noom':
+          return <span className="text-2xl font-black tracking-tighter text-white lowercase group-hover:text-brand-primary transition-colors">noom</span>;
+        case 'Zoe':
+          return <span className="text-2xl font-black tracking-widest text-white uppercase group-hover:text-brand-primary transition-colors">ZOE</span>;
+        case 'InsideTracker':
+          return (
+            <div className="flex items-center">
+              <span className="text-xl font-normal text-white">Inside</span>
+              <span className="text-xl font-black text-white">Tracker</span>
+            </div>
+          );
+        default:
+          return <span className="text-xl font-bold text-white">{name}</span>;
+      }
+    };
+
+    const logoNames = ['Apple Health', 'Garmin', 'Fitbit', 'Oura', 'Noom', 'Zoe', 'InsideTracker'];
+
+    return (
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-between p-8 lg:p-16 bg-brand-dark relative overflow-hidden">
+        {/* Top Row: Logos */}
+        <motion.div variants={itemVariants} className="w-full flex flex-col items-center gap-6">
+          <span className="text-gray-500 uppercase tracking-[0.4em] text-[10px] font-black opacity-60">Ecosistema actual</span>
+          <div className="flex flex-wrap justify-center items-center gap-10 lg:gap-14 opacity-40 hover:opacity-100 transition-all duration-700 select-none">
+            {logoNames.map((name, i) => (
+              <div key={i} className="group cursor-default">
+                <BrandLogo name={name} />
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Center: Title and Cards */}
+        <div className="flex flex-col items-center gap-12 lg:gap-16 w-full max-w-7xl">
+          <div className="text-center">
+            <motion.h1 variants={itemVariants} className="text-5xl lg:text-8xl font-black italic uppercase text-white tracking-tighter mb-4 leading-none font-display">
+              {slide.title}
+            </motion.h1>
+            <motion.p variants={itemVariants} className="text-brand-primary font-bold uppercase tracking-[0.5em] text-sm lg:text-base">
+              {slide.subtitle}
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 w-full">
+            {slide.cards?.map((card, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 40, scale: 0.9 }}
+                animate={isVisible(i) ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 40, scale: 0.9 }}
+                transition={{ type: "spring", damping: 15, mass: 1, stiffness: 100 }}
+                className={`${TOKENS.glassStrong} p-8 flex flex-col items-center text-center gap-4 border-t-2 border-brand-primary/30 relative group overflow-hidden h-full`}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="p-4 bg-brand-primary/10 rounded-2xl text-brand-primary mb-2 group-hover:scale-110 transition-transform">
+                  <IconMapper name={card.icon} size={40} />
+                </div>
+                <h3 className="text-lg lg:text-xl font-black uppercase text-white leading-tight font-display">{card.t}</h3>
+                <p className="text-xs lg:text-sm text-gray-400 font-medium leading-relaxed">{card.d}</p>
+                <div className="mt-auto pt-4">
+                  <div className="px-3 py-1 bg-red-500/10 text-red-500 text-[10px] font-bold uppercase rounded-full border border-red-500/20 shadow-[0_0_15px_rgba(239,68,68,0.1)]">
+                    Sin resolver
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom: Insight */}
+        <motion.div
+          variants={itemVariants}
+          className="w-full flex justify-center mt-8 lg:mt-0"
+        >
+          <div className={`${TOKENS.glassAccent} px-10 py-5 rounded-2xl border border-brand-primary/40 shadow-[0_0_50px_rgba(45,212,191,0.1)] backdrop-blur-3xl`}>
+            <p className="text-xl lg:text-3xl font-light text-white italic tracking-tight font-display">
+              “{slide.highlight}”
+            </p>
+          </div>
+        </motion.div>
       </motion.div>
     );
   }

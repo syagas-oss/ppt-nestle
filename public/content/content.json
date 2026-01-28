@@ -392,46 +392,80 @@
     },
     {
       "id": 16,
-      "type": "STEPS",
+      "type": "BUSINESS_MODEL",
       "title": "MODELO DE NEGOCIO",
       "items": [
         {
-          "t": "01 — Segmento de clientes",
-          "d": "B2C (25-75 años), interesado en salud preventiva.\nExpansión B2B",
-          "icon": "Users"
-        },
-        {
-          "t": "02 — Propuesta de Valor",
-          "d": "Nutrición personalizada, predictiva y accionable, basada\nen datos reales del cuerpo del usuario.",
-          "icon": "Target"
-        },
-        {
-          "t": "03 — Fuentes de Ingresos",
-          "d": "Suscripción mensual 5,99€\nAnual 71,88 €",
-          "icon": "DollarSign"
-        },
-        {
-          "t": "04 — Recursos Clave",
-          "d": "IA y modelos predictivos + Base de datos + Científicos,\nExpertos en salud + Infraestructura tecnológica",
+          "t": "01 - Recursos Clave",
+          "d": "IA y modelos predictivos + Base de datos +\nCientíficos, Expertos en salud + Infraestructura tecnológica",
           "icon": "Cpu"
         },
         {
-          "t": "05 — Actividades Clave",
+          "t": "02 - Actividades Clave",
           "d": "Desarrollo y entrenamiento IA + Integración de datos +\nDiseño UX + Validación científica + Marketing digital",
           "icon": "Settings"
         },
         {
-          "t": "06 — Estructura de Costes",
-          "d": "Desarrollo tec e IA. Marketing y (CAC).\nTalento especializado. Regulación y compliance sanitario.",
+          "t": "03 - Propuesta de Valor",
+          "d": "Nutrición personalizada, predictiva y accionable,\nbasada en datos reales del cuerpo del usuario.",
+          "icon": "Target"
+        },
+        {
+          "t": "04 - Segmento de clientes",
+          "d": "B2C (25–75 años), interesado en salud preventiva.\nExpansión B2B",
+          "icon": "Users"
+        },
+        {
+          "t": "05 - Fuentes de Ingresos",
+          "d": "Suscripción mensual 15€.\nSuscripción anual 180€",
+          "icon": "DollarSign"
+        },
+        {
+          "t": "06 - Estructura de Costes",
+          "d": "Desarrollo tech e IA. Marketing y CAC. Talento especializado. Regulación y compliance sanitario.",
           "icon": "BarChart2"
         }
       ]
     },
     {
       "id": 17,
+      "type": "HERO",
+      "title": "LA TRANSFORMACIÓN\nQUE IMPULSA BIOLIFE",
+      "subtitle": "Evolución Estratégica"
+    },
+    {
+      "id": 18,
+      "type": "OKRS_VIEW",
+      "title": "OKRs",
+      "subtitle": "¿CÓMO MEDIMOS EL ÉXITO?",
+      "bentoItems": [
+        {
+          "title": "OKR ESTRATÉGICO",
+          "subtitle": "BioLife es sostenible y con alta demanda",
+          "description": "- Retención a 90 días (≥ 60 %)\n- Engagement con recomendaciones científicas (≥ 40 %)\n- Confianza y NPS (55–60)"
+        },
+        {
+          "title": "OKR MARKETING",
+          "subtitle": "Captar al usuario correcto, no volumen vacío",
+          "description": "- Conversión trial → pago: ≥ 4 %\n- CAC máximo admisible: ≤ 60 €\n- ≥ 50 % adquisición orgánica / partners"
+        },
+        {
+          "title": "OKR NEGOCIO",
+          "subtitle": "Ingresos recurrentes = escalabilidad",
+          "description": "- MRR ≥ 1,3 M€\n- ARPU = 15 €\n- LTV / CAC ≥ 3\n- Payback < 12 meses"
+        },
+        {
+          "title": "OKR PRODUCTO",
+          "subtitle": "Asegurar que BioLife se usa y genera hábito",
+          "description": "- Objetivo: ≥ 30 % de usuarios activos\n- Stickiness (DAU / MAU): ≥ 0,25\n- ≥ 27.000 usuarios ejecutando recomendaciones / mes"
+        }
+      ]
+    },
+    {
+      "id": 19,
       "type": "BENTO_MARKET",
-      "title": "ESTRATEGIA DEL DATO",
-      "subtitle": "EL DATO COMO ACTIVO ESTRATÉGICO DE PRODUCTO",
+      "title": "DATO",
+      "subtitle": "ACTIVO ESTRATÉGICO DE PRODUCTO",
       "tableData": [
         {
           "h": "DATO - PRODUCTO",
@@ -461,7 +495,7 @@
           "icon": "ShieldCheck"
         },
         {
-          "h": "USOS EXCLUIDOS",
+          "h": "ÉTICA DEL DATO",
           "items": [
             "🚫 Venta de datos personales",
             "🚫 Publicidad basada en datos de salud",
@@ -473,7 +507,7 @@
       ]
     },
     {
-      "id": 18,
+      "id": 20,
       "type": "ROADMAP",
       "title": "ROADMAP",
       "subtitle": "5 AÑOS",
@@ -513,7 +547,7 @@
       ]
     },
     {
-      "id": 19,
+      "id": 21,
       "type": "MVP_MOCKUP",
       "title": "MVP",
       "builds": [
@@ -546,14 +580,14 @@
       ]
     },
     {
-      "id": 20,
+      "id": 22,
       "type": "HERO",
       "title": "TECNOLOGÍA",
       "subtitle": "Foundation",
       "speakerNotes": "La tecnología que lo hace posible."
     },
     {
-      "id": 21,
+      "id": 23,
       "type": "ARCHITECTURE_DIAGRAM",
       "title": "ARQUITECTURA BIOLIFE",
       "subtitle": "Proyecto Nestlé Nutrition",
@@ -627,14 +661,14 @@
       "speakerNotes": "La arquitectura completa de BioLife combina tecnologías modernas para una solución robusta y escalable."
     },
     {
-      "id": 22,
+      "id": 24,
       "type": "HERO",
       "title": "LEGAL",
       "subtitle": "Compliance",
       "speakerNotes": "Marco legal robusto."
     },
     {
-      "id": 23,
+      "id": 25,
       "type": "BENTO_GRID",
       "title": "LEGAL Y COMPLIANCE",
       "subtitle": "GDPR / Partners / Claims",
@@ -670,14 +704,14 @@
       ]
     },
     {
-      "id": 24,
+      "id": 26,
       "type": "HERO",
       "title": "MARKETING",
       "subtitle": "Estrategia",
       "speakerNotes": "Cómo llegamos al usuario."
     },
     {
-      "id": 25,
+      "id": 27,
       "type": "BENTO_GRID",
       "title": "BUYER PERSONA",
       "subtitle": "Nuestro Usuario Objetivo",
@@ -706,7 +740,7 @@
       ]
     },
     {
-      "id": 26,
+      "id": 28,
       "type": "TIMELINE",
       "title": "MOMENTOS DEL DÍA",
       "subtitle": "Touchpoints",
@@ -729,7 +763,7 @@
       ]
     },
     {
-      "id": 27,
+      "id": 29,
       "type": "BENTO_GRID",
       "title": "CONCEPTO CREATIVO",
       "subtitle": "Conexión Emocional",
@@ -765,7 +799,7 @@
       ]
     },
     {
-      "id": 28,
+      "id": 30,
       "type": "FUNNEL",
       "title": "PRESUPUESTO MKG",
       "subtitle": "Total: 1,9 M - Funnel Strategy",
@@ -794,14 +828,14 @@
       ]
     },
     {
-      "id": 29,
+      "id": 31,
       "type": "HERO",
       "title": "MÉTRICAS",
       "subtitle": "Measurement",
-      "speakerNotes": "Lo que no se mide no se mejora."
+      "speakerNotes": "Análisis de resultados y KPIs."
     },
     {
-      "id": 30,
+      "id": 32,
       "type": "STEPS",
       "title": "KPIs",
       "subtitle": "Lo que vamos a medir",

@@ -122,8 +122,8 @@ const BentoCard: React.FC<{ item: any; delay: number; isVisible: boolean; static
         {item.trend && <span className="text-[10px] text-brand-primary bg-brand-primary/20 px-2 py-1 rounded-full">+{item.trend}%</span>}
       </div>
       <div className="relative z-10">
-        {value && <div className="text-4xl md:text-5xl font-bold mb-3 text-white tracking-tight font-display">{String(value)}</div>}
-        <h3 className="text-lg md:text-xl font-bold text-white mb-2 leading-tight font-display">{String(title)}</h3>
+        {value && <div className={`${item.span === 'lg' ? 'text-5xl md:text-7xl' : 'text-4xl md:text-5xl'} font-bold mb-3 text-white tracking-tight font-display`}>{String(value)}</div>}
+        <h3 className={`${item.span === 'lg' ? 'text-2xl md:text-4xl' : 'text-lg md:text-xl'} font-bold text-white mb-2 leading-tight font-display`}>{String(title)}</h3>
         {item.description && <p className="text-sm text-gray-400 font-light leading-relaxed">{String(item.description)}</p>}
         {item.subtitle && <p className="text-xs text-brand-primary font-bold uppercase tracking-widest mt-2">{String(item.subtitle)}</p>}
       </div>
@@ -723,23 +723,26 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
             className="absolute top-1/2 left-0 h-2 bg-gradient-to-r from-blue-600 to-cyan-400 -translate-y-1/2 rounded-full"
           />
           <div className="flex flex-col lg:flex-row justify-between relative z-10 space-y-8 lg:space-y-0">
-            {slide.items?.map((item: any, i: number) => (
-              <motion.div
-                key={i}
-                variants={itemVariants}
-                className="flex flex-row lg:flex-col items-center gap-6 lg:gap-0 group"
-              >
-                <div className="w-8 h-8 lg:w-8 lg:h-8 bg-[#050810] border-4 border-cyan-400 rounded-full lg:mb-6 z-20 lg:group-hover:scale-125 transition-transform shadow-[0_0_20px_rgba(34,211,238,0.5)] flex-shrink-0" />
-                <div className={`${TOKENS.glassStrong} p-6 rounded-2xl w-full lg:w-64 text-left lg:text-center border-t-4 border-blue-500 relative lg:group-hover:-translate-y-2 lg:transition-transform duration-300`}>
-                  <div className="hidden lg:block absolute -top-3 left-1/2 -translate-x-1/2 w-0.5 h-6 bg-white/20" />
-                  <div className="flex lg:justify-center mb-3">
-                    <IconMapper name={item.icon} size={28} className="lg:size-8 text-blue-400" />
+            {slide.items?.map((item: any, i: number) => {
+              const isYearOne = i === 0 && slide.id === 20;
+              return (
+                <motion.div
+                  key={i}
+                  variants={itemVariants}
+                  className="flex flex-row lg:flex-col items-center gap-6 lg:gap-0 group"
+                >
+                  <div className={`w-8 h-8 lg:w-8 lg:h-8 bg-[#050810] border-4 border-cyan-400 rounded-full lg:mb-6 z-20 transition-all ${isYearOne ? 'scale-125 shadow-[0_0_30px_rgba(34,211,238,0.8)]' : 'lg:group-hover:scale-125 shadow-[0_0_20px_rgba(34,211,238,0.5)]'} flex-shrink-0`} />
+                  <div className={`${isYearOne ? TOKENS.glassGlow + ' ring-2 ring-cyan-500/30' : TOKENS.glassStrong} p-6 rounded-2xl w-full lg:w-64 text-left lg:text-center border-t-4 border-blue-500 relative lg:group-hover:-translate-y-2 lg:transition-transform duration-300`}>
+                    <div className="hidden lg:block absolute -top-3 left-1/2 -translate-x-1/2 w-0.5 h-6 bg-white/20" />
+                    <div className="flex lg:justify-center mb-3">
+                      <IconMapper name={item.icon} size={28} className={`lg:size-8 ${isYearOne ? 'text-cyan-400' : 'text-blue-400'}`} />
+                    </div>
+                    <h3 className={`text-lg lg:text-xl font-black uppercase mb-2 ${isYearOne ? 'text-cyan-400' : 'text-white'}`}>{item.t}</h3>
+                    <p className={`text-sm ${isYearOne ? 'text-white font-medium' : 'text-gray-400'}`}>{item.d}</p>
                   </div>
-                  <h3 className="text-lg lg:text-xl font-black uppercase text-white mb-2">{item.t}</h3>
-                  <p className="text-sm text-gray-400">{item.d}</p>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </motion.div>
@@ -1462,7 +1465,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
         variants={containerVariants}
         initial="initial"
         animate="animate"
-        className="w-full h-screen flex flex-col items-center justify-center bg-brand-dark p-0 overflow-hidden"
+        className="w-full h-screen flex flex-col items-center justify-center p-0 overflow-hidden"
       >
         <div className="w-full max-w-7xl px-8 mb-8 text-center flex flex-col items-center">
           <motion.h1
@@ -1542,6 +1545,260 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
     );
   }
 
+  // --- RENDERER: BUSINESS_MODEL (3-Column Value Chain) ---
+  if (slideType === 'BUSINESS_MODEL') {
+    const items = slide.items || [];
+
+    // Grid weights: Left (1.5), Center (1), Right (1.2) -> Approximate with grid-cols-12
+    // Left: col-span-5 (~41%)
+    // Center: col-span-3 (~25%)
+    // Right: col-span-4 (~33%)
+
+    const columnVariants = {
+      initial: { opacity: 0, y: 30 },
+      animate: (i: number) => ({
+        opacity: 1,
+        y: 0,
+        transition: {
+          delay: i * 0.4,
+          duration: 0.8,
+          ease: [0.22, 1, 0.36, 1]
+        }
+      })
+    };
+
+    return (
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center p-8 lg:p-16 relative overflow-hidden">
+        <div className="text-center mb-12 lg:mb-16">
+          <motion.h1 variants={itemVariants} className="text-5xl lg:text-8xl font-black italic uppercase text-white tracking-tighter mb-4 leading-none font-display">
+            {slide.title}
+          </motion.h1>
+          <motion.p variants={itemVariants} className="text-brand-primary font-bold uppercase tracking-[0.5em] text-sm lg:text-base">
+            OBJETIVO: CADENA LÓGICA DE VALOR
+          </motion.p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full max-w-[1800px] items-stretch">
+
+          {/* COLUMN LEFT: CAPACIDADES (1.5x) */}
+          <motion.div
+            custom={0}
+            variants={columnVariants}
+            className="lg:col-span-5 flex flex-col gap-6"
+          >
+            <div className="flex items-center gap-4 mb-2">
+              <div className="h-px flex-1 bg-gradient-to-r from-brand-primary to-transparent opacity-30" />
+              <span className="text-[10px] font-bold text-brand-primary uppercase tracking-[0.3em]">Capacidades</span>
+            </div>
+
+            {/* 01 - Recursos Clave (FOCO VISUAL) */}
+            <div className={`${TOKENS.glassGlow} p-8 border-brand-primary/40 relative group overflow-hidden`}>
+              <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
+                <IconMapper name={items[0]?.icon} size={40} className="text-brand-primary" />
+              </div>
+              <span className="text-5xl font-black text-brand-primary/20 mb-4 block">01</span>
+              <h3 className="text-2xl font-black text-white uppercase mb-4 font-display">{items[0]?.t}</h3>
+              <p className="text-lg text-gray-300 font-light leading-relaxed whitespace-pre-line">
+                {items[0]?.d}
+              </p>
+              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-brand-primary/10 blur-[50px] rounded-full" />
+            </div>
+
+            {/* 02 - Actividades Clave */}
+            <div className={`${TOKENS.glassStrong} p-8 border-white/5 hover:border-brand-primary/30 transition-all`}>
+              <span className="text-4xl font-black text-white/10 mb-4 block">02</span>
+              <h3 className="text-xl font-black text-white uppercase mb-4 font-display">{items[1]?.t}</h3>
+              <p className="text-base text-gray-400 font-light leading-relaxed whitespace-pre-line">
+                {items[1]?.d}
+              </p>
+            </div>
+          </motion.div>
+
+          {/* COLUMN CENTER: VALOR (1x) */}
+          <motion.div
+            custom={1}
+            variants={columnVariants}
+            className="lg:col-span-3 flex flex-col items-center justify-center relative"
+          >
+            {/* Connecting arrows/lines (Visual only for desktop) */}
+            <div className="hidden lg:block absolute -left-4 top-1/2 -translate-y-1/2 text-brand-primary/40">
+              <Icons.ChevronRight size={40} />
+            </div>
+            <div className="hidden lg:block absolute -right-4 top-1/2 -translate-y-1/2 text-brand-primary/40">
+              <Icons.ChevronRight size={40} />
+            </div>
+
+            <div className="w-full h-full flex flex-col gap-6">
+              <div className="flex items-center gap-4 mb-2">
+                <div className="h-px flex-1 bg-brand-primary/30" />
+                <span className="text-[10px] font-bold text-brand-primary uppercase tracking-[0.3em]">Valor</span>
+                <div className="h-px flex-1 bg-brand-primary/30" />
+              </div>
+
+              {/* 03 - Propuesta de Valor */}
+              <div className={`${TOKENS.glassAccent} p-10 flex flex-col items-center text-center justify-center border-brand-primary/50 shadow-[0_0_50px_rgba(45,212,191,0.15)] flex-1`}>
+                <div className="p-5 bg-brand-primary/10 rounded-full text-brand-primary mb-8">
+                  <IconMapper name={items[2]?.icon} size={48} />
+                </div>
+                <span className="text-4xl font-black text-brand-primary/20 mb-4 block">03</span>
+                <h3 className="text-2xl font-black text-white uppercase mb-6 font-display">{items[2]?.t}</h3>
+                <p className="text-lg text-white font-medium leading-relaxed italic">
+                  “{items[2]?.d}”
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* COLUMN RIGHT: MODELO ECONÓMICO (1.2x) */}
+          <motion.div
+            custom={2}
+            variants={columnVariants}
+            className="lg:col-span-4 flex flex-col gap-6"
+          >
+            <div className="flex items-center gap-4 mb-2">
+              <span className="text-[10px] font-bold text-brand-primary uppercase tracking-[0.3em]">Modelo Económico</span>
+              <div className="h-px flex-1 bg-gradient-to-l from-brand-primary to-transparent opacity-30" />
+            </div>
+
+            {/* 04 - Segmento de clientes */}
+            <div className={`${TOKENS.glassStrong} p-6 border-white/5`}>
+              <div className="flex items-start gap-4">
+                <span className="text-2xl font-black text-white/10">04</span>
+                <div>
+                  <h3 className="text-lg font-black text-white uppercase mb-2 font-display">{items[3]?.t}</h3>
+                  <p className="text-sm text-gray-400 font-light leading-relaxed whitespace-pre-line">
+                    {items[3]?.d}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 05 - Fuentes de Ingresos */}
+            <div className={`${TOKENS.glassStrong} p-6 border-white/5 bg-brand-primary/5`}>
+              <div className="flex items-start gap-4">
+                <span className="text-2xl font-black text-brand-primary/30">05</span>
+                <div className="w-full">
+                  <h3 className="text-lg font-black text-white uppercase mb-3 font-display">{items[4]?.t}</h3>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="bg-white/5 p-3 rounded-xl border border-white/10">
+                      <div className="text-[10px] text-gray-500 uppercase mb-1">Mensual</div>
+                      <div className="text-xl font-bold text-brand-primary">15€</div>
+                    </div>
+                    <div className="bg-white/5 p-3 rounded-xl border border-white/10">
+                      <div className="text-[10px] text-gray-500 uppercase mb-1">Anual</div>
+                      <div className="text-xl font-bold text-brand-primary">180€</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 06 - Estructura de Costes */}
+            <div className={`${TOKENS.glassStrong} p-6 border-white/5`}>
+              <div className="flex items-start gap-4">
+                <span className="text-2xl font-black text-white/10">06</span>
+                <div>
+                  <h3 className="text-lg font-black text-white uppercase mb-2 font-display">{items[5]?.t}</h3>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {items[5]?.d.split('. ').map((tag, tIdx) => (
+                      <span key={tIdx} className="text-[10px] bg-white/5 border border-white/10 px-2 py-1 rounded text-gray-400 uppercase">
+                        {tag.replace('.', '')}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
+    );
+  }
+
+  // --- RENDERER: OKRS_VIEW (North Pole Star + OKR Grid) ---
+  if (slideType === 'OKRS_VIEW') {
+    const items = slide.bentoItems || [];
+
+    const blockVariants = {
+      initial: { opacity: 0, y: 20 },
+      animate: (i: number) => ({
+        opacity: 1,
+        y: 0,
+        transition: {
+          delay: 0.8 + (i * 0.1),
+          duration: 0.8,
+          ease: [0.22, 1, 0.36, 1]
+        }
+      })
+    };
+
+    return (
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center p-8 lg:p-16 relative overflow-hidden">
+        {/* TOP LEVEL: NORTH POLE STAR */}
+        <div className="w-full max-w-6xl mb-16 lg:mb-24 flex flex-col items-center">
+          <div className="w-full flex items-center justify-start gap-4 mb-8">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5, filter: 'blur(10px)' }}
+              animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="relative"
+            >
+              <div className="absolute inset-0 bg-yellow-400 blur-[20px] opacity-40 animate-pulse" />
+              <Icons.Star className="text-yellow-400 fill-yellow-400 relative z-10" size={40} />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+            >
+              <h2 className="text-2xl font-black text-white uppercase tracking-[0.3em]">NORTH POLE STAR</h2>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ delay: 0.5, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className={`${TOKENS.glassStrong} w-full py-12 px-8 text-center border-brand-primary/30 shadow-[0_0_60px_rgba(45,212,191,0.1)] relative overflow-hidden group`}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-primary/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+            <p className="text-2xl lg:text-4xl font-light text-white leading-relaxed max-w-4xl mx-auto">
+              Usuarios de pago activos que interactúan semanalmente con recomendaciones personalizadas
+              <span className="block mt-4 text-brand-primary font-black text-4xl lg:text-6xl tracking-tight">
+                ≈ 90.000 año
+              </span>
+            </p>
+          </motion.div>
+        </div>
+
+        {/* BOTTOM LEVEL: OKRs GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl">
+          {items.map((item: any, i: number) => (
+            <motion.div
+              key={i}
+              custom={i}
+              variants={blockVariants}
+              className={`${TOKENS.glassStrong} p-8 border-white/5 flex flex-col gap-4 hover:border-brand-primary/20 transition-all`}
+            >
+              <div>
+                <h3 className="text-brand-primary font-black text-xs uppercase tracking-[0.3em] mb-1">{item.title}</h3>
+                <p className="text-white font-bold text-lg leading-tight mb-4">{item.subtitle}</p>
+              </div>
+              <ul className="space-y-2">
+                {item.description && item.description.split('\n').map((bullet: string, bIdx: number) => (
+                  <li key={bIdx} className="flex items-start gap-3 text-sm text-gray-400 font-light">
+                    <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-primary/40" />
+                    {bullet.replace('- ', '')}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    );
+  }
+
   // --- RENDERER: MARKET ANALYSIS (KEYNOTE STYLE) ---
   if (slideType === 'MARKET_ANALYSIS') {
     const BrandLogo: React.FC<{ name: string }> = ({ name }) => {
@@ -1599,7 +1856,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
     const logoNames = ['Apple Health', 'Garmin', 'Fitbit', 'Oura', 'Noom', 'Zoe', 'InsideTracker'];
 
     return (
-      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-between p-8 lg:p-16 bg-brand-dark relative overflow-hidden">
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-between p-8 lg:p-16 relative overflow-hidden">
         {/* Top Row: Logos */}
         <motion.div variants={itemVariants} className="w-full flex flex-col items-center gap-6">
           <span className="text-gray-500 uppercase tracking-[0.4em] text-[10px] font-black opacity-60">Ecosistema actual</span>

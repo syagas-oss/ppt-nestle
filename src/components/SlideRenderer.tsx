@@ -558,58 +558,110 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
     )
   }
 
-  if (slideType === 'FUNNEL' || slideType === 'MVP_MOCKUP') {
-    if (slideType === 'MVP_MOCKUP') {
-      return (
-        <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex items-center justify-center gap-12 max-w-7xl mx-auto px-4">
-          <div className="flex-1 flex justify-center items-center">
-            {/* Mobile Mockup */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8, y: 50 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              className="w-64 h-[500px] bg-black border-4 border-gray-800 rounded-[3rem] shadow-2xl overflow-hidden flex flex-col relative"
-            >
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-b-xl z-20" />
-              <div className="flex-1 bg-gradient-to-b from-blue-900/40 to-black p-6 flex flex-col items-center justify-center space-y-4">
-                <div className="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center">
-                  <Icons.Target className="text-cyan-400 animate-pulse" size={32} />
-                </div>
-                <div className="w-full space-y-2">
-                  <div className="h-2 w-3/4 bg-white/20 rounded" />
-                  <div className="h-2 w-1/2 bg-white/10 rounded" />
-                </div>
-                <div className="grid grid-cols-2 gap-2 w-full mt-4">
-                  {[1, 2, 3, 4].map(i => <div key={i} className="h-12 bg-white/5 rounded-lg border border-white/10" />)}
-                </div>
-              </div>
-            </motion.div>
-          </div>
+  if (slideType === 'MVP_MOCKUP') {
+    const videoUrl = (slide as any).videoUrl || 'mvp.mp4';
+    const videoRef = React.useRef<HTMLVideoElement>(null);
 
-          <div className="flex-1 flex flex-col gap-6">
-            <motion.h1 variants={itemVariants} className="text-6xl font-black italic uppercase text-white mb-8">{slide.title}</motion.h1>
-            {slide.items?.map((item: any, idx: number) => (
-              <motion.div
-                key={idx}
-                variants={itemVariants}
-                animate={isVisible(idx) ? "animate" : "initial"}
-                className={`${TOKENS.glass} p-6 rounded-2xl border-l-4 border-blue-500 flex items-center gap-4`}
-              >
-                <div className="p-3 bg-blue-500/10 rounded-xl text-blue-400">
-                  <IconMapper name={item.icon} size={24} />
-                </div>
-                <div>
-                  <h3 className="font-bold text-xl uppercase text-white">
-                    {item.t}
-                  </h3>
-                  {item.d && <p className="text-sm text-gray-400 mt-1">{item.d}</p>}
-                </div>
-              </motion.div>
-            ))}
+    React.useEffect(() => {
+      if (videoRef.current) {
+        videoRef.current.playbackRate = 1.5;
+      }
+    }, [isVisible(0)]);
+
+    return (
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col lg:flex-row items-center justify-between gap-12 max-w-7xl mx-auto px-4 relative">
+
+        {/* LEFT: VIDEO DEMO IN MOCKUP */}
+        <div className="flex-1 flex justify-center items-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, x: -50 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="w-full max-w-[800px] aspect-[16/10] bg-black border-[12px] border-gray-800 rounded-[3rem] shadow-2xl overflow-hidden relative group"
+          >
+            {/* Device Details */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-black rounded-b-2xl z-30" />
+            <div className="absolute top-4 right-8 flex gap-2 z-30 opacity-40">
+              <div className="w-2 h-2 rounded-full bg-white/40" />
+              <div className="w-8 h-2 rounded-full bg-white/20" />
+            </div>
+
+            <video
+              ref={videoRef}
+              className="w-full h-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              key={videoUrl}
+            >
+              <source src={`${import.meta.env.BASE_URL}assets/videos/${videoUrl}`} type="video/mp4" />
+            </video>
+
+            {/* Video Overlays */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+            <div className="absolute bottom-6 left-6 flex items-center gap-3 bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
+              <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+              <span className="text-[10px] font-bold text-white uppercase tracking-widest">Live Demo</span>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* RIGHT: ORBITAL PILLARS */}
+        <div className="flex-1 relative h-[70vh] flex flex-col justify-center">
+          <div className="absolute left-0 top-10 bottom-10 w-px bg-gradient-to-b from-transparent via-brand-primary/20 to-transparent hidden lg:block" />
+
+          <motion.h1
+            variants={itemVariants}
+            className="text-6xl lg:text-7xl font-black italic uppercase text-white mb-10 lg:ml-8 font-display"
+          >
+            {slide.title}
+          </motion.h1>
+
+          <div className="space-y-4 lg:space-y-5 lg:ml-12 relative">
+            {slide.items?.map((item: any, idx: number) => {
+              const itemVisible = isVisible(idx + 1);
+              // Orbital curve effect
+              const curve = Math.sin((idx / 4) * Math.PI) * 40;
+
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={itemVisible ? { opacity: 1, x: curve } : { opacity: 0, x: 50 }}
+                  transition={{ delay: idx * 0.15, type: "spring", damping: 15 }}
+                  className={`${TOKENS.glassStrong} p-5 border-l-4 border-brand-primary flex items-center gap-6 group hover:scale-105 transition-all max-w-lg`}
+                >
+                  <div className="relative flex-shrink-0">
+                    <div className="absolute inset-0 bg-brand-primary/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center relative z-10 group-hover:bg-brand-primary/10 transition-colors">
+                      <IconMapper name={item.icon} size={28} className="text-brand-primary group-hover:scale-110 transition-transform" />
+                    </div>
+                    <div className="absolute -top-2 -left-2 w-7 h-7 rounded-full bg-[#050810] border-2 border-brand-primary flex items-center justify-center text-[10px] font-black text-brand-primary z-20">
+                      0{idx + 1}
+                    </div>
+                  </div>
+
+                  <div className="flex-1">
+                    <h3 className="font-black text-lg lg:text-xl uppercase text-white leading-tight mb-0.5 font-display">
+                      {item.t}
+                    </h3>
+                    {item.d && (
+                      <p className="text-xs lg:text-sm text-gray-400 font-light leading-snug">
+                        {item.d}
+                      </p>
+                    )}
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
-        </motion.div>
-      );
-    }
+        </div>
+      </motion.div>
+    );
+  }
+
+  if (slideType === 'FUNNEL') {
     return (
       <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex items-center justify-center gap-12 max-w-7xl mx-auto px-4">
         <div className="flex-1 flex flex-col gap-6">
@@ -645,7 +697,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
           <Icons.ArrowDown className="text-blue-500 mt-4 animate-bounce" size={40} />
         </div>
       </motion.div>
-    )
+    );
   }
 
   if (slideType === 'ROADMAP') {
@@ -678,6 +730,8 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
                 const left = 5 + progress * 80; // 5% to 85%
                 const top = 80 - progress * 70; // 80% to 10%
 
+                const isYearOne = i === 0 && slide.id === 20;
+
                 return (
                   <motion.div
                     key={i}
@@ -691,16 +745,16 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
                     }}
                     className="flex flex-col items-center group -translate-x-1/2 -translate-y-1/2"
                   >
-                    <div className="w-6 h-6 lg:w-10 lg:h-10 bg-[#050810] border-4 border-cyan-400 rounded-full lg:mb-4 z-20 lg:group-hover:scale-125 transition-transform shadow-[0_0_20px_rgba(34,211,238,0.5)] flex-shrink-0 flex items-center justify-center">
-                      <div className="w-2 h-2 lg:w-4 lg:h-4 bg-cyan-400 rounded-full animate-pulse" />
+                    <div className={`w-6 h-6 lg:w-10 lg:h-10 bg-[#050810] border-4 border-cyan-400 rounded-full lg:mb-4 z-20 transition-all ${isYearOne ? 'scale-125 shadow-[0_0_30px_rgba(34,211,238,0.8)]' : 'lg:group-hover:scale-125 shadow-[0_0_20px_rgba(34,211,238,0.5)]'} flex-shrink-0 flex items-center justify-center`}>
+                      <div className={`w-2 h-2 lg:w-4 lg:h-4 rounded-full ${isYearOne ? 'bg-cyan-200 animate-pulse' : 'bg-cyan-400 animate-pulse'}`} />
                     </div>
 
-                    <div className={`${TOKENS.glassStrong} p-4 lg:p-6 rounded-2xl w-48 lg:w-72 text-center border-t-4 border-blue-500 relative transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]`}>
+                    <div className={`${isYearOne ? TOKENS.glassGlow + ' ring-2 ring-cyan-500/30' : TOKENS.glassStrong} p-4 lg:p-6 rounded-2xl w-48 lg:w-72 text-center border-t-4 border-blue-500 relative transition-all duration-300 ${isYearOne ? '-translate-y-2 shadow-[0_20px_40px_rgba(0,0,0,0.6)]' : 'group-hover:-translate-y-2 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]'}`}>
                       <div className="flex justify-center mb-2">
-                        <IconMapper name={item.icon} size={24} className="lg:size-8 text-blue-400" />
+                        <IconMapper name={item.icon} size={24} className={`lg:size-8 ${isYearOne ? 'text-cyan-400' : 'text-blue-400'}`} />
                       </div>
-                      <h3 className="text-base lg:text-xl font-black uppercase text-white mb-1 leading-tight">{item.t}</h3>
-                      <p className="text-[10px] lg:text-xs text-gray-400 leading-tight">{item.d}</p>
+                      <h3 className={`text-base lg:text-xl font-black uppercase mb-1 leading-tight ${isYearOne ? 'text-cyan-400' : 'text-white'}`}>{item.t}</h3>
+                      <p className={`text-[10px] lg:text-xs leading-tight ${isYearOne ? 'text-white font-medium' : 'text-gray-400'}`}>{item.d}</p>
                     </div>
                   </motion.div>
                 );
@@ -1050,6 +1104,165 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
             Your browser does not support the video tag.
           </motion.video>
         )}
+      </motion.div>
+    );
+  }
+
+  if (slideType === 'VIDEO_GRID') {
+    const videoUrl = (slide as any).videoUrl;
+    const items = slide.bentoItems || [];
+
+    return (
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col lg:flex-row items-center justify-center gap-8 px-4 lg:px-12 max-w-7xl mx-auto">
+        {/* LEFT: Video */}
+        <div className="flex-1 w-full lg:w-1/2 h-full flex items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="w-full aspect-video lg:aspect-auto lg:h-[70vh] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10"
+          >
+            <video
+              className="w-full h-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+            >
+              <source src={`${import.meta.env.BASE_URL}assets/videos/${videoUrl}`} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </motion.div>
+        </div>
+
+        {/* RIGHT: Grid Items */}
+        <div className="flex-1 w-full lg:w-1/2 flex flex-col justify-center">
+          <div className="mb-8 text-center lg:text-left">
+            <motion.span variants={itemVariants} className="text-brand-primary font-bold tracking-[0.3em] lg:tracking-[0.5em] text-xs uppercase mb-3 block">{slide.subtitle}</motion.span>
+            <motion.h1 variants={itemVariants} className="text-3xl lg:text-5xl font-display font-medium tracking-tight uppercase text-white">{slide.title}</motion.h1>
+          </div>
+          <div className="grid grid-cols-1 gap-4">
+            {items.map((item: any, i: number) => (
+              <BentoCard key={i} item={item} delay={i * 0.15} isVisible={isVisible(i)} staticMode={staticMode} itemsCount={items.length} />
+            ))}
+          </div>
+        </div>
+      </motion.div>
+    );
+  }
+
+
+
+  if (slideType === 'DILO') {
+    const moments = (slide as any).moments || [];
+
+    // S-curve positions (x%, y%) for each moment along the path
+    const positions = [
+      { x: 15, y: 65 },   // Mañana - left, lower
+      { x: 30, y: 25 },   // Mediodía - center-left, upper
+      { x: 50, y: 55 },   // Tarde (casa) - center, middle
+      { x: 70, y: 30 },   // Tarde (super) - center-right, upper
+      { x: 85, y: 60 }    // Noche - right, middle-lower
+    ];
+
+    return (
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4 lg:px-8 relative overflow-hidden">
+        {/* Title */}
+        <div className="text-center mb-8 lg:mb-12 z-20">
+          <motion.span
+            variants={itemVariants}
+            className="text-brand-primary font-bold tracking-[0.3em] lg:tracking-[0.5em] text-xs uppercase mb-3 block"
+          >
+            {slide.subtitle}
+          </motion.span>
+          <motion.h1
+            variants={itemVariants}
+            className="text-4xl lg:text-6xl font-display font-medium tracking-tight uppercase text-white"
+          >
+            {slide.title}
+          </motion.h1>
+        </div>
+
+        {/* S-Curve Path Container */}
+        <div className="relative w-full max-w-7xl h-[500px] lg:h-[600px]">
+          {/* SVG S-Curve Path */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style={{ stopColor: '#3b82f6', stopOpacity: 0.6 }} />
+                <stop offset="50%" style={{ stopColor: '#8b5cf6', stopOpacity: 0.6 }} />
+                <stop offset="100%" style={{ stopColor: '#2dd4bf', stopOpacity: 0.6 }} />
+              </linearGradient>
+            </defs>
+            <motion.path
+              d="M 10 70 Q 25 20, 35 25 T 50 55 Q 60 35, 70 30 T 90 60"
+              fill="none"
+              stroke="url(#pathGradient)"
+              strokeWidth="0.8"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 1 }}
+              transition={{ duration: 2, ease: "easeInOut" }}
+            />
+          </svg>
+
+          {/* Moments positioned along the path */}
+          {moments.map((moment: any, i: number) => {
+            const pos = positions[i];
+            // Always show moments, just stagger the animation
+
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{
+                  delay: staticMode ? 0 : 0.5 + i * 0.3,
+                  duration: 0.6,
+                  ease: "easeOut"
+                }}
+                style={{
+                  position: 'absolute',
+                  left: `${pos.x}%`,
+                  top: `${pos.y}%`,
+                  transform: 'translate(-50%, -50%)'
+                }}
+                className="z-10"
+              >
+                {/* Moment Card */}
+                <div className="flex flex-col items-center gap-3 lg:gap-4">
+                  {/* Image Container */}
+                  <motion.div
+                    whileHover={{ scale: 1.05, y: -5 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    className="relative group"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="relative w-32 h-32 lg:w-40 lg:h-40 rounded-2xl overflow-hidden shadow-2xl border-2 border-white/10 bg-black/40 backdrop-blur-sm">
+                      <img
+                        src={`${import.meta.env.BASE_URL}assets/dilo/${moment.image}`}
+                        alt={moment.title}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                        }}
+                      />
+                    </div>
+                  </motion.div>
+
+                  {/* Text Container */}
+                  <div className="text-center max-w-[180px] lg:max-w-[220px]">
+                    <h3 className="text-lg lg:text-xl font-black uppercase text-white mb-1 tracking-tight">
+                      {moment.title}
+                    </h3>
+                    <p className="text-[10px] lg:text-xs text-gray-300 leading-relaxed whitespace-pre-line font-light">
+                      {moment.subtitle}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
       </motion.div>
     );
   }

@@ -198,8 +198,8 @@ const App: React.FC = () => {
     const handleKey = (e: KeyboardEvent) => {
       if ((showOverview || isGeneratingPDF) && e.key !== 'Escape') return;
       switch (e.key) {
-        case 'ArrowRight': case 'ArrowDown': case ' ': e.preventDefault(); navigateForward(); break;
-        case 'ArrowLeft': case 'ArrowUp': e.preventDefault(); navigateBackward(); break;
+        case 'ArrowRight': case 'ArrowDown': case ' ': case 'PageDown': e.preventDefault(); navigateForward(); break;
+        case 'ArrowLeft': case 'ArrowUp': case 'PageUp': e.preventDefault(); navigateBackward(); break;
         case 'Escape': setShowOverview(prev => !prev); break;
         case 'f': case 'F': toggleFullscreen(); break;
         case 'n': case 'N': setShowNotes(prev => !prev); break;

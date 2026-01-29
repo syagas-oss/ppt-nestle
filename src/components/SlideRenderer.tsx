@@ -622,6 +622,109 @@ const RevenueTableView: React.FC<{ slide: Slide; staticMode?: boolean }> = ({ sl
   );
 };
 
+const PnlTableView: React.FC<{ slide: Slide; staticMode?: boolean }> = ({ slide, staticMode = false }) => {
+  const borderColor = "border-white/10";
+  const headerBg = "bg-[#0a0f18]"; // Dark spreadsheet header
+  const totalBg = "bg-[#003399]/20"; // Subtle highlight for totals
+  const subTotalBg = "bg-white/5";
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      className="w-full h-full flex flex-col items-center justify-center p-4 lg:p-8 relative overflow-hidden bg-[#050810]"
+    >
+      <div className="w-full max-w-[98%] xl:max-w-[1400px] flex flex-col h-full justify-center">
+        {/* Top Header */}
+        <div className="mb-6 text-center">
+          <h1 className="text-3xl lg:text-4xl font-bold text-gray-400 uppercase tracking-[0.5em] mb-2">P&L</h1>
+          <h2 className="text-2xl lg:text-3xl font-black text-white uppercase tracking-tight font-display italic">{slide.title}</h2>
+        </div>
+
+        {/* Table Container */}
+        <div className="w-full overflow-hidden rounded-sm border border-white/10 bg-[#0a0f18] shadow-2xl">
+          <table className="w-full table-fixed border-collapse text-[10px] xl:text-xs">
+            <thead>
+              <tr className={`${headerBg} text-white border-b border-white/20`}>
+                <th className="p-3 text-left font-bold uppercase tracking-wider w-[25%] border-r border-white/10">
+                  Forecast
+                </th>
+                {(slide as any).columns?.map((col: string, i: number) => (
+                  <th key={i} className="p-3 text-right font-bold w-[15%] border-l border-white/10 bg-white/5">
+                    <div className="text-[10px] text-blue-400 opacity-80 mb-1">PROYECCIÓN</div>
+                    {col}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-white/5">
+              {(slide as any).data?.sections.map((section: any, sIdx: number) => (
+                <React.Fragment key={sIdx}>
+                  {/* Section Title Row (GROSS REVENUE, COGS, etc.) */}
+                  <tr className="bg-white/10">
+                    <td className="p-2 pl-4 text-left font-black text-white uppercase tracking-widest bg-white/5" colSpan={(slide as any).columns.length + 1}>
+                      {section.title}
+                    </td>
+                  </tr>
+
+                  {section.rows.map((row: any, rIdx: number) => {
+                    const isTotal = row.label.toLowerCase().includes('total') || row.isTotal;
+                    const isMainRow = !row.indent; // Indentation logic
+
+                    return (
+                      <tr key={rIdx} className={`${isTotal ? (row.isFinal ? 'bg-[#003399]/40 font-black italic' : subTotalBg + ' font-bold') : ''} hover:bg-white/5 transition-colors border-b border-white/5`}>
+                        <td className={`p-2 ${row.indent ? 'pl-8' : 'pl-4'} text-left ${isTotal ? 'text-white' : 'text-gray-400'} whitespace-nowrap overflow-hidden text-ellipsis border-r border-white/5`}>
+                          {row.label}
+                        </td>
+                        {row.values.map((val: string, vIdx: number) => (
+                          <td key={vIdx} className={`p-2 pr-4 text-right font-mono whitespace-nowrap tabular-nums ${isTotal ? (row.isFinal ? 'text-cyan-300 text-sm' : 'text-white') : 'text-gray-300'}`}>
+                            {val}
+                          </td>
+                        ))}
+                      </tr>
+                    );
+                  })}
+                </React.Fragment>
+              ))}
+
+              {/* Extra rows like EBITDA Margin, Net Income, Check */}
+              {(slide as any).data?.summaryRows?.map((row: any, idx: number) => (
+                <tr key={idx} className={`${row.isFinal ? 'bg-[#003399]/60 font-black' : (row.isCheck ? 'bg-red-900/10' : 'bg-white/5')} border-t border-white/10`}>
+                  <td className={`p-2 pl-4 text-left ${row.isFinal ? 'text-white uppercase italic' : 'text-gray-400'} border-r border-white/5`}>
+                    {row.label}
+                  </td>
+                  {row.values.map((val: string, vIdx: number) => (
+                    <td key={vIdx} className={`p-2 pr-4 text-right font-mono whitespace-nowrap tabular-nums ${row.isFinal ? 'text-cyan-400 font-bold' : (row.isCheck ? 'text-red-400' : 'text-white')}`}>
+                      {val}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* External Link Button */}
+        <div className="mt-8 flex justify-end">
+          <motion.a
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            href="https://docs.google.com/spreadsheets/d/1tQY0wAIm8wE_aFrkDShTYrPp8tUXn8TTSvKSQPcNLHA/edit?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-sm transition-all grayscale hover:grayscale-0 opacity-60 hover:opacity-100"
+          >
+            <Icons.ExternalLink size={16} className="text-blue-400" />
+            <span className="text-xs font-bold text-gray-300 uppercase tracking-widest">Ver P&L completo en Google Sheets</span>
+          </motion.a>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+
 const ConceptualEcosystemView: React.FC<{ slide: Slide; staticMode?: boolean }> = ({ slide, staticMode = false }) => {
   const TOKENS = getTOKENS(staticMode);
 
@@ -1192,10 +1295,15 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
     const videoRef = React.useRef<HTMLVideoElement>(null);
 
     React.useEffect(() => {
-      if (videoRef.current) {
+      if (!staticMode && videoRef.current) {
         videoRef.current.playbackRate = 1.5;
+        if (isVisible(0)) {
+          videoRef.current.play().catch(err => console.log('Video play failed:', err));
+        } else {
+          videoRef.current.pause();
+        }
       }
-    }, [isVisible(0)]);
+    }, [isVisible(0), staticMode]);
 
     return (
       <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col lg:flex-row items-center justify-between gap-12 max-w-7xl mx-auto px-4 relative">
@@ -1218,7 +1326,6 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
             <video
               ref={videoRef}
               className="w-full h-full object-cover"
-              autoPlay
               muted
               loop
               playsInline
@@ -1860,6 +1967,18 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
   if (slideType === 'VIDEO') {
     const isPlaying = isVisible(0); // If buildIndex >= 0
     const videoUrl = (slide as any).videoUrl;
+    const videoRef = React.useRef<HTMLVideoElement>(null);
+
+    React.useEffect(() => {
+      if (!staticMode && videoRef.current) {
+        if (isPlaying) {
+          videoRef.current.play().catch(err => console.log('Video play failed:', err));
+        } else {
+          videoRef.current.pause();
+          videoRef.current.currentTime = 0;
+        }
+      }
+    }, [isPlaying, staticMode]);
 
     return (
       <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full bg-black flex items-center justify-center relative overflow-hidden">
@@ -1871,11 +1990,11 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
           </div>
         ) : (
           <motion.video
+            ref={videoRef}
             key={videoUrl}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="w-full h-full object-cover"
-            autoPlay
             playsInline
           >
             <source src={`${import.meta.env.BASE_URL}assets/videos/${videoUrl}`} type="video/mp4" />
@@ -1889,6 +2008,18 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
   if (slideType === 'VIDEO_GRID') {
     const videoUrl = (slide as any).videoUrl;
     const items = slide.bentoItems || [];
+    const videoRef = React.useRef<HTMLVideoElement>(null);
+
+    React.useEffect(() => {
+      if (!staticMode && videoRef.current) {
+        videoRef.current.play().catch(err => console.log('Video play failed:', err));
+      }
+      return () => {
+        if (videoRef.current) {
+          videoRef.current.pause();
+        }
+      };
+    }, [staticMode]);
 
     return (
       <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col lg:flex-row items-center justify-center gap-8 px-4 lg:px-12 max-w-7xl mx-auto">
@@ -1901,8 +2032,8 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
             className="w-full aspect-video lg:aspect-auto lg:h-[70vh] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10"
           >
             <video
+              ref={videoRef}
               className="w-full h-full object-cover"
-              autoPlay
               muted
               loop
               playsInline
@@ -2398,6 +2529,10 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
   }
 
   // --- RENDERER: ECONOMIC_SUMMARY ---
+  if (slideType === 'PNL_TABLE') {
+    return <PnlTableView slide={slide} staticMode={staticMode} />;
+  }
+
   if (slideType === 'ECONOMIC_SUMMARY') {
     return (
       <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4">

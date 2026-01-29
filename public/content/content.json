@@ -794,8 +794,8 @@
             "Lanzamiento interno"
           ],
           "budget": [
-            "660 k",
-            "135 k"
+            "1.760 M",
+            "360 k"
           ],
           "color": "cyan"
         },
@@ -812,7 +812,7 @@
             "Casos de uso"
           ],
           "budget": [
-            "255 k"
+            "640 k"
           ],
           "color": "blue"
         },
@@ -828,12 +828,12 @@
             "Recognition & incentives"
           ],
           "budget": [
-            "465 k"
+            "1.240 M"
           ],
           "color": "teal"
         }
       ],
-      "totalBudget": "1.5 M",
+      "totalBudget": "7 M",
       "speakerNotes": "Alineación estratégica del plan de marketing: funnel, canales y presupuesto por etapa."
     },
     {
@@ -1192,48 +1192,37 @@
           ]
         },
         {
-          "label": "Número de cuotas mensuales cobradas",
-          "values": [
-            "1,081,845",
-            "2,323,788",
-            "3,311,777",
-            "4,553,359",
-            "5,130,269",
-            "5,698,940"
-          ]
-        },
-        {
           "label": "Número de usuarios totales",
           "values": [
-            "162,53",
-            "340,881",
-            "605,616",
-            "1,000,869",
-            "1,448,551",
-            "1,947,828"
+            "167,744",
+            "347,832",
+            "618,618",
+            "1,023,809",
+            "1,484,178",
+            "1,997,282"
           ]
         },
         {
           "label": "Nuevos Usuarios",
           "values": [
-            "162,53",
-            "212,03",
-            "267,03",
-            "327,53",
-            "393,53",
-            "465,03"
+            "190,65",
+            "229,033",
+            "344,416",
+            "343,463",
+            "380,07",
+            "290,514"
           ]
         }
       ],
       "totalRow": {
         "label": "Total",
         "values": [
-          "€16,227,670.98",
-          "€34,856,820.30",
-          "€49,676,659.91",
-          "€68,300,386.65",
-          "€76,954,032.63",
-          "€85,484,099.31"
+          "€16,436,216.46",
+          "€35,687,130.38",
+          "€51,232,275.92",
+          "€70,419,211.27",
+          "€79,374,452.95",
+          "€86,313,677.98"
         ]
       }
     },
@@ -1254,114 +1243,298 @@
         {
           "label": "Paid Marketing",
           "values": [
-            "€4,000,000.00",
-            "€3,200,000.00",
-            "€3,200,000.00",
-            "€3,000,000.00",
-            "€3,000,000.00",
-            "€2,800,000.00"
+            "€7,069,892.00",
+            "€12,000,000.00",
+            "€18,000,000.00",
+            "€22,242,909.00",
+            "€24,000,000.00",
+            "€25,000,000.00"
           ]
         },
         {
           "label": "Software",
           "values": [
-            "€308,000.00",
-            "€336,000.00",
-            "€336,000.00",
-            "€336,000.00",
-            "€336,000.00",
-            "€346,080.00"
+            "€638,000.00",
+            "€748,000.00",
+            "€776,620.00",
+            "€793,553.20",
+            "€847,956.15",
+            "€864,915.28"
           ]
         },
         {
           "label": "Coste de Ventas",
           "values": [
-            "€252,000.00",
-            "€283,534.24",
-            "€404,082.58",
-            "€555,572.70",
-            "€625,963.66",
-            "€695,349.39"
+            "€1,360,800.00",
+            "€2,922,980.00",
+            "€4,165,724.00",
+            "€5,727,450.00",
+            "€6,453,116.00",
+            "€7,168,420.00"
           ]
         },
         {
           "label": "Gastos Generales y Administrativos",
           "values": [
-            "€116,485.42",
-            "€137,757.35",
-            "€141,890.07",
-            "€146,146.77",
-            "€150,531.18",
-            "€153,541.80"
+            "€481,135.42",
+            "€643,623.58",
+            "€744,545.82",
+            "€859,156.55",
+            "€956,882.18",
+            "€966,451.00"
           ]
         },
         {
           "label": "Investigación y Desarrollo",
           "values": [
-            "€1,630,289.17",
-            "€2,020,433.03",
-            "€2,090,070.64",
-            "€2,233,289.42",
-            "€2,431,434.04",
-            "€2,504,377.06"
-          ]
-        },
-        {
-          "label": "COGS",
-          "values": [
-            "€252,000.00",
-            "€283,534.24",
-            "€404,082.58",
-            "€555,572.70",
-            "€625,963.66",
-            "€695,349.39"
+            "€2,198,989.17",
+            "€3,287,271.48",
+            "€4,350,863.15",
+            "€5,176,169.90",
+            "€6,077,892.56",
+            "€6,199,450.41"
           ]
         }
       ],
       "totalRow": {
         "label": "Total",
         "values": [
-          "€6,306,774.58",
-          "€5,977,724.61",
-          "€6,172,043.28",
-          "€6,271,008.90",
-          "€6,543,928.87",
-          "€6,499,348.25"
+          "€11,748,816.58",
+          "€19,601,875.06",
+          "€28,037,752.97",
+          "€34,799,238.65",
+          "€38,335,846.89",
+          "€40,199,236.69"
         ]
       },
       "speakerNotes": "Estructura detallada de gastos operativos y de capital proyectados a 5 años."
     },
     {
       "id": 42,
+      "type": "PNL_TABLE",
+      "title": "P&L BIO.LIFE",
+      "subtitle": "Financial Performance Forecast (2026-2030)",
+      "columns": [
+        "FY 2026 — Forecast",
+        "FY 2027 — Forecast",
+        "FY 2028 — Forecast",
+        "FY 2029 — Forecast",
+        "FY 2030 — Forecast"
+      ],
+      "data": {
+        "sections": [
+          {
+            "title": "GROSS REVENUE",
+            "rows": [
+              {
+                "label": "Revenue",
+                "indent": true,
+                "values": [
+                  "€15,858,716",
+                  "€35,887,130",
+                  "€51,832,276",
+                  "€71,019,211",
+                  "€79,974,453"
+                ]
+              },
+              {
+                "label": "Total Revenue",
+                "indent": true,
+                "values": [
+                  "€15,858,716",
+                  "€35,887,130",
+                  "€51,832,276",
+                  "€71,019,211",
+                  "€79,974,453"
+                ],
+                "isTotal": true
+              }
+            ]
+          },
+          {
+            "title": "COGS",
+            "rows": [
+              {
+                "label": "COGS",
+                "indent": true,
+                "values": [
+                  "€1,360,800",
+                  "€2,922,980",
+                  "€4,165,724",
+                  "€5,727,450",
+                  "€6,453,116"
+                ]
+              },
+              {
+                "label": "Total COGS",
+                "indent": true,
+                "values": [
+                  "€1,360,800",
+                  "€2,922,980",
+                  "€4,165,724",
+                  "€5,727,450",
+                  "€6,453,116"
+                ],
+                "isTotal": true
+              }
+            ]
+          },
+          {
+            "title": "Margins",
+            "rows": [
+              {
+                "label": "Gross Profit",
+                "values": [
+                  "€14,497,916",
+                  "€32,964,150",
+                  "€47,666,552",
+                  "€65,291,761",
+                  "€73,521,337"
+                ],
+                "isTotal": true
+              },
+              {
+                "label": "Gross Margin",
+                "values": [
+                  "83.7%",
+                  "84.9%",
+                  "85.3%",
+                  "85.4%",
+                  "85.4%"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Operating Expenses",
+            "rows": [
+              {
+                "label": "Total S&M",
+                "indent": true,
+                "values": [
+                  "€7,715,592",
+                  "€12,756,652",
+                  "€18,799,007",
+                  "€23,064,151",
+                  "€24,880,160"
+                ]
+              },
+              {
+                "label": "Total R&D",
+                "indent": true,
+                "values": [
+                  "€2,198,989",
+                  "€3,287,271",
+                  "€4,350,863",
+                  "€5,176,170",
+                  "€6,077,893"
+                ]
+              },
+              {
+                "label": "Total G&A",
+                "indent": true,
+                "values": [
+                  "€534,302",
+                  "€791,457",
+                  "€1,003,419",
+                  "€1,240,020",
+                  "€1,467,186"
+                ]
+              },
+              {
+                "label": "Total Operating Expenses",
+                "indent": true,
+                "values": [
+                  "€10,448,883",
+                  "€16,835,380",
+                  "€24,153,289",
+                  "€29,480,340",
+                  "€32,425,238"
+                ],
+                "isTotal": true
+              }
+            ]
+          }
+        ],
+        "summaryRows": [
+          {
+            "label": "Net Operating Income (EBITDA)",
+            "isFinal": true,
+            "values": [
+              "€4,049,033",
+              "€16,128,770",
+              "€23,513,263",
+              "€35,811,421",
+              "€41,096,099"
+            ]
+          },
+          {
+            "label": "EBITDA Margin",
+            "values": [
+              "19.62%",
+              "52.32%",
+              "-10.08%",
+              "-55.34%",
+              "-51.11%"
+            ]
+          },
+          {
+            "label": "Net Income",
+            "isFinal": true,
+            "values": [
+              "€4,045,733",
+              "€16,125,170",
+              "€23,509,663",
+              "€35,807,821",
+              "€41,092,499"
+            ]
+          },
+          {
+            "label": "Check",
+            "isCheck": true,
+            "values": [
+              "€5,778,177",
+              "€12,000,000",
+              "€12,000,000",
+              "€22,242,909",
+              "€41,092,499"
+            ]
+          }
+        ]
+      },
+      "speakerNotes": "Análisis financiero detallado con jerarquía de P&L según forecast: Revenue, COGS, márgenes, OPEX y cierre con EBITDA/Net Income."
+    },
+    {
+      "id": 43,
       "type": "FINANCIAL_INSIGHTS",
       "title": "INSIGHTS",
       "subtitle": "Drivers de Valor & Transformación Económica",
       "drivers": [
         {
           "label": "LTV",
-          "value": "495.93"
+          "value": "458.60"
         },
         {
           "label": "LTV:CAC",
-          "value": "15:1"
+          "value": "5.33"
         },
         {
           "label": "TIR",
-          "value": "371.98%"
+          "value": "492.31%"
         },
         {
           "label": "VAN",
-          "value": "€178M"
+          "value": "€117M"
         }
       ],
       "transformation": {
         "start": {
           "label": "EBITDA 2026",
-          "value": "€9.9M"
+          "value": "€4.6M"
         },
         "end": {
           "label": "EBITDA 2031",
-          "value": "€77M"
+          "value": "€54M"
         },
         "churn": {
           "label": "Churn rate anual",
@@ -1371,7 +1544,7 @@
       "speakerNotes": "Principales insights financieros: Drivers de valor sólidos que se traducen en una transformación económica escalable y crecimiento de EBITDA."
     },
     {
-      "id": 43,
+      "id": 44,
       "type": "CONCEPTUAL_ECOSYSTEM",
       "title": "BIO.LIFE",
       "subtitle": "Un sistema digital, ético y científico para la salud del futuro.",
@@ -1387,7 +1560,7 @@
       "bottomText": "Mejorar la vida de las personas,\ncon ciencia, ética y responsabilidad."
     },
     {
-      "id": 44,
+      "id": 45,
       "type": "FINAL_CLOSURE",
       "title": "BIO.LIFE",
       "subtitle": "De vender productos a construir una relación digital, continua y basada en datos con las personas.",

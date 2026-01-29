@@ -1,1592 +1,1603 @@
 {
-  "slides": [
-    {
-      "id": 1,
-      "type": "INITIAL_ANIMATION",
-      "title": "NESTLÉ\nNUTRICIÓN",
-      "subtitle": "Digital Transformation",
-      "highlight": "Ciencia aplicada + Capacidad de escala global",
-      "speakerNotes": ""
-    },
-    {
-      "id": 2,
-      "type": "BENTO_DATA",
-      "title": "Nestlé Global",
-      "subtitle": "Métricas",
-      "stats": [
-        {
-          "v": "185",
-          "l": "Mercados Activos",
-          "size": "md",
-          "icon": "Globe"
-        },
-        {
-          "v": "113,2 MM USD",
-          "l": "Ventas Totales",
-          "size": "lg",
-          "icon": "TrendingUp"
-        },
-        {
-          "v": "277k",
-          "l": "Talento",
-          "size": "md",
-          "icon": "Users"
-        }
-      ],
-      "speakerNotes": ""
-    },
-    {
-      "id": 3,
-      "type": "KINETIC_BRIDGE",
-      "title": "EL LEGADO",
-      "subtitle": "Historia",
-      "highlight": "Más de un siglo transformando la nutrición en ciencia",
-      "speakerNotes": ""
-    },
-    {
-      "id": 4,
-      "type": "TIMELINE",
-      "title": "TRAYECTORIA ESTRATÉGICA",
-      "subtitle": "Historia",
-      "timeline": [
-        {
-          "year": "1866",
-          "event": "Fundación y primeros años",
-          "icon": "Home"
-        },
-        {
-          "year": "1905",
-          "event": "Expansión y fusiones",
-          "icon": "Maximize"
-        },
-        {
-          "year": "1947",
-          "event": "Diversificación global",
-          "icon": "Globe2"
-        },
-        {
-          "year": "1999",
-          "event": "Liderazgo en nutrición",
-          "icon": "HeartPulse"
-        },
-        {
-          "year": "2011",
-          "event": "Nestlé Health Science",
-          "icon": "Stethoscope",
-          "highlight": true
-        },
-        {
-          "year": "2020",
-          "event": "Adquisición Aimmune",
-          "icon": "Box"
-        },
-        {
-          "year": "2023",
-          "event": "Digital Acceleration",
-          "icon": "Zap"
-        },
-        {
-          "year": "2026",
-          "event": "Liderazgo Digital",
-          "icon": "Cpu",
-          "highlight": true
-        }
-      ],
-      "speakerNotes": ""
-    },
-    {
-      "id": 5,
-      "type": "BENTO_DATA",
-      "title": "Impacto NHS",
-      "subtitle": "Nestlé Health Science",
-      "stats": [
-        {
-          "v": "+140",
-          "l": "Países",
-          "size": "sm",
-          "icon": "MapPin"
-        },
-        {
-          "v": "11k",
-          "l": "Talento",
-          "size": "sm",
-          "icon": "UserCheck"
-        },
-        {
-          "v": "7.657 M USD",
-          "l": "Ventas Totales",
-          "size": "sm",
-          "icon": "TrendingUp"
-        },
-        {
-          "v": "13,4",
-          "l": "UTOP",
-          "size": "sm",
-          "icon": "Activity"
-        }
-      ],
-      "speakerNotes": ""
-    },
-    {
-      "id": 6,
-      "type": "HERO",
-      "title": "¿QUÉ ESTÁ\nPASANDO?",
-      "subtitle": "Contexto",
-      "speakerNotes": ""
-    },
-    {
-      "id": 7,
-      "type": "FALLING_IMAGES",
-      "title": "ALGUNOS TITULARES",
-      "subtitle": "Market Signals",
-      "itemsImages": [
-        "Picture1.png",
-        "Picture2.png",
-        "Picture3.png",
-        "Picture4.png",
-        "Picture5.png",
-        "Picture6.png",
-        "Picture7.png",
-        "Picture8.png",
-        "Picture9.png",
-        "Picture10.png",
-        "Picture11.png"
-      ]
-    },
-    {
-      "id": 8,
-      "type": "BENTO_GRID",
-      "title": "INSIGHTS - TENDENCIAS",
-      "subtitle": "Drivers de Cambio",
-      "bentoItems": [
-        {
-          "title": "Cambios de hábitos de consumo",
-          "description": "",
-          "icon": "RefreshCw",
-          "span": "lg",
-          "variant": "glassStrong"
-        },
-        {
-          "title": "Autodiagnóstico",
-          "description": "",
-          "icon": "Search",
-          "span": "lg",
-          "variant": "glassStrong"
-        },
-        {
-          "title": "Disrupción tecnológica",
-          "description": "",
-          "icon": "Cpu",
-          "span": "lg",
-          "variant": "glassStrong"
-        },
-        {
-          "title": "Personalización \u0026 Salud preventiva",
-          "description": "",
-          "icon": "User",
-          "span": "md",
-          "variant": "glass"
-        },
-        {
-          "title": "Sin validación médica",
-          "description": "",
-          "icon": "AlertTriangle",
-          "span": "md",
-          "variant": "glass"
-        },
-        {
-          "title": "Apps de salud y wearables",
-          "description": "",
-          "icon": "Smartphone",
-          "span": "md",
-          "variant": "glass"
-        }
-      ]
-    },
-    {
-      "id": 9,
-      "type": "HERO_GLOW",
-      "title": "PLAYERS",
-      "subtitle": "Mercado",
-      "highlight": "El mercado está lleno pero, sigue abierto",
-      "speakerNotes": ""
-    },
-    {
-      "id": 10,
-      "type": "MARKET_ANALYSIS",
-      "title": "¿QUÉ HACE HOY EL MERCADO?",
-      "subtitle": "Ecosistema actual \u0026 Limitaciones",
-      "highlight": "El mercado mide bien el pasado, pero no guía el futuro.",
-      "builds": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ],
-      "cards": [
-        {
-          "t": "Datos → decisiones claras",
-          "d": "Del simple \u0027tracking\u0027 a la acción personalizada.",
-          "icon": "Zap"
-        },
-        {
-          "t": "Ciencia nutricional integrada",
-          "d": "Validación clínica frente a simples algoritmos genéricos.",
-          "icon": "FlaskConical"
-        },
-        {
-          "t": "Experiencia simple y fluida",
-          "d": "Eliminar la fricción de entrada de datos manual.",
-          "icon": "Smartphone"
-        },
-        {
-          "t": "Salud integral (no solo calorías)",
-          "d": "Enfoque en biomarcadores y bienestar holístico.",
-          "icon": "Activity"
-        },
-        {
-          "t": "Accesibilidad real",
-          "d": "Soluciones de alto nivel a un coste sostenible.",
-          "icon": "Globe"
-        }
-      ],
-      "speakerNotes": ""
-    },
-    {
-      "id": 11,
-      "type": "QUADRANT",
-      "title": "DAFO",
-      "subtitle": "El Mercado lo Exige",
-      "bentoItems": [
-        {
-          "title": "Debilidades (D)",
-          "description": "Relación directa limitada y aprendizaje lento sin dato propio",
-          "icon": "AlertOctagon",
-          "variant": "outline"
-        },
-        {
-          "title": "Fortalezas (F)",
-          "description": "Escala, ciencia, marcas y capacidad operativa",
-          "icon": "Award",
-          "variant": "glassStrong"
-        },
-        {
-          "title": "Oportunidades (O)",
-          "description": "Personalización, prevención y suscripción",
-          "icon": "Zap",
-          "variant": "accent"
-        },
-        {
-          "title": "Amenazas (A)",
-          "description": "Big Tech, saturación de apps y crisis de confianza",
-          "icon": "Siren",
-          "variant": "outline"
-        }
-      ]
-    },
-    {
-      "id": 12,
-      "type": "HERO_GLOW",
-      "title": "ESCENARIOS",
-      "subtitle": "Visión Estratégica",
-      "highlight": "DEFINIENDO EL FUTURO",
-      "speakerNotes": ""
-    },
-    {
-      "id": 13,
-      "type": "CARDS_CHOICE",
-      "title": "TRES CAMINOS",
-      "subtitle": "Opciones",
-      "builds": [
-        0
-      ],
-      "items": [
-        {
-          "t": "NESTLÉ WELL LIFE",
-          "d": "Marketplace: Transacción optimizada",
-          "icon": "ShoppingCart"
-        },
-        {
-          "t": "NESTLÉ TRUST",
-          "d": "Certificación: Ser sello de confianza",
-          "icon": "BadgeCheck"
-        },
-        {
-          "t": "NESTLÉ BIOLIFE",
-          "d": "NaaS: Relación + aprendizaje + retención",
-          "icon": "Infinity"
-        }
-      ]
-    },
-    {
-      "id": 14,
-      "type": "COMPARISON_GRID",
-      "title": "¿POR QUÉ BIOLIFE?",
-      "subtitle": "Análisis Estratégico",
-      "builds": [
-        0,
-        1,
-        2,
-        3
-      ],
-      "comparisonData": {
-        "criterios": [
-          "Impacto usuario",
-          "Diferenciación",
-          "Viabilidad",
-          "Confianza / Privacidad",
-          "Retención / fidelización",
-          "Capacidad de transformación"
-        ],
-        "columns": [
-          {
-            "title": "Nestlé Well Life",
-            "variant": "well-life",
-            "values": [
-              "MEDIA",
-              "BAJA",
-              "ALTA",
-              "MEDIA",
-              "BAJA",
-              "BAJA"
-            ]
-          },
-          {
-            "title": "Nestlé Trust",
-            "variant": "trust",
-            "values": [
-              "BAJA-MEDIA",
-              "MEDIA",
-              "MEDIA",
-              "ALTA",
-              "MEDIA",
-              "MEDIA"
-            ]
-          },
-          {
-            "title": "BIOLIFE",
-            "variant": "biolife",
-            "values": [
-              "ALTA",
-              "ALTA",
-              "MEDIA-ALTA",
-              "MUY ALTA",
-              "ALTA",
-              "ALTA"
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": 15,
-      "type": "VIDEO",
-      "title": "Teaser BioLife",
-      "subtitle": "Experiencia Directa",
-      "videoUrl": "teaser.mp4",
-      "builds": [
-        0
-      ],
-      "speakerNotes": ""
-    },
-    {
-      "id": 16,
-      "type": "BUSINESS_MODEL",
-      "title": "MODELO DE NEGOCIO",
-      "items": [
-        {
-          "t": "01 - Recursos Clave",
-          "d": "IA y modelos predictivos + Base de datos +\nCientíficos, Expertos en salud + Infraestructura tecnológica",
-          "icon": "Cpu"
-        },
-        {
-          "t": "02 - Actividades Clave",
-          "d": "Desarrollo y entrenamiento IA + Integración de datos +\nDiseño UX + Validación científica + Marketing digital",
-          "icon": "Settings"
-        },
-        {
-          "t": "03 - Propuesta de Valor",
-          "d": "Nutrición personalizada, predictiva y accionable,\nbasada en datos reales del cuerpo del usuario.",
-          "icon": "Target"
-        },
-        {
-          "t": "04 - Segmento de clientes",
-          "d": "B2C (25–75 años), interesado en salud preventiva.\nExpansión B2B",
-          "icon": "Users"
-        },
-        {
-          "t": "05 - Fuentes de Ingresos",
-          "d": "Suscripción mensual 15€.\nSuscripción anual 180€",
-          "icon": "DollarSign"
-        },
-        {
-          "t": "06 - Estructura de Costes",
-          "d": "Desarrollo tech e IA. Marketing y CAC. Talento especializado. Regulación y compliance sanitario.",
-          "icon": "BarChart2"
-        }
-      ]
-    },
-    {
-      "id": 17,
-      "type": "HERO",
-      "title": "LA TRANSFORMACIÓN\nQUE IMPULSA BIOLIFE",
-      "subtitle": "Evolución Estratégica"
-    },
-    {
-      "id": 18,
-      "type": "OKRS_VIEW",
-      "title": "OKRs",
-      "subtitle": "¿CÓMO MEDIMOS EL ÉXITO?",
-      "bentoItems": [
-        {
-          "title": "OKR ESTRATÉGICO",
-          "subtitle": "BioLife es sostenible y con alta demanda",
-          "description": "- Retención a 90 días (≥ 60 %)\n- Engagement con recomendaciones científicas (≥ 40 %)\n- Confianza y NPS (55–60)"
-        },
-        {
-          "title": "OKR MARKETING",
-          "subtitle": "Captar al usuario correcto, no volumen vacío",
-          "description": "- Conversión trial → pago: ≥ 4 %\n- CAC máximo admisible: ≤ 60 €\n- ≥ 50 % adquisición orgánica / partners"
-        },
-        {
-          "title": "OKR NEGOCIO",
-          "subtitle": "Ingresos recurrentes = escalabilidad",
-          "description": "- MRR ≥ 1,3 M€\n- ARPU = 15 €\n- LTV / CAC ≥ 3\n- Payback \u003c 12 meses"
-        },
-        {
-          "title": "OKR PRODUCTO",
-          "subtitle": "Asegurar que BioLife se usa y genera hábito",
-          "description": "- Objetivo: ≥ 30 % de usuarios activos\n- Stickiness (DAU / MAU): ≥ 0,25\n- ≥ 27.000 usuarios ejecutando recomendaciones / mes"
-        }
-      ]
-    },
-    {
-      "id": 19,
-      "type": "BENTO_MARKET",
-      "title": "DATO",
-      "subtitle": "ACTIVO ESTRATÉGICO DE PRODUCTO",
-      "tableData": [
-        {
-          "h": "DATO - PRODUCTO",
-          "items": [
-            "Habilita Digital Human",
-            "Permite recomendaciones dinámicas y predictivas",
-            "Mejora continua del modelo con datos longitudinales"
-          ],
-          "icon": "Database"
-        },
-        {
-          "h": "DATO - HERRAMIENTA",
-          "items": [
-            "Analítica de uso, engagement y retención",
-            "Segmentación por perfiles (no por individuos)",
-            "Optimización de CAC y LTV"
-          ],
-          "icon": "BarChart3"
-        },
-        {
-          "h": "DATO - SOPORTE TÉCNICO",
-          "items": [
-            "Logs y performance",
-            "Calidad y estabilidad de modelos de IA",
-            "Security and scalability"
-          ],
-          "icon": "ShieldCheck"
-        },
-        {
-          "h": "ÉTICA DEL DATO",
-          "items": [
-            "🚫 Venta de datos personales",
-            "🚫 Publicidad basada en datos de salud",
-            "🚫 Perfilado comercial externo",
-            "🚫 Control o evaluación individual (en B2B)"
-          ],
-          "icon": "XCircle"
-        }
-      ]
-    },
-    {
-      "id": 20,
-      "type": "ROADMAP",
-      "title": "ROADMAP",
-      "subtitle": "5 AÑOS",
-      "builds": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ],
-      "items": [
-        {
-          "t": "Año 1",
-          "d": "Validación B2C (MVP + primeros ingresos)\nBioLife demuestra tracción real en B2C y voluntad de pago.",
-          "icon": "Flag"
-        },
-        {
-          "t": "Año 2",
-          "d": "Product–Market Fit + inicio B2B con Nestlé\nNestlé se convierte en el primer cliente B2B y caso de éxito real.",
-          "icon": "Target"
-        },
-        {
-          "t": "Año 3",
-          "d": "Escalado y replicabilidad B2B\nEscalar el modelo validado en Nestlé a otros clientes corporativos.",
-          "icon": "Globe"
-        },
-        {
-          "t": "Año 4",
-          "d": "Plataforma de salud corporativa y personal\nBioLife se posiciona como solución líder de bienestar corporativo personalizado.",
-          "icon": "Briefcase"
-        },
-        {
-          "t": "Año 5",
-          "d": "Escala sostenible y liderazgo\nAlcanzar rentabilidad estructural y liderazgo en nutrición personalizada.",
-          "icon": "Star"
-        }
-      ]
-    },
-    {
-      "id": 21,
-      "type": "MVP_MOCKUP",
-      "title": "MVP",
-      "videoUrl": "mvp.mp4",
-      "builds": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
-      "items": [
-        {
-          "t": "Onboarding rápido",
-          "d": "App conversacional",
-          "icon": "MessageSquareText"
-        },
-        {
-          "t": "Plan 7 días",
-          "d": "",
-          "icon": "CalendarDays"
-        },
-        {
-          "t": "Check-in semanal",
-          "d": "",
-          "icon": "ClipboardCheck"
-        },
-        {
-          "t": "Métricas de progreso visibles",
-          "d": "",
-          "icon": "BarChart3"
-        },
-        {
-          "t": "6 meses gratuita para crear demanda y datos",
-          "d": "",
-          "icon": "Gift"
-        }
-      ]
-    },
-    {
-      "id": 22,
-      "type": "HERO",
-      "title": "TECNOLOGÍA",
-      "subtitle": "Foundation",
-      "speakerNotes": ""
-    },
-    {
-      "id": 23,
-      "type": "ARCHITECTURE_DIAGRAM",
-      "title": "ARQUITECTURA BIOLIFE",
-      "subtitle": "Proyecto Nestlé Nutrition",
-      "architectureLayers": [
-        {
-          "name": "INTERFAZ DE USUARIO",
-          "role": "Canales de experiencia",
-          "technologies": [
-            "React",
-            "React Native",
-            "Flutter",
-            "Next.js"
-          ]
-        },
-        {
-          "name": "PRESENTACIÓN / CLIENTE",
-          "role": "Renderizado y UI",
-          "technologies": [
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "SSR/SSG"
-          ]
-        },
-        {
-          "name": "LÓGICA DE NEGOCIO / INTEGRACIONES",
-          "role": "Procesamiento y orquestación",
-          "technologies": [
-            "API Gateway (AWS API Gateway / Cloud Endpoints)",
-            "Backend principal (NestJS / Express)",
-            "Contenedores y orquestación (Docker / Kubernetes: EKS/GKE/AKS)",
-            "Comunicación y eventos (AWS SNS/SQS o Apache Kafka)",
-            "Funciones serverless (AWS Lambda)"
-          ]
-        },
-        {
-          "name": "DATOS Y ALMACENAMIENTO",
-          "role": "Persistencia y consultas",
-          "technologies": [
-            "Relacional: PostgreSQL",
-            "NoSQL: MongoDB o DynamoDB",
-            "Caché: Redis",
-            "Blob Storage: AWS S3"
-          ]
-        },
-        {
-          "name": "INFRAESTRUCTURA + DEVOPS + OBSERVABILIDAD",
-          "role": "Operación y monitoreo",
-          "technologies": [
-            "Control de versiones: GitHub",
-            "CI/CD: GitHub Actions",
-            "Monitoreo: Grafana, Prometheus",
-            "Logs: ELK Stack",
-            "Autenticación/Security: Auth0 / OAuth2 / JWT / IAM \u0026 Secrets"
-          ]
-        }
-      ],
-      "builds": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ],
-      "benefits": [
-        "Escalabilidad",
-        "Modularidad",
-        "Resiliencia",
-        "Facilidad de Despliegue"
-      ],
-      "speakerNotes": ""
-    },
-    {
-      "id": 26,
-      "type": "HERO",
-      "title": "MARKETING",
-      "subtitle": "Estrategia",
-      "speakerNotes": ""
-    },
-    {
-      "id": 27,
-      "type": "VIDEO_GRID",
-      "title": "BUYER PERSONA",
-      "subtitle": "Nuestro Usuario Objetivo",
-      "videoUrl": "buyer_person.mp4",
-      "bentoItems": [
-        {
-          "title": "Perfil",
-          "description": "Urbano, conectado, preocupado por salud",
-          "icon": "User",
-          "variant": "glass",
-          "span": "md"
-        },
-        {
-          "title": "Pain Points",
-          "description": "Falta de tiempo, Confusión informativa",
-          "icon": "Frown",
-          "variant": "glass",
-          "span": "md"
-        },
-        {
-          "title": "Motivación",
-          "description": "Prevención, Energía, Longevidad",
-          "icon": "Smile",
-          "variant": "accent",
-          "span": "xl"
-        }
-      ]
-    },
-    {
-      "id": 28,
-      "type": "DILO",
-      "title": "DILO",
-      "subtitle": "Day In The Life Of",
-      "moments": [
-        {
-          "title": "Mañana",
-          "subtitle": "Desayuno\nCommuting al trabajo\n7–9 hs",
-          "image": "01.png"
-        },
-        {
-          "title": "Mediodía",
-          "subtitle": "Break laboral\n12–14 hs",
-          "image": "02.png"
-        },
-        {
-          "title": "Tarde",
-          "subtitle": "Vuelta a casa\nCommuting\n18–19 hs",
-          "image": "03.png"
-        },
-        {
-          "title": "Tarde",
-          "subtitle": "Supermercado\n19–20 hs",
-          "image": "05.png"
-        },
-        {
-          "title": "Noche",
-          "subtitle": "TV\nA dormir\n21–23 hs",
-          "image": "06.png"
-        }
-      ]
-    },
-    {
-      "id": 29,
-      "type": "CREATIVE_CONCEPT",
-      "title": "CONCEPTO CREATIVO",
-      "subtitle": "Sistema Omnicanal",
-      "builds": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ],
-      "offlineImages": [
-        "01.png",
-        "05.png",
-        "06.png"
-      ],
-      "onlineImages": [
-        "02.png",
-        "04.png",
-        "03.png"
-      ],
-      "centerImage": "07.png",
-      "centerTitle": "Mejora tu calidad de vida",
-      "centerSubtitle": "Introduce tus datos de salud por voz y recibe recomendaciones personalizadas.",
-      "centerCTA": "Pruébalo ahora",
-      "bullets": [
-        "Marca Nestlé como sello de confianza y credibilidad.",
-        "Foco en pain points reales del usuario.",
-        "Mensaje consistente en todos los formatos.",
-        "QR + CTA como puente entre impacto y acción.",
-        "Adaptación del mensaje según momento del funnel y canal."
-      ]
-    },
-    {
-      "id": 30,
-      "type": "MARKETING_PLAN",
-      "title": "PLAN DE MARKETING",
-      "subtitle": "Estrategia de Presupuesto",
-      "builds": [
-        0,
-        1,
-        2,
-        3
-      ],
-      "stages": [
-        {
-          "name": "SEE",
-          "external": [
-            "Redes Sociales (IG / TikTok)",
-            "DOOH"
-          ],
-          "internal": [
-            "Lanzamiento interno"
-          ],
-          "budget": [
-            "660 k",
-            "135 k"
-          ],
-          "color": "cyan"
-        },
-        {
-          "name": "THINK",
-          "external": [
-            "SEO / SEM",
-            "Material PDV",
-            "YouTube"
-          ],
-          "internal": [
-            "Q\u0026As",
-            "Internal champions",
-            "Casos de uso"
-          ],
-          "budget": [
-            "255 k"
-          ],
-          "color": "blue"
-        },
-        {
-          "name": "DO",
-          "external": [
-            "Connected TV",
-            "RRSS"
-          ],
-          "internal": [
-            "Friends \u0026 Family",
-            "Feedback",
-            "Recognition \u0026 incentives"
-          ],
-          "budget": [
-            "465 k"
-          ],
-          "color": "teal"
-        }
-      ],
-      "totalBudget": "1.5 M",
-      "speakerNotes": ""
-    },
-    {
-      "id": 29,
-      "type": "HERO",
-      "title": "TALENTO",
-      "subtitle": "People",
-      "speakerNotes": ""
-    },
-    {
-      "id": 30,
-      "type": "TALENT_STRATEGY",
-      "title": "ESTRATEGIA DE TALENTO 70-20-10 (AÑO 1)",
-      "subtitle": "People Strategy",
-      "talentColumns": [
-        {
-          "percentage": "70%",
-          "title": "Movilidad interna",
-          "subtitle": "14 FTE desde NHSc",
-          "section": "Ventajas clave",
-          "bullets": [
-            "Cultura conocida",
-            "Network establecido",
-            "Onboarding 60% más rápido",
-            "Alineación con valores"
-          ],
-          "variant": "70"
-        },
-        {
-          "percentage": "20%",
-          "title": "Contratación externa",
-          "subtitle": "3–4 FTE especializados",
-          "section": "Roles críticos",
-          "bullets": [
-            "Tech Lead",
-            "ML Lead",
-            "Growth Lead",
-            "Ops Lead",
-            "Medical Lead"
-          ],
-          "variant": "20"
-        },
-        {
-          "percentage": "10%",
-          "title": "BPO flexible",
-          "subtitle": "3 FTE Outsourcing",
-          "section": "Ventajas BPO",
-          "bullets": [
-            "Soporte 24/7",
-            "Escalabilidad rápida",
-            "Coste variable",
-            "Customer Experience"
-          ],
-          "variant": "10"
-        }
-      ],
-      "speakerNotes": ""
-    },
-    {
-      "id": 31,
-      "type": "AGILE_TRIBES",
-      "title": "AGILE TRIBUS BIOLIFE",
-      "subtitle": "AGILE PRODUCT OPERATING MODEL",
-      "cycleText": "SPRINT DE 2 SEMANAS",
-      "tribes": [
-        {
-          "name": "TRIBU de Producto Core",
-          "lead": "Tech Lead",
-          "color": "#2DD4BF"
-        },
-        {
-          "name": "TRIBU Datos y Personalización",
-          "lead": "ML Lead",
-          "color": "#3B82F6"
-        },
-        {
-          "name": "TRIBU de Validación Médica y Científica",
-          "lead": "Medical Lead",
-          "color": "#10B981"
-        },
-        {
-          "name": "TRIBU de Crecimiento",
-          "lead": "Growth Lead",
-          "color": "#06B6D4"
-        },
-        {
-          "name": "TRIBU de Operaciones y Éxito del Cliente",
-          "lead": "Ops Lead",
-          "color": "#14B8A6"
-        }
-      ],
-      "builds": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5
-      ]
-    },
-    {
-      "id": 32,
-      "type": "HERO_GLOW",
-      "title": "COMPLIANCE Y\nGOBERNANZA",
-      "subtitle": "Nestlé Nutrition",
-      "speakerNotes": ""
-    },
-    {
-      "id": 33,
-      "type": "GOVERNANCE_NEWCO",
-      "title": "GOBERNANZA",
-      "subtitle": "NEWCO",
-      "builds": [
-        0,
-        1,
-        2,
-        3
-      ],
-      "governanceData": {
-        "level1": "Grupo Nestlé",
-        "level2": "Nestlé Health Science",
-        "coreUnits": [
-          {
-            "name": "Core Business\n(Medical Nutrition, Consumer Care, etc.)"
-          },
-          {
-            "name": "Science \u0026 Medical Affairs"
-          },
-          {
-            "name": "Digital \u0026 Data\n(corporate)"
-          }
-        ],
-        "spinOff": {
-          "name": "Biolife\n(Digital Health Venture – spin-off)"
-        }
-      },
-      "speakerNotes": ""
-    },
-    {
-      "id": 34,
-      "type": "COMPLIANCE_MARCO",
-      "title": "MARCO DE CUMPLIMIENTO Y CONFIANZA",
-      "subtitle": "DISEÑAMOS EL PRODUCTO PARA CUMPLIR DESDE EL DÍA 1, CON GOBERNANZA AUDITABLE DE DATOS Y MODELOS",
-      "builds": [
-        0,
-        1,
-        2,
-        3
-      ],
-      "pillars": [
-        {
-          "title": "RGPD",
-          "icon": "FileText",
-          "text": "Consentimiento\nDerechos\nSeguridad",
-          "color": "var(--color-pilar1, #1e3a8a)"
-        },
-        {
-          "title": "EU AI Act",
-          "icon": "Cpu",
-          "text": "IA gobernada y auditable",
-          "color": "var(--color-pilar2, #475569)"
-        },
-        {
-          "title": "ePrivacy /\nCookies / LSSI",
-          "icon": "Users",
-          "text": "Pantallas de consentimiento,\npolítica cookies / trackers",
-          "color": "var(--color-pilar3, #0d9488)"
-        },
-        {
-          "title": "Controles enterprise",
-          "icon": "ShieldCheck",
-          "text": "Contratos y\nAuditoría",
-          "color": "var(--color-pilar4, #064e3b)"
-        }
-      ]
-    },
-    {
-      "id": 35,
-      "type": "RELATION_MODEL",
-      "title": "MODELO DE RELACIÓN",
-      "subtitle": "Estrategia de Complementariedad",
-      "biolife": {
-        "title": "BIO.LIFE",
-        "items": [
-          "Innovación digital y uso avanzado de datos.",
-          "IA, Digital Twin y Digital Human.",
-          "Relación directa y continua con el usuario.",
-          "Nuevos modelos de monetización digital."
-        ]
-      },
-      "nestle": {
-        "title": "NESTLÉ HEALTH SCIENCE",
-        "items": [
-          "Respaldo científico y credibilidad.",
-          "Capacidad de escala y sostenibilidad a largo plazo.",
-          "Credibilidad y confianza de marca.",
-          "Visión estratégica y gobernanza ética."
-        ]
-      },
-      "builds": [
-        0,
-        1,
-        2
-      ],
-      "speakerNotes": ""
-    },
-    {
-      "id": 36,
-      "type": "DECISION_ORGANS",
-      "title": "ÓRGANOS DE DECISIÓN",
-      "subtitle": "DIRECCIONAMIENTO Y APROBACIÓN",
-      "organs": [
-        {
-          "title": "Comité Estratégico",
-          "frequency": "Trimestral",
-          "icon": "Users",
-          "bullets": [
-            "Revisión de estrategia",
-            "Presupuesto y KPIs",
-            "Go / No-Go de fases clave",
-            "Expansión, partnerships, cambios relevantes"
-          ]
-        },
-        {
-          "title": "Consejo Médico y Ético",
-          "frequency": "Mensual",
-          "icon": "Stethoscope",
-          "bullets": [
-            "Validación científica",
-            "Revisión de claims",
-            "Nuevos biomarcadores, features sensibles",
-            "Límites éticos de IA y personalización"
-          ]
-        },
-        {
-          "title": "Consejo de Gobernanza del Dato",
-          "frequency": "Mensual",
-          "icon": "Database",
-          "bullets": [
-            "Uso del dato",
-            "Cambios en modelos de IA",
-            "Calidad, trazabilidad y minimización",
-            "Nuevas fuentes de datos o integraciones"
-          ]
-        },
-        {
-          "title": "Consejo de Seguridad y Cumplimiento",
-          "frequency": "Trimestral",
-          "icon": "ShieldCheck",
-          "bullets": [
-            "Auditorías",
-            "GDPR / privacidad",
-            "Riesgos regulatorios",
-            "Terceros y proveedores"
-          ]
-        }
-      ]
-    },
-    {
-      "id": 37,
-      "type": "HERO",
-      "title": "NUESTRO PROPÓSITO",
-      "subtitle": "Mejorar la vida de las personas, con ciencia, ética y responsabilidad."
-    },
-    {
-      "id": 38,
-      "type": "ESG_PILLARS",
-      "title": "ESG",
-      "subtitle": "BIOLIFE NO EXISTE SOLO PARA CRECER",
-      "pillars": [
-        {
-          "title": "Social",
-          "esgType": "social",
-          "description": [
-            "Prevención accesible",
-            "Empoderamiento del usuario",
-            "Reducción de desigualdad informativa"
-          ],
-          "kpis": [
-            "Adherencia semanal",
-            "Uso sostenido (\u003e90 días)"
-          ],
-          "icon": "Users"
-        },
-        {
-          "title": "Ambiental",
-          "esgType": "ambiental",
-          "description": [
-            "Digital-first servicio",
-            "Optimización del consumo",
-            "Escalabilidad eficiente"
-          ],
-          "kpis": [
-            "% interacciones digitales vs físicas",
-            "Optimización recursos por usuario"
-          ],
-          "icon": "Leaf"
-        },
-        {
-          "title": "Gobernanza",
-          "esgType": "gobernanza",
-          "description": [
-            "Privacy \u0026 consent by design",
-            "Minimización y trazabilidad",
-            "Separación clara de roles",
-            "Gobierno clínico y ético"
-          ],
-          "kpis": [
-            "% usuarios con consentimiento activo",
-            "Incidentes de datos (target: 0)"
-          ],
-          "icon": "Scale"
-        }
-      ]
-    },
-    {
-      "id": 39,
-      "type": "HERO",
-      "title": "FINANCIERO",
-      "subtitle": "Business Case",
-      "speakerNotes": ""
-    },
-    {
-      "id": 40,
-      "type": "REVENUE_TABLE",
-      "title": "INGRESOS BIOLIFE",
-      "columns": [
-        "2026",
-        "2027",
-        "2028",
-        "2029",
-        "2030",
-        "2031"
-      ],
-      "rows": [
-        {
-          "label": "Suscription price Monthly",
-          "values": [
-            "€15.00",
-            "€15.00",
-            "€15.00",
-            "€15.00",
-            "€15.00",
-            "€15.00"
-          ]
-        },
-        {
-          "label": "Suscription price Annual",
-          "values": [
-            "€180.00",
-            "€180.00",
-            "€180.00",
-            "€180.00",
-            "€180.00",
-            "€180.00"
-          ]
-        },
-        {
-          "label": "Número de usuarios totales",
-          "values": [
-            "167,744",
-            "347,832",
-            "618,618",
-            "1,023,809",
-            "1,484,178",
-            "1,997,282"
-          ]
-        },
-        {
-          "label": "Nuevos Usuarios",
-          "values": [
-            "190,65",
-            "229,033",
-            "344,416",
-            "343,463",
-            "380,07",
-            "290,514"
-          ]
-        }
-      ],
-      "totalRow": {
-        "label": "Total",
-        "values": [
-          "€16,436,216.46",
-          "€35,687,130.38",
-          "€51,232,275.92",
-          "€70,419,211.27",
-          "€79,374,452.95",
-          "€86,313,677.98"
-        ]
-      }
-    },
-    {
-      "id": 41,
-      "type": "EXPENSES_TABLE",
-      "title": "GASTOS BIOLIFE",
-      "subtitle": "Estructura de Gastos (2026–2031)",
-      "columns": [
-        "2026",
-        "2027",
-        "2028",
-        "2029",
-        "2030",
-        "2031"
-      ],
-      "rows": [
-        {
-          "label": "Paid Marketing",
-          "values": [
-            "€7,069,892.00",
-            "€12,000,000.00",
-            "€18,000,000.00",
-            "€22,242,909.00",
-            "€24,000,000.00",
-            "€25,000,000.00"
-          ]
-        },
-        {
-          "label": "Software",
-          "values": [
-            "€638,000.00",
-            "€748,000.00",
-            "€776,620.00",
-            "€793,553.20",
-            "€847,956.15",
-            "€864,915.28"
-          ]
-        },
-        {
-          "label": "Coste de Ventas",
-          "values": [
-            "€1,360,800.00",
-            "€2,922,980.00",
-            "€4,165,724.00",
-            "€5,727,450.00",
-            "€6,453,116.00",
-            "€7,168,420.00"
-          ]
-        },
-        {
-          "label": "Gastos Generales y Administrativos",
-          "values": [
-            "€481,135.42",
-            "€643,623.58",
-            "€744,545.82",
-            "€859,156.55",
-            "€956,882.18",
-            "€966,451.00"
-          ]
-        },
-        {
-          "label": "Investigación y Desarrollo",
-          "values": [
-            "€2,198,989.17",
-            "€3,287,271.48",
-            "€4,350,863.15",
-            "€5,176,169.90",
-            "€6,077,892.56",
-            "€6,199,450.41"
-          ]
-        }
-      ],
-      "totalRow": {
-        "label": "Total",
-        "values": [
-          "€11,748,816.58",
-          "€19,601,875.06",
-          "€28,037,752.97",
-          "€34,799,238.65",
-          "€38,335,846.89",
-          "€40,199,236.69"
-        ]
-      },
-      "speakerNotes": ""
-    },
-    {
-      "id": 42,
-      "type": "FINANCIAL_INSIGHTS",
-      "title": "INSIGHTS",
-      "subtitle": "Drivers de Valor \u0026 Transformación Económica",
-      "drivers": [
-        {
-          "label": "LTV",
-          "value": "458.60"
-        },
-        {
-          "label": "LTV:CAC 2031",
-          "value": "5.33"
-        },
-        {
-          "label": "TIR",
-          "value": "492.31%"
-        },
-        {
-          "label": "VAN",
-          "value": "€117M"
-        }
-      ],
-      "transformation": {
-        "start": {
-          "label": "EBITDA 2026",
-          "value": "€4.6M"
-        },
-        "end": {
-          "label": "EBITDA 2031",
-          "value": "€54M"
-        },
-        "churn": {
-          "label": "Churn rate anual",
-          "value": "30.62%"
-        }
-      },
-      "speakerNotes": ""
-    },
-    {
-      "id": 43,
-      "type": "PNL_TABLE",
-      "title": "P\u0026L BIO.LIFE",
-      "subtitle": "P\u0026L",
-      "sheetLink": "https://docs.google.com/spreadsheets/d/1tQY0wAIm8wE_aFrkDShTYrPp8tUXn8TTSvKSQPcNLHA/edit?usp=sharing",
-      "columns": [
-        "FY 2026 — Forecast",
-        "FY 2027 — Forecast",
-        "FY 2028 — Forecast",
-        "FY 2029 — Forecast",
-        "FY 2030 — Forecast"
-      ],
-      "sections": [
-        {
-          "label": "GROSS REVENUE",
-          "rows": [
-            {
-              "label": "  Revenue",
-              "values": [
-                "€16,227,670",
-                "€34,856,820",
-                "€49,676,660",
-                "€68,300,387",
-                "€76,954,033"
-              ]
-            },
-            {
-              "label": "  Total Revenue",
-              "values": [
-                "€16,227,670",
-                "€34,856,820",
-                "€49,676,660",
-                "€68,300,387",
-                "€76,954,033"
-              ],
-              "bold": true
-            }
-          ]
-        },
-        {
-          "label": "COGS",
-          "rows": [
-            {
-              "label": "  COGS",
-              "values": [
-                "-€252,000",
-                "-€283,534",
-                "-€404,083",
-                "-€555,573",
-                "-€625,964"
-              ]
-            },
-            {
-              "label": "  Total COGS",
-              "values": [
-                "-€252,000",
-                "-€283,534",
-                "-€404,083",
-                "-€555,573",
-                "-€625,964"
-              ],
-              "bold": true
-            }
-          ]
-        },
-        {
-          "label": " ",
-          "rows": [
-            {
-              "label": "Gross Profit",
-              "values": [
-                "€15,975,670",
-                "€34,573,286",
-                "€49,272,577",
-                "€67,744,814",
-                "€76,328,069"
-              ],
-              "bold": true,
-              "highlight": "soft"
-            },
-            {
-              "label": "Gross Margin",
-              "values": [
-                "98.4%",
-                "99.2%",
-                "99.2%",
-                "99.2%",
-                "99.2%"
-              ]
-            }
-          ]
-        },
-        {
-          "label": "Operating Expenses",
-          "rows": [
-            {
-              "label": "  Total S\u0026M",
-              "values": [
-                "-€4,000,000",
-                "-€3,200,000",
-                "-€3,200,000",
-                "-€3,000,000",
-                "-€3,000,000"
-              ]
-            },
-            {
-              "label": "  Total R\u0026D",
-              "values": [
-                "-€1,630,289",
-                "-€2,020,433",
-                "-€2,090,071",
-                "-€2,233,289",
-                "-€2,431,434"
-              ]
-            },
-            {
-              "label": "  Total G\u0026A",
-              "values": [
-                "-€116,485",
-                "-€137,757",
-                "-€141,890",
-                "-€146,147",
-                "-€150,531"
-              ]
-            },
-            {
-              "label": "  Total Operating Expenses",
-              "values": [
-                "-€5,746,774",
-                "-€5,358,190",
-                "-€5,431,961",
-                "-€5,379,436",
-                "-€5,581,965"
-              ],
-              "bold": true
-            }
-          ]
-        },
-        {
-          "label": " ",
-          "rows": [
-            {
-              "label": "Net Operating Income (EBITDA)",
-              "values": [
-                "€10,228,896",
-                "€29,215,096",
-                "€43,840,616",
-                "€62,365,378",
-                "€70,746,104"
-              ],
-              "bold": true,
-              "highlight": "strong"
-            },
-            {
-              "label": "EBITDA Margin",
-              "values": [
-                "63.0%",
-                "83.8%",
-                "88.3%",
-                "91.3%",
-                "91.9%"
-              ]
-            }
-          ]
-        },
-        {
-          "label": " ",
-          "rows": [
-            {
-              "label": "Net Income",
-              "values": [
-                "€10,228,896",
-                "€29,215,096",
-                "€43,840,616",
-                "€62,365,378",
-                "€70,746,104"
-              ],
-              "bold": true
-            }
-          ]
-        },
-        {
-          "label": " ",
-          "rows": [
-            {
-              "label": "Check",
-              "values": [
-                "OK",
-                "OK",
-                "OK",
-                "OK",
-                "OK"
-              ],
-              "italic": true
-            }
-          ]
-        }
-      ],
-      "speakerNotes": ""
-    },
-    {
-      "id": 44,
-      "type": "EXECUTIVE_SUMMARY_LIVE",
-      "title": "BIO.LIFE",
-      "subtitle": "RESUMEN EJECUTIVO",
-      "microText": "INITIATIVE_SUMMARY_PROTOCOL_v2.0",
-      "mainCard": {
-        "number": "01",
-        "label": "VALOR PRINCIPAL",
-        "content": "Nutrición personalizada, predictiva y accionable, basada en datos"
-      },
-      "secondaryCards": [
-        {
-          "number": "02",
-          "label": "FACTOR DIFERENCIADOR",
-          "content": "Digital Twin nutricional dinámico + Integración ciencia / datos"
-        },
-        {
-          "number": "03",
-          "label": "PROBLEMAS QUE RESOLVEMOS",
-          "content": "Falta de personalización \u0026 desconexión entre datos y decisiones"
-        },
-        {
-          "number": "04",
-          "label": "SATISFACCIÓN DEL CLIENTE",
-          "content": "NPS, Health Outcome Satisfaction, Adherencia"
-        },
-        {
-          "number": "05",
-          "label": "CRECIMIENTO POTENCIAL",
-          "content": "Democratización, Segmentación, B2B2C"
-        }
-      ],
-      "statusBlock": {
-        "message": "NUTRICIÓN PERSONALIZADA,\nPREDICTIVA Y ACCIONABLE.",
-        "status": "SYSTEM_STATUS: READY_FOR_DEPLOYMENT"
-      },
-      "speakerNotes": ""
-    }
-  ]
+    "slides":  [
+                   {
+                       "id":  1,
+                       "type":  "INITIAL_ANIMATION",
+                       "title":  "NESTLÉ\nNUTRICIÓN",
+                       "subtitle":  "Digital Transformation",
+                       "highlight":  "Ciencia aplicada + Capacidad de escala global",
+                       "speakerNotes":  ""
+                   },
+                   {
+                       "id":  2,
+                       "type":  "BENTO_DATA",
+                       "title":  "Nestlé Global",
+                       "subtitle":  "Métricas",
+                       "stats":  [
+                                     {
+                                         "v":  "185",
+                                         "l":  "Mercados Activos",
+                                         "size":  "md",
+                                         "icon":  "Globe"
+                                     },
+                                     {
+                                         "v":  "113,2 MM USD",
+                                         "l":  "Ventas Totales",
+                                         "size":  "lg",
+                                         "icon":  "TrendingUp"
+                                     },
+                                     {
+                                         "v":  "277k",
+                                         "l":  "Talento",
+                                         "size":  "md",
+                                         "icon":  "Users"
+                                     }
+                                 ],
+                       "speakerNotes":  ""
+                   },
+                   {
+                       "id":  3,
+                       "type":  "KINETIC_BRIDGE",
+                       "title":  "EL LEGADO",
+                       "subtitle":  "Historia",
+                       "highlight":  "Más de un siglo transformando la nutrición en ciencia",
+                       "speakerNotes":  ""
+                   },
+                   {
+                       "id":  4,
+                       "type":  "TIMELINE",
+                       "title":  "TRAYECTORIA ESTRATÉGICA",
+                       "subtitle":  "Historia",
+                       "timeline":  [
+                                        {
+                                            "year":  "1866",
+                                            "event":  "Fundación y primeros años",
+                                            "icon":  "Home"
+                                        },
+                                        {
+                                            "year":  "1905",
+                                            "event":  "Expansión y fusiones",
+                                            "icon":  "Maximize"
+                                        },
+                                        {
+                                            "year":  "1947",
+                                            "event":  "Diversificación global",
+                                            "icon":  "Globe2"
+                                        },
+                                        {
+                                            "year":  "1999",
+                                            "event":  "Liderazgo en nutrición",
+                                            "icon":  "HeartPulse"
+                                        },
+                                        {
+                                            "year":  "2011",
+                                            "event":  "Nestlé Health Science",
+                                            "icon":  "Stethoscope",
+                                            "highlight":  true
+                                        },
+                                        {
+                                            "year":  "2020",
+                                            "event":  "Adquisición Aimmune",
+                                            "icon":  "Box"
+                                        },
+                                        {
+                                            "year":  "2023",
+                                            "event":  "Digital Acceleration",
+                                            "icon":  "Zap"
+                                        },
+                                        {
+                                            "year":  "2026",
+                                            "event":  "Liderazgo Digital",
+                                            "icon":  "Cpu",
+                                            "highlight":  true
+                                        }
+                                    ],
+                       "speakerNotes":  ""
+                   },
+                   {
+                       "id":  5,
+                       "type":  "BENTO_DATA",
+                       "title":  "Impacto NHS",
+                       "subtitle":  "Nestlé Health Science",
+                       "stats":  [
+                                     {
+                                         "v":  "+140",
+                                         "l":  "Países",
+                                         "size":  "sm",
+                                         "icon":  "MapPin"
+                                     },
+                                     {
+                                         "v":  "11k",
+                                         "l":  "Talento",
+                                         "size":  "sm",
+                                         "icon":  "UserCheck"
+                                     },
+                                     {
+                                         "v":  "7.657 M USD",
+                                         "l":  "Ventas Totales",
+                                         "size":  "sm",
+                                         "icon":  "TrendingUp"
+                                     },
+                                     {
+                                         "v":  "13,4",
+                                         "l":  "UTOP",
+                                         "size":  "sm",
+                                         "icon":  "Activity"
+                                     }
+                                 ],
+                       "speakerNotes":  ""
+                   },
+                   {
+                       "id":  6,
+                       "type":  "HERO",
+                       "title":  "¿QUÉ ESTÁ\nPASANDO?",
+                       "subtitle":  "Contexto",
+                       "speakerNotes":  ""
+                   },
+                   {
+                       "id":  7,
+                       "type":  "FALLING_IMAGES",
+                       "title":  "ALGUNOS TITULARES",
+                       "subtitle":  "Market Signals",
+                       "itemsImages":  [
+                                           "Picture1.png",
+                                           "Picture2.png",
+                                           "Picture3.png",
+                                           "Picture4.png",
+                                           "Picture5.png",
+                                           "Picture6.png",
+                                           "Picture7.png",
+                                           "Picture8.png",
+                                           "Picture9.png",
+                                           "Picture10.png",
+                                           "Picture11.png"
+                                       ]
+                   },
+                   {
+                       "id":  8,
+                       "type":  "BENTO_GRID",
+                       "title":  "INSIGHTS - TENDENCIAS",
+                       "subtitle":  "Drivers de Cambio",
+                       "bentoItems":  [
+                                          {
+                                              "title":  "Cambios de hábitos de consumo",
+                                              "description":  "",
+                                              "icon":  "RefreshCw",
+                                              "span":  "lg",
+                                              "variant":  "glassStrong"
+                                          },
+                                          {
+                                              "title":  "Autodiagnóstico",
+                                              "description":  "",
+                                              "icon":  "Search",
+                                              "span":  "lg",
+                                              "variant":  "glassStrong"
+                                          },
+                                          {
+                                              "title":  "Disrupción tecnológica",
+                                              "description":  "",
+                                              "icon":  "Cpu",
+                                              "span":  "lg",
+                                              "variant":  "glassStrong"
+                                          },
+                                          {
+                                              "title":  "Personalización \u0026 Salud preventiva",
+                                              "description":  "",
+                                              "icon":  "User",
+                                              "span":  "md",
+                                              "variant":  "glass"
+                                          },
+                                          {
+                                              "title":  "Sin validación médica",
+                                              "description":  "",
+                                              "icon":  "AlertTriangle",
+                                              "span":  "md",
+                                              "variant":  "glass"
+                                          },
+                                          {
+                                              "title":  "Apps de salud y wearables",
+                                              "description":  "",
+                                              "icon":  "Smartphone",
+                                              "span":  "md",
+                                              "variant":  "glass"
+                                          }
+                                      ]
+                   },
+                   {
+                       "id":  9,
+                       "type":  "HERO_GLOW",
+                       "title":  "PLAYERS",
+                       "subtitle":  "Mercado",
+                       "highlight":  "El mercado está lleno pero, sigue abierto",
+                       "speakerNotes":  ""
+                   },
+                   {
+                       "id":  10,
+                       "type":  "MARKET_ANALYSIS",
+                       "title":  "¿QUÉ HACE HOY EL MERCADO?",
+                       "subtitle":  "Ecosistema actual \u0026 Limitaciones",
+                       "highlight":  "El mercado mide bien el pasado, pero no guía el futuro.",
+                       "builds":  [
+                                      0,
+                                      1,
+                                      2,
+                                      3,
+                                      4
+                                  ],
+                       "cards":  [
+                                     {
+                                         "t":  "Datos → decisiones claras",
+                                         "d":  "Del simple \u0027tracking\u0027 a la acción personalizada.",
+                                         "icon":  "Zap"
+                                     },
+                                     {
+                                         "t":  "Ciencia nutricional integrada",
+                                         "d":  "Validación clínica frente a simples algoritmos genéricos.",
+                                         "icon":  "FlaskConical"
+                                     },
+                                     {
+                                         "t":  "Experiencia simple y fluida",
+                                         "d":  "Eliminar la fricción de entrada de datos manual.",
+                                         "icon":  "Smartphone"
+                                     },
+                                     {
+                                         "t":  "Salud integral (no solo calorías)",
+                                         "d":  "Enfoque en biomarcadores y bienestar holístico.",
+                                         "icon":  "Activity"
+                                     },
+                                     {
+                                         "t":  "Accesibilidad real",
+                                         "d":  "Soluciones de alto nivel a un coste sostenible.",
+                                         "icon":  "Globe"
+                                     }
+                                 ],
+                       "speakerNotes":  ""
+                   },
+                   {
+                       "id":  11,
+                       "type":  "QUADRANT",
+                       "title":  "DAFO",
+                       "subtitle":  "El Mercado lo Exige",
+                       "bentoItems":  [
+                                          {
+                                              "title":  "Debilidades (D)",
+                                              "description":  "Relación directa limitada y aprendizaje lento sin dato propio",
+                                              "icon":  "AlertOctagon",
+                                              "variant":  "outline"
+                                          },
+                                          {
+                                              "title":  "Fortalezas (F)",
+                                              "description":  "Escala, ciencia, marcas y capacidad operativa",
+                                              "icon":  "Award",
+                                              "variant":  "glassStrong"
+                                          },
+                                          {
+                                              "title":  "Oportunidades (O)",
+                                              "description":  "Personalización, prevención y suscripción",
+                                              "icon":  "Zap",
+                                              "variant":  "accent"
+                                          },
+                                          {
+                                              "title":  "Amenazas (A)",
+                                              "description":  "Big Tech, saturación de apps y crisis de confianza",
+                                              "icon":  "Siren",
+                                              "variant":  "outline"
+                                          }
+                                      ]
+                   },
+                   {
+                       "id":  12,
+                       "type":  "HERO_GLOW",
+                       "title":  "ESCENARIOS",
+                       "subtitle":  "Visión Estratégica",
+                       "highlight":  "DEFINIENDO EL FUTURO",
+                       "speakerNotes":  ""
+                   },
+                   {
+                       "id":  13,
+                       "type":  "CARDS_CHOICE",
+                       "title":  "TRES CAMINOS",
+                       "subtitle":  "Opciones",
+                       "builds":  [
+                                      0
+                                  ],
+                       "items":  [
+                                     {
+                                         "t":  "NESTLÉ WELL LIFE",
+                                         "d":  "Marketplace: Transacción optimizada",
+                                         "icon":  "ShoppingCart"
+                                     },
+                                     {
+                                         "t":  "NESTLÉ TRUST",
+                                         "d":  "Certificación: Ser sello de confianza",
+                                         "icon":  "BadgeCheck"
+                                     },
+                                     {
+                                         "t":  "NESTLÉ BIOLIFE",
+                                         "d":  "NaaS: Relación + aprendizaje + retención",
+                                         "icon":  "Infinity"
+                                     }
+                                 ]
+                   },
+                   {
+                       "id":  14,
+                       "type":  "COMPARISON_GRID",
+                       "title":  "¿POR QUÉ BIOLIFE?",
+                       "subtitle":  "Análisis Estratégico",
+                       "builds":  [
+                                      0,
+                                      1,
+                                      2,
+                                      3
+                                  ],
+                       "comparisonData":  {
+                                              "criterios":  [
+                                                                "Impacto usuario",
+                                                                "Diferenciación",
+                                                                "Viabilidad",
+                                                                "Confianza / Privacidad",
+                                                                "Retención / fidelización",
+                                                                "Capacidad de transformación"
+                                                            ],
+                                              "columns":  [
+                                                              {
+                                                                  "title":  "Nestlé Well Life",
+                                                                  "variant":  "well-life",
+                                                                  "values":  [
+                                                                                 "MEDIA",
+                                                                                 "BAJA",
+                                                                                 "ALTA",
+                                                                                 "MEDIA",
+                                                                                 "BAJA",
+                                                                                 "BAJA"
+                                                                             ]
+                                                              },
+                                                              {
+                                                                  "title":  "Nestlé Trust",
+                                                                  "variant":  "trust",
+                                                                  "values":  [
+                                                                                 "BAJA-MEDIA",
+                                                                                 "MEDIA",
+                                                                                 "MEDIA",
+                                                                                 "ALTA",
+                                                                                 "MEDIA",
+                                                                                 "MEDIA"
+                                                                             ]
+                                                              },
+                                                              {
+                                                                  "title":  "BIOLIFE",
+                                                                  "variant":  "biolife",
+                                                                  "values":  [
+                                                                                 "ALTA",
+                                                                                 "ALTA",
+                                                                                 "MEDIA-ALTA",
+                                                                                 "MUY ALTA",
+                                                                                 "ALTA",
+                                                                                 "ALTA"
+                                                                             ]
+                                                              }
+                                                          ]
+                                          }
+                   },
+                   {
+                       "id":  15,
+                       "type":  "VIDEO",
+                       "title":  "Teaser BioLife",
+                       "subtitle":  "Experiencia Directa",
+                       "videoUrl":  "teaser.mp4",
+                       "builds":  [
+                                      0
+                                  ],
+                       "speakerNotes":  ""
+                   },
+                   {
+                       "id":  16,
+                       "type":  "BUSINESS_MODEL",
+                       "title":  "MODELO DE NEGOCIO",
+                       "items":  [
+                                     {
+                                         "t":  "01 - Recursos Clave",
+                                         "d":  "IA y modelos predictivos + Base de datos +\nCientíficos, Expertos en salud + Infraestructura tecnológica",
+                                         "icon":  "Cpu"
+                                     },
+                                     {
+                                         "t":  "02 - Actividades Clave",
+                                         "d":  "Desarrollo y entrenamiento IA + Integración de datos +\nDiseño UX + Validación científica + Marketing digital",
+                                         "icon":  "Settings"
+                                     },
+                                     {
+                                         "t":  "03 - Propuesta de Valor",
+                                         "d":  "Nutrición personalizada, predictiva y accionable,\nbasada en datos reales del cuerpo del usuario.",
+                                         "icon":  "Target"
+                                     },
+                                     {
+                                         "t":  "04 - Segmento de clientes",
+                                         "d":  "B2C (25–75 años), interesado en salud preventiva.\nExpansión B2B",
+                                         "icon":  "Users"
+                                     },
+                                     {
+                                         "t":  "05 - Fuentes de Ingresos",
+                                         "d":  "Suscripción mensual 15€.\nSuscripción anual 180€",
+                                         "icon":  "DollarSign"
+                                     },
+                                     {
+                                         "t":  "06 - Estructura de Costes",
+                                         "d":  "Desarrollo tech e IA. Marketing y CAC. Talento especializado. Regulación y compliance sanitario.",
+                                         "icon":  "BarChart2"
+                                     }
+                                 ]
+                   },
+                   {
+                       "id":  17,
+                       "type":  "HERO",
+                       "title":  "LA TRANSFORMACIÓN\nQUE IMPULSA BIOLIFE",
+                       "subtitle":  "Evolución Estratégica"
+                   },
+                   {
+                       "id":  18,
+                       "type":  "OKRS_VIEW",
+                       "title":  "OKRs",
+                       "subtitle":  "¿CÓMO MEDIMOS EL ÉXITO?",
+                       "bentoItems":  [
+                                          {
+                                              "title":  "OKR ESTRATÉGICO",
+                                              "subtitle":  "BioLife es sostenible y con alta demanda",
+                                              "description":  "- Retención a 90 días (≥ 60 %)\n- Engagement con recomendaciones científicas (≥ 40 %)\n- Confianza y NPS (55–60)"
+                                          },
+                                          {
+                                              "title":  "OKR MARKETING",
+                                              "subtitle":  "Captar al usuario correcto, no volumen vacío",
+                                              "description":  "- Conversión trial → pago: ≥ 4 %\n- CAC máximo admisible: ≤ 60 €\n- ≥ 50 % adquisición orgánica / partners"
+                                          },
+                                          {
+                                              "title":  "OKR NEGOCIO",
+                                              "subtitle":  "Ingresos recurrentes = escalabilidad",
+                                              "description":  "- MRR ≥ 1,3 M€\n- ARPU = 15 €\n- LTV / CAC ≥ 3\n- Payback \u003c 12 meses"
+                                          },
+                                          {
+                                              "title":  "OKR PRODUCTO",
+                                              "subtitle":  "Asegurar que BioLife se usa y genera hábito",
+                                              "description":  "- Objetivo: ≥ 30 % de usuarios activos\n- Stickiness (DAU / MAU): ≥ 0,25\n- ≥ 27.000 usuarios ejecutando recomendaciones / mes"
+                                          }
+                                      ]
+                   },
+                   {
+                       "id":  19,
+                       "type":  "BENTO_MARKET",
+                       "title":  "DATO",
+                       "subtitle":  "ACTIVO ESTRATÉGICO DE PRODUCTO",
+                       "tableData":  [
+                                         {
+                                             "h":  "DATO - PRODUCTO",
+                                             "items":  [
+                                                           "Habilita Digital Human",
+                                                           "Permite recomendaciones dinámicas y predictivas",
+                                                           "Mejora continua del modelo con datos longitudinales"
+                                                       ],
+                                             "icon":  "Database"
+                                         },
+                                         {
+                                             "h":  "DATO - HERRAMIENTA",
+                                             "items":  [
+                                                           "Analítica de uso, engagement y retención",
+                                                           "Segmentación por perfiles (no por individuos)",
+                                                           "Optimización de CAC y LTV"
+                                                       ],
+                                             "icon":  "BarChart3"
+                                         },
+                                         {
+                                             "h":  "DATO - SOPORTE TÉCNICO",
+                                             "items":  [
+                                                           "Logs y performance",
+                                                           "Calidad y estabilidad de modelos de IA",
+                                                           "Security and scalability"
+                                                       ],
+                                             "icon":  "ShieldCheck"
+                                         },
+                                         {
+                                             "h":  "ÉTICA DEL DATO",
+                                             "items":  [
+                                                           "🚫 Venta de datos personales",
+                                                           "🚫 Publicidad basada en datos de salud",
+                                                           "🚫 Perfilado comercial externo",
+                                                           "🚫 Control o evaluación individual (en B2B)"
+                                                       ],
+                                             "icon":  "XCircle"
+                                         }
+                                     ]
+                   },
+                   {
+                       "id":  20,
+                       "type":  "ROADMAP",
+                       "title":  "ROADMAP",
+                       "subtitle":  "5 AÑOS",
+                       "builds":  [
+                                      0,
+                                      1,
+                                      2,
+                                      3,
+                                      4
+                                  ],
+                       "items":  [
+                                     {
+                                         "t":  "Año 1",
+                                         "d":  "Validación B2C (MVP + primeros ingresos)\nBioLife demuestra tracción real en B2C y voluntad de pago.",
+                                         "icon":  "Flag"
+                                     },
+                                     {
+                                         "t":  "Año 2",
+                                         "d":  "Product–Market Fit + inicio B2B con Nestlé\nNestlé se convierte en el primer cliente B2B y caso de éxito real.",
+                                         "icon":  "Target"
+                                     },
+                                     {
+                                         "t":  "Año 3",
+                                         "d":  "Escalado y replicabilidad B2B\nEscalar el modelo validado en Nestlé a otros clientes corporativos.",
+                                         "icon":  "Globe"
+                                     },
+                                     {
+                                         "t":  "Año 4",
+                                         "d":  "Plataforma de salud corporativa y personal\nBioLife se posiciona como solución líder de bienestar corporativo personalizado.",
+                                         "icon":  "Briefcase"
+                                     },
+                                     {
+                                         "t":  "Año 5",
+                                         "d":  "Escala sostenible y liderazgo\nAlcanzar rentabilidad estructural y liderazgo en nutrición personalizada.",
+                                         "icon":  "Star"
+                                     }
+                                 ]
+                   },
+                   {
+                       "id":  21,
+                       "type":  "MVP_MOCKUP",
+                       "title":  "MVP",
+                       "videoUrl":  "mvp.mp4",
+                       "builds":  [
+                                      0,
+                                      1,
+                                      2,
+                                      3,
+                                      4,
+                                      5
+                                  ],
+                       "items":  [
+                                     {
+                                         "t":  "Onboarding rápido",
+                                         "d":  "App conversacional",
+                                         "icon":  "MessageSquareText"
+                                     },
+                                     {
+                                         "t":  "Plan 7 días",
+                                         "d":  "",
+                                         "icon":  "CalendarDays"
+                                     },
+                                     {
+                                         "t":  "Check-in semanal",
+                                         "d":  "",
+                                         "icon":  "ClipboardCheck"
+                                     },
+                                     {
+                                         "t":  "Métricas de progreso visibles",
+                                         "d":  "",
+                                         "icon":  "BarChart3"
+                                     },
+                                     {
+                                         "t":  "6 meses gratuita para crear demanda y datos",
+                                         "d":  "",
+                                         "icon":  "Gift"
+                                     }
+                                 ]
+                   },
+                   {
+                       "id":  22,
+                       "type":  "HERO",
+                       "title":  "TECNOLOGÍA",
+                       "subtitle":  "Foundation",
+                       "speakerNotes":  ""
+                   },
+                   {
+                       "id":  23,
+                       "type":  "ARCHITECTURE_DIAGRAM",
+                       "title":  "ARQUITECTURA BIOLIFE",
+                       "subtitle":  "Proyecto Nestlé Nutrition",
+                       "architectureLayers":  [
+                                                  {
+                                                      "name":  "INTERFAZ DE USUARIO",
+                                                      "role":  "Canales de experiencia",
+                                                      "technologies":  [
+                                                                           "React",
+                                                                           "React Native",
+                                                                           "Flutter",
+                                                                           "Next.js"
+                                                                       ]
+                                                  },
+                                                  {
+                                                      "name":  "PRESENTACIÓN / CLIENTE",
+                                                      "role":  "Renderizado y UI",
+                                                      "technologies":  [
+                                                                           "HTML",
+                                                                           "CSS",
+                                                                           "JavaScript",
+                                                                           "SSR/SSG"
+                                                                       ]
+                                                  },
+                                                  {
+                                                      "name":  "LÓGICA DE NEGOCIO / INTEGRACIONES",
+                                                      "role":  "Procesamiento y orquestación",
+                                                      "technologies":  [
+                                                                           "API Gateway (AWS API Gateway / Cloud Endpoints)",
+                                                                           "Backend principal (NestJS / Express)",
+                                                                           "Contenedores y orquestación (Docker / Kubernetes: EKS/GKE/AKS)",
+                                                                           "Comunicación y eventos (AWS SNS/SQS o Apache Kafka)",
+                                                                           "Funciones serverless (AWS Lambda)"
+                                                                       ]
+                                                  },
+                                                  {
+                                                      "name":  "DATOS Y ALMACENAMIENTO",
+                                                      "role":  "Persistencia y consultas",
+                                                      "technologies":  [
+                                                                           "Relacional: PostgreSQL",
+                                                                           "NoSQL: MongoDB o DynamoDB",
+                                                                           "Caché: Redis",
+                                                                           "Blob Storage: AWS S3"
+                                                                       ]
+                                                  },
+                                                  {
+                                                      "name":  "INFRAESTRUCTURA + DEVOPS + OBSERVABILIDAD",
+                                                      "role":  "Operación y monitoreo",
+                                                      "technologies":  [
+                                                                           "Control de versiones: GitHub",
+                                                                           "CI/CD: GitHub Actions",
+                                                                           "Monitoreo: Grafana, Prometheus",
+                                                                           "Logs: ELK Stack",
+                                                                           "Autenticación/Security: Auth0 / OAuth2 / JWT / IAM \u0026 Secrets"
+                                                                       ]
+                                                  }
+                                              ],
+                       "builds":  [
+                                      0,
+                                      1,
+                                      2,
+                                      3,
+                                      4
+                                  ],
+                       "benefits":  [
+                                        "Escalabilidad",
+                                        "Modularidad",
+                                        "Resiliencia",
+                                        "Facilidad de Despliegue"
+                                    ],
+                       "speakerNotes":  ""
+                   },
+                   {
+                       "id":  26,
+                       "type":  "HERO",
+                       "title":  "MARKETING",
+                       "subtitle":  "Estrategia",
+                       "speakerNotes":  ""
+                   },
+                   {
+                       "id":  27,
+                       "type":  "VIDEO_GRID",
+                       "title":  "BUYER PERSONA",
+                       "subtitle":  "Nuestro Usuario Objetivo",
+                       "videoUrl":  "buyer_person.mp4",
+                       "bentoItems":  [
+                                          {
+                                              "title":  "Perfil",
+                                              "description":  "Urbano, conectado, preocupado por salud",
+                                              "icon":  "User",
+                                              "variant":  "glass",
+                                              "span":  "md"
+                                          },
+                                          {
+                                              "title":  "Pain Points",
+                                              "description":  "Falta de tiempo, Confusión informativa",
+                                              "icon":  "Frown",
+                                              "variant":  "glass",
+                                              "span":  "md"
+                                          },
+                                          {
+                                              "title":  "Motivación",
+                                              "description":  "Prevención, Energía, Longevidad",
+                                              "icon":  "Smile",
+                                              "variant":  "accent",
+                                              "span":  "xl"
+                                          }
+                                      ]
+                   },
+                   {
+                       "id":  28,
+                       "type":  "DILO",
+                       "title":  "DILO",
+                       "subtitle":  "Day In The Life Of",
+                       "moments":  [
+                                       {
+                                           "title":  "Mañana",
+                                           "subtitle":  "Desayuno\nCommuting al trabajo\n7–9 hs",
+                                           "image":  "01.png"
+                                       },
+                                       {
+                                           "title":  "Mediodía",
+                                           "subtitle":  "Break laboral\n12–14 hs",
+                                           "image":  "02.png"
+                                       },
+                                       {
+                                           "title":  "Tarde",
+                                           "subtitle":  "Vuelta a casa\nCommuting\n18–19 hs",
+                                           "image":  "03.png"
+                                       },
+                                       {
+                                           "title":  "Tarde",
+                                           "subtitle":  "Supermercado\n19–20 hs",
+                                           "image":  "05.png"
+                                       },
+                                       {
+                                           "title":  "Noche",
+                                           "subtitle":  "TV\nA dormir\n21–23 hs",
+                                           "image":  "06.png"
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  29,
+                       "type":  "CREATIVE_CONCEPT",
+                       "title":  "CONCEPTO CREATIVO",
+                       "subtitle":  "Sistema Omnicanal",
+                       "builds":  [
+                                      0,
+                                      1,
+                                      2,
+                                      3,
+                                      4
+                                  ],
+                       "offlineImages":  [
+                                             "01.png",
+                                             "05.png",
+                                             "06.png"
+                                         ],
+                       "onlineImages":  [
+                                            "02.png",
+                                            "04.png",
+                                            "03.png"
+                                        ],
+                       "centerImage":  "07.png",
+                       "centerTitle":  "Mejora tu calidad de vida",
+                       "centerSubtitle":  "Introduce tus datos de salud por voz y recibe recomendaciones personalizadas.",
+                       "centerCTA":  "Pruébalo ahora",
+                       "bullets":  [
+                                       "Marca Nestlé como sello de confianza y credibilidad.",
+                                       "Foco en pain points reales del usuario.",
+                                       "Mensaje consistente en todos los formatos.",
+                                       "QR + CTA como puente entre impacto y acción.",
+                                       "Adaptación del mensaje según momento del funnel y canal."
+                                   ]
+                   },
+                   {
+                       "id":  30,
+                       "type":  "MARKETING_PLAN",
+                       "title":  "PLAN DE MARKETING",
+                       "subtitle":  "Estrategia de Presupuesto",
+                       "builds":  [
+                                      0,
+                                      1,
+                                      2,
+                                      3
+                                  ],
+                       "stages":  [
+                                      {
+                                          "name":  "SEE",
+                                          "external":  [
+                                                           "Redes Sociales (IG / TikTok)",
+                                                           "DOOH"
+                                                       ],
+                                          "internal":  [
+                                                           "Lanzamiento interno"
+                                                       ],
+                                          "budget":  [
+                                                         "660 k",
+                                                         "135 k"
+                                                     ],
+                                          "color":  "cyan"
+                                      },
+                                      {
+                                          "name":  "THINK",
+                                          "external":  [
+                                                           "SEO / SEM",
+                                                           "Material PDV",
+                                                           "YouTube"
+                                                       ],
+                                          "internal":  [
+                                                           "Q\u0026As",
+                                                           "Internal champions",
+                                                           "Casos de uso"
+                                                       ],
+                                          "budget":  [
+                                                         "255 k"
+                                                     ],
+                                          "color":  "blue"
+                                      },
+                                      {
+                                          "name":  "DO",
+                                          "external":  [
+                                                           "Connected TV",
+                                                           "RRSS"
+                                                       ],
+                                          "internal":  [
+                                                           "Friends \u0026 Family",
+                                                           "Feedback",
+                                                           "Recognition \u0026 incentives"
+                                                       ],
+                                          "budget":  [
+                                                         "465 k"
+                                                     ],
+                                          "color":  "teal"
+                                      }
+                                  ],
+                       "totalBudget":  "1.5 M",
+                       "speakerNotes":  ""
+                   },
+                   {
+                       "id":  29,
+                       "type":  "HERO",
+                       "title":  "TALENTO",
+                       "subtitle":  "People",
+                       "speakerNotes":  ""
+                   },
+                   {
+                       "id":  30,
+                       "type":  "TALENT_STRATEGY",
+                       "title":  "ESTRATEGIA DE TALENTO 70-20-10 (AÑO 1)",
+                       "subtitle":  "People Strategy",
+                       "talentColumns":  [
+                                             {
+                                                 "percentage":  "70%",
+                                                 "title":  "Movilidad interna",
+                                                 "subtitle":  "14 FTE desde NHSc",
+                                                 "section":  "Ventajas clave",
+                                                 "bullets":  [
+                                                                 "Cultura conocida",
+                                                                 "Network establecido",
+                                                                 "Onboarding 60% más rápido",
+                                                                 "Alineación con valores"
+                                                             ],
+                                                 "variant":  "70"
+                                             },
+                                             {
+                                                 "percentage":  "20%",
+                                                 "title":  "Contratación externa",
+                                                 "subtitle":  "3–4 FTE especializados",
+                                                 "section":  "Roles críticos",
+                                                 "bullets":  [
+                                                                 "Tech Lead",
+                                                                 "ML Lead",
+                                                                 "Growth Lead",
+                                                                 "Ops Lead",
+                                                                 "Medical Lead"
+                                                             ],
+                                                 "variant":  "20"
+                                             },
+                                             {
+                                                 "percentage":  "10%",
+                                                 "title":  "BPO flexible",
+                                                 "subtitle":  "3 FTE Outsourcing",
+                                                 "section":  "Ventajas BPO",
+                                                 "bullets":  [
+                                                                 "Soporte 24/7",
+                                                                 "Escalabilidad rápida",
+                                                                 "Coste variable",
+                                                                 "Customer Experience"
+                                                             ],
+                                                 "variant":  "10"
+                                             }
+                                         ],
+                       "speakerNotes":  ""
+                   },
+                   {
+                       "id":  31,
+                       "type":  "AGILE_TRIBES",
+                       "title":  "AGILE TRIBUS BIOLIFE",
+                       "subtitle":  "AGILE PRODUCT OPERATING MODEL",
+                       "cycleText":  "SPRINT DE 2 SEMANAS",
+                       "tribes":  [
+                                      {
+                                          "name":  "TRIBU de Producto Core",
+                                          "lead":  "Tech Lead",
+                                          "color":  "#2DD4BF"
+                                      },
+                                      {
+                                          "name":  "TRIBU Datos y Personalización",
+                                          "lead":  "ML Lead",
+                                          "color":  "#3B82F6"
+                                      },
+                                      {
+                                          "name":  "TRIBU de Validación Médica y Científica",
+                                          "lead":  "Medical Lead",
+                                          "color":  "#10B981"
+                                      },
+                                      {
+                                          "name":  "TRIBU de Crecimiento",
+                                          "lead":  "Growth Lead",
+                                          "color":  "#06B6D4"
+                                      },
+                                      {
+                                          "name":  "TRIBU de Operaciones y Éxito del Cliente",
+                                          "lead":  "Ops Lead",
+                                          "color":  "#14B8A6"
+                                      }
+                                  ],
+                       "builds":  [
+                                      0,
+                                      1,
+                                      2,
+                                      3,
+                                      4,
+                                      5
+                                  ]
+                   },
+                   {
+                       "id":  32,
+                       "type":  "HERO_GLOW",
+                       "title":  "COMPLIANCE Y\nGOBERNANZA",
+                       "subtitle":  "Nestlé Nutrition",
+                       "speakerNotes":  ""
+                   },
+                   {
+                       "id":  33,
+                       "type":  "GOVERNANCE_NEWCO",
+                       "title":  "GOBERNANZA",
+                       "subtitle":  "NEWCO",
+                       "builds":  [
+                                      0,
+                                      1,
+                                      2,
+                                      3
+                                  ],
+                       "governanceData":  {
+                                              "level1":  "Grupo Nestlé",
+                                              "level2":  "Nestlé Health Science",
+                                              "coreUnits":  [
+                                                                {
+                                                                    "name":  "Core Business\n(Medical Nutrition, Consumer Care, etc.)"
+                                                                },
+                                                                {
+                                                                    "name":  "Science \u0026 Medical Affairs"
+                                                                },
+                                                                {
+                                                                    "name":  "Digital \u0026 Data\n(corporate)"
+                                                                }
+                                                            ],
+                                              "spinOff":  {
+                                                              "name":  "Biolife\n(Digital Health Venture – spin-off)"
+                                                          }
+                                          },
+                       "speakerNotes":  ""
+                   },
+                   {
+                       "id":  34,
+                       "type":  "COMPLIANCE_MARCO",
+                       "title":  "MARCO DE CUMPLIMIENTO Y CONFIANZA",
+                       "subtitle":  "DISEÑAMOS EL PRODUCTO PARA CUMPLIR DESDE EL DÍA 1, CON GOBERNANZA AUDITABLE DE DATOS Y MODELOS",
+                       "builds":  [
+                                      0,
+                                      1,
+                                      2,
+                                      3
+                                  ],
+                       "pillars":  [
+                                       {
+                                           "title":  "RGPD",
+                                           "icon":  "FileText",
+                                           "text":  "Consentimiento\nDerechos\nSeguridad",
+                                           "color":  "var(--color-pilar1, #1e3a8a)"
+                                       },
+                                       {
+                                           "title":  "EU AI Act",
+                                           "icon":  "Cpu",
+                                           "text":  "IA gobernada y auditable",
+                                           "color":  "var(--color-pilar2, #475569)"
+                                       },
+                                       {
+                                           "title":  "ePrivacy /\nCookies / LSSI",
+                                           "icon":  "Users",
+                                           "text":  "Pantallas de consentimiento,\npolítica cookies / trackers",
+                                           "color":  "var(--color-pilar3, #0d9488)"
+                                       },
+                                       {
+                                           "title":  "Controles enterprise",
+                                           "icon":  "ShieldCheck",
+                                           "text":  "Contratos y\nAuditoría",
+                                           "color":  "var(--color-pilar4, #064e3b)"
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  35,
+                       "type":  "RELATION_MODEL",
+                       "title":  "MODELO DE RELACIÓN",
+                       "subtitle":  "Estrategia de Complementariedad",
+                       "biolife":  {
+                                       "title":  "BIO.LIFE",
+                                       "items":  [
+                                                     "Innovación digital y uso avanzado de datos.",
+                                                     "IA, Digital Twin y Digital Human.",
+                                                     "Relación directa y continua con el usuario.",
+                                                     "Nuevos modelos de monetización digital."
+                                                 ]
+                                   },
+                       "nestle":  {
+                                      "title":  "NESTLÉ HEALTH SCIENCE",
+                                      "items":  [
+                                                    "Respaldo científico y credibilidad.",
+                                                    "Capacidad de escala y sostenibilidad a largo plazo.",
+                                                    "Credibilidad y confianza de marca.",
+                                                    "Visión estratégica y gobernanza ética."
+                                                ]
+                                  },
+                       "builds":  [
+                                      0,
+                                      1,
+                                      2
+                                  ],
+                       "speakerNotes":  ""
+                   },
+                   {
+                       "id":  36,
+                       "type":  "DECISION_ORGANS",
+                       "title":  "ÓRGANOS DE DECISIÓN",
+                       "subtitle":  "DIRECCIONAMIENTO Y APROBACIÓN",
+                       "organs":  [
+                                      {
+                                          "title":  "Comité Estratégico",
+                                          "frequency":  "Trimestral",
+                                          "icon":  "Users",
+                                          "bullets":  [
+                                                          "Revisión de estrategia",
+                                                          "Presupuesto y KPIs",
+                                                          "Go / No-Go de fases clave",
+                                                          "Expansión, partnerships, cambios relevantes"
+                                                      ]
+                                      },
+                                      {
+                                          "title":  "Consejo Médico y Ético",
+                                          "frequency":  "Mensual",
+                                          "icon":  "Stethoscope",
+                                          "bullets":  [
+                                                          "Validación científica",
+                                                          "Revisión de claims",
+                                                          "Nuevos biomarcadores, features sensibles",
+                                                          "Límites éticos de IA y personalización"
+                                                      ]
+                                      },
+                                      {
+                                          "title":  "Consejo de Gobernanza del Dato",
+                                          "frequency":  "Mensual",
+                                          "icon":  "Database",
+                                          "bullets":  [
+                                                          "Uso del dato",
+                                                          "Cambios en modelos de IA",
+                                                          "Calidad, trazabilidad y minimización",
+                                                          "Nuevas fuentes de datos o integraciones"
+                                                      ]
+                                      },
+                                      {
+                                          "title":  "Consejo de Seguridad y Cumplimiento",
+                                          "frequency":  "Trimestral",
+                                          "icon":  "ShieldCheck",
+                                          "bullets":  [
+                                                          "Auditorías",
+                                                          "GDPR / privacidad",
+                                                          "Riesgos regulatorios",
+                                                          "Terceros y proveedores"
+                                                      ]
+                                      }
+                                  ]
+                   },
+                   {
+                       "id":  37,
+                       "type":  "HERO",
+                       "title":  "NUESTRO PROPÓSITO",
+                       "subtitle":  "Mejorar la vida de las personas, con ciencia, ética y responsabilidad."
+                   },
+                   {
+                       "id":  38,
+                       "type":  "ESG_PILLARS",
+                       "title":  "ESG",
+                       "subtitle":  "BIOLIFE NO EXISTE SOLO PARA CRECER",
+                       "pillars":  [
+                                       {
+                                           "title":  "Social",
+                                           "esgType":  "social",
+                                           "description":  [
+                                                               "Prevención accesible",
+                                                               "Empoderamiento del usuario",
+                                                               "Reducción de desigualdad informativa"
+                                                           ],
+                                           "kpis":  [
+                                                        "Adherencia semanal",
+                                                        "Uso sostenido (\u003e90 días)"
+                                                    ],
+                                           "icon":  "Users"
+                                       },
+                                       {
+                                           "title":  "Ambiental",
+                                           "esgType":  "ambiental",
+                                           "description":  [
+                                                               "Digital-first servicio",
+                                                               "Optimización del consumo",
+                                                               "Escalabilidad eficiente"
+                                                           ],
+                                           "kpis":  [
+                                                        "% interacciones digitales vs físicas",
+                                                        "Optimización recursos por usuario"
+                                                    ],
+                                           "icon":  "Leaf"
+                                       },
+                                       {
+                                           "title":  "Gobernanza",
+                                           "esgType":  "gobernanza",
+                                           "description":  [
+                                                               "Privacy \u0026 consent by design",
+                                                               "Minimización y trazabilidad",
+                                                               "Separación clara de roles",
+                                                               "Gobierno clínico y ético"
+                                                           ],
+                                           "kpis":  [
+                                                        "% usuarios con consentimiento activo",
+                                                        "Incidentes de datos (target: 0)"
+                                                    ],
+                                           "icon":  "Scale"
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  39,
+                       "type":  "HERO",
+                       "title":  "FINANCIERO",
+                       "subtitle":  "Business Case",
+                       "speakerNotes":  ""
+                   },
+                   {
+                       "id":  40,
+                       "type":  "REVENUE_TABLE",
+                       "title":  "INGRESOS BIOLIFE",
+                       "columns":  [
+                                       "2026",
+                                       "2027",
+                                       "2028",
+                                       "2029",
+                                       "2030",
+                                       "2031"
+                                   ],
+                       "rows":  [
+                                    {
+                                        "label":  "Suscription price Monthly",
+                                        "values":  [
+                                                       "€15.00",
+                                                       "€15.00",
+                                                       "€15.00",
+                                                       "€15.00",
+                                                       "€15.00",
+                                                       "€15.00"
+                                                   ]
+                                    },
+                                    {
+                                        "label":  "Suscription price Annual",
+                                        "values":  [
+                                                       "€180.00",
+                                                       "€180.00",
+                                                       "€180.00",
+                                                       "€180.00",
+                                                       "€180.00",
+                                                       "€180.00"
+                                                   ]
+                                    },
+                                    {
+                                        "label":  "Número de usuarios totales",
+                                        "values":  [
+                                                       "167,744",
+                                                       "347,832",
+                                                       "618,618",
+                                                       "1,023,809",
+                                                       "1,484,178",
+                                                       "1,997,282"
+                                                   ]
+                                    },
+                                    {
+                                        "label":  "Nuevos Usuarios",
+                                        "values":  [
+                                                       "162,53",
+                                                       "212,03",
+                                                       "267,03",
+                                                       "327,53",
+                                                       "393,53",
+                                                       "465,03"
+                                                   ]
+                                    }
+                                ],
+                       "totalRow":  {
+                                        "label":  "Total",
+                                        "values":  [
+                                                       "€16,227,670.98",
+                                                       "€34,856,820.30",
+                                                       "€49,676,659.91",
+                                                       "€68,300,386.65",
+                                                       "€76,954,032.63",
+                                                       "€85,484,099.31"
+                                                   ]
+                                    }
+                   },
+                   {
+                       "id":  41,
+                       "type":  "EXPENSES_TABLE",
+                       "title":  "GASTOS BIOLIFE",
+                       "subtitle":  "Estructura de Gastos (2026–2031)",
+                       "columns":  [
+                                       "2026",
+                                       "2027",
+                                       "2028",
+                                       "2029",
+                                       "2030",
+                                       "2031"
+                                   ],
+                       "rows":  [
+                                    {
+                                        "label":  "Paid Marketing",
+                                        "values":  [
+                                                       "€4,000,000.00",
+                                                       "€3,200,000.00",
+                                                       "€3,200,000.00",
+                                                       "€3,000,000.00",
+                                                       "€3,000,000.00",
+                                                       "€2,800,000.00"
+                                                   ]
+                                    },
+                                    {
+                                        "label":  "Software",
+                                        "values":  [
+                                                       "€308,000.00",
+                                                       "€336,000.00",
+                                                       "€336,000.00",
+                                                       "€336,000.00",
+                                                       "€336,000.00",
+                                                       "€346,080.00"
+                                                   ]
+                                    },
+                                    {
+                                        "label":  "Coste de Ventas",
+                                        "values":  [
+                                                       "€252,000.00",
+                                                       "€283,534.24",
+                                                       "€404,082.58",
+                                                       "€555,572.70",
+                                                       "€625,963.66",
+                                                       "€695,349.39"
+                                                   ]
+                                    },
+                                    {
+                                        "label":  "Gastos Generales y Administrativos",
+                                        "values":  [
+                                                       "€116,485.42",
+                                                       "€137,757.35",
+                                                       "€141,890.07",
+                                                       "€146,146.77",
+                                                       "€150,531.18",
+                                                       "€153,541.80"
+                                                   ]
+                                    },
+                                    {
+                                        "label":  "Investigación y Desarrollo",
+                                        "values":  [
+                                                       "€1,630,289.17",
+                                                       "€2,020,433.03",
+                                                       "€2,090,070.64",
+                                                       "€2,233,289.42",
+                                                       "€2,431,434.04",
+                                                       "€2,504,377.06"
+                                                   ]
+                                    },
+                                    {
+                                        "label":  "COGS",
+                                        "values":  [
+                                                       "€252,000.00",
+                                                       "€283,534.24",
+                                                       "€404,082.58",
+                                                       "€555,572.70",
+                                                       "€625,963.66",
+                                                       "€695,349.39"
+                                                   ]
+                                    }
+                                ],
+                       "totalRow":  {
+                                        "label":  "Total",
+                                        "values":  [
+                                                       "€6,306,774.58",
+                                                       "€5,977,724.61",
+                                                       "€6,172,043.28",
+                                                       "€6,271,008.90",
+                                                       "€6,543,928.87",
+                                                       "€6,499,348.25"
+                                                   ]
+                                    },
+                       "speakerNotes":  ""
+                   },
+                   {
+                       "id":  42,
+                       "type":  "FINANCIAL_INSIGHTS",
+                       "title":  "INSIGHTS",
+                       "subtitle":  "Drivers de Valor \u0026 Transformación Económica",
+                       "drivers":  [
+                                       {
+                                           "label":  "LTV",
+                                           "value":  "458.60"
+                                       },
+                                       {
+                                           "label":  "LTV:CAC 2031",
+                                           "value":  "5.33"
+                                       },
+                                       {
+                                           "label":  "TIR",
+                                           "value":  "371.98%"
+                                       },
+                                       {
+                                           "label":  "VAN",
+                                           "value":  "€178M"
+                                       }
+                                   ],
+                       "transformation":  {
+                                              "start":  {
+                                                            "label":  "EBITDA 2026",
+                                                            "value":  "€4.6M"
+                                                        },
+                                              "end":  {
+                                                          "label":  "EBITDA 2031",
+                                                          "value":  "€54M"
+                                                      },
+                                              "churn":  {
+                                                            "label":  "Churn rate anual",
+                                                            "value":  "30.62%"
+                                                        }
+                                          },
+                       "speakerNotes":  ""
+                   },
+                   {
+                       "id":  43,
+                       "type":  "PNL_TABLE",
+                       "title":  "P\u0026L BIO.LIFE",
+                       "subtitle":  "P\u0026L",
+                       "sheetLink":  "https://docs.google.com/spreadsheets/d/1tQY0wAIm8wE_aFrkDShTYrPp8tUXn8TTSvKSQPcNLHA/edit?usp=sharing",
+                       "columns":  [
+                                       "FY 2026 — Forecast",
+                                       "FY 2027 — Forecast",
+                                       "FY 2028 — Forecast",
+                                       "FY 2029 — Forecast",
+                                       "FY 2030 — Forecast"
+                                   ],
+                       "sections":  [
+                                        {
+                                            "label":  "GROSS REVENUE",
+                                            "rows":  [
+                                                         {
+                                                             "label":  "  Revenue",
+                                                             "values":  [
+                                                                            "€16,227,670",
+                                                                            "€34,856,820",
+                                                                            "€49,676,660",
+                                                                            "€68,300,387",
+                                                                            "€76,954,033"
+                                                                        ]
+                                                         },
+                                                         {
+                                                             "label":  "  Total Revenue",
+                                                             "values":  [
+                                                                            "€16,227,670",
+                                                                            "€34,856,820",
+                                                                            "€49,676,660",
+                                                                            "€68,300,387",
+                                                                            "€76,954,033"
+                                                                        ],
+                                                             "bold":  true
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "label":  "COGS",
+                                            "rows":  [
+                                                         {
+                                                             "label":  "  COGS",
+                                                             "values":  [
+                                                                            "-€252,000",
+                                                                            "-€283,534",
+                                                                            "-€404,083",
+                                                                            "-€555,573",
+                                                                            "-€625,964"
+                                                                        ]
+                                                         },
+                                                         {
+                                                             "label":  "  Total COGS",
+                                                             "values":  [
+                                                                            "-€252,000",
+                                                                            "-€283,534",
+                                                                            "-€404,083",
+                                                                            "-€555,573",
+                                                                            "-€625,964"
+                                                                        ],
+                                                             "bold":  true
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "label":  " ",
+                                            "rows":  [
+                                                         {
+                                                             "label":  "Gross Profit",
+                                                             "values":  [
+                                                                            "€15,975,670",
+                                                                            "€34,573,286",
+                                                                            "€49,272,577",
+                                                                            "€67,744,814",
+                                                                            "€76,328,069"
+                                                                        ],
+                                                             "bold":  true,
+                                                             "highlight":  "soft"
+                                                         },
+                                                         {
+                                                             "label":  "Gross Margin",
+                                                             "values":  [
+                                                                            "98.4%",
+                                                                            "99.2%",
+                                                                            "99.2%",
+                                                                            "99.2%",
+                                                                            "99.2%"
+                                                                        ]
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "label":  "Operating Expenses",
+                                            "rows":  [
+                                                         {
+                                                             "label":  "  Total S\u0026M",
+                                                             "values":  [
+                                                                            "-€4,000,000",
+                                                                            "-€3,200,000",
+                                                                            "-€3,200,000",
+                                                                            "-€3,000,000",
+                                                                            "-€3,000,000"
+                                                                        ]
+                                                         },
+                                                         {
+                                                             "label":  "  Total R\u0026D",
+                                                             "values":  [
+                                                                            "-€1,630,289",
+                                                                            "-€2,020,433",
+                                                                            "-€2,090,071",
+                                                                            "-€2,233,289",
+                                                                            "-€2,431,434"
+                                                                        ]
+                                                         },
+                                                         {
+                                                             "label":  "  Total G\u0026A",
+                                                             "values":  [
+                                                                            "-€116,485",
+                                                                            "-€137,757",
+                                                                            "-€141,890",
+                                                                            "-€146,147",
+                                                                            "-€150,531"
+                                                                        ]
+                                                         },
+                                                         {
+                                                             "label":  "  Total Operating Expenses",
+                                                             "values":  [
+                                                                            "-€5,746,774",
+                                                                            "-€5,358,190",
+                                                                            "-€5,431,961",
+                                                                            "-€5,379,436",
+                                                                            "-€5,581,965"
+                                                                        ],
+                                                             "bold":  true
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "label":  " ",
+                                            "rows":  [
+                                                         {
+                                                             "label":  "Net Operating Income (EBITDA)",
+                                                             "values":  [
+                                                                            "€10,228,896",
+                                                                            "€29,215,096",
+                                                                            "€43,840,616",
+                                                                            "€62,365,378",
+                                                                            "€70,746,104"
+                                                                        ],
+                                                             "bold":  true,
+                                                             "highlight":  "strong"
+                                                         },
+                                                         {
+                                                             "label":  "EBITDA Margin",
+                                                             "values":  [
+                                                                            "63.0%",
+                                                                            "83.8%",
+                                                                            "88.3%",
+                                                                            "91.3%",
+                                                                            "91.9%"
+                                                                        ]
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "label":  " ",
+                                            "rows":  [
+                                                         {
+                                                             "label":  "Net Income",
+                                                             "values":  [
+                                                                            "€10,228,896",
+                                                                            "€29,215,096",
+                                                                            "€43,840,616",
+                                                                            "€62,365,378",
+                                                                            "€70,746,104"
+                                                                        ],
+                                                             "bold":  true
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "label":  " ",
+                                            "rows":  [
+                                                         {
+                                                             "label":  "Check",
+                                                             "values":  [
+                                                                            "OK",
+                                                                            "OK",
+                                                                            "OK",
+                                                                            "OK",
+                                                                            "OK"
+                                                                        ],
+                                                             "italic":  true
+                                                         }
+                                                     ]
+                                        }
+                                    ],
+                       "speakerNotes":  ""
+                   },
+                   {
+                       "id":  44,
+                       "type":  "EXECUTIVE_SUMMARY_LIVE",
+                       "title":  "BIO.LIFE",
+                       "subtitle":  "RESUMEN EJECUTIVO",
+                       "microText":  "INITIATIVE_SUMMARY_PROTOCOL_v2.0",
+                       "mainCard":  {
+                                        "number":  "01",
+                                        "label":  "VALOR PRINCIPAL",
+                                        "content":  "Nutrición personalizada, predictiva y accionable, basada en datos"
+                                    },
+                       "secondaryCards":  [
+                                              {
+                                                  "number":  "02",
+                                                  "label":  "FACTOR DIFERENCIADOR",
+                                                  "content":  "Digital Twin nutricional dinámico + Integración ciencia / datos"
+                                              },
+                                              {
+                                                  "number":  "03",
+                                                  "label":  "PROBLEMAS QUE RESOLVEMOS",
+                                                  "content":  "Falta de personalización \u0026 desconexión entre datos y decisiones"
+                                              },
+                                              {
+                                                  "number":  "04",
+                                                  "label":  "SATISFACCIÓN DEL CLIENTE",
+                                                  "content":  "NPS, Health Outcome Satisfaction, Adherencia"
+                                              },
+                                              {
+                                                  "number":  "05",
+                                                  "label":  "CRECIMIENTO POTENCIAL",
+                                                  "content":  "Democratización, Segmentación, B2B2C"
+                                              }
+                                          ],
+                       "statusBlock":  {
+                                           "message":  "NUTRICIÓN PERSONALIZADA,\nPREDICTIVA Y ACCIONABLE.",
+                                           "status":  "SYSTEM_STATUS: READY_FOR_DEPLOYMENT"
+                                       },
+                       "speakerNotes":  ""
+                   }
+               ]
 }

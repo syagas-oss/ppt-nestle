@@ -1372,9 +1372,9 @@
     },
     {
       "id": 43,
-      "type": "CONCEPTUAL_ECOSYSTEM",
+      "type": "LIVING_ECOSYSTEM",
       "title": "BIO.LIFE",
-      "subtitle": "Un sistema digital, ético y científico para la salud del futuro.",
+      "subtitle": "De vender productos a construir una relación digital,\ncontinua y basada en datos con las personas.",
       "nodes": [
         "Ciencia & validación médica",
         "Datos y personalización",
@@ -1383,32 +1383,29 @@
         "Gobernanza, ética y compliance",
         "Impacto social y ESG"
       ],
-      "centerText": "Núcleo BioLife",
-      "bottomText": "Mejorar la vida de las personas,\ncon ciencia, ética y responsabilidad."
+      "anchorText": "Mejorar la vida de las personas,\ncon ciencia, ética y responsabilidad."
     },
     {
       "id": 44,
-      "type": "FINAL_CLOSURE",
+      "type": "TRANSFORMATION_CLOSURE",
       "title": "BIO.LIFE",
-      "subtitle": "De vender productos a construir una relación digital, continua y basada en datos con las personas.",
-      "cards": [
-        {
-          "title": "Factor diferenciador",
-          "text": "Digital Human Nutricional dinámico\n+ integración ciencia / datos"
-        },
-        {
-          "title": "Valor estratégico",
-          "text": "Base real para una Nestlé Health Science\ndata-driven"
-        },
-        {
-          "title": "Objetivo",
-          "text": "Validamos confianza, uso real y retención\n(no descargas)"
-        },
-        {
-          "title": "Nuestro core",
-          "text": "~90.000 usuarios activos\nDatos vivos, contextuales y éticos"
-        }
-      ]
+      "subtitle": "De vender productos a construir una relación digital,\ncontinua y basada en datos con las personas.",
+      "nodes": [
+        "Ciencia & validación médica",
+        "Datos y personalización",
+        "Relación continua con el usuario",
+        "Modelo económico sostenible",
+        "Gobernanza, ética y compliance",
+        "Impacto social y ESG"
+      ],
+      "anchorText": "Mejorar la vida de las personas,\ncon ciencia, ética y responsabilidad.",
+      "stateA": {
+        "labels": [
+          "Producto",
+          "Compra",
+          "Transacción"
+        ]
+      }
     }
   ]
 }

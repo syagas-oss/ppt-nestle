@@ -321,7 +321,7 @@ const App: React.FC = () => {
 
         <ShootingStars />
 
-        <main className={`relative z-20 h-full w-full flex items-center justify-center ${(currentSlide.type === 'INITIAL_ANIMATION' || currentSlide.type === 'VIDEO') ? '' : 'px-6 md:px-20'}`}>
+        <main className={`relative z-20 h-full w-full flex items-center justify-center ${(currentSlide.type === 'INITIAL_ANIMATION' || currentSlide.type === 'VIDEO') ? '' : 'px-4 md:px-8'}`}>
 
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div

@@ -275,7 +275,7 @@ const EsgPillarsView: React.FC<{ slide: Slide; buildIndex: number; staticMode?: 
       </div>
 
       {/* Pillars Container */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full max-w-7xl relative z-10">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 w-full max-w-[1800px] relative z-10">
         {(slide as any).pillars?.map((pillar: any, idx: number) => {
           const colors = getEsgColors(pillar.esgType);
           return (
@@ -300,7 +300,7 @@ const EsgPillarsView: React.FC<{ slide: Slide; buildIndex: number; staticMode?: 
                 <div className={`w-20 h-20 rounded-full ${colors.iconBg} flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(0,0,0,0.2)] ring-1 ring-white/10`}>
                   <IconMapper name={pillar.icon} size={40} className={colors.iconColor} />
                 </div>
-                <h3 className={`text-3xl font-bold uppercase ${colors.titleColor} font-display tracking-tight`}>
+                <h3 className={`text-4xl font-bold uppercase ${colors.titleColor} font-display tracking-tight`}>
                   {pillar.title}
                 </h3>
               </div>
@@ -565,7 +565,7 @@ const RevenueTableView: React.FC<{ slide: Slide; staticMode?: boolean }> = ({ sl
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="w-full h-full flex flex-col items-center justify-center p-8 lg:p-12 relative overflow-hidden"
+      className="w-full h-full flex flex-col items-center justify-center p-4 lg:p-6 relative overflow-hidden"
     >
       <div className="w-full max-w-[95%]">
         <h1 className="text-4xl font-bold text-white mb-2 uppercase tracking-wide">{slide.title}</h1>
@@ -635,7 +635,7 @@ const PnlTableView: React.FC<{ slide: Slide; staticMode?: boolean }> = ({ slide,
       transition={{ duration: 0.8 }}
       className="w-full h-full flex flex-col items-center justify-center p-4 lg:p-8 relative overflow-hidden bg-[#050810]"
     >
-      <div className="w-full max-w-[98%] xl:max-w-[1400px] flex flex-col h-full justify-center">
+      <div className="w-full max-w-[98%] xl:max-w-[1800px] flex flex-col h-full justify-center">
         {/* Top Header */}
         <div className="mb-6 text-center">
           <h1 className="text-3xl lg:text-4xl font-bold text-gray-400 uppercase tracking-[0.5em] mb-2">P&L</h1>
@@ -1174,7 +1174,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
     ];
 
     return (
-      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col space-y-6 lg:space-y-8 p-4 lg:p-8 relative overflow-y-auto lg:overflow-visible justify-center">
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col space-y-6 lg:space-y-8 p-2 lg:p-4 relative overflow-y-auto lg:overflow-visible justify-center">
         {/* Layers as horizontal full-width rows */}
         {slide.architectureLayers?.map((layer, layerIndex) => {
           const isLayerVisible = isVisible(layerIndex);
@@ -1335,12 +1335,12 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
   if (slideType === 'TIMELINE') {
     const timelineData = (slide as any).timeline || [];
     return (
-      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col justify-center items-center p-4 relative z-20 overflow-y-auto lg:overflow-visible pt-12 lg:pt-0">
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col justify-center items-center p-2 relative z-20 overflow-y-auto lg:overflow-visible pt-12 lg:pt-0">
         <div className="text-center mb-8 lg:mb-16 z-30">
           <motion.span variants={itemVariants} className="text-brand-primary font-bold tracking-[0.3em] lg:tracking-[0.5em] text-[10px] lg:text-xs uppercase mb-3 block">{slide.subtitle}</motion.span>
           <motion.h1 variants={itemVariants} className="text-3xl lg:text-7xl font-display font-medium tracking-tight uppercase text-white drop-shadow-2xl">{slide.title}</motion.h1>
         </div>
-        <div className="w-full max-w-7xl relative min-h-[300px]">
+        <div className="w-full max-w-[1850px] relative min-h-[400px] px-12 lg:px-24">
           <div className="absolute left-0 right-0 top-1/2 h-0.5 bg-white/10 -translate-y-1/2 w-full z-0 hidden lg:block" />
           <motion.div
             initial={{ scaleX: staticMode ? 1 : 0 }}
@@ -1372,11 +1372,11 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
                   {/* Content Container (Mobile: Right, Desktop: Top/Bottom) */}
                   <div className="ml-4 lg:ml-0 flex-1 lg:flex-none">
                     <div className={`
-                      lg:absolute lg:w-48 lg:text-center transition-all duration-500
+                      lg:absolute lg:w-56 lg:left-1/2 lg:-translate-x-1/2 lg:text-center transition-all duration-500
                       ${isTop ? 'lg:bottom-10 lg:opacity-100 lg:translate-y-0' : 'lg:opacity-0 lg:translate-y-4'}
                       ${!isTop ? 'lg:top-10 lg:opacity-100 lg:translate-y-0' : 'lg:opacity-0 lg:-translate-y-4'}
                       ${isHighlight ? 'bg-blue-500/20 border-blue-400' : 'bg-white/5 border-white/10'} 
-                      backdrop-blur-md p-3 lg:p-3 rounded-xl border
+                      backdrop-blur-md p-3 lg:p-4 rounded-xl border
                     `}>
                       <span className={`text-xl lg:text-2xl font-black ${isHighlight ? 'text-cyan-400' : 'text-blue-500'} block`}>{item.year}</span>
                       <span className="text-[11px] lg:text-xs font-bold uppercase text-white leading-tight block mt-1">{item.event}</span>
@@ -1441,7 +1441,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
     return (
       <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center relative">
         <motion.h1 variants={itemVariants} className="text-5xl font-black italic uppercase text-center mb-12">{slide.title}</motion.h1>
-        <div className="relative w-[600px] h-[600px] flex items-center justify-center">
+        <div className="relative w-[700px] h-[700px] flex items-center justify-center">
           <div className="absolute inset-0 border border-white/5 rounded-full animate-[spin_60s_linear_infinite]" />
           <div className="absolute inset-10 border border-blue-500/20 rounded-full animate-[spin_40s_linear_infinite_reverse]" />
           {slide.bentoItems?.slice(0, 3).map((item, idx) => {
@@ -1495,7 +1495,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
     }, [isVisible(0), staticMode]);
 
     return (
-      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col lg:flex-row items-center justify-between gap-12 max-w-7xl mx-auto px-4 relative">
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col lg:flex-row items-center justify-between gap-12 max-w-[1850px] mx-auto px-4 relative">
 
         {/* LEFT: VIDEO DEMO IN MOCKUP */}
         <div className="flex-1 flex justify-center items-center relative z-10">
@@ -1633,7 +1633,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
         <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4 relative">
           <motion.h1 variants={itemVariants} className="text-4xl lg:text-6xl font-black italic uppercase text-white mb-12 lg:mb-24 z-20">{slide.title}</motion.h1>
 
-          <div className="relative w-full max-w-6xl h-[500px]">
+          <div className="relative w-full max-w-[1750px] h-[500px]">
             {/* Diagonal Path (Visual only, no horizontal line) */}
             <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1000 500" preserveAspectRatio="none">
               <motion.path
@@ -1693,7 +1693,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
     return (
       <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4">
         <motion.h1 variants={itemVariants} className="text-6xl font-black italic uppercase text-white mb-20">{slide.title}</motion.h1>
-        <div className="relative w-full max-w-6xl">
+        <div className="relative w-full max-w-[1750px]">
           <div className="absolute top-1/2 left-0 right-0 h-2 bg-gray-800 -translate-y-1/2 rounded-full" />
           <motion.div
             initial={{ width: 0 }}
@@ -1735,7 +1735,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
           <motion.h1 variants={itemVariants} className="text-4xl lg:text-6xl font-black italic uppercase text-white">{slide.title}</motion.h1>
           <motion.p variants={itemVariants} className="text-blue-500 font-mono mt-2 text-sm lg:text-base">{slide.subtitle}</motion.p>
         </div>
-        <div className="flex flex-col lg:flex-row gap-6 w-full max-w-6xl lg:h-[50vh]">
+        <div className="flex flex-col lg:flex-row gap-6 w-full max-w-[1750px] lg:h-[50vh]">
           {slide.items?.map((item: any, i: number) => {
             // Updated highlight logic: Only highlight if builds exist and we are at buildIndex 0
             // Or if no builds exist (backwards compatibility), use old logic
@@ -1798,7 +1798,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
         variants={containerVariants}
         initial="initial"
         animate="animate"
-        className="w-full h-full flex flex-col items-center justify-center p-4 lg:p-8 max-w-[1700px] mx-auto overflow-hidden"
+        className="w-full h-full flex flex-col items-center justify-center p-2 lg:p-4 max-w-[1850px] mx-auto overflow-hidden"
       >
         {/* Header */}
         <div className="mb-8 lg:mb-12 text-center w-full relative z-10">
@@ -1996,7 +1996,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
     // Special handling for roles complementarios slide
     if (slide.title === 'GOBERNANZA – Roles complementarios') {
       return (
-        <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4 max-w-7xl mx-auto">
+        <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4 max-w-none mx-auto">
           <motion.h1 variants={itemVariants} className="text-5xl font-black italic uppercase text-white mb-16">{slide.title}</motion.h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-6xl">
             {slide.bentoItems?.map((item, i) => {
@@ -2032,7 +2032,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
 
     // Default QUADRANT renderer for other slides
     return (
-      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4 max-w-6xl mx-auto">
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4 max-w-none mx-auto">
         <motion.h1 variants={itemVariants} className="text-5xl font-black italic uppercase text-white mb-12">{slide.title}</motion.h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full h-[60vh]">
           {slide.bentoItems?.map((item, i) => (
@@ -2068,7 +2068,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
       : "grid grid-cols-1 md:grid-cols-4 gap-4 w-full";
 
     return (
-      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full max-w-[1800px] px-4 flex flex-col h-full items-center lg:justify-center mx-auto py-8 lg:py-0 overflow-y-auto lg:overflow-visible">
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full max-w-[1900px] px-4 flex flex-col h-full items-center lg:justify-center mx-auto py-8 lg:py-0 overflow-y-auto lg:overflow-visible">
         <div className="mb-4 lg:mb-8 text-center w-full">
           <motion.span variants={itemVariants} className="text-blue-500 font-bold tracking-[0.3em] lg:tracking-[0.4em] text-[10px] lg:text-xs uppercase mb-2 block">{slide.subtitle}</motion.span>
           <motion.h1 variants={itemVariants} className="text-2xl lg:text-6xl font-black tracking-tighter uppercase italic leading-none mb-4 lg:mb-8">{slide.title}</motion.h1>
@@ -2084,7 +2084,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
 
   if (slideType === 'BENTO_MARKET') {
     return (
-      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full max-w-7xl px-4 flex flex-col justify-center h-full mx-auto">
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full max-w-[1900px] px-4 flex flex-col justify-center h-full mx-auto">
         <div className="mb-12 text-center">
           <motion.span variants={itemVariants} className="text-blue-500 font-bold tracking-widest text-xs uppercase">{slide.subtitle}</motion.span>
           <motion.h1 variants={itemVariants} className="text-4xl md:text-7xl font-black tracking-tighter uppercase italic">{slide.title}</motion.h1>
@@ -3148,7 +3148,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
           <motion.div variants={itemVariants} className="h-1 w-24 bg-cyan-500 rounded-full mb-4" />
         </div>
 
-        <div className="flex w-full h-[75vh] max-w-[1700px] border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+        <div className="flex w-full h-[75vh] max-w-[1700px] border border-white/10 rounded-2xl overflow-visible shadow-2xl bg-[#050810]">
           {/* COLUMN 1: CRITERIOS */}
           <motion.div
             variants={itemVariants}
@@ -3240,7 +3240,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
     };
 
     return (
-      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center p-8 lg:p-16 relative overflow-hidden">
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center p-4 lg:p-8 relative overflow-hidden">
         <div className="text-center mb-12 lg:mb-16">
           <motion.h1 variants={itemVariants} className="text-5xl lg:text-8xl font-black italic uppercase text-white tracking-tighter mb-4 leading-none font-display">
             {slide.title}
@@ -3250,7 +3250,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full max-w-[1800px] items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full max-w-[1900px] items-stretch">
 
           {/* COLUMN LEFT: CAPACIDADES (1.5x) */}
           <motion.div
@@ -3405,7 +3405,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
     };
 
     return (
-      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center p-8 lg:p-16 relative overflow-hidden">
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center p-4 lg:p-8 relative overflow-hidden">
         {/* TOP LEVEL: NORTH POLE STAR */}
         <div className="w-full max-w-6xl mb-16 lg:mb-24 flex flex-col items-center">
           <div className="w-full flex items-center justify-start gap-4 mb-8">
@@ -3528,7 +3528,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
     const logoNames = ['Apple Health', 'Garmin', 'Fitbit', 'Oura', 'Noom', 'Zoe', 'InsideTracker'];
 
     return (
-      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-between p-8 lg:p-16 relative overflow-hidden">
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-between p-4 lg:p-8 relative overflow-hidden">
         {/* Top Row: Logos */}
         <motion.div variants={itemVariants} className="w-full flex flex-col items-center gap-6">
           <span className="text-gray-500 uppercase tracking-[0.4em] text-[10px] font-black opacity-60">Ecosistema actual</span>

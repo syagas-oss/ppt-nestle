@@ -6,7 +6,7 @@
       "title": "NESTLÉ\nNUTRICIÓN",
       "subtitle": "Digital Transformation",
       "highlight": "Ciencia aplicada + Capacidad de escala global",
-      "speakerNotes": "Bienvenidos. Hoy presentamos la evolución de NHS hacia un ecosistema digital integrado."
+      "speakerNotes": ""
     },
     {
       "id": 2,
@@ -33,7 +33,7 @@
           "icon": "Users"
         }
       ],
-      "speakerNotes": "Nuestra infraestructura global es la base sobre la que construimos."
+      "speakerNotes": ""
     },
     {
       "id": 3,
@@ -41,7 +41,7 @@
       "title": "EL LEGADO",
       "subtitle": "Historia",
       "highlight": "Más de un siglo transformando la nutrición en ciencia",
-      "speakerNotes": "Una historia de innovación constante."
+      "speakerNotes": ""
     },
     {
       "id": 4,
@@ -92,7 +92,7 @@
           "highlight": true
         }
       ],
-      "speakerNotes": "Una historia de innovación constante que nos lleva al liderazgo digital."
+      "speakerNotes": ""
     },
     {
       "id": 5,
@@ -125,14 +125,14 @@
           "icon": "Activity"
         }
       ],
-      "speakerNotes": "NHS ya opera a una escala masiva en un mercado gigante."
+      "speakerNotes": ""
     },
     {
       "id": 6,
       "type": "HERO",
       "title": "¿QUÉ ESTÁ\nPASANDO?",
       "subtitle": "Contexto",
-      "speakerNotes": "El entorno está cambiando rápidamente."
+      "speakerNotes": ""
     },
     {
       "id": 7,
@@ -181,7 +181,7 @@
           "variant": "glassStrong"
         },
         {
-          "title": "Personalización & Salud preventiva",
+          "title": "Personalización \u0026 Salud preventiva",
           "description": "",
           "icon": "User",
           "span": "md",
@@ -209,13 +209,13 @@
       "title": "PLAYERS",
       "subtitle": "Mercado",
       "highlight": "El mercado está lleno pero, sigue abierto",
-      "speakerNotes": "Hay muchos actores, pero la oportunidad persiste."
+      "speakerNotes": ""
     },
     {
       "id": 10,
       "type": "MARKET_ANALYSIS",
       "title": "¿QUÉ HACE HOY EL MERCADO?",
-      "subtitle": "Ecosistema actual & Limitaciones",
+      "subtitle": "Ecosistema actual \u0026 Limitaciones",
       "highlight": "El mercado mide bien el pasado, pero no guía el futuro.",
       "builds": [
         0,
@@ -227,7 +227,7 @@
       "cards": [
         {
           "t": "Datos → decisiones claras",
-          "d": "Del simple 'tracking' a la acción personalizada.",
+          "d": "Del simple \u0027tracking\u0027 a la acción personalizada.",
           "icon": "Zap"
         },
         {
@@ -251,7 +251,7 @@
           "icon": "Globe"
         }
       ],
-      "speakerNotes": "Miden bien, pero falta el 'So What?' científico."
+      "speakerNotes": ""
     },
     {
       "id": 11,
@@ -291,7 +291,7 @@
       "title": "ESCENARIOS",
       "subtitle": "Visión Estratégica",
       "highlight": "DEFINIENDO EL FUTURO",
-      "speakerNotes": "Ante esto, ¿dónde nos situamos?"
+      "speakerNotes": ""
     },
     {
       "id": 13,
@@ -388,7 +388,7 @@
       "builds": [
         0
       ],
-      "speakerNotes": "Disfrutemos de este teaser que resume la esencia de BioLife."
+      "speakerNotes": ""
     },
     {
       "id": 16,
@@ -452,7 +452,7 @@
         {
           "title": "OKR NEGOCIO",
           "subtitle": "Ingresos recurrentes = escalabilidad",
-          "description": "- MRR ≥ 1,3 M€\n- ARPU = 15 €\n- LTV / CAC ≥ 3\n- Payback < 12 meses"
+          "description": "- MRR ≥ 1,3 M€\n- ARPU = 15 €\n- LTV / CAC ≥ 3\n- Payback \u003c 12 meses"
         },
         {
           "title": "OKR PRODUCTO",
@@ -592,7 +592,7 @@
       "type": "HERO",
       "title": "TECNOLOGÍA",
       "subtitle": "Foundation",
-      "speakerNotes": "La tecnología que lo hace posible."
+      "speakerNotes": ""
     },
     {
       "id": 23,
@@ -649,7 +649,7 @@
             "CI/CD: GitHub Actions",
             "Monitoreo: Grafana, Prometheus",
             "Logs: ELK Stack",
-            "Autenticación/Security: Auth0 / OAuth2 / JWT / IAM & Secrets"
+            "Autenticación/Security: Auth0 / OAuth2 / JWT / IAM \u0026 Secrets"
           ]
         }
       ],
@@ -666,14 +666,14 @@
         "Resiliencia",
         "Facilidad de Despliegue"
       ],
-      "speakerNotes": "La arquitectura completa de BioLife combina tecnologías modernas para una solución robusta y escalable."
+      "speakerNotes": ""
     },
     {
       "id": 26,
       "type": "HERO",
       "title": "MARKETING",
       "subtitle": "Estrategia",
-      "speakerNotes": "Cómo llegamos al usuario."
+      "speakerNotes": ""
     },
     {
       "id": 27,
@@ -807,7 +807,7 @@
             "YouTube"
           ],
           "internal": [
-            "Q&As",
+            "Q\u0026As",
             "Internal champions",
             "Casos de uso"
           ],
@@ -823,9 +823,9 @@
             "RRSS"
           ],
           "internal": [
-            "Friends & Family",
+            "Friends \u0026 Family",
             "Feedback",
-            "Recognition & incentives"
+            "Recognition \u0026 incentives"
           ],
           "budget": [
             "465 k"
@@ -834,14 +834,14 @@
         }
       ],
       "totalBudget": "1.5 M",
-      "speakerNotes": "Alineación estratégica del plan de marketing: funnel, canales y presupuesto por etapa."
+      "speakerNotes": ""
     },
     {
       "id": 29,
       "type": "HERO",
       "title": "TALENTO",
       "subtitle": "People",
-      "speakerNotes": "Estrategia de personas y cultura."
+      "speakerNotes": ""
     },
     {
       "id": 30,
@@ -890,7 +890,7 @@
           "variant": "10"
         }
       ],
-      "speakerNotes": "Nuestra estrategia de talento garantiza estabilidad, especialización y flexibilidad."
+      "speakerNotes": ""
     },
     {
       "id": 31,
@@ -939,7 +939,7 @@
       "type": "HERO_GLOW",
       "title": "COMPLIANCE Y\nGOBERNANZA",
       "subtitle": "Nestlé Nutrition",
-      "speakerNotes": "Contexto de cumplimiento y gobernanza."
+      "speakerNotes": ""
     },
     {
       "id": 33,
@@ -960,17 +960,17 @@
             "name": "Core Business\n(Medical Nutrition, Consumer Care, etc.)"
           },
           {
-            "name": "Science & Medical Affairs"
+            "name": "Science \u0026 Medical Affairs"
           },
           {
-            "name": "Digital & Data\n(corporate)"
+            "name": "Digital \u0026 Data\n(corporate)"
           }
         ],
         "spinOff": {
           "name": "Biolife\n(Digital Health Venture – spin-off)"
         }
       },
-      "speakerNotes": "Explicar el modelo de gobernanza de BioLife como un spin-off (NEWCO) 100% propiedad de Nestlé, con autonomía operativa y gobernanza estratégica clara."
+      "speakerNotes": ""
     },
     {
       "id": 34,
@@ -1038,7 +1038,7 @@
         1,
         2
       ],
-      "speakerNotes": "Mostramos el modelo de relación estratégica entre BioLife y Nestlé Health Science como un esquema de complementariedad."
+      "speakerNotes": ""
     },
     {
       "id": 36,
@@ -1114,7 +1114,7 @@
           ],
           "kpis": [
             "Adherencia semanal",
-            "Uso sostenido (>90 días)"
+            "Uso sostenido (\u003e90 días)"
           ],
           "icon": "Users"
         },
@@ -1136,7 +1136,7 @@
           "title": "Gobernanza",
           "esgType": "gobernanza",
           "description": [
-            "Privacy & consent by design",
+            "Privacy \u0026 consent by design",
             "Minimización y trazabilidad",
             "Separación clara de roles",
             "Gobierno clínico y ético"
@@ -1154,7 +1154,7 @@
       "type": "HERO",
       "title": "FINANCIERO",
       "subtitle": "Business Case",
-      "speakerNotes": "La viabilidad económica."
+      "speakerNotes": ""
     },
     {
       "id": 40,
@@ -1192,48 +1192,37 @@
           ]
         },
         {
-          "label": "Número de cuotas mensuales cobradas",
-          "values": [
-            "1,081,845",
-            "2,323,788",
-            "3,311,777",
-            "4,553,359",
-            "5,130,269",
-            "5,698,940"
-          ]
-        },
-        {
           "label": "Número de usuarios totales",
           "values": [
-            "162,53",
-            "340,881",
-            "605,616",
-            "1,000,869",
-            "1,448,551",
-            "1,947,828"
+            "167,744",
+            "347,832",
+            "618,618",
+            "1,023,809",
+            "1,484,178",
+            "1,997,282"
           ]
         },
         {
           "label": "Nuevos Usuarios",
           "values": [
-            "162,53",
-            "212,03",
-            "267,03",
-            "327,53",
-            "393,53",
-            "465,03"
+            "190,65",
+            "229,033",
+            "344,416",
+            "343,463",
+            "380,07",
+            "290,514"
           ]
         }
       ],
       "totalRow": {
         "label": "Total",
         "values": [
-          "€16,227,670.98",
-          "€34,856,820.30",
-          "€49,676,659.91",
-          "€68,300,386.65",
-          "€76,954,032.63",
-          "€85,484,099.31"
+          "€16,436,216.46",
+          "€35,687,130.38",
+          "€51,232,275.92",
+          "€70,419,211.27",
+          "€79,374,452.95",
+          "€86,313,677.98"
         ]
       }
     },
@@ -1254,158 +1243,350 @@
         {
           "label": "Paid Marketing",
           "values": [
-            "€4,000,000.00",
-            "€3,200,000.00",
-            "€3,200,000.00",
-            "€3,000,000.00",
-            "€3,000,000.00",
-            "€2,800,000.00"
+            "€7,069,892.00",
+            "€12,000,000.00",
+            "€18,000,000.00",
+            "€22,242,909.00",
+            "€24,000,000.00",
+            "€25,000,000.00"
           ]
         },
         {
           "label": "Software",
           "values": [
-            "€308,000.00",
-            "€336,000.00",
-            "€336,000.00",
-            "€336,000.00",
-            "€336,000.00",
-            "€346,080.00"
+            "€638,000.00",
+            "€748,000.00",
+            "€776,620.00",
+            "€793,553.20",
+            "€847,956.15",
+            "€864,915.28"
           ]
         },
         {
           "label": "Coste de Ventas",
           "values": [
-            "€252,000.00",
-            "€283,534.24",
-            "€404,082.58",
-            "€555,572.70",
-            "€625,963.66",
-            "€695,349.39"
+            "€1,360,800.00",
+            "€2,922,980.00",
+            "€4,165,724.00",
+            "€5,727,450.00",
+            "€6,453,116.00",
+            "€7,168,420.00"
           ]
         },
         {
           "label": "Gastos Generales y Administrativos",
           "values": [
-            "€116,485.42",
-            "€137,757.35",
-            "€141,890.07",
-            "€146,146.77",
-            "€150,531.18",
-            "€153,541.80"
+            "€481,135.42",
+            "€643,623.58",
+            "€744,545.82",
+            "€859,156.55",
+            "€956,882.18",
+            "€966,451.00"
           ]
         },
         {
           "label": "Investigación y Desarrollo",
           "values": [
-            "€1,630,289.17",
-            "€2,020,433.03",
-            "€2,090,070.64",
-            "€2,233,289.42",
-            "€2,431,434.04",
-            "€2,504,377.06"
-          ]
-        },
-        {
-          "label": "COGS",
-          "values": [
-            "€252,000.00",
-            "€283,534.24",
-            "€404,082.58",
-            "€555,572.70",
-            "€625,963.66",
-            "€695,349.39"
+            "€2,198,989.17",
+            "€3,287,271.48",
+            "€4,350,863.15",
+            "€5,176,169.90",
+            "€6,077,892.56",
+            "€6,199,450.41"
           ]
         }
       ],
       "totalRow": {
         "label": "Total",
         "values": [
-          "€6,306,774.58",
-          "€5,977,724.61",
-          "€6,172,043.28",
-          "€6,271,008.90",
-          "€6,543,928.87",
-          "€6,499,348.25"
+          "€11,748,816.58",
+          "€19,601,875.06",
+          "€28,037,752.97",
+          "€34,799,238.65",
+          "€38,335,846.89",
+          "€40,199,236.69"
         ]
       },
-      "speakerNotes": "Estructura detallada de gastos operativos y de capital proyectados a 5 años."
+      "speakerNotes": ""
     },
     {
       "id": 42,
       "type": "FINANCIAL_INSIGHTS",
       "title": "INSIGHTS",
-      "subtitle": "Drivers de Valor & Transformación Económica",
+      "subtitle": "Drivers de Valor \u0026 Transformación Económica",
       "drivers": [
         {
           "label": "LTV",
-          "value": "495.93"
+          "value": "458.60"
         },
         {
-          "label": "LTV:CAC",
-          "value": "15:1"
+          "label": "LTV:CAC 2031",
+          "value": "5.33"
         },
         {
           "label": "TIR",
-          "value": "371.98%"
+          "value": "492.31%"
         },
         {
           "label": "VAN",
-          "value": "€178M"
+          "value": "€117M"
         }
       ],
       "transformation": {
         "start": {
           "label": "EBITDA 2026",
-          "value": "€9.9M"
+          "value": "€4.6M"
         },
         "end": {
           "label": "EBITDA 2031",
-          "value": "€77M"
+          "value": "€54M"
         },
         "churn": {
           "label": "Churn rate anual",
           "value": "30.62%"
         }
       },
-      "speakerNotes": "Principales insights financieros: Drivers de valor sólidos que se traducen en una transformación económica escalable y crecimiento de EBITDA."
+      "speakerNotes": ""
     },
     {
       "id": 43,
-      "type": "LIVING_ECOSYSTEM",
-      "title": "BIO.LIFE",
-      "subtitle": "De vender productos a construir una relación digital,\ncontinua y basada en datos con las personas.",
-      "nodes": [
-        "Ciencia & validación médica",
-        "Datos y personalización",
-        "Relación continua con el usuario",
-        "Modelo económico sostenible",
-        "Gobernanza, ética y compliance",
-        "Impacto social y ESG"
+      "type": "PNL_TABLE",
+      "title": "P\u0026L BIO.LIFE",
+      "subtitle": "P\u0026L",
+      "sheetLink": "https://docs.google.com/spreadsheets/d/1tQY0wAIm8wE_aFrkDShTYrPp8tUXn8TTSvKSQPcNLHA/edit?usp=sharing",
+      "columns": [
+        "FY 2026 — Forecast",
+        "FY 2027 — Forecast",
+        "FY 2028 — Forecast",
+        "FY 2029 — Forecast",
+        "FY 2030 — Forecast"
       ],
-      "anchorText": "Mejorar la vida de las personas,\ncon ciencia, ética y responsabilidad."
+      "sections": [
+        {
+          "label": "GROSS REVENUE",
+          "rows": [
+            {
+              "label": "  Revenue",
+              "values": [
+                "€16,227,670",
+                "€34,856,820",
+                "€49,676,660",
+                "€68,300,387",
+                "€76,954,033"
+              ]
+            },
+            {
+              "label": "  Total Revenue",
+              "values": [
+                "€16,227,670",
+                "€34,856,820",
+                "€49,676,660",
+                "€68,300,387",
+                "€76,954,033"
+              ],
+              "bold": true
+            }
+          ]
+        },
+        {
+          "label": "COGS",
+          "rows": [
+            {
+              "label": "  COGS",
+              "values": [
+                "-€252,000",
+                "-€283,534",
+                "-€404,083",
+                "-€555,573",
+                "-€625,964"
+              ]
+            },
+            {
+              "label": "  Total COGS",
+              "values": [
+                "-€252,000",
+                "-€283,534",
+                "-€404,083",
+                "-€555,573",
+                "-€625,964"
+              ],
+              "bold": true
+            }
+          ]
+        },
+        {
+          "label": " ",
+          "rows": [
+            {
+              "label": "Gross Profit",
+              "values": [
+                "€15,975,670",
+                "€34,573,286",
+                "€49,272,577",
+                "€67,744,814",
+                "€76,328,069"
+              ],
+              "bold": true,
+              "highlight": "soft"
+            },
+            {
+              "label": "Gross Margin",
+              "values": [
+                "98.4%",
+                "99.2%",
+                "99.2%",
+                "99.2%",
+                "99.2%"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Operating Expenses",
+          "rows": [
+            {
+              "label": "  Total S\u0026M",
+              "values": [
+                "-€4,000,000",
+                "-€3,200,000",
+                "-€3,200,000",
+                "-€3,000,000",
+                "-€3,000,000"
+              ]
+            },
+            {
+              "label": "  Total R\u0026D",
+              "values": [
+                "-€1,630,289",
+                "-€2,020,433",
+                "-€2,090,071",
+                "-€2,233,289",
+                "-€2,431,434"
+              ]
+            },
+            {
+              "label": "  Total G\u0026A",
+              "values": [
+                "-€116,485",
+                "-€137,757",
+                "-€141,890",
+                "-€146,147",
+                "-€150,531"
+              ]
+            },
+            {
+              "label": "  Total Operating Expenses",
+              "values": [
+                "-€5,746,774",
+                "-€5,358,190",
+                "-€5,431,961",
+                "-€5,379,436",
+                "-€5,581,965"
+              ],
+              "bold": true
+            }
+          ]
+        },
+        {
+          "label": " ",
+          "rows": [
+            {
+              "label": "Net Operating Income (EBITDA)",
+              "values": [
+                "€10,228,896",
+                "€29,215,096",
+                "€43,840,616",
+                "€62,365,378",
+                "€70,746,104"
+              ],
+              "bold": true,
+              "highlight": "strong"
+            },
+            {
+              "label": "EBITDA Margin",
+              "values": [
+                "63.0%",
+                "83.8%",
+                "88.3%",
+                "91.3%",
+                "91.9%"
+              ]
+            }
+          ]
+        },
+        {
+          "label": " ",
+          "rows": [
+            {
+              "label": "Net Income",
+              "values": [
+                "€10,228,896",
+                "€29,215,096",
+                "€43,840,616",
+                "€62,365,378",
+                "€70,746,104"
+              ],
+              "bold": true
+            }
+          ]
+        },
+        {
+          "label": " ",
+          "rows": [
+            {
+              "label": "Check",
+              "values": [
+                "OK",
+                "OK",
+                "OK",
+                "OK",
+                "OK"
+              ],
+              "italic": true
+            }
+          ]
+        }
+      ],
+      "speakerNotes": ""
     },
     {
       "id": 44,
-      "type": "TRANSFORMATION_CLOSURE",
+      "type": "EXECUTIVE_SUMMARY_LIVE",
       "title": "BIO.LIFE",
-      "subtitle": "De vender productos a construir una relación digital,\ncontinua y basada en datos con las personas.",
-      "nodes": [
-        "Ciencia & validación médica",
-        "Datos y personalización",
-        "Relación continua con el usuario",
-        "Modelo económico sostenible",
-        "Gobernanza, ética y compliance",
-        "Impacto social y ESG"
+      "subtitle": "RESUMEN EJECUTIVO",
+      "microText": "INITIATIVE_SUMMARY_PROTOCOL_v2.0",
+      "mainCard": {
+        "number": "01",
+        "label": "VALOR PRINCIPAL",
+        "content": "Nutrición personalizada, predictiva y accionable, basada en datos"
+      },
+      "secondaryCards": [
+        {
+          "number": "02",
+          "label": "FACTOR DIFERENCIADOR",
+          "content": "Digital Twin nutricional dinámico + Integración ciencia / datos"
+        },
+        {
+          "number": "03",
+          "label": "PROBLEMAS QUE RESOLVEMOS",
+          "content": "Falta de personalización \u0026 desconexión entre datos y decisiones"
+        },
+        {
+          "number": "04",
+          "label": "SATISFACCIÓN DEL CLIENTE",
+          "content": "NPS, Health Outcome Satisfaction, Adherencia"
+        },
+        {
+          "number": "05",
+          "label": "CRECIMIENTO POTENCIAL",
+          "content": "Democratización, Segmentación, B2B2C"
+        }
       ],
-      "anchorText": "Mejorar la vida de las personas,\ncon ciencia, ética y responsabilidad.",
-      "stateA": {
-        "labels": [
-          "Producto",
-          "Compra",
-          "Transacción"
-        ]
-      }
+      "statusBlock": {
+        "message": "NUTRICIÓN PERSONALIZADA,\nPREDICTIVA Y ACCIONABLE.",
+        "status": "SYSTEM_STATUS: READY_FOR_DEPLOYMENT"
+      },
+      "speakerNotes": ""
     }
   ]
 }

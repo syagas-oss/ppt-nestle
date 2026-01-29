@@ -2265,22 +2265,22 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
   if (slideType === 'DILO') {
     const moments = (slide as any).moments || [];
 
-    // S-curve positions (x%, y%) for each moment along the path
+    // S-curve positions (x%, y%) for each moment along the path - ADJUSTED SPREAD
     const positions = [
-      { x: 15, y: 65 },   // Mañana - left, lower
-      { x: 30, y: 25 },   // Mediodía - center-left, upper
-      { x: 50, y: 55 },   // Tarde (casa) - center, middle
-      { x: 70, y: 30 },   // Tarde (super) - center-right, upper
-      { x: 85, y: 60 }    // Noche - right, middle-lower
+      { x: 15, y: 65 },   // Mañana - moved up to prevent bottom overflow
+      { x: 32, y: 20 },   // Mediodía - upper position
+      { x: 50, y: 55 },   // Tarde (casa) - moved up slightly
+      { x: 68, y: 20 },   // Tarde (super) - upper position
+      { x: 85, y: 60 }    // Noche - moved up to prevent bottom overflow
     ];
 
     return (
-      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4 lg:px-8 relative overflow-hidden">
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4 relative overflow-hidden">
         {/* Title */}
-        <div className="text-center mb-8 lg:mb-12 z-20">
+        <div className="text-center mb-6 z-20">
           <motion.span
             variants={itemVariants}
-            className="text-brand-primary font-bold tracking-[0.3em] lg:tracking-[0.5em] text-xs uppercase mb-3 block"
+            className="text-brand-primary font-bold tracking-[0.3em] lg:tracking-[0.5em] text-xs uppercase mb-2 block"
           >
             {slide.subtitle}
           </motion.span>
@@ -2292,8 +2292,8 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
           </motion.h1>
         </div>
 
-        {/* S-Curve Path Container */}
-        <div className="relative w-full max-w-7xl h-[500px] lg:h-[600px]">
+        {/* S-Curve Path Container - FULL WIDTH/HEIGHT */}
+        <div className="relative w-full max-w-full h-[60vh] lg:h-[70vh]">
           {/* SVG S-Curve Path */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
             <defs>
@@ -2304,13 +2304,15 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
               </linearGradient>
             </defs>
             <motion.path
-              d="M 10 70 Q 25 20, 35 25 T 50 55 Q 60 35, 70 30 T 90 60"
+              d="M 10 65 C 15 65, 25 20, 32 20 S 40 55, 50 55 S 60 20, 68 20 S 80 60, 85 60"
               fill="none"
               stroke="url(#pathGradient)"
-              strokeWidth="0.8"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               initial={{ pathLength: 0, opacity: 0 }}
               animate={{ pathLength: 1, opacity: 1 }}
-              transition={{ duration: 2, ease: "easeInOut" }}
+              transition={{ duration: 2.5, ease: "easeInOut" }}
             />
           </svg>
 
@@ -2346,7 +2348,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
                     className="relative group"
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="relative w-32 h-32 lg:w-40 lg:h-40 rounded-2xl overflow-hidden shadow-2xl border-2 border-white/10 bg-black/40 backdrop-blur-sm">
+                    <div className="relative w-40 h-40 lg:w-56 lg:h-56 rounded-2xl overflow-hidden shadow-2xl border-2 border-white/10 bg-black/40 backdrop-blur-sm">
                       <img
                         src={`${import.meta.env.BASE_URL}assets/dilo/${moment.image}`}
                         alt={moment.title}
@@ -2359,7 +2361,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
                   </motion.div>
 
                   {/* Text Container */}
-                  <div className="text-center max-w-[180px] lg:max-w-[220px]">
+                  <div className="text-center max-w-[200px] lg:max-w-[260px]">
                     <h3 className="text-lg lg:text-xl font-black uppercase text-white mb-1 tracking-tight">
                       {moment.title}
                     </h3>

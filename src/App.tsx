@@ -270,9 +270,9 @@ const App: React.FC = () => {
       {/* SCALER CONTAINER */}
       <div
         style={{
-          width: (currentSlide.type === 'INITIAL_ANIMATION' || isMobile) ? '100%' : '1920px',
-          height: (currentSlide.type === 'INITIAL_ANIMATION' || isMobile) ? '100%' : '1080px',
-          transform: (currentSlide.type === 'INITIAL_ANIMATION' || isMobile) ? 'none' : `scale(${scale})`,
+          width: (currentSlide.type === 'INITIAL_ANIMATION' || currentSlide.type === 'VIDEO' || isMobile) ? '100%' : '1920px',
+          height: (currentSlide.type === 'INITIAL_ANIMATION' || currentSlide.type === 'VIDEO' || isMobile) ? '100%' : '1080px',
+          transform: (currentSlide.type === 'INITIAL_ANIMATION' || currentSlide.type === 'VIDEO' || isMobile) ? 'none' : `scale(${scale})`,
           transformOrigin: 'center center',
           overflowX: 'hidden',
           overflowY: isMobile ? 'auto' : 'hidden',
@@ -321,7 +321,7 @@ const App: React.FC = () => {
 
         <ShootingStars />
 
-        <main className={`relative z-20 h-full w-full flex items-center justify-center ${currentSlide.type === 'INITIAL_ANIMATION' ? '' : 'px-6 md:px-20'}`}>
+        <main className={`relative z-20 h-full w-full flex items-center justify-center ${(currentSlide.type === 'INITIAL_ANIMATION' || currentSlide.type === 'VIDEO') ? '' : 'px-6 md:px-20'}`}>
 
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div

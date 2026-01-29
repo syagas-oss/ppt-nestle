@@ -921,6 +921,191 @@ const FinalClosureView: React.FC<{ slide: Slide; staticMode?: boolean }> = ({ sl
   )
 }
 
+const PremiumClosureView: React.FC<{ slide: Slide; staticMode?: boolean }> = ({ slide, staticMode = false }) => {
+  const TOKENS = getTOKENS(staticMode);
+
+  // Background Aurora Layers
+  const auroras = [
+    { color: 'rgba(59, 130, 246, 0.15)', size: 'w-[80vw] h-[80vh]', duration: 12, x: [-10, 10], y: [-5, 5] },
+    { color: 'rgba(45, 212, 191, 0.12)', size: 'w-[90vw] h-[70vh]', duration: 17, x: [10, -10], y: [5, -5] },
+    { color: 'rgba(124, 58, 237, 0.08)', size: 'w-[70vw] h-[90vh]', duration: 14, x: [-5, 5], y: [10, -10] },
+  ];
+
+  // Sparkles/Sparkles logic
+  const sparklesCount = 2; // Keep it rare as requested
+
+  return (
+    <div className="w-full h-full flex flex-col relative overflow-hidden bg-transparent p-6 lg:p-12 text-white">
+      {/* 1. BACKGROUND LAYER (AUTONOMOUS) */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        {/* Aurora / Light Beams */}
+        {auroras.map((aurora, i) => (
+          <motion.div
+            key={i}
+            className={`absolute blur-[150px] rounded-full ${aurora.size} -translate-x-1/2 -translate-y-1/2`}
+            style={{ background: aurora.color, left: '50%', top: '50%' }}
+            animate={{
+              x: aurora.x,
+              y: aurora.y,
+              rotate: [0, 15, -15, 0],
+              opacity: [0.12, 0.18, 0.12],
+            }}
+            transition={{
+              duration: aurora.duration,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 2,
+            }}
+          />
+        ))}
+
+        {/* Drift Layer (Dust/Stars overlay) */}
+        <motion.div
+          className="absolute inset-[-5%] bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10"
+          animate={{
+            x: ['-1%', '1%', '-1%'],
+            y: ['-1%', '1%', '-1%'],
+            rotate: [0, 0.5, 0]
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+
+        {/* Destellos Puntuales (Random Sparkles) */}
+        {[...Array(sparklesCount)].map((_, i) => (
+          <motion.div
+            key={`sparkle-${i}`}
+            className="absolute w-2 h-2 bg-white blur-[4px] rounded-full"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{
+              opacity: [0, 0, 0.8, 0],
+              scale: [0, 0.5, 1.2, 0],
+              left: [`${20 + i * 40}%`, `${30 + i * 35}%`],
+              top: [`${30 + i * 20}%`, `${40 + i * 25}%`]
+            }}
+            transition={{
+              duration: 1.4,
+              repeat: Infinity,
+              delay: 8 + i * 7,
+              repeatDelay: 10 + i * 5,
+              ease: "circOut"
+            }}
+          />
+        ))}
+      </div>
+
+      {/* 2. ENTRANCE & CONTENT LAYER */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.9 }}
+        className="relative z-10 w-full h-full flex flex-col"
+      >
+        {/* TOP SECTION */}
+        <div className="flex justify-between items-start mb-8">
+          <motion.div
+            initial={{ x: -30, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.7, duration: 0.8 }}
+            className="flex flex-col"
+          >
+            <h1 className="text-5xl lg:text-7xl font-black italic tracking-tighter text-white font-display leading-none">BIO.LIFE</h1>
+            <span className="text-brand-primary font-mono tracking-[0.5em] text-sm lg:text-base ml-1 mt-2">RESUMEN EJECUTIVO</span>
+          </motion.div>
+
+          <motion.div
+            initial={{ y: -30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+            className="flex-1 flex justify-center px-8"
+          >
+            <motion.div
+              animate={{ scale: [1, 1.005, 1] }}
+              transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+              className="px-8 py-4 bg-white/5 backdrop-blur-md rounded-full border border-white/10 max-w-3xl text-center"
+            >
+              <p className="text-sm lg:text-lg font-medium text-gray-200 leading-relaxed italic">
+                {(slide as any).topPill}
+              </p>
+            </motion.div>
+          </motion.div>
+
+          {/* Spacer for symmetry or logo */}
+          <div className="w-48 hidden lg:block" />
+        </div>
+
+        {/* MAIN BODY AREA */}
+        <div className="flex-1 grid grid-cols-12 gap-8 items-center">
+          {/* LEFT COLUMN: IMAGE + MANIFESTO */}
+          <div className="col-span-12 lg:col-span-5 flex flex-col h-full justify-between gap-12">
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.9, duration: 1 }}
+              className="flex-1 relative flex items-center justify-center min-h-[300px]"
+            >
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent z-10" />
+              <img
+                src={`${import.meta.env.BASE_URL}assets/${(slide as any).image}`}
+                alt="Digital Human"
+                className="w-full h-full object-contain filter contrast-125 saturate-110 drop-shadow-[0_0_30px_rgba(59,130,246,0.3)]"
+                onError={(e) => {
+                  e.currentTarget.src = 'https://ui-avatars.com/api/?background=0D8ABC&color=fff&name=DH';
+                }}
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 1.3, duration: 0.8 }}
+              className="bg-[#0052CC] p-6 lg:p-8 rounded-[2rem] border border-white/20 shadow-[0_20px_50px_rgba(0,82,204,0.3)] relative group overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+              <p className="text-xl lg:text-3xl font-black text-white italic leading-tight tracking-tight uppercase">
+                {(slide as any).manifesto}
+              </p>
+            </motion.div>
+          </div>
+
+          {/* RIGHT COLUMN: CARDS GRID */}
+          <div className="col-span-12 lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-8 h-full">
+            {(slide as any).cards?.map((card: any, i: number) => (
+              <motion.div
+                key={i}
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 1.1 + i * 0.1, duration: 0.8 }}
+              >
+                <motion.div
+                  animate={{ scale: [1, 1.01, 1] }}
+                  transition={{
+                    duration: 12 + i * 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: i * 1.5
+                  }}
+                  className={`${TOKENS.glassStrong} p-8 h-full flex flex-col justify-start border border-white/5 hover:border-brand-primary/30 transition-colors duration-500 shadow-xl`}
+                >
+                  <span className="text-brand-primary font-mono text-sm lg:text-base font-bold tracking-widest uppercase mb-4 drop-shadow-[0_0_8px_rgba(45,212,191,0.4)]">
+                    {card.tag}
+                  </span>
+                  <p className="text-lg lg:text-2xl font-bold text-white leading-relaxed whitespace-pre-line font-display">
+                    {card.text}
+                  </p>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
 export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex, staticMode = false }) => {
   const TOKENS = getTOKENS(staticMode);
 
@@ -941,6 +1126,10 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
   };
 
   const slideType = (slide.type || 'HERO').toString().toUpperCase().trim();
+
+  if (slideType === 'PREMIUM_CLOSURE') {
+    return <PremiumClosureView slide={slide} staticMode={staticMode} />;
+  }
 
   if (slideType === 'CONCEPTUAL_ECOSYSTEM') {
     return <ConceptualEcosystemView slide={slide} staticMode={staticMode} />;

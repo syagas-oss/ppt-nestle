@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const PARTICLE_COUNT = 1500;
+const PARTICLE_COUNT = 2000;
 const ANIMATION_DURATION = 15000; // 15 seconds loop
 
 export const InitialAnimation: React.FC = () => {
@@ -60,8 +60,8 @@ export const InitialAnimation: React.FC = () => {
                 this.vy = (Math.random() - 0.5) * 2;
                 this.baseX = this.x;
                 this.baseY = this.y;
-                this.size = Math.random() * (width < 768 ? 2 : 1.5) + 0.5;
-                this.color = `rgba(45, 212, 191, ${Math.random() * 0.4 + 0.2})`;
+                this.size = Math.random() * (width < 768 ? 3.0 : 2.5) + 1.0;
+                this.color = `rgba(45, 212, 191, ${Math.random() * 0.3 + 0.7})`;
                 this.speed = Math.random() * 1 + 0.5;
                 this.angle = Math.random() * Math.PI * 2;
                 this.friction = 0.95;
@@ -158,13 +158,14 @@ export const InitialAnimation: React.FC = () => {
 
         const initParticles = () => {
             particles = [];
-            for (let i = 0; i < (width < 768 ? PARTICLE_COUNT / 2 : PARTICLE_COUNT); i++) {
+            const effectiveCount = width < 768 ? PARTICLE_COUNT / 2 : PARTICLE_COUNT;
+            for (let i = 0; i < effectiveCount; i++) {
                 particles.push(new Particle());
             }
         };
 
         const animate = (time: number) => {
-            ctx.fillStyle = 'rgba(10, 18, 16, 0.15)';
+            ctx.fillStyle = 'rgba(10, 18, 16, 0.2)'; // Slightly more opaque trail for better definition
             ctx.fillRect(0, 0, width, height);
 
             particles.forEach((p, i) => {
@@ -205,9 +206,9 @@ export const InitialAnimation: React.FC = () => {
                     }}
                     className="relative z-10 flex flex-col items-center"
                 >
-                    <div className="text-6xl md:text-8xl font-display font-medium tracking-tight uppercase text-white text-center">
+                    <div className="text-6xl md:text-[8rem] font-black italic tracking-tighter uppercase text-white text-center leading-[0.9] drop-shadow-2xl">
                         NESTLÉ<span className="text-brand-primary">.</span><br />
-                        <span className="text-4xl md:text-6xl text-gray-400">NUTRICIÓN</span>
+                        <span className="text-4xl md:text-[6rem] text-gray-400">NUTRICIÓN</span>
                     </div>
                 </motion.div>
             </AnimatePresence>

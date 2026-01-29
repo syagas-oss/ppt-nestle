@@ -17,10 +17,10 @@
 
 @layer components {
   .glass {
-    @apply bg-white/[0.03] backdrop-blur-xl border border-white/5 rounded-3xl shadow-lg;
+    @apply bg-white/[0.04] backdrop-blur-xl border border-white/20 rounded-3xl shadow-[0_0_20px_rgba(45,212,191,0.05)];
   }
   .glass-strong {
-    @apply bg-white/[0.06] backdrop-blur-2xl border border-white/10 rounded-[2rem] shadow-xl;
+    @apply bg-white/[0.08] backdrop-blur-2xl border border-white/30 rounded-[2rem] shadow-[0_0_30px_rgba(45,212,191,0.1)];
   }
 }
 

@@ -38,13 +38,13 @@ const techIconMap: Record<string, React.ComponentType<any>> = {
 
 // Design Tokens 2026
 const getTOKENS = (staticMode: boolean) => ({
-  glass: staticMode ? "bg-white/10 border border-white/10 rounded-3xl shadow-lg" : "glass",
-  glassStrong: staticMode ? "bg-white/10 border border-white/10 rounded-[2rem] shadow-xl" : "glass-strong",
-  glassAccent: "bg-brand-primary/10 border border-brand-primary/20 backdrop-blur-xl rounded-[2rem]",
-  glassGlow: staticMode ? "bg-brand-primary/5 border border-brand-primary/20 shadow-[0_0_40px_rgba(45,212,191,0.15)] rounded-[2.5rem]" : "bg-brand-primary/5 border border-brand-primary/20 backdrop-blur-2xl shadow-[0_0_40px_rgba(45,212,191,0.15)] rounded-[2.5rem]",
-  glassHolo: staticMode ? "bg-brand-dark/40 border border-brand-primary/30 shadow-[0_0_50px_-10px_rgba(45,212,191,0.1)] rounded-[3rem]" : "bg-brand-dark/40 border border-brand-primary/30 backdrop-blur-xl shadow-[0_0_50px_-10px_rgba(45,212,191,0.1)] rounded-[3rem]",
+  glass: staticMode ? "bg-white/15 border border-white/30 rounded-3xl shadow-lg" : "glass",
+  glassStrong: staticMode ? "bg-white/15 border border-white/30 rounded-[2rem] shadow-xl" : "glass-strong",
+  glassAccent: "bg-brand-primary/15 border border-brand-primary/40 backdrop-blur-xl rounded-[2rem] shadow-[0_0_30px_rgba(45,212,191,0.2)]",
+  glassGlow: staticMode ? "bg-brand-primary/10 border border-brand-primary/40 shadow-[0_0_50px_rgba(45,212,191,0.25)] rounded-[2.5rem]" : "bg-brand-primary/10 border border-brand-primary/40 backdrop-blur-2xl shadow-[0_0_50px_rgba(45,212,191,0.25)] rounded-[2.5rem]",
+  glassHolo: staticMode ? "bg-brand-dark/50 border border-brand-primary/50 shadow-[0_0_60px_-10px_rgba(45,212,191,0.2)] rounded-[3rem]" : "bg-brand-dark/50 border border-brand-primary/50 backdrop-blur-xl shadow-[0_0_60px_-10px_rgba(45,212,191,0.2)] rounded-[3rem]",
   radiusMd: "rounded-[2rem]",
-  shadow: "shadow-xl",
+  shadow: "shadow-2xl",
   textGradient: "bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary",
 });
 
@@ -164,7 +164,7 @@ const FallingImagesView: React.FC<{ slide: Slide; isVisible: (i: number) => bool
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="text-5xl md:text-7xl font-black tracking-tighter text-white uppercase italic font-display"
+          className="text-4xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-white drop-shadow-2xl mb-8"
         >
           {slide.title}
         </motion.h1>
@@ -256,14 +256,14 @@ const EsgPillarsView: React.FC<{ slide: Slide; buildIndex: number; staticMode?: 
 
       {/* Header */}
       <div className="text-center mb-16 relative z-10">
-        <motion.h2
+        <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-6xl font-black italic uppercase text-white tracking-tight font-display mb-4"
+          className="text-4xl lg:text-[7rem] font-black italic uppercase tracking-tighter leading-[0.9] text-white drop-shadow-2xl mb-8"
         >
           {slide.title}
-        </motion.h2>
+        </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -414,7 +414,7 @@ const FinancialInsightsView: React.FC<{ slide: Slide; staticMode?: boolean }> = 
               variants={itemVariants}
               className={`${TOKENS.glass} p-6 flex flex-col items-center justify-center text-center h-40 relative group hover:bg-white/5 transition-colors`}
             >
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2 font-display">{driver.value}</div>
+              <div className="text-4xl md:text-5xl font-bold text-white mb-2">{driver.value}</div>
               <div className="text-sm text-brand-primary uppercase tracking-wider font-bold">{driver.label}</div>
             </motion.div>
           ))}
@@ -425,7 +425,7 @@ const FinancialInsightsView: React.FC<{ slide: Slide; staticMode?: boolean }> = 
           {/* EBITDA 2026 */}
           <motion.div variants={itemVariants} className={`${TOKENS.glassStrong} p-8 w-80 flex flex-col items-center justify-center text-center relative z-10`}>
             <div className="text-xs text-gray-400 uppercase tracking-widest mb-2">{(slide as any).transformation.start.label}</div>
-            <div className="text-5xl font-black text-white font-display">{(slide as any).transformation.start.value}</div>
+            <div className="text-5xl font-black text-white">{(slide as any).transformation.start.value}</div>
           </motion.div>
 
           {/* ARROW */}
@@ -463,7 +463,7 @@ const FinancialInsightsView: React.FC<{ slide: Slide; staticMode?: boolean }> = 
           {/* EBITDA 2031 */}
           <motion.div variants={itemVariants} className={`${TOKENS.glassGlow} p-10 w-96 flex flex-col items-center justify-center text-center relative z-10 scale-110`}>
             <div className="text-sm text-brand-primary uppercase tracking-widest mb-2 font-bold">{(slide as any).transformation.end.label}</div>
-            <div className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-brand-primary font-display">{(slide as any).transformation.end.value}</div>
+            <div className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-brand-primary">{(slide as any).transformation.end.value}</div>
           </motion.div>
         </div>
 
@@ -495,7 +495,7 @@ const ExpensesTableView: React.FC<{ slide: Slide; staticMode?: boolean }> = ({ s
       <div className="w-full max-w-[98%] xl:max-w-[1400px] flex flex-col h-full justify-center">
         {/* Header */}
         <div className="mb-4 text-center">
-          <h1 className="text-3xl lg:text-4xl font-bold text-white uppercase tracking-wide font-display">{slide.title}</h1>
+          <h1 className="text-3xl lg:text-4xl font-black text-white uppercase tracking-wide">{slide.title}</h1>
         </div>
 
         {/* Table Container */}
@@ -568,7 +568,7 @@ const RevenueTableView: React.FC<{ slide: Slide; staticMode?: boolean }> = ({ sl
       className="w-full h-full flex flex-col items-center justify-center p-4 lg:p-6 relative overflow-hidden"
     >
       <div className="w-full max-w-[95%]">
-        <h1 className="text-4xl font-bold text-white mb-2 uppercase tracking-wide">{slide.title}</h1>
+        <h1 className="text-4xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-white drop-shadow-2xl mb-8">{slide.title}</h1>
 
         <div className={`w-full overflow-hidden rounded-2xl border ${borderColor} bg-[#050810] shadow-2xl mt-4`}>
           <table className="w-full table-fixed border-collapse text-sm xl:text-base">
@@ -639,7 +639,7 @@ const PnlTableView: React.FC<{ slide: Slide; staticMode?: boolean }> = ({ slide,
         {/* Top Header */}
         <div className="mb-6 text-center">
           <h1 className="text-3xl lg:text-4xl font-bold text-gray-400 uppercase tracking-[0.5em] mb-2">P&L</h1>
-          <h2 className="text-2xl lg:text-3xl font-black text-white uppercase tracking-tight font-display italic">{slide.title}</h2>
+          <h2 className="text-2xl lg:text-3xl font-black italic uppercase tracking-tighter text-white">{slide.title}</h2>
         </div>
 
         {/* Table Container */}
@@ -747,7 +747,7 @@ const ConceptualEcosystemView: React.FC<{ slide: Slide; staticMode?: boolean }> 
         />
         <div className="w-32 h-32 md:w-48 md:h-48 rounded-full border border-cyan-500/30 flex items-center justify-center relative bg-black/40 backdrop-blur-sm shadow-[0_0_50px_rgba(34,211,238,0.15)] group">
           <div className="text-center z-10">
-            <h1 className="text-2xl md:text-4xl font-black italic text-white tracking-tighter drop-shadow-lg">BIO.LIFE</h1>
+            <h1 className="text-2xl md:text-4xl font-black italic uppercase text-white tracking-tighter leading-[0.9] drop-shadow-2xl">BIO.LIFE</h1>
           </div>
           {/* Orbit Rings */}
           <div className="absolute inset-[-20px] border border-white/5 rounded-full animate-[spin_20s_linear_infinite]" />
@@ -874,7 +874,7 @@ const FinalClosureView: React.FC<{ slide: Slide; staticMode?: boolean }> = ({ sl
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
-            className="text-7xl md:text-9xl font-black italic text-white tracking-tighter drop-shadow-2xl"
+            className="text-7xl md:text-9xl font-black italic uppercase text-white tracking-tighter leading-[0.9] drop-shadow-2xl"
           >
             BIO.LIFE
           </motion.h1>
@@ -1012,7 +1012,7 @@ const PremiumClosureView: React.FC<{ slide: Slide; staticMode?: boolean }> = ({ 
             transition={{ delay: 0.7, duration: 0.8 }}
             className="flex flex-col"
           >
-            <h1 className="text-5xl lg:text-7xl font-black italic tracking-tighter text-white font-display leading-none">BIO.LIFE</h1>
+            <h1 className="text-5xl lg:text-7xl font-black italic uppercase tracking-tighter text-white leading-[0.9]">BIO.LIFE</h1>
             <span className="text-brand-primary font-mono tracking-[0.5em] text-sm lg:text-base ml-1 mt-2">RESUMEN EJECUTIVO</span>
           </motion.div>
 
@@ -1048,14 +1048,25 @@ const PremiumClosureView: React.FC<{ slide: Slide; staticMode?: boolean }> = ({ 
               className="flex-1 relative flex items-center justify-center min-h-[300px]"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent z-10" />
-              <img
-                src={`${import.meta.env.BASE_URL}assets/${(slide as any).image}`}
-                alt="Digital Human"
-                className="w-full h-full object-contain filter contrast-125 saturate-110 drop-shadow-[0_0_30px_rgba(59,130,246,0.3)]"
-                onError={(e) => {
-                  e.currentTarget.src = 'https://ui-avatars.com/api/?background=0D8ABC&color=fff&name=DH';
-                }}
-              />
+              {(slide as any).video ? (
+                <video
+                  src={`${import.meta.env.BASE_URL}assets/${(slide as any).video}`}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-contain filter contrast-125 saturate-110 drop-shadow-[0_0_30px_rgba(59,130,246,0.3)]"
+                />
+              ) : (
+                <img
+                  src={`${import.meta.env.BASE_URL}assets/${(slide as any).image}`}
+                  alt="Digital Human"
+                  className="w-full h-full object-contain filter contrast-125 saturate-110 drop-shadow-[0_0_30px_rgba(59,130,246,0.3)]"
+                  onError={(e) => {
+                    e.currentTarget.src = 'https://ui-avatars.com/api/?background=0D8ABC&color=fff&name=DH';
+                  }}
+                />
+              )}
             </motion.div>
 
             <motion.div
@@ -1190,7 +1201,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
             >
               {/* Left area: Layer Title and Description */}
               <div className="flex-shrink-0 w-full lg:w-96 flex flex-col justify-center px-8 lg:pr-6 mb-4 lg:mb-0">
-                <h2 className="text-xl md:text-3xl font-black uppercase text-white mb-2">{layer.name}</h2>
+                <h2 className="text-xl md:text-3xl font-black italic uppercase tracking-tighter leading-[0.9] text-white mb-2">{layer.name}</h2>
                 <p className="text-sm lg:text-base text-gray-200 font-medium">{layer.role}</p>
               </div>
 
@@ -1261,7 +1272,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
             <motion.div variants={itemVariants} className="space-y-4">
               <div className="flex items-center gap-3 mb-4 lg:mb-8">
                 <div className="w-2 h-8 lg:h-12 bg-brand-primary shadow-[0_0_20px_rgba(45,212,191,0.5)]" />
-                <h1 className="text-4xl lg:text-6xl font-display font-medium text-white leading-none tracking-tight">Bio<span className="text-brand-primary">.</span><br className="hidden lg:block" />Life</h1>
+                <h1 className="text-4xl lg:text-7xl font-black italic uppercase text-white leading-[0.9] tracking-tighter">Bio<span className="text-brand-primary">.</span><br className="hidden lg:block" />Life</h1>
               </div>
               <h2 className="text-base lg:text-xl text-brand-primary font-display tracking-widest uppercase border-b border-brand-primary/30 pb-4 inline-block">
                 {slide.subtitle}
@@ -1338,7 +1349,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
       <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col justify-center items-center p-2 relative z-20 overflow-y-auto lg:overflow-visible pt-12 lg:pt-0">
         <div className="text-center mb-8 lg:mb-16 z-30">
           <motion.span variants={itemVariants} className="text-brand-primary font-bold tracking-[0.3em] lg:tracking-[0.5em] text-[10px] lg:text-xs uppercase mb-3 block">{slide.subtitle}</motion.span>
-          <motion.h1 variants={itemVariants} className="text-3xl lg:text-7xl font-display font-medium tracking-tight uppercase text-white drop-shadow-2xl">{slide.title}</motion.h1>
+          <motion.h1 variants={itemVariants} className="text-3xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-white drop-shadow-2xl">{slide.title}</motion.h1>
         </div>
         <div className="w-full max-w-[1850px] relative min-h-[400px] px-12 lg:px-24">
           <div className="absolute left-0 right-0 top-1/2 h-0.5 bg-white/10 -translate-y-1/2 w-full z-0 hidden lg:block" />
@@ -1395,7 +1406,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
     return (
       <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center relative">
         <div className="mb-8 text-center">
-          <motion.h1 variants={itemVariants} className="text-6xl font-black italic uppercase text-white">{slide.title}</motion.h1>
+          <motion.h1 variants={itemVariants} className="text-6xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-white drop-shadow-2xl">{slide.title}</motion.h1>
           <motion.p variants={itemVariants} className="text-blue-400 font-bold tracking-widest mt-2">{slide.subtitle}</motion.p>
         </div>
         <div className="flex flex-col md:flex-row items-center gap-12 w-full max-w-5xl">
@@ -1440,7 +1451,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
 
     return (
       <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center relative">
-        <motion.h1 variants={itemVariants} className="text-5xl font-black italic uppercase text-center mb-12">{slide.title}</motion.h1>
+        <motion.h1 variants={itemVariants} className="text-5xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-center mb-12 drop-shadow-2xl">{slide.title}</motion.h1>
         <div className="relative w-[700px] h-[700px] flex items-center justify-center">
           <div className="absolute inset-0 border border-white/5 rounded-full animate-[spin_60s_linear_infinite]" />
           <div className="absolute inset-10 border border-blue-500/20 rounded-full animate-[spin_40s_linear_infinite_reverse]" />
@@ -1538,7 +1549,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
 
           <motion.h1
             variants={itemVariants}
-            className="text-6xl lg:text-7xl font-black italic uppercase text-white mb-10 lg:ml-8 font-display"
+            className="text-6xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-white mb-10 lg:ml-8 drop-shadow-2xl"
           >
             {slide.title}
           </motion.h1>
@@ -1568,7 +1579,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
                   </div>
 
                   <div className="flex-1">
-                    <h3 className="font-black text-lg lg:text-xl uppercase text-white leading-tight mb-0.5 font-display">
+                    <h3 className="font-black text-lg lg:text-xl uppercase text-white leading-tight mb-0.5">
                       {item.t}
                     </h3>
                     {item.d && (
@@ -1590,7 +1601,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
     return (
       <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex items-center justify-center gap-12 max-w-7xl mx-auto px-4">
         <div className="flex-1 flex flex-col gap-6">
-          <motion.h1 variants={itemVariants} className="text-6xl font-black italic uppercase text-white mb-8">{slide.title}</motion.h1>
+          <motion.h1 variants={itemVariants} className="text-6xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-white mb-8 drop-shadow-2xl">{slide.title}</motion.h1>
           {slide.bentoItems?.filter(i => i.span === 'md').map((item, idx) => (
             <motion.div key={idx} variants={itemVariants} className={`${TOKENS.glass} p-6 rounded-2xl border-l-4 border-blue-500`}>
               <div className="flex items-center gap-3 mb-2">
@@ -1631,7 +1642,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
     if (isDiagonal) {
       return (
         <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4 relative">
-          <motion.h1 variants={itemVariants} className="text-4xl lg:text-6xl font-black italic uppercase text-white mb-12 lg:mb-24 z-20">{slide.title}</motion.h1>
+          <motion.h1 variants={itemVariants} className="text-4xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-white mb-12 lg:mb-24 z-20 drop-shadow-2xl">{slide.title}</motion.h1>
 
           <div className="relative w-full max-w-[1750px] h-[500px]">
             {/* Diagonal Path (Visual only, no horizontal line) */}
@@ -1692,7 +1703,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
 
     return (
       <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4">
-        <motion.h1 variants={itemVariants} className="text-6xl font-black italic uppercase text-white mb-20">{slide.title}</motion.h1>
+        <motion.h1 variants={itemVariants} className="text-6xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-white mb-20 drop-shadow-2xl">{slide.title}</motion.h1>
         <div className="relative w-full max-w-[1750px]">
           <div className="absolute top-1/2 left-0 right-0 h-2 bg-gray-800 -translate-y-1/2 rounded-full" />
           <motion.div
@@ -1716,7 +1727,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
                     <div className="flex lg:justify-center mb-3">
                       <IconMapper name={item.icon} size={28} className={`lg:size-8 ${isYearOne ? 'text-cyan-400' : 'text-blue-400'}`} />
                     </div>
-                    <h3 className={`text-lg lg:text-xl font-black uppercase mb-2 ${isYearOne ? 'text-cyan-400' : 'text-white'}`}>{item.t}</h3>
+                    <h3 className="text-lg lg:text-xl font-black uppercase mb-2 leading-tight">{item.t}</h3>
                     <p className={`text-sm ${isYearOne ? 'text-white font-medium' : 'text-gray-400'}`}>{item.d}</p>
                   </div>
                 </motion.div>
@@ -1804,7 +1815,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
         <div className="mb-8 lg:mb-12 text-center w-full relative z-10">
           <motion.h1
             variants={itemVariants}
-            className="text-4xl lg:text-7xl font-display font-medium tracking-tight uppercase text-white drop-shadow-2xl"
+            className="text-4xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-white drop-shadow-2xl"
           >
             {slide.title}
           </motion.h1>
@@ -1941,7 +1952,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
 
     return (
       <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4">
-        <motion.h1 variants={itemVariants} className="text-7xl font-black italic uppercase text-white mb-2">{slide.title}</motion.h1>
+        <motion.h1 variants={itemVariants} className="text-6xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-white mb-2 drop-shadow-2xl">{slide.title}</motion.h1>
         <motion.p variants={itemVariants} className="text-xl text-blue-500 mb-12 font-light tracking-[0.5em]">{slide.subtitle}</motion.p>
         <div className="flex flex-wrap justify-center gap-6 max-w-5xl">
           {slide.bentoItems?.map((item, i) => (
@@ -1964,7 +1975,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
   if (slideType === 'ECONOMIC') {
     return (
       <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4 max-w-7xl mx-auto">
-        <motion.h1 variants={itemVariants} className="text-5xl font-black italic uppercase text-white mb-12">{slide.title}</motion.h1>
+        <motion.h1 variants={itemVariants} className="text-5xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-white mb-12 drop-shadow-2xl">{slide.title}</motion.h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mb-8">
           <motion.div variants={itemVariants} className={`${TOKENS.glassGlow} p-8 rounded-3xl flex items-center gap-6`}>
             <div className="p-4 bg-green-500/20 rounded-full text-green-400"><IconMapper name="DollarSign" size={32} /></div>
@@ -1997,7 +2008,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
     if (slide.title === 'GOBERNANZA – Roles complementarios') {
       return (
         <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4 max-w-none mx-auto">
-          <motion.h1 variants={itemVariants} className="text-5xl font-black italic uppercase text-white mb-16">{slide.title}</motion.h1>
+          <motion.h1 variants={itemVariants} className="text-5xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-white mb-16 drop-shadow-2xl">{slide.title}</motion.h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-6xl">
             {slide.bentoItems?.map((item, i) => {
               // Split description into bullet points
@@ -2033,7 +2044,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
     // Default QUADRANT renderer for other slides
     return (
       <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4 max-w-none mx-auto">
-        <motion.h1 variants={itemVariants} className="text-5xl font-black italic uppercase text-white mb-12">{slide.title}</motion.h1>
+        <motion.h1 variants={itemVariants} className="text-5xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-white mb-12 drop-shadow-2xl">{slide.title}</motion.h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full h-[60vh]">
           {slide.bentoItems?.map((item, i) => (
             <motion.div
@@ -2071,7 +2082,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
       <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full max-w-[1900px] px-4 flex flex-col h-full items-center lg:justify-center mx-auto py-8 lg:py-0 overflow-y-auto lg:overflow-visible">
         <div className="mb-4 lg:mb-8 text-center w-full">
           <motion.span variants={itemVariants} className="text-blue-500 font-bold tracking-[0.3em] lg:tracking-[0.4em] text-[10px] lg:text-xs uppercase mb-2 block">{slide.subtitle}</motion.span>
-          <motion.h1 variants={itemVariants} className="text-2xl lg:text-6xl font-black tracking-tighter uppercase italic leading-none mb-4 lg:mb-8">{slide.title}</motion.h1>
+          <motion.h1 variants={itemVariants} className="text-4xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-white drop-shadow-2xl mb-4 lg:mb-8">{slide.title}</motion.h1>
         </div>
         <div className={`${gridClass} h-fit pb-10`}>
           {items.map((item: any, i: number) => (
@@ -2087,7 +2098,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
       <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full max-w-[1900px] px-4 flex flex-col justify-center h-full mx-auto">
         <div className="mb-12 text-center">
           <motion.span variants={itemVariants} className="text-blue-500 font-bold tracking-widest text-xs uppercase">{slide.subtitle}</motion.span>
-          <motion.h1 variants={itemVariants} className="text-4xl md:text-7xl font-black tracking-tighter uppercase italic">{slide.title}</motion.h1>
+          <motion.h1 variants={itemVariants} className="text-4xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-white drop-shadow-2xl">{slide.title}</motion.h1>
         </div>
         <div className={`grid grid-cols-1 md:grid-cols-${(slide.tableData || []).length} gap-6 w-full`}>
           {slide.tableData?.map((col, i) => (
@@ -2124,7 +2135,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
       <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full max-w-7xl px-4 flex flex-col justify-center h-full mx-auto">
         <div className="mb-12 text-center">
           <motion.h2 variants={itemVariants} className={`font-bold uppercase tracking-[0.5em] mb-4 text-sm ${slideType === 'ALERT' ? 'text-red-500' : 'text-blue-500'}`}>{slide.subtitle}</motion.h2>
-          <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-black tracking-tighter text-white uppercase italic">{slide.title}</motion.h1>
+          <motion.h1 variants={itemVariants} className="text-4xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-white drop-shadow-2xl">{slide.title}</motion.h1>
         </div>
         <div className={`grid gap-6 ${isGrid2x3 ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : (items.length === 3 ? 'grid-cols-1 md:grid-cols-3' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4')}`}>
           {items.map((item: any, i: number) => {
@@ -2237,7 +2248,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
         <div className="flex-1 w-full lg:w-1/2 flex flex-col justify-center">
           <div className="mb-8 text-center lg:text-left">
             <motion.span variants={itemVariants} className="text-brand-primary font-bold tracking-[0.3em] lg:tracking-[0.5em] text-xs uppercase mb-3 block">{slide.subtitle}</motion.span>
-            <motion.h1 variants={itemVariants} className="text-3xl lg:text-5xl font-display font-medium tracking-tight uppercase text-white">{slide.title}</motion.h1>
+            <motion.h1 variants={itemVariants} className="text-4xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-white drop-shadow-2xl">{slide.title}</motion.h1>
           </div>
           <div className="grid grid-cols-1 gap-4">
             {items.map((item: any, i: number) => (
@@ -2275,7 +2286,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
           </motion.span>
           <motion.h1
             variants={itemVariants}
-            className="text-4xl lg:text-6xl font-display font-medium tracking-tight uppercase text-white"
+            className="text-4xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-white drop-shadow-2xl"
           >
             {slide.title}
           </motion.h1>
@@ -2379,7 +2390,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
         <div className="text-center mb-16 lg:mb-24 z-20">
           <motion.h1
             variants={itemVariants}
-            className="text-4xl lg:text-7xl font-black italic uppercase text-white tracking-tighter mb-4 leading-none font-display"
+            className="text-4xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-white drop-shadow-2xl mb-4 leading-none"
           >
             {slide.title}
           </motion.h1>
@@ -2424,7 +2435,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
                 <motion.h3
                   variants={titleVariants}
                   animate={pillarVisible ? "animate" : "initial"}
-                  className="text-xl lg:text-2xl font-black text-white uppercase mb-8 h-16 flex items-center text-center font-display"
+                  className="text-xl lg:text-2xl font-black text-white uppercase mb-8 h-16 flex items-center text-center"
                 >
                   {pillar.title}
                 </motion.h3>
@@ -2464,7 +2475,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
                     className="h-1 lg:h-1.5 w-16 mx-auto mb-6 rounded-full opacity-50 transition-all group-hover:w-24 group-hover:opacity-100"
                     style={{ backgroundColor: pillar.color }}
                   />
-                  <p className="text-sm lg:text-lg text-gray-400 font-medium leading-relaxed whitespace-pre-line group-hover:text-white transition-colors font-display">
+                  <p className="text-sm lg:text-lg text-gray-400 font-medium leading-relaxed whitespace-pre-line group-hover:text-white transition-colors">
                     {pillar.text}
                   </p>
                 </motion.div>
@@ -2492,7 +2503,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
           <motion.span variants={itemVariants} className="text-brand-primary font-bold tracking-[0.3em] lg:tracking-[0.5em] text-xs uppercase mb-1 block">
             {slide.subtitle}
           </motion.span>
-          <motion.h1 variants={itemVariants} className="text-3xl lg:text-6xl font-display font-medium tracking-tight uppercase text-white leading-tight">
+          <motion.h1 variants={itemVariants} className="text-4xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-white drop-shadow-2xl">
             {slide.title}
           </motion.h1>
         </div>
@@ -2540,7 +2551,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
               </div>
 
               <div className="max-w-md">
-                <h3 className="text-xl lg:text-3xl font-black text-white uppercase mb-2 leading-tight font-display">{centerTitle}</h3>
+                <h3 className="text-xl lg:text-3xl font-black text-white uppercase mb-2 leading-tight">{centerTitle}</h3>
                 <p className="text-base lg:text-lg text-gray-300 font-light leading-snug">{centerSubtitle}</p>
               </div>
             </motion.div>
@@ -2853,8 +2864,10 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
           <motion.h2 variants={itemVariants} className="text-brand-primary font-bold tracking-[0.4em] text-xs lg:text-sm uppercase mb-2">
             {slide.subtitle}
           </motion.h2>
-          <motion.h1 variants={itemVariants} className="text-4xl lg:text-7xl font-display font-medium tracking-tight uppercase text-white mb-6">
-            {slide.title}
+          <motion.h1
+            variants={itemVariants}
+            className="text-4xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-white drop-shadow-2xl mb-6"
+          >  {slide.title}
           </motion.h1>
 
           <motion.div variants={itemVariants} className="space-y-1">
@@ -3141,7 +3154,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
         <div className="w-full max-w-7xl px-8 mb-8 text-center flex flex-col items-center">
           <motion.h1
             variants={itemVariants}
-            className="text-5xl lg:text-7xl font-black italic uppercase text-white tracking-tighter mb-2"
+            className="text-4xl lg:text-[7rem] font-black italic uppercase text-white tracking-tighter leading-[0.9] drop-shadow-2xl mb-6"
           >
             {slide.title}
           </motion.h1>
@@ -3242,7 +3255,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
     return (
       <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center p-4 lg:p-8 relative overflow-hidden">
         <div className="text-center mb-12 lg:mb-16">
-          <motion.h1 variants={itemVariants} className="text-5xl lg:text-8xl font-black italic uppercase text-white tracking-tighter mb-4 leading-none font-display">
+          <motion.h1 variants={itemVariants} className="text-4xl lg:text-[7rem] font-black italic uppercase text-white tracking-tighter leading-[0.9] drop-shadow-2xl mb-6">
             {slide.title}
           </motion.h1>
           <motion.p variants={itemVariants} className="text-brand-primary font-bold uppercase tracking-[0.5em] text-sm lg:text-base">
@@ -3269,7 +3282,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
                 <IconMapper name={items[0]?.icon} size={40} className="text-brand-primary" />
               </div>
               <span className="text-5xl font-black text-brand-primary/20 mb-4 block">01</span>
-              <h3 className="text-2xl font-black text-white uppercase mb-4 font-display">{items[0]?.t}</h3>
+              <h3 className="text-2xl font-black text-white uppercase mb-4">{items[0]?.t}</h3>
               <p className="text-lg text-gray-300 font-light leading-relaxed whitespace-pre-line">
                 {items[0]?.d}
               </p>
@@ -3279,7 +3292,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
             {/* 02 - Actividades Clave */}
             <div className={`${TOKENS.glassStrong} p-8 border-white/5 hover:border-brand-primary/30 transition-all`}>
               <span className="text-4xl font-black text-white/10 mb-4 block">02</span>
-              <h3 className="text-xl font-black text-white uppercase mb-4 font-display">{items[1]?.t}</h3>
+              <h3 className="text-xl font-black text-white uppercase mb-4">{items[1]?.t}</h3>
               <p className="text-base text-gray-400 font-light leading-relaxed whitespace-pre-line">
                 {items[1]?.d}
               </p>
@@ -3313,7 +3326,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
                   <IconMapper name={items[2]?.icon} size={48} />
                 </div>
                 <span className="text-4xl font-black text-brand-primary/20 mb-4 block">03</span>
-                <h3 className="text-2xl font-black text-white uppercase mb-6 font-display">{items[2]?.t}</h3>
+                <h3 className="text-2xl font-black text-white uppercase mb-6">{items[2]?.t}</h3>
                 <p className="text-lg text-white font-medium leading-relaxed italic">
                   “{items[2]?.d}”
                 </p>
@@ -3337,7 +3350,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
               <div className="flex items-start gap-4">
                 <span className="text-2xl font-black text-white/10">04</span>
                 <div>
-                  <h3 className="text-lg font-black text-white uppercase mb-2 font-display">{items[3]?.t}</h3>
+                  <h3 className="text-lg font-black text-white uppercase mb-2">{items[3]?.t}</h3>
                   <p className="text-sm text-gray-400 font-light leading-relaxed whitespace-pre-line">
                     {items[3]?.d}
                   </p>
@@ -3350,7 +3363,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
               <div className="flex items-start gap-4">
                 <span className="text-2xl font-black text-brand-primary/30">05</span>
                 <div className="w-full">
-                  <h3 className="text-lg font-black text-white uppercase mb-3 font-display">{items[4]?.t}</h3>
+                  <h3 className="text-lg font-black text-white uppercase mb-3">{items[4]?.t}</h3>
                   <div className="grid grid-cols-2 gap-3">
                     <div className="bg-white/5 p-3 rounded-xl border border-white/10">
                       <div className="text-[10px] text-gray-500 uppercase mb-1">Mensual</div>
@@ -3370,7 +3383,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
               <div className="flex items-start gap-4">
                 <span className="text-2xl font-black text-white/10">06</span>
                 <div>
-                  <h3 className="text-lg font-black text-white uppercase mb-2 font-display">{items[5]?.t}</h3>
+                  <h3 className="text-lg font-black text-white uppercase mb-2">{items[5]?.t}</h3>
                   <div className="flex flex-wrap gap-2 mt-3">
                     {items[5]?.d.split('. ').map((tag, tIdx) => (
                       <span key={tIdx} className="text-[10px] bg-white/5 border border-white/10 px-2 py-1 rounded text-gray-400 uppercase">
@@ -3544,7 +3557,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
         {/* Center: Title and Cards */}
         <div className="flex flex-col items-center gap-12 lg:gap-16 w-full max-w-7xl">
           <div className="text-center">
-            <motion.h1 variants={itemVariants} className="text-5xl lg:text-8xl font-black italic uppercase text-white tracking-tighter mb-4 leading-none font-display">
+            <motion.h1 variants={itemVariants} className="text-4xl lg:text-[7rem] font-black italic uppercase text-white tracking-tighter leading-[0.9] drop-shadow-2xl mb-6">
               {slide.title}
             </motion.h1>
             <motion.p variants={itemVariants} className="text-brand-primary font-bold uppercase tracking-[0.5em] text-sm lg:text-base">
@@ -3611,8 +3624,10 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
         {/* Header */}
         <div className="w-full max-w-7xl px-8 mb-12 text-center flex flex-col items-center relative z-10">
           <motion.h1
-            variants={itemVariants}
-            className="text-5xl lg:text-7xl font-black italic uppercase text-white tracking-tighter mb-4"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-5xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-white drop-shadow-2xl mb-4"
           >
             {slide.title}
           </motion.h1>
@@ -3731,7 +3746,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
         className="w-full h-full flex flex-col items-center justify-center p-8 lg:p-16 relative overflow-hidden"
       >
         <div className="text-center mb-12 lg:mb-16">
-          <motion.h1 variants={itemVariants} className="text-5xl lg:text-8xl font-black italic uppercase text-white tracking-tighter mb-4 leading-none font-display">
+          <motion.h1 variants={itemVariants} className="text-4xl lg:text-[7rem] font-black italic uppercase text-white tracking-tighter leading-[0.9] drop-shadow-2xl mb-4">
             {slide.title}
           </motion.h1>
           <motion.p variants={itemVariants} className="text-brand-primary font-bold uppercase tracking-[0.5em] text-sm lg:text-base">
@@ -3888,7 +3903,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
         <div className="w-full max-w-7xl px-8 mb-12 text-center flex flex-col items-center relative z-10">
           <motion.h1
             variants={itemVariants}
-            className="text-5xl lg:text-7xl font-black italic uppercase text-white tracking-tighter mb-4"
+            className="text-5xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-white drop-shadow-2xl mb-4"
           >
             {slide.title}
           </motion.h1>
@@ -4020,7 +4035,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
         <div className="text-center mb-12 lg:mb-16 z-10">
           <motion.h1
             variants={itemVariants}
-            className="text-4xl lg:text-7xl font-black tracking-tighter text-white uppercase italic mb-4 font-display"
+            className="text-4xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-white drop-shadow-2xl mb-4"
           >
             {slide.title}
           </motion.h1>
@@ -4054,7 +4069,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
                 >
                   <IconMapper name={organ.icon} size={32} className="text-brand-primary" />
                 </motion.div>
-                <h2 className="text-xl lg:text-2xl font-black uppercase text-white leading-tight font-display group-hover:text-brand-primary transition-colors">
+                <h2 className="text-xl lg:text-2xl font-black uppercase text-white leading-tight group-hover:text-brand-primary transition-colors">
                   {organ.title}
                 </h2>
               </div>

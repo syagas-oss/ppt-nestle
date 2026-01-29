@@ -133,13 +133,13 @@ export const Scene3D: React.FC<{ slideIndex: number; slideCount: number }> = ({ 
 
   return (
     <>
-      <Stars radius={120} depth={40} count={isMobile ? 1000 : 3000} factor={4} saturation={0} fade speed={0.5} />
+      <Stars radius={120} depth={40} count={isMobile ? 2000 : 6000} factor={8} saturation={0} fade speed={1.5} />
       <Points ref={points}>
         <BufferGeometry>
           <BufferAttribute attach="attributes-position" count={count} array={formations.sphere} itemSize={3} />
           <BufferAttribute attach="attributes-color" count={count} array={formations.colors} itemSize={3} />
         </BufferGeometry>
-        <PointsMaterial size={isMobile ? 0.05 : 0.035} vertexColors transparent opacity={0.6} sizeAttenuation blending={THREE.AdditiveBlending} />
+        <PointsMaterial size={isMobile ? 0.12 : 0.07} vertexColors transparent opacity={1.0} sizeAttenuation blending={THREE.AdditiveBlending} />
       </Points>
     </>
   );

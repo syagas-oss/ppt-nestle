@@ -73,6 +73,13 @@ export interface CorporateEntity {
   level: 'parent' | 'child' | 'sibling';
 }
 
+export interface GovernanceData {
+  level1: string;
+  level2: string;
+  coreUnits: { name: string }[];
+  spinOff: { name: string };
+}
+
 export interface CostItem {
   concept: string;
   year0: string;
@@ -111,13 +118,13 @@ export interface OpexItem {
 
 export interface Slide {
   id: number;
-  type: 'HERO' | 'HERO_GLOW' | 'HERO_FINAL' | 'BENTO_DATA' | 'BENTO_MARKET' | 'BENTO_GRID' | 'ALERT' | 'LIST' | 'STEPS' | 'TIMELINE' | 'KINETIC_BRIDGE' | 'VIDEO' | 'PYRAMID' | 'FUNNEL' | 'CIRCULAR' | 'ROADMAP' | 'SQUADS' | 'ECONOMIC' | 'CARDS_CHOICE' | 'QUADRANT' | 'EXECUTIVE_SUMMARY' | 'ARCHITECTURE_DIAGRAM' | 'VERTICAL_DIAGRAM' | 'TRIANGLE_ESG' | 'ECONOMIC_TABLE' | 'ECONOMIC_SUMMARY' | 'CORPORATE_HIERARCHY' | 'COST_ANALYSIS' | 'CAPEX_OPEX_TABLES' | 'INITIAL_ANIMATION' | 'MARKET_ANALYSIS' | 'BUSINESS_MODEL' | 'OKRS_VIEW';
+  type: 'HERO' | 'HERO_GLOW' | 'HERO_FINAL' | 'BENTO_DATA' | 'BENTO_MARKET' | 'BENTO_GRID' | 'ALERT' | 'LIST' | 'STEPS' | 'TIMELINE' | 'KINETIC_BRIDGE' | 'VIDEO' | 'PYRAMID' | 'FUNNEL' | 'CIRCULAR' | 'ROADMAP' | 'SQUADS' | 'ECONOMIC' | 'CARDS_CHOICE' | 'QUADRANT' | 'EXECUTIVE_SUMMARY' | 'ARCHITECTURE_DIAGRAM' | 'VERTICAL_DIAGRAM' | 'TRIANGLE_ESG' | 'ECONOMIC_TABLE' | 'ECONOMIC_SUMMARY' | 'CORPORATE_HIERARCHY' | 'COST_ANALYSIS' | 'CAPEX_OPEX_TABLES' | 'INITIAL_ANIMATION' | 'MARKET_ANALYSIS' | 'BUSINESS_MODEL' | 'OKRS_VIEW' | 'DILO' | 'CREATIVE_CONCEPT' | 'MARKETING_PLAN' | 'MVP_MOCKUP' | 'TALENT_STRATEGY' | 'AGILE_TRIBES' | 'GOVERNANCE_NEWCO';
   title: string;
   subtitle: string;
   description?: string;
   highlight?: string;
   stats?: Stat[];
-  items?: string[];
+  items?: (string | Card)[];
   cards?: Card[];
   bentoItems?: BentoItem[];
   tableData?: TableCol[];
@@ -131,6 +138,7 @@ export interface Slide {
   metricBoxes?: MetricBox[];
   capexData?: CapexItem[];
   opexData?: OpexItem[];
+  governanceData?: GovernanceData;
 }
 
 export interface ContentData {

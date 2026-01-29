@@ -215,6 +215,609 @@ const FallingImagesView: React.FC<{ slide: Slide; isVisible: (i: number) => bool
   );
 };
 
+const EsgPillarsView: React.FC<{ slide: Slide; buildIndex: number; staticMode?: boolean }> = ({ slide, buildIndex, staticMode = false }) => {
+  const getEsgColors = (esgType?: string) => {
+    switch (esgType) {
+      case 'social': return {
+        bg: 'bg-blue-900/10',
+        border: 'border-blue-500/20',
+        iconBg: 'bg-blue-500/20',
+        iconColor: 'text-blue-400',
+        titleColor: 'text-blue-400',
+        glow: 'shadow-[0_0_40px_rgba(59,130,246,0.15)]',
+        halo: 'from-blue-500/20 to-transparent'
+      };
+      case 'ambiental': return {
+        bg: 'bg-emerald-900/10',
+        border: 'border-emerald-500/20',
+        iconBg: 'bg-emerald-500/20',
+        iconColor: 'text-emerald-400',
+        titleColor: 'text-emerald-400',
+        glow: 'shadow-[0_0_40px_rgba(16,185,129,0.15)]',
+        halo: 'from-emerald-500/20 to-transparent'
+      };
+      case 'gobernanza': return {
+        bg: 'bg-cyan-900/10',
+        border: 'border-cyan-500/20',
+        iconBg: 'bg-cyan-500/20',
+        iconColor: 'text-cyan-400',
+        titleColor: 'text-cyan-400',
+        glow: 'shadow-[0_0_40px_rgba(6,182,212,0.15)]',
+        halo: 'from-cyan-500/20 to-transparent'
+      };
+      default: return { bg: '', border: '', iconBg: '', iconColor: '', titleColor: '', glow: '', halo: '' };
+    }
+  };
+
+  return (
+    <div className="w-full h-full flex flex-col items-center justify-center p-8 lg:p-12 relative overflow-hidden">
+      {/* Background Ambient Effect */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(50,50,50,0.1)_0%,transparent_70%)] pointer-events-none" />
+
+      {/* Header */}
+      <div className="text-center mb-16 relative z-10">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-6xl font-black italic uppercase text-white tracking-tight font-display mb-4"
+        >
+          {slide.title}
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+          className="text-xl text-brand-primary font-light tracking-[0.2em] uppercase font-mono"
+        >
+          {slide.subtitle}
+        </motion.p>
+      </div>
+
+      {/* Pillars Container */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full max-w-7xl relative z-10">
+        {(slide as any).pillars?.map((pillar: any, idx: number) => {
+          const colors = getEsgColors(pillar.esgType);
+          return (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 + (idx * 0.2), duration: 0.8, ease: "easeOut" }}
+              className={`
+                            relative flex flex-col h-full
+                            rounded-[3rem] p-8 
+                            border ${colors.border} 
+                            ${colors.bg} backdrop-blur-sm
+                            group hover:bg-white/[0.02] transition-colors duration-500
+                        `}
+            >
+              {/* Halo/Glow Effect */}
+              <div className={`absolute -top-20 -left-20 w-64 h-64 bg-gradient-radial ${colors.halo} opacity-30 blur-3xl rounded-full pointer-events-none group-hover:opacity-50 transition-opacity`} />
+
+              {/* Icon & Title Header */}
+              <div className="flex flex-col items-center text-center mb-8 relative">
+                <div className={`w-20 h-20 rounded-full ${colors.iconBg} flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(0,0,0,0.2)] ring-1 ring-white/10`}>
+                  <IconMapper name={pillar.icon} size={40} className={colors.iconColor} />
+                </div>
+                <h3 className={`text-3xl font-bold uppercase ${colors.titleColor} font-display tracking-tight`}>
+                  {pillar.title}
+                </h3>
+              </div>
+
+              {/* Description List */}
+              <div className="flex-1 mb-8">
+                <ul className="space-y-4">
+                  {pillar.description?.map((desc: string, i: number) => (
+                    <li key={i} className="flex items-start gap-3 text-gray-300 font-light leading-relaxed">
+                      <div className={`w-1.5 h-1.5 rounded-full mt-2.5 ${colors.iconBg} ring-1 ring-white/20`} />
+                      <span>{desc}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* KPI Block */}
+              <div className={`
+                            mt-auto relative rounded-2xl p-6
+                            bg-black/20 border border-white/5
+                        `}>
+                <div className="absolute -top-3 left-6 px-3 bg-[#0a1210] text-[10px] font-bold uppercase tracking-widest text-gray-500 border border-white/10 rounded-full">
+                  KPIs
+                </div>
+                <ul className="space-y-3 pt-2">
+                  {pillar.kpis?.map((kpi: string, i: number) => (
+                    <li key={i} className="flex items-center justify-between gap-4">
+                      <span className="text-sm text-white font-medium">{kpi}</span>
+                      <div className={`w-1 h-1 rounded-full ${colors.iconBg}`} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          )
+        })}
+      </div>
+    </div>
+  );
+};
+
+const FinancialInsightsView: React.FC<{ slide: Slide; staticMode?: boolean }> = ({ slide, staticMode = false }) => {
+  const TOKENS = getTOKENS(staticMode);
+
+  // Variants for staggered animation
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { type: "spring", stiffness: 100, damping: 10 }
+    }
+  };
+
+  const arrowVariants = {
+    hidden: { pathLength: 0, opacity: 0 },
+    visible: {
+      pathLength: 1,
+      opacity: 1,
+      transition: { duration: 1.5, ease: "easeInOut" }
+    }
+  };
+
+  return (
+    <div className="w-full h-full flex flex-col items-center justify-center p-8 relative overflow-hidden">
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0052CC]/5 to-transparent pointer-events-none" />
+
+      {/* Header */}
+      <div className="text-center mb-12 z-10">
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-5xl md:text-6xl font-black text-white uppercase tracking-tight font-display"
+        >
+          {slide.title}
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+          className="text-xl text-brand-primary font-light tracking-widest uppercase mt-2"
+        >
+          {slide.subtitle}
+        </motion.p>
+      </div>
+
+      <motion.div
+        variants={containerVariants}
+        initial={staticMode ? "visible" : "hidden"}
+        animate="visible"
+        className="w-full max-w-6xl flex flex-col gap-12 z-10"
+      >
+        {/* TOP LAYER: DRIVERS */}
+        <div className="grid grid-cols-4 gap-6">
+          {(slide as any).drivers?.map((driver: any, idx: number) => (
+            <motion.div
+              key={idx}
+              variants={itemVariants}
+              className={`${TOKENS.glass} p-6 flex flex-col items-center justify-center text-center h-40 relative group hover:bg-white/5 transition-colors`}
+            >
+              <div className="text-4xl md:text-5xl font-bold text-white mb-2 font-display">{driver.value}</div>
+              <div className="text-sm text-brand-primary uppercase tracking-wider font-bold">{driver.label}</div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* CENTER LAYER: TRANSFORMATION */}
+        <div className="flex items-center justify-between relative px-12 py-8">
+          {/* EBITDA 2026 */}
+          <motion.div variants={itemVariants} className={`${TOKENS.glassStrong} p-8 w-80 flex flex-col items-center justify-center text-center relative z-10`}>
+            <div className="text-xs text-gray-400 uppercase tracking-widest mb-2">{(slide as any).transformation.start.label}</div>
+            <div className="text-5xl font-black text-white font-display">{(slide as any).transformation.start.value}</div>
+          </motion.div>
+
+          {/* ARROW */}
+          <div className="flex-1 px-8 relative h-20 flex items-center justify-center">
+            <svg className="w-full h-12" viewBox="0 0 400 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <motion.path
+                d="M0 12H390M390 12L380 2M390 12L380 22"
+                stroke="url(#arrow-gradient)"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                variants={arrowVariants}
+              />
+              <defs>
+                <linearGradient id="arrow-gradient" x1="0" y1="0" x2="400" y2="0" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#3B82F6" stopOpacity="0.2" />
+                  <stop offset="0.5" stopColor="#3B82F6" />
+                  <stop offset="1" stopColor="#2DD4BF" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <motion.div
+              variants={itemVariants}
+              className="absolute bottom-0 text-center"
+            >
+              <div className="flex flex-col items-center gap-1">
+                <IconMapper name="TrendingDown" size={16} className="text-emerald-400" />
+                <span className="text-xs font-mono text-emerald-400">
+                  {(slide as any).transformation.churn.label}: <span className="font-bold">{(slide as any).transformation.churn.value}</span>
+                </span>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* EBITDA 2031 */}
+          <motion.div variants={itemVariants} className={`${TOKENS.glassGlow} p-10 w-96 flex flex-col items-center justify-center text-center relative z-10 scale-110`}>
+            <div className="text-sm text-brand-primary uppercase tracking-widest mb-2 font-bold">{(slide as any).transformation.end.label}</div>
+            <div className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-brand-primary font-display">{(slide as any).transformation.end.value}</div>
+          </motion.div>
+        </div>
+
+        {/* BOTTOM LAYER: VISUAL CUE */}
+        <motion.div variants={itemVariants} className="flex justify-center items-center gap-4 opacity-50">
+          <div className="h-px w-24 bg-gradient-to-r from-transparent to-white/30" />
+          <IconMapper name="Infinity" size={24} className="text-white/30" />
+          <div className="h-px w-24 bg-gradient-to-l from-transparent to-white/30" />
+        </motion.div>
+
+      </motion.div>
+    </div>
+  );
+};
+
+const ExpensesTableView: React.FC<{ slide: Slide; staticMode?: boolean }> = ({ slide, staticMode = false }) => {
+  // Configuración de estilo crítica
+  const headerBg = "bg-[#0052CC]"; // Azul corporativo
+  const totalBg = "bg-[#003399]"; // Azul intenso
+  const borderColor = "border-white/10";
+
+  return (
+    <motion.div
+      initial={staticMode ? { opacity: 1 } : { opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      className="w-full h-full flex flex-col items-center justify-center p-4 lg:p-8 relative overflow-hidden bg-[#050810]"
+    >
+      <div className="w-full max-w-[98%] xl:max-w-[1400px] flex flex-col h-full justify-center">
+        {/* Header */}
+        <div className="mb-4 text-center">
+          <h1 className="text-3xl lg:text-4xl font-bold text-white uppercase tracking-wide font-display">{slide.title}</h1>
+        </div>
+
+        {/* Table Container */}
+        <div className={`w-full overflow-hidden rounded-xl border ${borderColor} bg-[#0a0f18] shadow-2xl`}>
+          <table className="w-full table-fixed border-collapse text-xs xl:text-sm">
+            {/* Table Header */}
+            <thead>
+              <tr className={`${headerBg} text-white`}>
+                <th className="p-3 lg:p-4 text-left font-bold uppercase tracking-wider w-[24%] border-r border-white/20 whitespace-nowrap">
+                  Gastos
+                </th>
+                {(slide as any).columns?.map((col: string, i: number) => (
+                  <th key={i} className="p-3 lg:p-4 text-right font-bold w-[12.6%] border-l border-white/10 whitespace-nowrap">
+                    {col}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+
+            {/* Table Body */}
+            <tbody className="divide-y divide-white/5">
+              {(slide as any).rows?.map((row: any, idx: number) => (
+                <tr key={idx} className="hover:bg-white/5 transition-colors">
+                  <td className="p-3 pl-4 text-left font-medium text-gray-200 border-r border-white/5 whitespace-nowrap overflow-hidden text-ellipsis">
+                    {row.label}
+                  </td>
+                  {row.values?.map((val: string, vIdx: number) => (
+                    <td key={vIdx} className="p-3 pr-4 text-right font-mono text-gray-300 whitespace-nowrap tabular-nums tracking-tight">
+                      {val}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+
+              {/* Total Row */}
+              {(slide as any).totalRow && (
+                <tr className={`${totalBg} font-bold text-white border-t-2 border-white/20`}>
+                  <td className="p-4 pl-4 text-left uppercase tracking-wider border-r border-white/20 whitespace-nowrap">
+                    {(slide as any).totalRow.label}
+                  </td>
+                  {(slide as any).totalRow.values?.map((val: string, vIdx: number) => (
+                    <td key={vIdx} className="p-4 pr-4 text-right font-mono text-white text-base lg:text-lg whitespace-nowrap tabular-nums">
+                      {val}
+                    </td>
+                  ))}
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+
+const RevenueTableView: React.FC<{ slide: Slide; staticMode?: boolean }> = ({ slide, staticMode = false }) => {
+  const TOKENS = getTOKENS(staticMode);
+
+  // Custom subtle grid border
+  const borderColor = "border-white/10";
+  const headerBg = "bg-[#0052CC]"; // Corporate Blue
+  const totalBg = "bg-[#003399]"; // Intense Blue
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      className="w-full h-full flex flex-col items-center justify-center p-8 lg:p-12 relative overflow-hidden"
+    >
+      <div className="w-full max-w-[95%]">
+        <h1 className="text-4xl font-bold text-white mb-2 uppercase tracking-wide">{slide.title}</h1>
+
+        <div className={`w-full overflow-hidden rounded-2xl border ${borderColor} bg-[#050810] shadow-2xl mt-4`}>
+          <table className="w-full table-fixed border-collapse text-sm xl:text-base">
+            {/* Header */}
+            <thead>
+              <tr className={`${headerBg} text-white`}>
+                <th className="p-4 text-left font-bold uppercase tracking-wider w-[25%] border-r border-white/20">
+                  Concepto
+                </th>
+                {(slide as any).columns?.map((col: string, i: number) => (
+                  <th key={i} className="p-4 text-right font-bold w-[12.5%] border-l border-white/10">
+                    {col}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+
+            {/* Body */}
+            <tbody className="divide-y divide-white/5">
+              {(slide as any).rows?.map((row: any, idx: number) => (
+                <tr key={idx} className="hover:bg-white/5 transition-colors">
+                  <td className="p-3 pl-4 text-left font-medium text-gray-300 border-r border-white/5 whitespace-nowrap">
+                    {row.label}
+                  </td>
+                  {row.values?.map((val: string, vIdx: number) => (
+                    <td key={vIdx} className="p-3 pr-4 text-right font-mono text-white/90 whitespace-nowrap tabular-nums">
+                      {val}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+
+              {/* Total Row */}
+              {(slide as any).totalRow && (
+                <tr className={`${totalBg} font-bold text-white`}>
+                  <td className="p-4 pl-4 text-left uppercase tracking-wider border-r border-white/20 whitespace-nowrap">
+                    {(slide as any).totalRow.label}
+                  </td>
+                  {(slide as any).totalRow.values?.map((val: string, vIdx: number) => (
+                    <td key={vIdx} className="p-4 pr-4 text-right font-mono text-cyan-400 text-lg whitespace-nowrap tabular-nums">
+                      {val}
+                    </td>
+                  ))}
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+const ConceptualEcosystemView: React.FC<{ slide: Slide; staticMode?: boolean }> = ({ slide, staticMode = false }) => {
+  const TOKENS = getTOKENS(staticMode);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      className="w-full h-full flex flex-col items-center justify-center relative overflow-hidden bg-[#02040a]"
+    >
+      {/* Background Ambience */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.08)_0%,transparent_60%)] pointer-events-none" />
+
+      {/* Central Core */}
+      <div className="relative z-20 flex flex-col items-center justify-center mb-8 scale-125 lg:scale-150">
+        <motion.div
+          animate={{ scale: [0.9, 1.1, 0.9], opacity: [0.3, 0.6, 0.3] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute inset-0 bg-cyan-500/20 blur-3xl rounded-full"
+        />
+        <div className="w-32 h-32 md:w-48 md:h-48 rounded-full border border-cyan-500/30 flex items-center justify-center relative bg-black/40 backdrop-blur-sm shadow-[0_0_50px_rgba(34,211,238,0.15)] group">
+          <div className="text-center z-10">
+            <h1 className="text-2xl md:text-4xl font-black italic text-white tracking-tighter drop-shadow-lg">BIO.LIFE</h1>
+          </div>
+          {/* Orbit Rings */}
+          <div className="absolute inset-[-20px] border border-white/5 rounded-full animate-[spin_20s_linear_infinite]" />
+          <div className="absolute inset-[-40px] border border-cyan-500/10 rounded-full animate-[spin_30s_linear_infinite_reverse]" />
+          <div className="absolute inset-[-60px] border border-dashed border-cyan-500/5 rounded-full animate-[spin_60s_linear_infinite]" />
+        </div>
+      </div>
+
+      {/* Orbiting Nodes */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        {(slide as any).nodes?.map((node: string, i: number) => {
+          const count = (slide as any).nodes.length;
+          const angleStart = -90; // Start top
+          const angle = ((i * 360 / count) + angleStart) * (Math.PI / 180);
+          const radiusInfo = {
+            base: 320, // Mobile radius
+            lg: 420    // Desktop radius
+          };
+
+          // We need to resolve radius dynamically if possible, simplified here using generic 'min' approach or media query styles not easy in inline loop.
+          // let's use a fixed radius that works for desktop presentation focus
+          const radius = 380;
+          const x = Math.cos(angle) * radius;
+          const y = Math.sin(angle) * radius;
+
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0, x: 0, y: 0 }}
+              animate={{ opacity: 1, scale: 1, x, y }}
+              transition={{ delay: i * 0.15, duration: 0.8, type: "spring", stiffness: 50 }}
+              className="absolute flex flex-col items-center gap-3 w-48"
+              style={{ transform: `translate(${x}px, ${y}px)` }} // Fallback if motion x/y behaves oddly with absolute centering
+            >
+              <div className="w-3 h-3 bg-cyan-400 rounded-full shadow-[0_0_15px_rgba(34,211,238,0.8)] relative z-10">
+                <div className="absolute inset-0 bg-cyan-400 animate-ping opacity-75 rounded-full" />
+              </div>
+              {/* Line connector */}
+              <motion.div
+                initial={{ height: 0 }}
+                animate={{ height: radius - 80 }} // Approximate visual connector length toward center
+                transition={{ delay: 1 + i * 0.1, duration: 1 }}
+                className="absolute top-1.5 left-1/2 w-px bg-gradient-to-b from-cyan-500/50 to-transparent -translate-x-1/2 origin-top -z-10 hidden" // Omitted line for cleaner look per requirements? "Se conecta visualmente". Let's stick to proximity/orbit feel as lines are messy with rotation.
+              />
+
+              <div className="bg-black/80 backdrop-blur-md border border-white/10 px-4 py-2 rounded-xl text-center shadow-xl">
+                <span className="text-sm md:text-base text-gray-100 font-medium leading-tight block">{node}</span>
+              </div>
+            </motion.div>
+          )
+        })}
+      </div>
+
+      {/* Bottom Message */}
+      <div className="absolute bottom-16 z-20 text-center px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.5, duration: 1 }}
+          className="bg-gradient-to-r from-transparent via-cyan-900/10 to-transparent p-4 rounded-xl"
+        >
+          <p className="text-xl md:text-3xl text-white font-light tracking-wide whitespace-pre-line leading-relaxed font-display">
+            {(slide as any).bottomText}
+          </p>
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+};
+
+const FinalClosureView: React.FC<{ slide: Slide; staticMode?: boolean }> = ({ slide, staticMode = false }) => {
+  const TOKENS = getTOKENS(staticMode);
+
+  // Floating animation variant
+  const floatVariant = (delay: number) => ({
+    animate: {
+      y: [0, -15, 0],
+      transition: {
+        delay: delay,
+        duration: 6,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
+  });
+
+  return (
+    <div className="w-full h-full flex flex-col relative overflow-hidden bg-[#02040a] p-8 lg:p-16">
+      {/* Background Particles - Using distinct elements for "alive" feel */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {[...Array(12)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full blur-xl"
+            style={{
+              background: i % 2 === 0 ? 'rgba(6,182,212,0.05)' : 'rgba(59,130,246,0.05)',
+              width: Math.random() * 300 + 100,
+              height: Math.random() * 300 + 100,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              x: [0, Math.random() * 100 - 50, 0],
+              y: [0, Math.random() * 100 - 50, 0],
+              opacity: [0.3, 0.6, 0.3],
+            }}
+            transition={{
+              duration: Math.random() * 10 + 15,
+              repeat: Infinity,
+              repeatType: "mirror"
+            }}
+          />
+        ))}
+        {/* Grid Overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)]" />
+      </div>
+
+      {/* Main Content Container */}
+      <div className="relative z-10 flex flex-col h-full items-center justify-between py-8">
+
+        {/* Header */}
+        <div className="text-center max-w-5xl mx-auto space-y-6">
+          <motion.h1
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            className="text-7xl md:text-9xl font-black italic text-white tracking-tighter drop-shadow-2xl"
+          >
+            BIO.LIFE
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="text-xl md:text-3xl text-cyan-200/90 font-light leading-normal max-w-4xl mx-auto font-display"
+          >
+            {slide.subtitle}
+          </motion.p>
+        </div>
+
+        {/* Floating Cards content */}
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-[1600px]">
+          {(slide as any).cards?.map((card: any, i: number) => (
+            <motion.div
+              key={i}
+              variants={floatVariant(i * 0.5)}
+              animate="animate"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className={`${TOKENS.glassStrong} p-8 rounded-[2rem] border border-white/5 hover:border-cyan-500/40 hover:bg-white/5 transition-all duration-500 group flex flex-col h-full min-h-[200px] justify-start`}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-cyan-500/40 font-mono text-sm">0{i + 1}</span>
+                <div className="h-px flex-1 bg-gradient-to-r from-cyan-500/20 to-transparent" />
+              </div>
+              <h3 className="text-xl font-bold text-white uppercase tracking-tight mb-3 group-hover:text-cyan-400 transition-colors w-full">{card.title}</h3>
+              <p className="text-gray-400 text-lg font-light leading-relaxed whitespace-pre-wrap">
+                {card.text}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Central "Human/Data" Element - Subtle Pulse at bottom */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none -z-10">
+          <div className="w-[600px] h-[600px] bg-gradient-to-b from-cyan-500/5 to-blue-500/5 rounded-full blur-3xl opacity-50" />
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex, staticMode = false }) => {
   const TOKENS = getTOKENS(staticMode);
 
@@ -236,9 +839,35 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
 
   const slideType = (slide.type || 'HERO').toString().toUpperCase().trim();
 
+  if (slideType === 'CONCEPTUAL_ECOSYSTEM') {
+    return <ConceptualEcosystemView slide={slide} staticMode={staticMode} />;
+  }
+
+  if (slideType === 'FINAL_CLOSURE') {
+    return <FinalClosureView slide={slide} staticMode={staticMode} />;
+  }
+
   // --- RENDERER: INITIAL ANIMATION ---
   if (slideType === 'INITIAL_ANIMATION') {
     return <InitialAnimation />;
+  }
+
+  if (slideType === 'ESG_PILLARS') {
+    return <EsgPillarsView slide={slide} buildIndex={buildIndex} staticMode={staticMode} />;
+  }
+
+  if (slideType === 'REVENUE_TABLE') {
+    return <RevenueTableView slide={slide} staticMode={staticMode} />;
+  }
+
+  if (slideType === 'FINANCIAL_INSIGHTS') {
+    return <FinancialInsightsView slide={slide} staticMode={staticMode} />;
+  }
+
+
+  // --- RENDERER: EXPENSES TABLE ---
+  if (slideType === 'EXPENSES_TABLE') {
+    return <ExpensesTableView slide={slide} staticMode={staticMode} />;
   }
 
 
@@ -864,7 +1493,156 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
     )
   }
 
+  if (slideType === 'MARKETING_PLAN') {
+    const stages = (slide as any).stages || [];
+    const totalBudget = (slide as any).totalBudget || "1.5 M";
+
+    return (
+      <motion.div
+        variants={containerVariants}
+        initial="initial"
+        animate="animate"
+        className="w-full h-full flex flex-col items-center justify-center p-4 lg:p-8 max-w-[1700px] mx-auto overflow-hidden"
+      >
+        {/* Header */}
+        <div className="mb-8 lg:mb-12 text-center w-full relative z-10">
+          <motion.h1
+            variants={itemVariants}
+            className="text-4xl lg:text-7xl font-display font-medium tracking-tight uppercase text-white drop-shadow-2xl"
+          >
+            {slide.title}
+          </motion.h1>
+          <motion.p
+            variants={itemVariants}
+            className="text-brand-primary font-bold uppercase tracking-[0.5em] text-[10px] lg:text-xs mt-3"
+          >
+            {slide.subtitle}
+          </motion.p>
+        </div>
+
+        {/* Grid Container */}
+        <div className="w-full flex-1 flex flex-col justify-center relative z-10">
+          {/* Column Titles */}
+          <div className="grid grid-cols-4 gap-4 mb-4 lg:mb-6 px-6">
+            {['FUNNEL', 'EXTERNO', 'INTERNO', 'PRESUPUESTO'].map((title, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 + i * 0.1 }}
+                className="text-left"
+              >
+                <span className="text-[10px] lg:text-xs font-black tracking-[0.2em] text-gray-500 uppercase">
+                  {title}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Stages Rows */}
+          <div className="space-y-4 lg:space-y-6">
+            {stages.map((stage: any, idx: number) => {
+              const stageVisible = isVisible(idx);
+              if (!stageVisible && !staticMode) return null;
+
+              const stageColors: Record<string, string> = {
+                cyan: 'from-cyan-500/10 to-transparent border-cyan-500/30',
+                blue: 'from-blue-500/10 to-transparent border-blue-500/30',
+                teal: 'from-teal-500/10 to-transparent border-teal-500/30'
+              };
+
+              const textColor: Record<string, string> = {
+                cyan: 'text-cyan-400',
+                blue: 'text-blue-400',
+                teal: 'text-teal-400'
+              };
+
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ type: "spring", damping: 25, delay: idx * 0.2 }}
+                  className="grid grid-cols-4 gap-4 items-stretch group relative min-h-[140px] lg:min-h-[160px]"
+                >
+                  {/* FUNNEL COLUMN */}
+                  <div className="flex flex-col justify-center">
+                    <div className={`${TOKENS.glassStrong} h-full flex flex-col items-center justify-center border-l-4 ${stageColors[stage.color]} p-4 transition-all group-hover:bg-white/5`}>
+                      <h3 className={`text-3xl lg:text-5xl font-black italic uppercase tracking-tighter ${textColor[stage.color]}`}>
+                        {stage.name}
+                      </h3>
+                    </div>
+                  </div>
+
+                  {/* EXTERNO COLUMN */}
+                  <div className="flex flex-col justify-center">
+                    <div className={`${TOKENS.glass} h-full p-4 lg:p-6 flex flex-col justify-center gap-2 group-hover:border-white/20 transition-all`}>
+                      {stage.external.map((item: string, i: number) => (
+                        <div key={i} className="flex items-center gap-3">
+                          <div className="w-1.5 h-1.5 rounded-full bg-brand-primary" />
+                          <span className="text-xs lg:text-base text-white font-light">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* INTERNO COLUMN */}
+                  <div className="flex flex-col justify-center">
+                    <div className={`${TOKENS.glass} h-full p-4 lg:p-6 flex flex-col justify-center gap-2 group-hover:border-white/20 transition-all`}>
+                      {stage.internal.map((item: string, i: number) => (
+                        <div key={i} className="flex items-center gap-3">
+                          <div className="w-1.5 h-1.5 rounded-full bg-brand-primary/40" />
+                          <span className="text-xs lg:text-base text-gray-300 font-light italic">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* BUDGET COLUMN */}
+                  <div className="flex flex-col justify-center">
+                    <div className={`${TOKENS.glassStrong} h-full p-4 lg:p-6 flex flex-col justify-center gap-1 items-end group-hover:border-brand-primary/50 transition-all`}>
+                      {stage.budget.map((item: string, i: number) => (
+                        <span key={i} className="text-xl lg:text-2xl font-black text-white tracking-tight">
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Total Budget Row */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={isVisible(3) ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+            transition={{ type: "spring", damping: 20, delay: 0.8 }}
+            className="mt-10 flex justify-end px-6"
+          >
+            <div className="flex items-center gap-6">
+              <span className="text-[10px] lg:text-xs font-black tracking-[0.3em] text-brand-primary uppercase">TOTAL PRESUPUESTO</span>
+              <div className={`${TOKENS.glassHolo} px-8 py-4 border-brand-primary/40`}>
+                <span className="text-3xl lg:text-5xl font-black text-white tracking-tighter">
+                  {totalBudget}
+                </span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {!staticMode && (
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <div className="absolute top-1/4 -right-20 w-80 h-80 bg-cyan-500/5 rounded-full blur-[100px]" />
+            <div className="absolute bottom-1/4 -left-20 w-80 h-80 bg-blue-500/5 rounded-full blur-[100px]" />
+          </div>
+        )}
+      </motion.div>
+    );
+  }
+
   if (slideType === 'SQUADS') {
+
     return (
       <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4">
         <motion.h1 variants={itemVariants} className="text-7xl font-black italic uppercase text-white mb-2">{slide.title}</motion.h1>
@@ -1267,6 +2045,224 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
     );
   }
 
+  if (slideType === 'COMPLIANCE_MARCO') {
+    const pillars = (slide as any).pillars || [];
+
+    return (
+      <motion.div
+        variants={containerVariants}
+        initial="initial"
+        animate="animate"
+        className="w-full h-full flex flex-col items-center justify-center p-8 lg:p-16 relative overflow-hidden"
+      >
+        {/* Header Section */}
+        <div className="text-center mb-16 lg:mb-24 z-20">
+          <motion.h1
+            variants={itemVariants}
+            className="text-4xl lg:text-7xl font-black italic uppercase text-white tracking-tighter mb-4 leading-none font-display"
+          >
+            {slide.title}
+          </motion.h1>
+          <motion.p
+            variants={itemVariants}
+            className="text-brand-primary font-bold uppercase tracking-[0.3em] text-sm lg:text-base max-w-4xl mx-auto"
+          >
+            {slide.subtitle}
+          </motion.p>
+        </div>
+
+        {/* Pillars Container */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-[1700px] h-full items-stretch">
+          {pillars.map((pillar: any, i: number) => {
+            const pillarVisible = isVisible(i);
+
+            // Progressive animations for each component of the pillar
+            const titleVariants = {
+              initial: { opacity: 0, y: 20 },
+              animate: { opacity: 1, y: 0, transition: { delay: i * 0.2 + 0.1, duration: 0.6 } }
+            };
+
+            const iconVariants = {
+              initial: { opacity: 0, scale: 0.5 },
+              animate: { opacity: 1, scale: 1, transition: { delay: i * 0.2 + 0.3, type: "spring", stiffness: 100 } }
+            };
+
+            const textVariants = {
+              initial: { opacity: 0, y: 10 },
+              animate: { opacity: 1, y: 0, transition: { delay: i * 0.2 + 0.5, duration: 0.6 } }
+            };
+
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -20 }}
+                animate={pillarVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className="flex flex-col items-center group h-full"
+              >
+                {/* Pillar Header (Title) */}
+                <motion.h3
+                  variants={titleVariants}
+                  animate={pillarVisible ? "animate" : "initial"}
+                  className="text-xl lg:text-2xl font-black text-white uppercase mb-8 h-16 flex items-center text-center font-display"
+                >
+                  {pillar.title}
+                </motion.h3>
+
+                {/* Geometric Shape + Icon */}
+                <motion.div
+                  variants={iconVariants}
+                  animate={pillarVisible ? "animate" : "initial"}
+                  className="relative w-40 h-40 lg:w-48 lg:h-48 mb-8 flex items-center justify-center transition-transform hover:scale-105 duration-500"
+                >
+                  {/* Hexagon Shape Background */}
+                  <div
+                    className="absolute inset-0 opacity-20 transition-opacity group-hover:opacity-40"
+                    style={{
+                      backgroundColor: pillar.color,
+                      clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)"
+                    }}
+                  />
+                  <div
+                    className="absolute inset-2 border-2 border-white/20"
+                    style={{
+                      clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)"
+                    }}
+                  />
+                  <div className="relative z-10 text-white drop-shadow-lg p-4">
+                    <IconMapper name={pillar.icon} size={64} className="group-hover:text-brand-primary transition-colors" />
+                  </div>
+                </motion.div>
+
+                {/* Pillar Footer (Text) */}
+                <motion.div
+                  variants={textVariants}
+                  animate={pillarVisible ? "animate" : "initial"}
+                  className="text-center w-full px-4"
+                >
+                  <div
+                    className="h-1 lg:h-1.5 w-16 mx-auto mb-6 rounded-full opacity-50 transition-all group-hover:w-24 group-hover:opacity-100"
+                    style={{ backgroundColor: pillar.color }}
+                  />
+                  <p className="text-sm lg:text-lg text-gray-400 font-medium leading-relaxed whitespace-pre-line group-hover:text-white transition-colors font-display">
+                    {pillar.text}
+                  </p>
+                </motion.div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Navigation Hint */}
+        <div className="absolute bottom-12 right-12 flex items-center gap-4 opacity-20 pointer-events-none select-none">
+          <div className="p-2 border border-white/20 rounded-lg text-white text-xs">←</div>
+          <div className="p-2 border border-white/20 rounded-lg text-white text-xs">→</div>
+        </div>
+      </motion.div>
+    );
+  }
+
+  if (slideType === 'CREATIVE_CONCEPT') {
+    const { offlineImages, onlineImages, centerImage, centerTitle, centerSubtitle, centerCTA, bullets } = slide as any;
+
+    return (
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4 lg:px-12 max-w-[1700px] mx-auto relative overflow-hidden py-4 lg:py-8">
+        {/* Header - Reduced margin */}
+        <div className="text-center mb-4 lg:mb-6 z-20">
+          <motion.span variants={itemVariants} className="text-brand-primary font-bold tracking-[0.3em] lg:tracking-[0.5em] text-xs uppercase mb-1 block">
+            {slide.subtitle}
+          </motion.span>
+          <motion.h1 variants={itemVariants} className="text-3xl lg:text-6xl font-display font-medium tracking-tight uppercase text-white leading-tight">
+            {slide.title}
+          </motion.h1>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full items-center flex-1 min-h-0">
+          {/* LEFT: TRADITIONAL CHANNELS */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={isVisible(1) ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+            className="lg:col-span-3 flex flex-col gap-4 self-center"
+          >
+            <div className="border-l-2 border-brand-primary/30 pl-4 mb-2">
+              <h2 className="text-lg lg:text-xl font-black text-white uppercase leading-tight">Tradicionales (Offline)</h2>
+              <p className="text-[10px] text-gray-400 uppercase tracking-widest leading-tight">Confianza y contexto físico</p>
+            </div>
+            <div className="grid grid-cols-3 lg:flex lg:flex-col gap-3">
+              {offlineImages?.map((img: string, i: number) => (
+                <div key={i} className="aspect-video w-full rounded-xl overflow-hidden shadow-lg border border-white/10 bg-black/20 group">
+                  <img src={`${import.meta.env.BASE_URL}assets/dilo/${img}`} alt="Offline" className="w-full h-full object-contain bg-black/40 transition-transform group-hover:scale-105" />
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* CENTER: BANNER CONCEPTO */}
+          <div className="lg:col-span-6 flex flex-col items-center justify-center gap-6 relative">
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={isVisible(0) ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
+              className={`${TOKENS.glassGlow} p-6 lg:p-8 flex flex-col items-center text-center gap-4 border-brand-primary/40 relative group overflow-hidden max-w-[500px] w-full`}
+            >
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-primary to-transparent animate-pulse" />
+              <div className="relative aspect-[4/5] w-full max-w-[280px] lg:max-w-[320px] rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20 bg-black/40">
+                <img src={`${import.meta.env.BASE_URL}assets/dilo/${centerImage}`} alt="Concept" className="w-full h-full object-contain" />
+                <div className="absolute bottom-4 right-4 w-14 h-14 bg-white p-1 rounded-lg shadow-xl">
+                  <div className="w-full h-full bg-black flex items-center justify-center p-1">
+                    <Icons.QrCode className="text-white w-full h-full" />
+                  </div>
+                </div>
+                <div className="absolute bottom-4 left-4">
+                  <div className="bg-brand-primary text-brand-dark font-black px-4 py-2 rounded-full shadow-2xl uppercase tracking-tighter text-[9px]">
+                    {centerCTA}
+                  </div>
+                </div>
+              </div>
+
+              <div className="max-w-md">
+                <h3 className="text-xl lg:text-3xl font-black text-white uppercase mb-2 leading-tight font-display">{centerTitle}</h3>
+                <p className="text-base lg:text-lg text-gray-300 font-light leading-snug">{centerSubtitle}</p>
+              </div>
+            </motion.div>
+
+            {/* EXPLANATORY TEXT BULLETS - Optimized for space */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={isVisible(3) ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+              className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2"
+            >
+              {bullets?.map((bullet: string, i: number) => (
+                <div key={i} className="flex items-start gap-2 p-3 glass rounded-xl border border-white/5 bg-white/5 min-h-[60px]">
+                  <div className="mt-1 w-1.5 h-1.5 rounded-full bg-brand-primary shadow-[0_0_8px_rgba(45,212,191,0.5)] shrink-0" />
+                  <p className="text-[9px] text-gray-400 font-medium leading-tight">{bullet}</p>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* RIGHT: DIGITAL CHANNELS */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={isVisible(2) ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+            className="lg:col-span-3 flex flex-col gap-4 self-center"
+          >
+            <div className="border-r-2 border-brand-primary/30 pr-4 text-right mb-2">
+              <h2 className="text-lg lg:text-xl font-black text-white uppercase leading-tight">Digitales (Online)</h2>
+              <p className="text-[10px] text-gray-400 uppercase tracking-widest leading-tight">Activación y conversión</p>
+            </div>
+            <div className="grid grid-cols-3 lg:flex lg:flex-col gap-3">
+              {onlineImages?.map((img: string, i: number) => (
+                <div key={i} className="aspect-video w-full rounded-xl overflow-hidden shadow-lg border border-white/10 bg-black/20 group">
+                  <img src={`${import.meta.env.BASE_URL}assets/dilo/${img}`} alt="Online" className="w-full h-full object-contain bg-black/40 transition-transform group-hover:scale-105" />
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
+    );
+  }
+
   if (slideType === 'KINETIC_BRIDGE') {
     return (
       <motion.div variants={containerVariants} initial="initial" animate="animate" className="flex flex-col items-center justify-center text-center px-4 max-w-7xl h-full w-full mx-auto relative">
@@ -1520,6 +2516,144 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
     );
   }
 
+  // --- RENDERER: GOVERNANCE_NEWCO ---
+  if (slideType === 'GOVERNANCE_NEWCO') {
+    const data = slide.governanceData;
+    if (!data) return null;
+
+    return (
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4 lg:px-12 relative overflow-hidden py-8">
+
+        {/* HEADER BLOCK */}
+        <div className="text-center mb-12 lg:mb-16 z-20">
+          <motion.h2 variants={itemVariants} className="text-brand-primary font-bold tracking-[0.4em] text-xs lg:text-sm uppercase mb-2">
+            {slide.subtitle}
+          </motion.h2>
+          <motion.h1 variants={itemVariants} className="text-4xl lg:text-7xl font-display font-medium tracking-tight uppercase text-white mb-6">
+            {slide.title}
+          </motion.h1>
+
+          <motion.div variants={itemVariants} className="space-y-1">
+            <p className="text-lg lg:text-2xl text-white font-light tracking-wide italic">“Spin-off – 100% owned Nestlé”</p>
+            <p className="text-lg lg:text-2xl text-white font-light tracking-wide italic">“Autonomía operativa con gobernanza estratégica”</p>
+          </motion.div>
+        </div>
+
+        {/* DIAGRAM CONTAINER */}
+        <div className="relative w-full max-w-7xl flex flex-col items-center">
+
+          {/* LEVEL 1: GRUPO NESTLÉ */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isVisible(0) ? { opacity: 1, y: 0 } : {}}
+            className={`${TOKENS.glassStrong} px-8 py-4 lg:px-12 lg:py-6 rounded-2xl border border-white/10 w-64 lg:w-80 text-center shadow-xl z-30`}
+          >
+            <h3 className="text-lg lg:text-2xl font-black text-white uppercase">{data.level1}</h3>
+          </motion.div>
+
+          {/* CONNECTOR L1 -> L2 */}
+          <motion.div
+            initial={{ scaleY: 0 }}
+            animate={isVisible(1) ? { scaleY: 1 } : {}}
+            style={{ originY: 0 }}
+            className="w-0.5 h-8 lg:h-12 bg-white/20 z-10"
+          />
+
+          {/* LEVEL 2: NESTLÉ HEALTH SCIENCE */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isVisible(1) ? { opacity: 1, y: 0 } : {}}
+            className={`${TOKENS.glassStrong} px-8 py-4 lg:px-12 lg:py-6 rounded-2xl border border-white/10 w-80 lg:w-[400px] text-center shadow-xl z-30`}
+          >
+            <h3 className="text-lg lg:text-2xl font-black text-white uppercase">{data.level2}</h3>
+          </motion.div>
+
+          {/* CONNECTORS L2 -> L3 */}
+          <div className="relative w-full h-12 lg:h-16">
+            {/* Center vertical down (Core Groups Only) */}
+            <motion.div
+              initial={{ scaleY: 0 }}
+              animate={isVisible(2) ? { scaleY: 1 } : {}}
+              style={{ originY: 0 }}
+              className="absolute left-1/2 -translate-x-1/2 w-0.5 h-1/2 bg-white/10"
+            />
+            {/* Horizontal line for Core Units (Cols 1, 2, 3) */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={isVisible(2) ? { scaleX: 1 } : {}}
+              className="absolute top-1/2 left-[12.5%] right-[37.5%] h-0.5 bg-white/10"
+            />
+
+            {/* SEPARATE DASHED CONNECTOR TO BIOLIFE - FROM RIGHT OF NHS */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={isVisible(3) ? { scaleX: 1 } : {}}
+              style={{ originX: 0 }}
+              className="absolute top-[-32px] left-[calc(50%+160px)] lg:left-[calc(50%+200px)] right-[12.5%] h-0.5 border-t-2 border-dashed border-brand-primary/40 hidden lg:block"
+            />
+            <motion.div
+              initial={{ scaleY: 0 }}
+              animate={isVisible(3) ? { scaleY: 1 } : {}}
+              style={{ originY: 0 }}
+              className="absolute top-[-32px] bottom-0 right-[12.5%] w-0.5 border-l-2 border-dashed border-brand-primary/40 hidden lg:block"
+            />
+
+            {/* Vertical lines down to Core boxes */}
+            <div className="absolute top-1/2 bottom-0 left-[12.5%] w-0.5 bg-white/10 hidden lg:block" />
+            <div className="absolute top-1/2 bottom-0 left-[37.5%] w-0.5 bg-white/10 hidden lg:block" />
+            <div className="absolute top-1/2 bottom-0 left-[62.5%] w-0.5 bg-white/10 hidden lg:block" />
+          </div>
+
+          {/* LEVEL 3 ROWS */}
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 lg:gap-8 w-full items-stretch">
+
+            {/* CORE UNITS (Columns 1, 2, 3) */}
+            {data.coreUnits.map((unit, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isVisible(2) ? { opacity: 1, y: 0 } : {}}
+                className="bg-brand-dark/40 px-6 py-6 lg:py-8 rounded-2xl border border-white/5 text-center shadow-lg flex flex-col justify-center min-h-[100px] lg:min-h-[140px] relative group hover:border-white/20 transition-all"
+              >
+                <div className="absolute top-0 left-0 w-full h-1 bg-white/5 group-hover:bg-white/10 transition-colors" />
+                <h4 className="text-xs lg:text-base font-bold text-gray-400 group-hover:text-white uppercase leading-tight whitespace-pre-line transition-colors">
+                  {unit.name}
+                </h4>
+              </motion.div>
+            ))}
+
+            {/* BIOLIFE (Column 4) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              animate={isVisible(3) ? { opacity: 1, y: 0, scale: 1 } : {}}
+              className="bg-brand-primary/5 px-6 py-6 lg:py-8 rounded-2xl border-2 border-dashed border-brand-primary/40 text-center shadow-[0_0_40px_rgba(45,212,191,0.15)] flex flex-col justify-center min-h-[100px] lg:min-h-[140px] relative group"
+            >
+              <div className="absolute inset-0 bg-brand-primary/5 blur-3xl rounded-full -z-10 group-hover:bg-brand-primary/10 transition-all" />
+              <h4 className="text-sm lg:text-lg font-black text-brand-primary uppercase leading-tight whitespace-pre-line">
+                {data.spinOff.name}
+              </h4>
+              <div className="mt-4 lg:mt-6 text-[9px] lg:text-[10px] text-brand-primary/60 font-mono tracking-widest uppercase">
+                Spin-Off / Digital Health Venture
+              </div>
+            </motion.div>
+
+          </div>
+
+          {/* DECORATIVE FOOTER */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2 }}
+            className="mt-16 text-[10px] text-gray-600 font-mono tracking-[0.5em] uppercase hidden lg:block"
+          >
+            GOVERNANCE_PROTOCOL_V.NEWCO // NESTLÉ_STRATEGIC_ALIGNMENT
+          </motion.div>
+
+        </div>
+      </motion.div>
+    );
+  }
+
   // --- RENDERER: COST_ANALYSIS ---
   if (slideType === 'COST_ANALYSIS') {
     return (
@@ -1760,7 +2894,8 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
 
   // --- RENDERER: BUSINESS_MODEL (3-Column Value Chain) ---
   if (slideType === 'BUSINESS_MODEL') {
-    const items = slide.items || [];
+    const rawItems = slide.items || [];
+    const items = rawItems as any[]; // Cast to avoid union type issues with string | Card
 
     // Grid weights: Left (1.5), Center (1), Right (1.2) -> Approximate with grid-cols-12
     // Left: col-span-5 (~41%)
@@ -2129,6 +3264,519 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
             </p>
           </div>
         </motion.div>
+      </motion.div>
+    );
+  }
+
+  if (slideType === 'TALENT_STRATEGY') {
+    const columns = (slide as any).talentColumns || [];
+
+    return (
+      <motion.div
+        variants={containerVariants}
+        initial="initial"
+        animate="animate"
+        className="w-full h-screen flex flex-col items-center justify-center p-0 overflow-hidden relative bg-[#050505]"
+      >
+        {/* Background Texture */}
+        <div className="absolute inset-0 pointer-events-none opacity-40">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,_rgba(30,58,138,0.2)_0%,_transparent_70%)]" />
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20" />
+        </div>
+
+        {/* Header */}
+        <div className="w-full max-w-7xl px-8 mb-12 text-center flex flex-col items-center relative z-10">
+          <motion.h1
+            variants={itemVariants}
+            className="text-5xl lg:text-7xl font-black italic uppercase text-white tracking-tighter mb-4"
+          >
+            {slide.title}
+          </motion.h1>
+          <motion.div variants={itemVariants} className="h-1.5 w-32 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full" />
+        </div>
+
+        {/* 3 Columns Layout */}
+        <div className="flex w-full h-[70vh] max-w-[1800px] items-stretch relative z-10 border-y border-white/5 bg-black/20 backdrop-blur-md">
+          {columns.map((col: any, idx: number) => {
+            const isMain = col.variant === "70";
+            const delay = idx * 0.3;
+
+            // Column variants for colors and depth
+            const colStyles: Record<string, string> = {
+              "70": "bg-blue-600/10 border-r border-white/10 shadow-[inset_0_0_100px_rgba(37,99,235,0.05)]",
+              "20": "bg-slate-800/20 border-r border-white/10",
+              "10": "bg-teal-900/10"
+            };
+
+            const badgeStyles: Record<string, string> = {
+              "70": "bg-gradient-to-br from-blue-500 to-blue-700 shadow-[0_0_60px_rgba(37,99,235,0.4)]",
+              "20": "bg-gradient-to-br from-slate-500 to-slate-700",
+              "10": "bg-gradient-to-br from-teal-500 to-teal-700"
+            };
+
+            const textColor = isMain ? "text-blue-400" : (col.variant === "20" ? "text-slate-400" : "text-teal-400");
+
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: idx * 0.2, duration: 0.8, ease: "easeOut" }}
+                className={`flex-1 flex flex-col items-center p-10 lg:p-14 ${colStyles[col.variant as string] || ""} relative group overflow-hidden`}
+              >
+                {/* Hover effect */}
+                <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                {/* Badge Percentage */}
+                <motion.div
+                  initial={{ scale: 0, rotate: -20 }}
+                  animate={{ scale: 1, rotate: 0 }}
+                  transition={{ delay: delay + 0.4, type: "spring", damping: 12 }}
+                  className={`${isMain ? 'w-44 h-44 text-7xl' : 'w-36 h-36 text-5xl'} ${badgeStyles[col.variant as string]} rounded-full flex items-center justify-center font-black text-white mb-10 border-4 border-white/20 z-20`}
+                >
+                  {col.percentage}
+                </motion.div>
+
+                {/* Text Content */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: delay + 0.7, duration: 0.6 }}
+                  className="w-full flex flex-col items-center z-20"
+                >
+                  <h3 className={`text-3xl lg:text-4xl font-black uppercase text-center mb-2 tracking-tighter ${isMain ? 'text-white' : 'text-gray-200'}`}>
+                    {col.title}
+                  </h3>
+                  <p className={`text-base lg:text-lg font-bold ${textColor} uppercase tracking-[0.2em] mb-10 text-center`}>
+                    {col.subtitle}
+                  </p>
+
+                  <div className="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-10" />
+
+                  <div className="w-full">
+                    <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-500 mb-6 text-center">
+                      {col.section}
+                    </h4>
+                    <div className="space-y-4 max-w-xs mx-auto">
+                      {col.bullets.map((bullet: string, bIdx: number) => (
+                        <motion.div
+                          key={bIdx}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: delay + 0.9 + (bIdx * 0.1) }}
+                          className="flex items-start gap-4"
+                        >
+                          <div className={`mt-2 w-2 h-2 rounded-full shrink-0 ${isMain ? 'bg-blue-400 shadow-[0_0_10px_rgba(96,165,250,0.6)]' : 'bg-gray-600'}`} />
+                          <span className={`${isMain ? 'text-white text-lg' : 'text-gray-300 text-base'} font-medium leading-tight`}>
+                            {bullet}
+                          </span>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Subtle highlight for the 70% column */}
+                {isMain && (
+                  <div className="absolute top-0 inset-x-0 h-1.5 bg-blue-500 shadow-[0_0_20px_rgba(37,99,235,0.8)]" />
+                )}
+              </motion.div>
+            );
+          })}
+        </div>
+      </motion.div>
+    );
+  }
+
+  if (slideType === 'AGILE_TRIBES') {
+    const tribes = (slide as any).tribes || [];
+    const cycleText = (slide as any).cycleText || "SPRINT DE 2 SEMANAS";
+
+    const cycleIcons = [
+      { icon: 'RefreshCw', label: 'Iteración' },
+      { icon: 'Clock', label: 'Ritmo' },
+      { icon: 'ClipboardCheck', label: 'Backlog' },
+      { icon: 'CheckCircle2', label: 'Validación' }
+    ];
+
+    return (
+      <motion.div
+        variants={containerVariants}
+        initial="initial"
+        animate="animate"
+        className="w-full h-full flex flex-col items-center justify-center p-8 lg:p-16 relative overflow-hidden"
+      >
+        <div className="text-center mb-12 lg:mb-16">
+          <motion.h1 variants={itemVariants} className="text-5xl lg:text-8xl font-black italic uppercase text-white tracking-tighter mb-4 leading-none font-display">
+            {slide.title}
+          </motion.h1>
+          <motion.p variants={itemVariants} className="text-brand-primary font-bold uppercase tracking-[0.5em] text-sm lg:text-base">
+            {slide.subtitle}
+          </motion.p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 w-full max-w-7xl items-center">
+          {/* ZONA IZQUIERDA — CICLO ÁGIL */}
+          <motion.div
+            variants={{
+              initial: { opacity: 0, scale: 0.8, rotate: -5 },
+              animate: {
+                opacity: 1,
+                scale: 1,
+                rotate: 0,
+                transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] }
+              }
+            }}
+            className="relative flex items-center justify-center"
+          >
+            {/* Loop Diagram */}
+            <div className="relative w-80 h-80 lg:w-[500px] lg:h-[500px]">
+              {/* Circular segments with arrows effect */}
+              <svg viewBox="0 0 100 100" className="w-full h-full animate-spin-slow">
+                <defs>
+                  <linearGradient id="cycleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#10B981" />
+                    <stop offset="50%" stopColor="#2DD4BF" />
+                    <stop offset="100%" stopColor="#3B82F6" />
+                  </linearGradient>
+                </defs>
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="45"
+                  fill="none"
+                  stroke="url(#cycleGradient)"
+                  strokeWidth="8"
+                  strokeDasharray="60 10"
+                  className="opacity-20 translate-z-0"
+                />
+                {/* Visual segments */}
+                {[0, 90, 180, 270].map((rot, i) => (
+                  <g key={i} transform={`rotate(${rot} 50 50)`}>
+                    <path
+                      d="M 50 5 A 45 45 0 0 1 95 50"
+                      fill="none"
+                      stroke="url(#cycleGradient)"
+                      strokeWidth="8"
+                      strokeLinecap="round"
+                    />
+                    {/* Arrow head */}
+                    <path
+                      d="M 92 48 L 95 53 L 98 48"
+                      fill="none"
+                      stroke="url(#cycleGradient)"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
+                  </g>
+                ))}
+              </svg>
+
+              {/* Icons integrated in cycle */}
+              <div className="absolute inset-0 pointer-events-none">
+                {cycleIcons.map((item, i) => {
+                  const angle = (i * 90) * (Math.PI / 180);
+                  const radius = 45; // percentage
+                  const x = 50 + radius * Math.cos(angle - Math.PI / 2);
+                  const y = 50 + radius * Math.sin(angle - Math.PI / 2);
+                  return (
+                    <div
+                      key={i}
+                      className="absolute w-12 h-12 lg:w-16 lg:h-16 flex items-center justify-center bg-[#0a0a0a] rounded-full border border-white/10 shadow-xl"
+                      style={{ left: `${x}%`, top: `${y}%`, transform: 'translate(-50%, -50%)' }}
+                    >
+                      <IconMapper name={item.icon} size={24} className="text-white opacity-80" />
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Center Text */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
+                <div className="w-full h-full rounded-full border border-white/5 bg-white/5 backdrop-blur-sm flex flex-col items-center justify-center p-6">
+                  <span className="text-xs lg:text-sm font-black text-brand-primary uppercase tracking-[0.3em] mb-2 text-center">Ritmo Constante</span>
+                  <h2 className="text-xl lg:text-4xl font-black text-white uppercase tracking-tighter leading-tight text-center">
+                    {cycleText}
+                  </h2>
+                </div>
+              </div>
+            </div>
+
+            {/* Subtle glow behind cycle */}
+            <div className="absolute inset-0 bg-brand-primary/10 blur-[120px] rounded-full -z-10 animate-pulse" />
+          </motion.div>
+
+          {/* ZONA DERECHA — TRIBUS BIOLIFE */}
+          <div className="flex flex-col gap-6 lg:gap-8">
+            {tribes.map((t: any, i: number) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: 50 }}
+                animate={isVisible(i + 1) ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+                transition={{
+                  delay: 0.5 + (i * 0.15),
+                  duration: 0.8,
+                  ease: [0.22, 1, 0.36, 1]
+                }}
+                className="flex items-center gap-6 group"
+              >
+                {/* Color block */}
+                <div
+                  className="w-4 h-16 lg:w-6 lg:h-20 rounded-full shadow-lg transition-all duration-500 group-hover:scale-y-110"
+                  style={{ backgroundColor: t.color, boxShadow: `0 0 20px ${t.color}40` }}
+                />
+
+                {/* Tribe Info */}
+                <div className="flex flex-col">
+                  <span className="text-xl lg:text-3xl font-black text-white uppercase tracking-tighter group-hover:text-brand-primary transition-colors">
+                    {t.name}
+                  </span>
+                  <span className="text-sm lg:text-lg font-bold text-gray-400 uppercase tracking-[0.2em]">
+                    {t.lead}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Navigation Hint */}
+        <div className="absolute bottom-8 right-8 flex items-center gap-4 opacity-30 select-none">
+          <div className="p-2 border border-white/20 rounded text-white text-xs">←</div>
+          <div className="p-2 border border-white/20 rounded text-white text-xs">→</div>
+        </div>
+      </motion.div>
+    );
+  }
+
+  if (slideType === 'RELATION_MODEL') {
+    const biolife = (slide as any).biolife;
+    const nestle = (slide as any).nestle;
+
+    return (
+      <motion.div
+        variants={containerVariants}
+        initial="initial"
+        animate="animate"
+        className="w-full h-screen flex flex-col items-center justify-center p-0 overflow-hidden relative"
+      >
+        {/* Header */}
+        <div className="w-full max-w-7xl px-8 mb-12 text-center flex flex-col items-center relative z-10">
+          <motion.h1
+            variants={itemVariants}
+            className="text-5xl lg:text-7xl font-black italic uppercase text-white tracking-tighter mb-4"
+          >
+            {slide.title}
+          </motion.h1>
+          <motion.div variants={itemVariants} className="h-1.5 w-32 bg-gradient-to-r from-blue-500 to-violet-500 rounded-full" />
+        </div>
+
+        {/* 3-Part Layout */}
+        <div className="flex w-full h-[65vh] max-w-[1700px] items-center justify-center px-12 relative z-10">
+
+          {/* LEFT: BIOLIFE */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={isVisible(0) ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className={`flex-1 h-full min-h-[500px] ${TOKENS.glassStrong} rounded-3xl p-10 lg:p-14 border border-white/10 flex flex-col items-start shadow-2xl relative overflow-hidden group`}
+          >
+            <div className="absolute top-0 left-0 w-1 h-full bg-blue-500" />
+            <div className="flex items-center gap-4 mb-10">
+              <div className="p-3 bg-blue-500/10 rounded-2xl text-blue-400">
+                <Icons.Activity size={32} />
+              </div>
+              <h2 className="text-4xl lg:text-5xl font-black text-white italic tracking-tighter">
+                {biolife?.title}
+              </h2>
+            </div>
+
+            <div className="space-y-6 w-full">
+              {biolife?.items.map((item: string, i: number) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={isVisible(0) ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                  transition={{ delay: 0.3 + (i * 0.1) }}
+                  className="flex items-start gap-4"
+                >
+                  <Icons.CheckCircle2 className="text-blue-500 mt-1 shrink-0" size={24} />
+                  <span className="text-lg lg:text-xl text-white font-medium leading-tight">
+                    {item}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-blue-500/5 blur-[80px] rounded-full pointer-events-none" />
+          </motion.div>
+
+          {/* CENTER: ARROW */}
+          <div className="w-32 lg:w-48 flex items-center justify-center relative">
+            <motion.div
+              initial={{ opacity: 0, scaleX: 0 }}
+              animate={isVisible(2) ? { opacity: 1, scaleX: 1 } : { opacity: 0, scaleX: 0 }}
+              transition={{ delay: 0.5, duration: 1, ease: "anticipate" }}
+              className="origin-left flex flex-col items-center"
+            >
+              <div className="w-full h-1 bg-gradient-to-r from-blue-500/50 to-violet-500/50 relative">
+                <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1">
+                  <Icons.ChevronRight className="text-violet-500/70" size={32} />
+                </div>
+              </div>
+              <span className="text-[10px] font-black uppercase text-gray-500 tracking-[0.3em] mt-4 text-center whitespace-nowrap">
+                Complementariedad
+              </span>
+            </motion.div>
+          </div>
+
+          {/* RIGHT: NESTLE */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={isVisible(1) ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className={`flex-1 h-full min-h-[500px] ${TOKENS.glassStrong} rounded-3xl p-10 lg:p-14 border border-white/10 flex flex-col items-start shadow-2xl relative overflow-hidden group`}
+          >
+            <div className="absolute top-0 right-0 w-1 h-full bg-violet-500" />
+
+            {/* Styled Logo Placeholder */}
+            <div className="absolute top-8 right-8 flex flex-col items-end opacity-40">
+              <div className="flex items-center gap-1">
+                <Icons.Layers className="text-violet-400" size={20} />
+                <span className="text-xs font-black tracking-tighter text-white">NESTLÉ</span>
+              </div>
+              <span className="text-[8px] font-bold text-violet-300 tracking-widest uppercase">Health Science</span>
+            </div>
+
+            <div className="flex items-center gap-4 mb-10">
+              <div className="p-3 bg-violet-500/10 rounded-2xl text-violet-400">
+                <Icons.ShieldCheck size={32} />
+              </div>
+              <h2 className="text-3xl lg:text-4xl font-black text-white italic tracking-tighter leading-none">
+                {nestle?.title}
+              </h2>
+            </div>
+
+            <div className="space-y-6 w-full">
+              {nestle?.items.map((item: string, i: number) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={isVisible(1) ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+                  transition={{ delay: 0.3 + (i * 0.1) }}
+                  className="flex items-start gap-4"
+                >
+                  <Icons.CheckCircle2 className="text-violet-500 mt-1 shrink-0" size={24} />
+                  <span className="text-lg lg:text-xl text-white font-medium leading-tight">
+                    {item}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-violet-500/5 blur-[80px] rounded-full pointer-events-none" />
+          </motion.div>
+
+        </div>
+      </motion.div>
+    );
+  }
+
+
+  // --- RENDERER: DECISION_ORGANS ---
+  if (slideType === 'DECISION_ORGANS') {
+    return (
+      <motion.div
+        variants={containerVariants}
+        initial="initial"
+        animate="animate"
+        className="w-full h-full flex flex-col items-center justify-center p-6 lg:p-12 relative overflow-hidden"
+      >
+        {/* Header Section */}
+        <div className="text-center mb-12 lg:mb-16 z-10">
+          <motion.h1
+            variants={itemVariants}
+            className="text-4xl lg:text-7xl font-black tracking-tighter text-white uppercase italic mb-4 font-display"
+          >
+            {slide.title}
+          </motion.h1>
+          <motion.div
+            variants={itemVariants}
+            className={`${TOKENS.glassAccent} px-8 py-3 rounded-full inline-block`}
+          >
+            <p className="text-sm lg:text-xl font-bold text-blue-400 uppercase tracking-[0.3em]">
+              {slide.subtitle}
+            </p>
+          </motion.div>
+        </div>
+
+        {/* 4 Columns Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-[1600px] h-full lg:h-auto items-stretch">
+          {(slide as any).organs?.map((organ: any, idx: number) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.2, type: "spring", damping: 20 }}
+              className={`${TOKENS.glassStrong} flex flex-col h-full overflow-hidden border border-white/10 group hover:border-brand-primary/40 transition-all duration-500`}
+            >
+              {/* Header Block (Lighter) */}
+              <div className="bg-white/5 p-6 lg:p-8 flex flex-col items-center text-center border-b border-white/10 group-hover:bg-brand-primary/10 transition-colors duration-500">
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: idx * 0.2 + 0.3, type: "spring", stiffness: 200 }}
+                  className="w-16 h-16 rounded-2xl bg-brand-primary/10 flex items-center justify-center mb-6 border border-brand-primary/20 shadow-[0_0_20px_rgba(45,212,191,0.15)] group-hover:scale-110 transition-transform"
+                >
+                  <IconMapper name={organ.icon} size={32} className="text-brand-primary" />
+                </motion.div>
+                <h2 className="text-xl lg:text-2xl font-black uppercase text-white leading-tight font-display group-hover:text-brand-primary transition-colors">
+                  {organ.title}
+                </h2>
+              </div>
+
+              {/* Content Body */}
+              <div className="p-6 lg:p-8 flex flex-col flex-1">
+                {/* Frequency Badge */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.2 + 0.5 }}
+                  className="mb-8 self-center"
+                >
+                  <span className="bg-brand-primary/20 text-brand-primary text-xs lg:text-sm font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border border-brand-primary/30">
+                    {organ.frequency}
+                  </span>
+                </motion.div>
+
+                {/* Bullets */}
+                <ul className="space-y-4 flex-1">
+                  {organ.bullets?.map((bullet: string, bIdx: number) => (
+                    <motion.li
+                      key={bIdx}
+                      initial={{ opacity: 0, x: 10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: idx * 0.2 + 0.7 + bIdx * 0.1 }}
+                      className="flex items-start gap-3 text-sm lg:text-base text-gray-300 leading-snug group-hover:text-white transition-colors"
+                    >
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-1.5 flex-shrink-0 shadow-[0_0_8px_rgba(45,212,191,0.5)]" />
+                      <span>{bullet}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Keyboard Navigation Hint */}
+        <div className="absolute bottom-6 right-8 flex items-center gap-4 opacity-20 pointer-events-none">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded border border-white flex items-center justify-center text-xs text-white">←</div>
+            <div className="w-8 h-8 rounded border border-white flex items-center justify-center text-xs text-white">→</div>
+          </div>
+          <span className="text-[10px] font-bold text-white uppercase tracking-widest hidden lg:block">Navegación Keynote</span>
+        </div>
       </motion.div>
     );
   }

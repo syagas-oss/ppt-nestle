@@ -2229,7 +2229,7 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="w-full aspect-video lg:aspect-auto lg:h-[70vh] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10"
+            className="w-full aspect-video lg:aspect-auto lg:h-[100vh] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10"
           >
             <video
               ref={videoRef}
@@ -2499,9 +2499,9 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
     const { offlineImages, onlineImages, centerImage, centerTitle, centerSubtitle, centerCTA, bullets } = slide as any;
 
     return (
-      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4 lg:px-12 max-w-[1700px] mx-auto relative overflow-hidden py-4 lg:py-8">
-        {/* Header - Reduced margin */}
-        <div className="text-center mb-4 lg:mb-6 z-20">
+      <motion.div variants={containerVariants} initial="initial" animate="animate" className="w-full h-full flex flex-col items-center justify-center px-4 lg:px-8 max-w-[1700px] mx-auto relative overflow-hidden py-3 lg:py-4">
+        {/* Header - Minimal margin */}
+        <div className="text-center mb-3 lg:mb-4 z-20">
           <motion.span variants={itemVariants} className="text-brand-primary font-bold tracking-[0.3em] lg:tracking-[0.5em] text-xs uppercase mb-1 block">
             {slide.subtitle}
           </motion.span>
@@ -2510,18 +2510,18 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
           </motion.h1>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full items-center flex-1 min-h-0">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 w-full items-stretch flex-1 min-h-0">
           {/* LEFT: TRADITIONAL CHANNELS */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isVisible(1) ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-            className="lg:col-span-3 flex flex-col gap-4 self-center"
+            className="lg:col-span-3 flex flex-col gap-3 justify-between"
           >
-            <div className="border-l-2 border-brand-primary/30 pl-4 mb-2">
-              <h2 className="text-lg lg:text-xl font-black text-white uppercase leading-tight">Tradicionales (Offline)</h2>
-              <p className="text-[10px] text-gray-400 uppercase tracking-widest leading-tight">Confianza y contexto físico</p>
+            <div className="border-l-2 border-brand-primary/30 pl-4 mb-1">
+              <h2 className="text-base lg:text-xl font-black text-white uppercase leading-tight">Tradicionales (Offline)</h2>
+              <p className="text-[9px] lg:text-[10px] text-gray-400 uppercase tracking-widest leading-tight">Confianza y contexto físico</p>
             </div>
-            <div className="grid grid-cols-3 lg:flex lg:flex-col gap-3">
+            <div className="flex flex-col gap-3 flex-1 justify-center">
               {offlineImages?.map((img: string, i: number) => (
                 <div key={i} className="aspect-video w-full rounded-xl overflow-hidden shadow-lg border border-white/10 bg-black/20 group">
                   <img src={`${import.meta.env.BASE_URL}assets/dilo/${img}`} alt="Offline" className="w-full h-full object-contain bg-black/40 transition-transform group-hover:scale-105" />
@@ -2531,59 +2531,59 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
           </motion.div>
 
           {/* CENTER: BANNER CONCEPTO */}
-          <div className="lg:col-span-6 flex flex-col items-center justify-center gap-6 relative">
+          <div className="lg:col-span-6 flex flex-col items-center justify-start gap-2 relative">
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={isVisible(0) ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
-              className={`${TOKENS.glassGlow} p-6 lg:p-8 flex flex-col items-center text-center gap-4 border-brand-primary/40 relative group overflow-hidden max-w-[500px] w-full`}
+              className={`${TOKENS.glassGlow} p-4 lg:p-6 flex flex-col items-center text-center gap-4 border-brand-primary/40 relative group overflow-hidden max-w-[450px] w-full`}
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-primary to-transparent animate-pulse" />
-              <div className="relative aspect-[4/5] w-full max-w-[280px] lg:max-w-[320px] rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20 bg-black/40">
+              <div className="relative aspect-[4/5] w-full max-w-[220px] lg:max-w-[280px] rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20 bg-black/40">
                 <img src={`${import.meta.env.BASE_URL}assets/dilo/${centerImage}`} alt="Concept" className="w-full h-full object-contain" />
-                <div className="absolute bottom-4 right-4 w-14 h-14 bg-white p-1 rounded-lg shadow-xl">
+                <div className="absolute bottom-3 right-3 w-12 h-12 lg:w-14 lg:h-14 bg-white p-1 rounded-lg shadow-xl">
                   <div className="w-full h-full bg-black flex items-center justify-center p-1">
                     <Icons.QrCode className="text-white w-full h-full" />
                   </div>
                 </div>
-                <div className="absolute bottom-4 left-4">
-                  <div className="bg-brand-primary text-brand-dark font-black px-4 py-2 rounded-full shadow-2xl uppercase tracking-tighter text-[9px]">
+                <div className="absolute bottom-3 left-3">
+                  <div className="bg-brand-primary text-brand-dark font-black px-3 py-1.5 lg:px-4 lg:py-2 rounded-full shadow-2xl uppercase tracking-tighter text-[8px] lg:text-[9px]">
                     {centerCTA}
                   </div>
                 </div>
               </div>
 
               <div className="max-w-md">
-                <h3 className="text-xl lg:text-3xl font-black text-white uppercase mb-2 leading-tight">{centerTitle}</h3>
-                <p className="text-base lg:text-lg text-gray-300 font-light leading-snug">{centerSubtitle}</p>
+                <h3 className="text-lg lg:text-2xl font-black text-white uppercase mb-1.5 leading-tight">{centerTitle}</h3>
+                <p className="text-xs lg:text-sm text-gray-300 font-light leading-snug">{centerSubtitle}</p>
               </div>
             </motion.div>
 
-            {/* EXPLANATORY TEXT BULLETS - Optimized for space */}
+            {/* EXPLANATORY TEXT BULLETS - 3x2 Grid */}
             <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={isVisible(3) ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
-              className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2"
+              initial={{ opacity: 0, y: 10 }}
+              animate={isVisible(3) ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+              className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2"
             >
               {bullets?.map((bullet: string, i: number) => (
-                <div key={i} className="flex items-start gap-2 p-3 glass rounded-xl border border-white/5 bg-white/5 min-h-[60px]">
+                <div key={i} className="flex items-start gap-2 p-2.5 lg:p-3 glass rounded-xl border border-white/5 bg-white/5">
                   <div className="mt-1 w-1.5 h-1.5 rounded-full bg-brand-primary shadow-[0_0_8px_rgba(45,212,191,0.5)] shrink-0" />
-                  <p className="text-[9px] text-gray-400 font-medium leading-tight">{bullet}</p>
+                  <p className="text-[10px] lg:text-xs text-gray-400 font-medium leading-tight">{bullet}</p>
                 </div>
               ))}
             </motion.div>
           </div>
 
-          {/* RIGHT: DIGITAL CHANNELS */}
+          {/* RIGHT: DIGITAL CHANNELS - Single Column */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isVisible(2) ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-            className="lg:col-span-3 flex flex-col gap-4 self-center"
+            className="lg:col-span-3 flex flex-col gap-3 justify-between"
           >
-            <div className="border-r-2 border-brand-primary/30 pr-4 text-right mb-2">
-              <h2 className="text-lg lg:text-xl font-black text-white uppercase leading-tight">Digitales (Online)</h2>
-              <p className="text-[10px] text-gray-400 uppercase tracking-widest leading-tight">Activación y conversión</p>
+            <div className="border-l-2 border-brand-primary/30 pl-4 mb-1">
+              <h2 className="text-base lg:text-xl font-black text-white uppercase leading-tight">Digitales (Online)</h2>
+              <p className="text-[9px] lg:text-[10px] text-gray-400 uppercase tracking-widest leading-tight">Activación y conversión</p>
             </div>
-            <div className="grid grid-cols-3 lg:flex lg:flex-col gap-3">
+            <div className="flex flex-col gap-2.5 flex-1 justify-center">
               {onlineImages?.map((img: string, i: number) => (
                 <div key={i} className="aspect-video w-full rounded-xl overflow-hidden shadow-lg border border-white/10 bg-black/20 group">
                   <img src={`${import.meta.env.BASE_URL}assets/dilo/${img}`} alt="Online" className="w-full h-full object-contain bg-black/40 transition-transform group-hover:scale-105" />

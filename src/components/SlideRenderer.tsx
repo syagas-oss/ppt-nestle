@@ -3482,6 +3482,13 @@ export const SlideRenderer: React.FC<SlideRendererProps> = ({ slide, buildIndex,
             </motion.div>
           ))}
         </div>
+        <div
+          className={`${TOKENS.glassStrong} w-full max-w-6xl mt-6 p-6 text-center border-white/5`}
+        >
+          <p className="text-white font-semibold text-lg">
+            ≥ 50 % usuarios con datos longitudinales (&gt;12 meses)
+          </p>
+        </div>
       </motion.div>
     );
   }

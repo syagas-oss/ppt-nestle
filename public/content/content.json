@@ -794,7 +794,8 @@
             "Lanzamiento interno"
           ],
           "budget": [
-            "1.190 M"
+            "3.080 M",
+            "630k"
           ],
           "color": "cyan"
         },
@@ -811,7 +812,7 @@
             "Casos de uso"
           ],
           "budget": [
-            "640 k"
+            "1.120 M"
           ],
           "color": "blue"
         },
@@ -827,7 +828,7 @@
             "Recognition & incentives"
           ],
           "budget": [
-            "5.180 M"
+            "2.170 M"
           ],
           "color": "teal"
         }

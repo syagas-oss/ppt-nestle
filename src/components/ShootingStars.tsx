@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useRef, CSSProperties } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface Star {
@@ -10,34 +10,58 @@ interface Star {
     speed: number;
 }
 
-export const ShootingStars: React.FC = () => {
+interface ShootingStarsProps {
+    minInterval?: number;
+    maxInterval?: number;
+    className?: string;
+    style?: CSSProperties;
+    html2canvasIgnore?: boolean;
+}
+
+const DEFAULT_MIN_INTERVAL = 10000;
+const DEFAULT_MAX_INTERVAL = 30000;
+
+export const ShootingStars: React.FC<ShootingStarsProps> = ({
+    minInterval = DEFAULT_MIN_INTERVAL,
+    maxInterval = DEFAULT_MAX_INTERVAL,
+    className = "",
+    style,
+    html2canvasIgnore = false
+}) => {
     const [star, setStar] = useState<Star | null>(null);
+    const removalTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const activeStarRef = useRef(false);
 
     const spawnStar = useCallback(() => {
-        // Only one at a time, check if already exists
-        if (star) return;
+        if (activeStarRef.current) return;
 
+        activeStarRef.current = true;
         const id = Date.now();
-        // Random position starting from top or sides (mostly top-leftish)
-        const x = Math.random() * 80; // 0% to 80% of width
-        const y = Math.random() * 30; // 0% to 30% of height
-        const angle = 45 + (Math.random() * 20 - 10); // Around 45 degrees
-        const length = 100 + Math.random() * 150; // Variable length
-        const speed = 0.4 + Math.random() * 0.4; // Faster movement (0.4s to 0.8s)
+        const x = Math.random() * 80;
+        const y = Math.random() * 30;
+        const angle = 45 + (Math.random() * 20 - 10);
+        const length = 100 + Math.random() * 150;
+        const speed = 0.4 + Math.random() * 0.4;
 
         setStar({ id, x, y, angle, length, speed });
 
-        // Auto-remove after animation duration (plus some buffer)
-        setTimeout(() => {
+        if (removalTimer.current) {
+            clearTimeout(removalTimer.current);
+        }
+
+        removalTimer.current = setTimeout(() => {
             setStar(null);
-        }, (speed * 1000) + 100);
-    }, [star]);
+            removalTimer.current = null;
+            activeStarRef.current = false;
+        }, (speed * 1000) + 120);
+    }, []);
 
     useEffect(() => {
-        // Random interval between 15 and 45 seconds as requested (sobrio)
-        const getNextInterval = () => Math.random() * (30000 - 10000) + 10000; // More frequent (10s to 30s)
+        const min = Math.min(minInterval, maxInterval);
+        const max = Math.max(minInterval, maxInterval);
+        const getNextInterval = () => Math.random() * (max - min) + min;
 
-        let timeoutId: any;
+        let timeoutId: ReturnType<typeof setTimeout>;
 
         const scheduleNext = () => {
             timeoutId = setTimeout(() => {
@@ -48,11 +72,27 @@ export const ShootingStars: React.FC = () => {
 
         scheduleNext();
 
-        return () => clearTimeout(timeoutId);
-    }, [spawnStar]);
+        return () => {
+            clearTimeout(timeoutId);
+        };
+    }, [spawnStar, minInterval, maxInterval]);
+
+    useEffect(() => {
+        return () => {
+            if (removalTimer.current) {
+                clearTimeout(removalTimer.current);
+            }
+        };
+    }, []);
+
+    const baseClass = `absolute inset-0 pointer-events-none overflow-hidden z-0${className ? ` ${className}` : ''}`;
 
     return (
-        <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        <div
+            className={baseClass}
+            style={style}
+            data-html2canvas-ignore={html2canvasIgnore ? "true" : undefined}
+        >
             <AnimatePresence>
                 {star && (
                     <motion.div

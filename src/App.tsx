@@ -257,15 +257,25 @@ const App: React.FC = () => {
 
   const currentSlide = data.slides[currentSlideIndex];
 
-  return (
+  const letterboxBackground = {
+    backgroundColor: '#050810',
+    backgroundImage: 'radial-gradient(circle at 30% 20%, rgba(45,212,191,0.12) 0, rgba(45,212,191,0) 50%), radial-gradient(circle at 80% 10%, rgba(14,165,233,0.08) 0, rgba(14,165,233,0) 40%), radial-gradient(circle at 10% 80%, rgba(14,165,233,0.04) 0, rgba(14,165,233,0) 35%), radial-gradient(rgba(255,255,255,0.12) 0.5px, rgba(255,255,255,0) 0.5px)',
+    backgroundSize: '100% 100%, 100% 100%, 100% 100%, 4px 4px',
+    backgroundRepeat: 'no-repeat, no-repeat, no-repeat, repeat'
+  };
+
+    return (
     <div
       ref={containerRef}
-      className="w-full h-screen bg-black flex items-center justify-center overflow-hidden relative outline-none select-none font-sans"
+      className="w-full h-screen flex items-center justify-center overflow-hidden relative outline-none select-none font-sans"
+      style={letterboxBackground}
       tabIndex={0}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
+
+      <ShootingStars minInterval={25000} maxInterval={45000} className="opacity-60" html2canvasIgnore />
 
       {/* SCALER CONTAINER */}
       <div

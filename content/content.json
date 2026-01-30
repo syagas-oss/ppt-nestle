@@ -752,13 +752,13 @@
       ],
       "offlineImages": [
         "01.png",
-        "05.png",
-        "06.png"
+        "05.png"
       ],
       "onlineImages": [
         "02.png",
         "04.png",
-        "03.png"
+        "03.png",
+        "06.png"
       ],
       "centerImage": "07.png",
       "centerTitle": "Mejora tu calidad de vida",
@@ -794,8 +794,7 @@
             "Lanzamiento interno"
           ],
           "budget": [
-            "1.760 M",
-            "360 k"
+            "1.190 M"
           ],
           "color": "cyan"
         },
@@ -828,7 +827,7 @@
             "Recognition & incentives"
           ],
           "budget": [
-            "1.240 M"
+            "5.180 M"
           ],
           "color": "teal"
         }
